@@ -10,11 +10,10 @@ function nc(t){return cam(t,NC.lon,NC.lat,NC.z);}
 /* contours schématiques */
 var GT=[[163.3,-19.3],[164.6,-19.7],[165.6,-20.45],[166.9,-21.6],[167.25,-22.3],[167.9,-22.5],[167.8,-23],[166.2,-22.9],[164.9,-21.9],[163.4,-20.6]];
 /* aires coutumières et provinces : contours officiels (Géorep). Les limites des aires sont une donnée de travail, non officialisée. */
-var AIRES=window.NCG.aires,PROV=window.NCG.provinces;
+var AIRES=window.NCG.aires,PROV=window.NCG.provinces,NCG=window.NCG;
+/* zones historiques tracées sur la côte et les communes actuelles (Géorep) : schémas, pas des limites d’époque */
+var OUEST=NCG.ouest,R1878=NCG.r1878,R1917=NCG.r1917;
 var LOY=[[166.55,-20.6,0.45],[167.25,-20.95,0.5],[167.82,-21.12,0.15],[167.95,-21.5,0.45]];
-var OUEST=[[166.75,-22.45],[166.3,-22.4],[165.9,-22],[165.3,-21.75],[164.7,-21.3],[164.2,-20.8],[164,-20.4],[164.35,-20.5],[164.75,-20.9],[165.05,-21.2],[165.45,-21.45],[165.85,-21.6],[166.1,-21.85],[166.45,-22.05],[166.7,-22.2]];
-var R1878=[[166.2,-22],[166.15,-21.75],[165.75,-21.55],[165.35,-21.4],[165,-21.25],[164.95,-21.45],[165.4,-21.75],[165.9,-22]];
-var R1917=[[164.75,-21.05],[164.85,-20.85],[165.05,-20.65],[165.2,-20.75],[165.05,-21],[164.9,-21.12]];
 
 var CH=[
 
@@ -66,7 +65,7 @@ var CH=[
  labels:[
   L(8,164.5,-20.3,'Balade',{sub:'Cook, septembre 1774',mark:'site',dx:-10,dy:-8,al:'right',gold:true}),
   L(19,163.9,-21.3,'d’Entrecasteaux',{sub:'1792',nomark:true,dx:-6,al:'right',end:30}),
-  L(26,167.48,-22.62,'Île des Pins',{sub:'santal, 1841',dx:10,dy:6,al:'left'}),
+  L(22.5,167.48,-22.62,'Île des Pins',{sub:'Kunié · santal, 1841',dx:10,dy:6,al:'left'}),
   L(35,167.95,-21.55,'Maré',{sub:'protestants, 1841',dx:10,dy:10,al:'left'}),
   L(36,167.25,-20.95,'Lifou',{sub:'1842',dy:-14}),
   L(43,164.5,-20.3,'Mission de Balade',{sub:'catholiques, 1843',nomark:true,dx:-10,dy:24,al:'right'})
@@ -121,9 +120,9 @@ var CH=[
  routes:[r('eur',1,17,3,[[-1.4,46.15],[-4.5,46.2],[-9.5,44.6],[-11.5,41],[-13,36],[-20.5,26],[-22,8],[-15,-12],[5,-34],[18,-37],[50,-42],[90,-43],[125,-43],[148,-45],[160,-37],[165.5,-27],[166.2,-22.6]],{ship:true,sp:'troismats'})],
  labels:[
   L(1,-1.4,46.2,'Île de Ré',{sub:'départ des convois à partir de 1873 (avant : Toulon)',dx:10,al:'left',end:9}),
-  L(18,166.41,-22.26,'Île Nou',{sub:'pénitencier-dépôt, 1864',mark:'site',dx:-10,dy:12,al:'right',gold:true,zmin:30}),
+  L(18,166.41,-22.26,'Île Nou',{sub:'pénitencier-dépôt, 1864',mark:'site',dx:-10,dy:12,al:'right',gold:true,zmin:120}),
   L(19,166.46,-22.28,'Nouméa',{dx:10,dy:12,al:'left',zmin:14}),
-  L(29,166.42,-22.22,'Presqu’île Ducos',{sub:'déportés politiques',mark:'site',dx:-10,dy:-14,al:'right',zmin:30}),
+  L(29,166.42,-22.22,'Presqu’île Ducos',{sub:'déportés politiques',mark:'site',dx:-10,dy:-14,al:'right',zmin:120}),
   L(31,167.45,-22.62,'Île des Pins',{sub:'déportés de la Commune, 1872–1880',mark:'site',dx:-10,dy:10,al:'right'}),
   L(41,166.82,-22.32,'Prony',{sub:'coupe du bois',mark:'site',dx:10,dy:10,al:'left',zmin:30}),
   L(42,166.18,-21.93,'Camp Brun',{sub:'camp disciplinaire',mark:'site',dx:10,dy:-8,al:'left',zmin:30}),
@@ -154,7 +153,7 @@ var CH=[
  zones:[
   Rg(GT,'kan',1,0.6,1.5),Lz(LOY,'kan',1,0.6,1.5),
   Rg(OUEST,'eur',12,0.85,3,{c:[166.45,-22.27],r0:0.05,r1:3.2,d:20}),
-  Rg([166.05,-21.57,0.2],'eur',36,0.85,2),Rg([165.63,-21.28,0.11],'eur',37,0.85,2),Rg([165.37,-21,0.16],'eur',38,0.85,2),Rg([164.95,-20.69,0.1],'eur',39,0.85,2)
+  Rg(NCG.feillet[0],'eur',36,0.85,2),Rg(NCG.feillet[1],'eur',37,0.85,2),Rg(NCG.feillet[2],'eur',38,0.85,2),Rg(NCG.feillet[3],'eur',39,0.85,2)
  ],
  routes:[],
  labels:[
@@ -192,8 +191,8 @@ var CH=[
  ],
  routes:[
   r('eur',13,19,1.3,[[165.97,-21.52],[165.92,-21.62],[165.85,-21.69]]),
-  r('ame',24,29,2.4,[[165.9,-21.9],[166.6,-22.5],[167.35,-22.6]],{dash:true}),
-  r('ame',24,30,2.4,[[165.3,-21.4],[164.4,-20.6],[163.75,-19.8]],{dash:true})
+  r('ame',24,29,2.4,[[166.43,-22.33],[166.75,-22.55],[167.1,-22.66],[167.38,-22.62]],{dash:true}),
+  r('ame',24,30,2.4,[[165.42,-21.66],[165.1,-21.55],[164.6,-21.1],[164.05,-20.7],[163.75,-20.15],[163.68,-19.78]],{dash:true})
  ],
  labels:[
   L(1,165.83,-21.71,'La Foa',{sub:'25 juin 1878',dx:10,dy:8,al:'left',gold:true,zmin:24}),
@@ -216,7 +215,7 @@ var CH=[
   Ph(50,'Un peuple qui a failli disparaître','Maladies, guerres, misère : vers 1920, il ne reste qu’environ 27 000 Kanak. Puis la population remonte.','kan')
  ],
  photos:[Sh('casse',2,8,'tr',2,'contain'),Sh('atai',20,27,'tr',2,'contain')],
- legend:[['ame','Régions révoltées (1878, 1917)'],['eur','Guerriers de Canala, alliés de l’armée'],['ame','Exil',true]],
+ legend:[['ame','Régions révoltées (1878, 1917) — communes actuelles, approx.'],['eur','Guerriers de Canala, alliés de l’armée'],['ame','Exil',true]],
  mots:[['Insurrection','Révolte armée d’un peuple.'],['Indigénat','Règles spéciales, très dures, imposées aux Kanak de 1887 à 1946.'],['Exil','Obligation de vivre loin de sa terre.']],
  q:[['Pourquoi les Kanak se révoltent-ils en 1878 ?','On leur prend leurs terres, le bétail détruit leurs cultures, leurs lieux sacrés ne sont pas respectés.'],['Qui est Ataï ?','Un grand chef kanak de la région de La Foa, qui dirige la révolte de 1878.'],['Qu’est-ce que l’indigénat ?','Des règles spéciales imposées aux Kanak : rester dans la réserve, payer un impôt, travailler de force.']],
  wiki:['Grande révolte kanak de 1878','Ataï','Régime de l\'indigénat','Révolte kanak de 1917']},
@@ -225,9 +224,8 @@ var CH=[
 {short:'Le nickel et les travailleurs venus d’ailleurs',col:'jade',dur:60,when:[1864,1949],dates:'1864 – 1949',
  cam:[nc(0),cam(10,166,-21.5,61),cam(17,166,-21.5,61),cam(23,148,2,1.5),cam(42,148,2,1.5),nc(48),nc(60)],
  zones:[
-  Rg(GT,'kan',-5,0.25,0.01),
-  Rg([166.22,-21.63,0.13],'jade',3,0.9,2),Rg([165.83,-21.41,0.1],'jade',5,0.9,2),Rg([165.68,-21.3,0.1],'jade',6,0.9,2),Rg([165.05,-21.27,0.1],'jade',7,0.9,2),Rg([164.8,-21,0.1],'jade',7.5,0.9,2),Rg([164.22,-20.46,0.1],'jade',8,0.9,2),Rg([166.95,-22.3,0.12],'jade',8.5,0.9,2)
- ],
+  Rg(GT,'kan',-5,0.25,0.01)
+ ].concat(NCG.massifs.map(function(m,i){return Rg(m[2],'jade',i?3.4+(i-1)*0.3:3,0.9,i?1.5:2);})),
  routes:[
   r('zh',24,31,3,[[130.5,31.5],[136,24],[146,12],[156,2],[163.5,-6],[164.5,-12.5],[164.6,-17],[164.8,-19.2],[165.6,-20.4],[166.2,-21.2],[166.28,-21.57]],{sp:'vapeur',ship:true}),
   r('ame',27,34,3,[[107,20.5],[107.8,18.6],[111,16.5],[117,19.3],[121.2,20.4],[127,15],[136,7],[147,1.5],[156,-2.5],[162.8,-7],[164.2,-12.5],[163.6,-18],[163.6,-20.6],[165,-21.9],[166.1,-22.42],[166.42,-22.3]],{sp:'vapeur',ship:true}),
@@ -268,7 +266,7 @@ var CH=[
  routes:[
   r('fra',3,16,3,[[166.2,-22.7],[158,-33],[151,-40.5],[135,-39],[113,-37],[95,-20],[78,2],[58,11.5],[45,12],[43.3,12.6],[38,20],[33.5,27.5],[32.4,31.5],[25,34],[15,37],[8,41],[5.3,43.1]],{sp:'vapeur',ship:true,nosea:true}),
   r('mis',24,33,3.2,[[-122.5,37.5],[-140,25],[-160,8],[-175,-8],[172,-18],[167.5,-23],[166.3,-22.6]],{sp:'liberty',ship:true,nosea:true}),
-  r('mis',35,40,2.8,[[166.2,-22.5],[163.5,-19],[161.5,-14],[160.2,-10.2]],{sp:'liberty',ship:true,nosea:true})
+  r('mis',35,40,2.8,[[166.2,-22.5],[165.6,-22.2],[164.75,-21.6],[163.85,-20.65],[163.35,-19.6],[161.5,-14],[160.2,-10.2]],{sp:'liberty',ship:true,nosea:true})
  ],
  labels:[
   L(15,5.4,43.3,'Marseille',{sub:'vers le front, 1916',dx:-10,dy:-8,al:'right',end:26}),

@@ -9,7 +9,7 @@ function nc(t){return cam(t,165.85,-21.2,23);}
 /* contours schématiques ; provinces Nord et Sud : vraie limite (Natural Earth 10 m) prolongée en mer */
 var GT=[[163.3,-19.3],[164.6,-19.7],[165.6,-20.45],[166.9,-21.6],[167.25,-22.3],[167.9,-22.5],[167.8,-23],[166.2,-22.9],[164.9,-21.9],[163.4,-20.6]];
 var LOY=[[166.55,-20.6,0.45],[167.25,-20.95,0.5],[167.82,-21.12,0.15],[167.95,-21.5,0.45]];
-var CHAINE=[[164.15,-20.3],[164.55,-20.62],[164.95,-20.95],[165.35,-21.2],[165.75,-21.48],[166.15,-21.78],[166.55,-22.02],[166.9,-22.2]];
+var CHAINE=window.NCG.chaine;
 /* massif du Sud (péridotites) et massifs de la côte Ouest (klippes) : tracé à grands traits */
 /* massifs de péridotites : contours officiels (Géorep, géologie au 1/1 000 000), le massif du Sud d’abord, puis les autres du nord au sud */
 var NCG=window.NCG;
@@ -19,8 +19,8 @@ var PROV=NCG.provinces;
 var TRIBUS=NCG.tribus.map(function(t){var d=0.009;return [[t[0]-d,t[1]-d],[t[0]+d,t[1]-d],[t[0]+d,t[1]+d],[t[0]-d,t[1]+d]];});
 /* lieux */
 var P={noumea:[166.44,-22.27],pouembout:[164.9,-21.13],kone:[164.86,-21.06],voh:[164.7,-20.96],vavouto:[164.683,-21.014],koniambo:[164.793,-20.975],
-  thio:[166.16,-21.66],thiom:[166.19,-21.616],kouaoua:[165.79,-21.44],kouaouam:[165.76,-21.42],nakety:[166.106,-21.54],poro:[165.7,-21.31],nepoui:[165.0,-21.33],kopeto:[165.01,-21.17],
-  tiebaghi:[164.211,-20.465],poum:[164.04,-20.25],ouaco:[164.5,-20.76],goro:[166.972,-22.29],prony:[166.84,-22.33],yate:[166.88,-22.15],doniambo:[166.43,-22.25]};
+  thio:[166.19,-21.62],thiom:[166.23,-21.6],kouaoua:[165.79,-21.44],kouaouam:[165.84,-21.4],nakety:[166.106,-21.54],poro:[165.7,-21.31],nepoui:[165.0,-21.33],kopeto:[165.01,-21.17],
+  tiebaghi:[164.211,-20.465],poum:[164.04,-20.25],ouaco:[164.5,-20.76],goro:[166.93,-22.34],prony:[166.84,-22.33],yate:[166.88,-22.15],doniambo:[166.43,-22.25]};
 function at(k,t,text,o){var p=P[k];return L(t,p[0],p[1],text,o);}
 
 [['bourail',165.5,-21.57],['lafoa',165.83,-21.71],['koumac',164.29,-20.56],['hienghene',164.94,-20.69],['poindimie',165.33,-20.94],['we',167.26,-20.92],['tadine',167.88,-21.55],['fayaoue',166.545,-20.65],['kuto',167.43,-22.66],

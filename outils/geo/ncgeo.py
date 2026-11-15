@@ -89,6 +89,49 @@ while segs:
     if min(dist(best[0],end),dist(best[-1],end))>0.08: break
     segs.remove(best); path+=best[::-1] if dist(best[-1],end)<dist(best[0],end) else best
 NCG['rt1']=[[round(x,3),round(y,3)] for x,y in LineString(path).simplify(0.003).coords]
+# 8. Bandes côtières (Grande Terre) : la côte Ouest de Koumac à Nouméa, et une ligne médiane pour la chaîne centrale
+gt=[p for p in polys(land) if p.contains(Point(165.5,-21.4))][0]   # Grande Terre
+AX0=(164.0,-20.15);AX1=(167.05,-22.45);ax=(AX1[0]-AX0[0],AX1[1]-AX0[1]);axl=math.hypot(*ax);ux=(ax[0]/axl,ax[1]/axl);nx=(-ux[1],ux[0])
+def UV(x,y): dx,dy=x-AX0[0],y-AX0[1]; return (dx*ux[0]+dy*ux[1], dx*nx[0]+dy*nx[1])
+def XY(u,v): return (AX0[0]+u*ux[0]+v*nx[0], AX0[1]+u*ux[1]+v*nx[1])
+def section(u):
+    x=gt.intersection(LineString([XY(u,-1),XY(u,1)]))
+    pts=list(x.coords) if x.geom_type=='LineString' else [c for g in x.geoms for c in g.coords]
+    vs=[UV(*q)[1] for q in pts]; return min(vs),max(vs)
+def coast_band(lonlat0, lonlat1, width, side='west', raw=False):
+    u0,u1=UV(*lonlat0)[0],UV(*lonlat1)[0]
+    ex=list(gt.exterior.coords)[:-1]
+    def isside(q):
+        u,v=UV(*q)
+        if not (u0-0.1<u<u1+0.1): return False
+        a,b=section(min(max(u,u0),u1)); mid=(a+b)/2
+        return v<mid if side=='west' else v>mid
+    flags=[isside(q) for q in ex]; n=len(ex); st=next(k for k in range(n) if not flags[k]); runs=[];cur=[]
+    for k in range(n):
+        q=(st+k)%n
+        if flags[q]: cur.append(ex[q])
+        elif cur: runs.append(cur);cur=[]
+    if cur: runs.append(cur)
+    z=gt.intersection(MultiLineString([r for r in runs if len(r)>1]).buffer(width,quad_segs=8)).intersection(Polygon([XY(u0,-1),XY(u1,-1),XY(u1,1),XY(u0,1)]))
+    z=max(polys(z),key=lambda p:p.area).buffer(0.012).buffer(-0.012)
+    return z if raw else rings(z,0.006)
+NCG['ouest']=coast_band((164.25,-20.5),(166.5,-22.3),0.15,'west')
+EST=coast_band((164.6,-20.3),(166.6,-22.0),0.1,'east',raw=True)
+def com(n): return [shape(f['geometry']).buffer(0) for f in CO['features'] if f['properties']['nom']==n][0]
+# colonisation Feillet sur la côte Est (schéma) : partie côtière de quelques communes, du sud au nord
+NCG['feillet']=[rings(EST.intersection(com(n)),0.005) for n in ('CANALA','HOUAILOU','POINDIMIE','HIENGHENE')]
+# chaîne centrale : ligne médiane de l'île, décalée vers l'est au nord (massif du Panié), lissée
+uu=[UV(164.3,-20.35)[0]+k*(UV(166.75,-22.1)[0]-UV(164.3,-20.35)[0])/30 for k in range(31)]
+pts=[]
+for k,u in enumerate(uu):
+    a,b=section(u); f=0.62-0.12*k/30
+    pts.append(XY(u,a+f*(b-a)))
+sm=[pts[0]]+[tuple(sum(p[i] for p in pts[max(0,k-2):k+3])/len(pts[max(0,k-2):k+3]) for i in (0,1)) for k in range(1,len(pts)-1)]+[pts[-1]]
+NCG['chaine']=[[round(x,3),round(y,3)] for x,y in LineString(sm).simplify(0.01).coords]
+# 9. Unions de communes actuelles (BDADMIN-NC) pour des zones historiques approximatives
+def communes(noms): return rings(unary_union([shape(f['geometry']).buffer(0) for f in CO['features'] if f['properties']['nom'] in noms]).buffer(0.02),0.004)
+NCG['r1878']=communes({'LA FOA','BOULOUPARIS','FARINO','SARRAMEA','MOINDOU','BOURAIL','POYA'})
+NCG['r1917']=communes({'KONE','HIENGHENE'})
 src='/* Données géographiques officielles de la Nouvelle-Calédonie, simplifiées pour l’atlas.\n   Source : Gouvernement de la Nouvelle-Calédonie, Géorep (DTSI-SGT, DITTT, DIMENC), données ouvertes, 2025-2026.\n   Aires coutumières : donnée de travail des officiers publics coutumiers, non officialisée (limites indicatives).\n   Fabriqué par outils/geo/ncgeo.py. */\nwindow.NCG='+json.dumps(NCG,ensure_ascii=False,separators=(',',':'))+';\n'
 open('/home/claude/atlas-historique-du-pacifique/js/nc-geo.js','w',encoding='utf-8').write(src)
 print('taille',len(src.encode())//1024,'Ko')

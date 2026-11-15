@@ -9,7 +9,7 @@ function nc(t){return cam(t,165.85,-21.2,23);}
 /* contours schématiques */
 var GT=[[163.3,-19.3],[164.6,-19.7],[165.6,-20.45],[166.9,-21.6],[167.25,-22.3],[167.9,-22.5],[167.8,-23],[166.2,-22.9],[164.9,-21.9],[163.4,-20.6]];
 var LOY=[[166.55,-20.6,0.45],[167.25,-20.95,0.5],[167.82,-21.12,0.15],[167.95,-21.5,0.45]];
-var CHAINE=[[164.15,-20.3],[164.55,-20.62],[164.95,-20.95],[165.35,-21.2],[165.75,-21.48],[166.15,-21.78],[166.55,-22.02],[166.9,-22.2]];
+var CHAINE=window.NCG.chaine;
 /* massif du Sud (péridotites) et massifs de la côte Ouest (klippes) : tracé à grands traits */
 /* massifs de péridotites : contours officiels (Géorep, géologie au 1/1 000 000), le massif du Sud d’abord, puis les autres du nord au sud */
 var NCG=window.NCG;
@@ -17,8 +17,8 @@ function massifs(t0,a,col){return NCG.massifs.map(function(m,i){return Rg(m[2],c
 var PROV=NCG.provinces;
 /* lieux */
 var P={noumea:[166.44,-22.27],pouembout:[164.9,-21.13],kone:[164.86,-21.06],voh:[164.7,-20.96],vavouto:[164.683,-21.014],koniambo:[164.793,-20.975],
-  thio:[166.16,-21.66],thiom:[166.19,-21.616],kouaoua:[165.79,-21.44],kouaouam:[165.76,-21.42],nakety:[166.106,-21.54],poro:[165.7,-21.31],nepoui:[165.0,-21.33],kopeto:[165.01,-21.17],
-  tiebaghi:[164.211,-20.465],poum:[164.04,-20.25],ouaco:[164.5,-20.76],goro:[166.972,-22.29],prony:[166.84,-22.33],yate:[166.88,-22.15],doniambo:[166.43,-22.25]};
+  thio:[166.19,-21.62],thiom:[166.23,-21.6],kouaoua:[165.79,-21.44],kouaouam:[165.84,-21.4],nakety:[166.106,-21.54],poro:[165.7,-21.31],nepoui:[165.0,-21.33],kopeto:[165.01,-21.17],
+  tiebaghi:[164.211,-20.465],poum:[164.04,-20.25],ouaco:[164.5,-20.76],goro:[166.93,-22.34],prony:[166.84,-22.33],yate:[166.88,-22.15],doniambo:[166.43,-22.25]};
 function at(k,t,text,o){var p=P[k];return L(t,p[0],p[1],text,o);}
 
 var CH=[
@@ -62,7 +62,7 @@ var CH=[
   r('mis',36,43,3,[[166.32,-21.55],[166.75,-21.86],[167.08,-22.12],[167.15,-22.4],[166.95,-22.5],[166.62,-22.43],[166.46,-22.29]],{ship:true,sp:'vapeur'})
  ],
  labels:[
-  L(7,164.48,-20.33,'Fern Hill',{mark:'mine',sub:'or, années 1870',dx:10,al:'left',zmin:30}),
+  L(7,164.48,-20.33,'Fern Hill',{mark:'mine',sub:'or, années 1870',dx:10,dy:16,al:'left',zmin:30}),
   L(8,164.42,-20.35,'Ouégoa',{mark:'ville',dx:-10,dy:10,al:'right',zmin:30}),
   L(10,164.33,-20.28,'Pilou (Diahot)',{mark:'mine',sub:'cuivre',dx:-10,dy:-8,al:'right',zmin:30}),
   L(11,164.29,-20.23,'Pam',{mark:'port',dx:-10,dy:-8,al:'right',zmin:30}),
@@ -103,7 +103,7 @@ var CH=[
   at('kouaoua',23,'Kouaoua',{mark:'mine',sub:'SLN',dx:10,al:'left',zmin:12}),
   at('nakety',24,'Nakéty',{mark:'mine',dx:10,al:'left',zmin:24}),
   at('thio',25,'Thio',{mark:'mine',sub:'SLN',dx:10,al:'left',zmin:12}),
-  at('goro',34,'Goro',{mark:'mine',sub:'Prony Resources',dx:10,dy:-6,al:'left',zmin:12}),
+  L(34,166.97,-22.29,'Goro',{mark:'mine',sub:'Prony Resources',dx:10,dy:-6,al:'left',zmin:12}),
   at('noumea',35,'Nouméa',{mark:'ville',dx:-10,al:'right',zmin:12})
  ],
  pulses:[Pu(53,166.16,-21.66,'#fb7185',true),Pu(53,165.79,-21.44,'#fb7185',true)],
@@ -126,8 +126,8 @@ var CH=[
  cam:[cam(0,164.78,-21.05,104),cam(16,164.78,-21.05,104),cam(19,165.85,-21.45,94),cam(24,165.85,-21.45,94),cam(29,166.4,-21.95,22),cam(46,166,-21.7,20),nc(52),nc(60)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)].concat(massifs(-5,0.35)),
  routes:[
-  r('ere',3,8,3.2,[[164.84,-20.99],[164.78,-21.0],[164.73,-21.01]],{straight:true,step:0.01}),
-  r('mis',10,16,3,[[164.72,-21.03],[164.63,-21.08],[164.52,-21.15],[164.25,-21.32],[163.6,-21.55]],{ship:true,sp:'mineralier'}),
+  r('ere',3,8,3.2,[[164.79,-20.98],[164.74,-20.995],[164.69,-21.01]],{straight:true,step:0.01}),
+  r('mis',10,16,3,[[164.68,-21.03],[164.63,-21.08],[164.52,-21.15],[164.25,-21.32],[163.6,-21.55]],{ship:true,sp:'mineralier'}),
   r('ere',19,22,3.2,[[165.78,-21.46],[165.81,-21.43],[165.84,-21.4]],{straight:true,step:0.01}),
   r('mis',25,35,3,[[165.88,-21.37],[166.3,-21.58],[166.78,-21.86],[167.1,-22.13],[167.16,-22.42],[166.95,-22.51],[166.62,-22.44],[166.45,-22.28]],{ship:true,sp:'mineralier'}),
   r('mis',36,44,3,[[165.0,-21.37],[165.4,-21.66],[165.8,-21.95],[166.15,-22.15],[166.42,-22.25]],{ship:true,sp:'mineralier'})
@@ -169,9 +169,9 @@ var CH=[
   r('mis',47,55,3,[[164.6,-20.4],[163.6,-18.5],[160.5,-12.5],[155.8,-7.6],[152.6,-4.2],[149,2],[141,14],[133,26],[128.6,32.8],[127.75,34.75]],{ship:true,sp:'mineralier'})
  ],
  labels:[
-  at('noumea',4,'Nouméa',{mark:'ville',dx:10,dy:10,al:'left',zmin:12}),
+  at('noumea',4,'Nouméa',{mark:'ville',dx:10,dy:10,al:'left',zmin:30}),
   at('doniambo',6,'Doniambo',{mark:'usine',sub:'1910 · SLN · ferronickel',dx:-12,dy:-10,al:'right',zmin:12,gold:true}),
-  at('yate',13,'Barrage de Yaté',{mark:'barrage',sub:'1959',dx:10,dy:-8,al:'left',zmin:12}),
+  at('yate',13,'Barrage de Yaté',{mark:'barrage',sub:'1959',dx:10,dy:-8,al:'left',zmin:30}),
   at('goro',19,'Usine du Sud',{mark:'usine',sub:'2010 · Prony Resources',dx:10,al:'left',zmin:12,gold:true}),
   at('prony',21,'Port de Prony',{mark:'port',dx:-10,dy:10,al:'right',zmin:30}),
   at('vavouto',32,'Usine du Nord (Vavouto)',{mark:'usine',sub:'2013 · KNS · à l’arrêt depuis 2024',dx:-12,dy:10,al:'right',zmin:12,gold:true}),
