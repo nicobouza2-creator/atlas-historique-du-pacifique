@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migrations vers le Pacifique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Bricolage+Grotesque:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#061424; --panel:#0b2036; --panel-2:#12304d; --line:#23496e;
+  --ink:#f4f0e6; --muted:#a8bdd0; --gold:#ffd166;
+  --font-display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;
+  --font-body:'Lexend','Segoe UI',system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body)}
+.app{max-width:1480px;margin:0 auto;padding:12px 14px 24px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+h1{font:700 clamp(21px,3.4vw,30px)/1.1 var(--font-display);margin:0;text-wrap:balance}
+.sub{margin:4px 0 0;color:var(--muted);font-size:15px;line-height:1.35}
+
+.head{display:flex;flex-direction:column;gap:10px}
+@media (min-width:1100px){.head{flex-direction:row;align-items:flex-end;gap:18px}.head .top{flex:0 1 380px}.head .tabs{flex:1 1 0}}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{flex:1 1 180px;text-align:left;font:700 16px/1.15 var(--font-display);padding:10px 14px;min-height:48px;border-radius:12px 12px 4px 4px;border:2px solid var(--line);border-bottom-width:5px;background:var(--panel);color:var(--muted);cursor:pointer}
+.tab small{display:block;font:400 12px/1.2 var(--font-body);margin-top:2px;color:var(--muted)}
+.tab[aria-selected=true]{background:var(--panel-2);color:var(--ink);border-color:var(--c,var(--gold))}
+
+.chips{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.chip{flex:none;scroll-snap-align:start;font:600 13px/1.15 var(--font-body);padding:8px 11px;min-height:44px;border-radius:10px;border:2px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer;max-width:190px;text-align:left}
+.chip b{display:block;font:700 12px var(--font-display);color:var(--c,var(--ink));margin-bottom:1px}
+.chip[aria-current=true]{background:var(--panel-2);border-color:var(--c,var(--ink));color:var(--ink)}
+
+.frise{position:relative;height:60px;border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden}
+.frise[hidden]{display:none}
+.fr-axis{position:absolute;left:0;right:0;top:41px;height:1px;background:var(--line)}
+.fr-tick{position:absolute;top:38px;width:1px;height:7px;background:var(--muted)}
+.fr-opt{display:none}
+@media (min-width:760px){.fr-opt{display:block}}
+.fr-lab{position:absolute;top:45px;font-size:10.5px;line-height:1;color:var(--muted);transform:translateX(-50%);white-space:nowrap}
+.fr-seg{position:absolute;height:10px;min-height:0;min-width:10px;padding:0;border:0;border-radius:5px;background:var(--c);opacity:.55;cursor:pointer}
+.fr-seg:hover{opacity:.9}
+.fr-seg[aria-current=true]{opacity:1;box-shadow:0 0 0 2px var(--ink)}
+
+.cols{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.colL{min-width:0}
+.colR{min-width:0;display:flex;flex-direction:column;gap:10px}
+@media (min-width:980px){
+  .cols{grid-template-columns:minmax(0,1fr) minmax(330px,410px);align-items:start}
+  .colL{position:sticky;top:10px}
+}
+.stick{display:flex;flex-direction:column;gap:10px}
+@media (min-width:980px){.stick{position:sticky;top:0;z-index:3;background:var(--bg);padding:10px 0 8px;margin-top:-10px}}
+.stage{--ar:1;position:relative;aspect-ratio:var(--ar);width:min(100%,calc((100vh - 20px)*var(--ar)));margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#050f1c}
+.stage.flat{--ar:1.5}
+canvas{display:block;width:100%;height:100%}
+.stage.t-explore canvas{touch-action:none;cursor:grab}
+.stage.t-measure canvas,.stage.t-quiz canvas{cursor:crosshair}
+.photos{position:absolute;inset:0;pointer-events:none}
+.pol{position:absolute;margin:0;width:37%;background:#f6f1e4;color:#1b2430;padding:5px 5px 4px;border-radius:3px;box-shadow:0 6px 18px rgba(0,0,0,.55);opacity:0;transform:translateY(8px) rotate(var(--rot,0deg)) scale(.96);transition:opacity .5s,transform .5s;pointer-events:none;cursor:zoom-in}
+.stage.flat .pol{width:28%}
+.pol.on{opacity:1;transform:translateY(0) rotate(var(--rot,0deg)) scale(1);pointer-events:auto}
+.pol img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:#222;border-radius:1px}
+.pol.contain img{object-fit:contain;background:#16202c}
+.pol figcaption{font:600 12px/1.2 var(--font-body);padding:5px 2px 1px}
+.pol figcaption small{display:block;font:400 9.5px/1.25 var(--font-body);color:#4a5563;margin-top:2px}
+.pol.p-tl{left:2.5%;top:2.5%}.pol.p-tr{right:2.5%;top:2.5%}.pol.p-bl{left:2.5%;bottom:2.5%}.pol.p-br{right:2.5%;bottom:2.5%}
+.pol.big,.stage.flat .pol.big{width:min(88%,calc(100vh*.95));left:50%!important;right:auto!important;top:4%!important;bottom:auto!important;--rot:0deg;z-index:5;box-shadow:0 0 0 100vmax rgba(3,10,20,.72),0 10px 30px rgba(0,0,0,.6);cursor:zoom-out;transform:translateX(-50%)!important}
+.stage.flat .pol.big{width:min(62%,calc(100vh*.8))}
+.pol.big figcaption{font-size:16px}.pol.big figcaption small{font-size:12px}
+.pol.big img{aspect-ratio:auto;max-height:60vmin;object-fit:contain;background:#16202c}
+.zoom{position:absolute;right:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:5px;z-index:4}
+@media(max-width:700px){.zoom{top:auto;bottom:8px;transform:none;flex-direction:row}}
+.zoom button{width:38px;min-height:38px;padding:0;font:600 19px/1 var(--font-body);background:rgba(11,32,54,.88);border-radius:9px}
+.zoom button.on{border-color:var(--gold);color:var(--gold)}
+.tb{position:absolute;left:50%;top:8px;transform:translateX(-50%);z-index:6;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;width:max-content;max-width:94%;background:rgba(6,20,36,.94);border:2px solid var(--gold);border-radius:12px;padding:7px 12px;font-size:15px;line-height:1.35;text-align:center}
+.tb[hidden]{display:none}
+.tb b{color:var(--gold)}
+.tb button{min-height:36px;padding:5px 11px;font-size:14px}
+
+.caption{background:var(--panel);border:1px solid var(--line);border-left:8px solid var(--era,var(--muted));border-radius:12px;padding:11px 14px;min-height:104px}
+.caption .era{font:700 19px/1.2 var(--font-display);color:var(--era,var(--ink));display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.caption .unc{font:600 12px var(--font-body);color:#061424;background:var(--gold);border-radius:6px;padding:2px 7px}
+.caption .unc[hidden]{display:none}
+.caption p{margin:6px 0 0;font-size:16px;line-height:1.5}
+body.big-text .caption p{font-size:21px;line-height:1.45}
+body.big-text .caption .era{font-size:24px}
+.controls{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+button{font:600 15px var(--font-body);color:var(--ink);background:var(--panel-2);border:2px solid var(--line);border-radius:10px;padding:9px 13px;min-height:44px;cursor:pointer}
+button:hover{border-color:var(--muted)}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button.primary{background:var(--ink);color:#061424;border-color:var(--ink);flex:1 1 150px}
+button[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#061424}
+.range{flex:1 1 100%;display:flex;align-items:center;gap:10px}
+input[type=range]{flex:1;accent-color:var(--gold);height:32px}
+.time{font-variant-numeric:tabular-nums;color:var(--muted);font-size:14px;min-width:78px;text-align:right;white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;list-style:none}
+.legend li{display:flex;gap:9px;align-items:center;padding:6px 10px;border:1px solid var(--line);background:var(--panel-2);border-radius:10px;font-size:13.5px}
+.swatch{flex:none;width:24px;height:7px;border-radius:4px}
+.swatch.dash{background:repeating-linear-gradient(90deg,var(--c) 0 6px,transparent 6px 10px)!important}
+
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.panel>summary{cursor:pointer;font:700 16px var(--font-display);padding:12px 14px;min-height:44px;list-style-position:inside}
+.panel .in{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
+.grp{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.grp>span{flex:1 1 100%;font-size:13px;color:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;gap:0;border:2px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;border-radius:0;min-height:40px;padding:6px 11px;font-size:14px;background:var(--panel-2)}
+.seg button+button{border-left:2px solid var(--line)}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:2px 10px}
+.opt{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);min-height:38px;cursor:pointer}
+.opt input{width:20px;height:20px;accent-color:var(--gold);flex:none}
+.hint{font-size:12.5px;line-height:1.45;color:var(--muted);margin:0}
+
+.fiche h3{font:700 18px/1.2 var(--font-display);margin:0}
+.fiche h4{font:700 14px var(--font-display);margin:12px 0 4px;color:var(--gold);text-transform:uppercase;letter-spacing:.04em}
+.fiche p,.fiche li,.fiche dd,.fiche dt{font-size:14.5px;line-height:1.5}
+.fiche p{margin:4px 0}
+.fiche ol,.fiche ul{margin:4px 0;padding-left:20px}
+.fiche dl{margin:4px 0}.fiche dt{font-weight:600}.fiche dd{margin:0 0 6px 0;color:#d3e0ec}
+.fiche details{border:1px solid var(--line);border-radius:8px;margin:5px 0;background:var(--panel-2)}
+.fiche details summary{cursor:pointer;padding:9px 11px;font-size:14.5px;font-weight:600}
+.fiche details p{margin:0;padding:0 11px 10px}
+.fiche a,.note a,.vinfo a{color:#9fd0ff}
+.fiche .cred{color:var(--muted);font-size:12px}
+.fiche textarea{width:100%;height:120px;margin-top:8px;background:#050f1c;color:var(--ink);border:1px solid var(--line);border-radius:8px;font:13px var(--font-body);padding:8px}
+.vinfo p,.vinfo li{font-size:14.5px;line-height:1.5}.vinfo p{margin:4px 0}.vinfo ul{margin:4px 0;padding-left:20px}
+.boats{display:flex;flex-wrap:wrap;gap:10px}
+.boats figure{margin:0;width:104px;text-align:center;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:6px 4px}
+.boats img{display:block;width:76px;height:54px;object-fit:contain;margin:0 auto 3px}
+.boats figcaption{font-size:11.5px;line-height:1.2;color:var(--ink)}
+.prev{position:fixed;inset:0;z-index:50;background:rgba(3,10,20,.88);display:flex;align-items:center;justify-content:center;padding:16px}
+.prev[hidden]{display:none}
+.prev-in{max-width:min(1100px,96vw);max-height:94vh;overflow:auto;background:var(--panel);border:2px solid var(--gold);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;align-items:center}
+.prev-in p{margin:0;font-size:15px;line-height:1.45}
+.prev-in img{max-width:100%;height:auto;background:#fff;border-radius:4px}
+.note{font-size:12.5px;line-height:1.45;color:var(--muted);margin:0}
+
+/* Mode projection : carte + texte seuls, en plein écran */
+.pj-ch,.pj-ctl{display:none}
+body.pj{overflow:hidden}
+body.pj .app{position:fixed;inset:0;z-index:40;max-width:none;width:100vw;height:100vh;padding:0;gap:0;overflow:hidden}
+body.pj .head,body.pj .chips,body.pj .frise,body.pj .controls,body.pj .legend,body.pj .panel,body.pj .note{display:none!important}
+body.pj .cols{height:100vh;grid-template-columns:minmax(0,1fr) clamp(300px,31vw,600px);gap:0;align-items:stretch}
+body.pj .colL{position:static;height:100vh;min-height:0;display:flex;align-items:center;justify-content:center;padding:1.4vh 1vw 1.4vh 1.4vh}
+body.pj .stage{width:min(100%,calc(97vh*var(--ar)));border-radius:16px}
+body.pj .zoom{opacity:.45;transition:opacity .2s}
+body.pj .zoom:hover,body.pj .zoom:focus-within{opacity:1}
+body.pj .colR{height:100vh;min-height:0;justify-content:center;padding:2.5vh 2vw 2.5vh .6vw;gap:0}
+body.pj .stick{position:static;margin:0;padding:0;background:none;max-height:100%;min-height:0}
+body.pj .caption{display:flex;flex-direction:column;gap:.6em;max-height:95vh;overflow:auto;border-width:0 0 0 12px;border-radius:16px;padding:3vh 1.8vw 2.2vh}
+body.pj .pj-ch{display:block;font:600 clamp(13px,1vw,18px)/1.3 var(--font-body);color:var(--muted);letter-spacing:.02em}
+body.pj .caption .era{font-size:clamp(24px,2.3vw,42px)}
+body.pj .caption p{margin:0;font-size:clamp(20px,1.7vw,32px);line-height:1.45}
+body.pj .pj-ctl{display:flex;gap:8px;margin-top:1.2vh;opacity:.8;transition:opacity .2s}
+body.pj .pj-ctl:hover,body.pj .pj-ctl:focus-within{opacity:1}
+body.pj .pj-ctl button{min-height:48px;font-size:17px}
+body.pj .pj-ctl .primary{flex:1 1 auto}
+@media (max-aspect-ratio:1/1){
+  body.pj .cols{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;align-content:center}
+  body.pj .colL,body.pj .colR{height:auto}
+  body.pj .colL{padding:1.4vh 3vw}
+  body.pj .stage{width:min(100%,calc(60vh*var(--ar)))}
+  body.pj .colR{padding:0 3vw 1.4vh}
+  body.pj .caption{max-height:34vh}
+}
+@media (prefers-reduced-motion:reduce){.pol{transition:none}}
+</style>
+</head>
+<body>
+<main class="app" id="app">
+  <div class="head">
+    <header class="top">
+      <h1>Atlas animé d’histoire-géographie</h1>
+      <p class="sub" id="sub"></p>
+    </header>
+    <div class="tabs" id="tabs" role="tablist" aria-label="Volets de l’atlas"></div>
+  </div>
+  <nav class="chips" id="chips" aria-label="Chapitres"></nav>
+  <div class="frise" id="frise" aria-label="Frise chronologique du volet"></div>
+
+  <div class="cols">
+    <div class="colL">
+      <div class="stage" id="stage">
+        <canvas id="c" role="img" aria-label="Carte animée : les tracés, zones colorées et noms de lieux apparaissent au fil du récit affiché à côté."></canvas>
+        <div class="photos" id="photos"></div>
+        <div class="tb" id="tb" hidden></div>
+        <div class="zoom">
+          <button type="button" id="zin" aria-label="Zoomer">+</button>
+          <button type="button" id="zout" aria-label="Dézoomer">−</button>
+          <button type="button" id="zfit" aria-label="Revenir à la vue de l’animation" title="Revenir à la vue de l’animation">⌖</button>
+          <button type="button" id="zfs" aria-pressed="false" aria-label="Projection plein écran : carte et texte seuls" title="Projection plein écran : carte et texte seuls (touche F)">⛶</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="colR">
+      <div class="stick">
+      <section class="caption" id="cap" aria-live="off">
+        <div class="pj-ch" id="pjCh"></div>
+        <div class="era"><span id="era"></span><span class="unc" id="unc" hidden>Hypothèse : on cherche encore</span></div>
+        <p id="txt"></p>
+        <div class="pj-ctl" role="group" aria-label="Commandes de la projection">
+          <button type="button" id="pjPrev" aria-label="Étape précédente">◀</button>
+          <button type="button" id="pjPlay" class="primary">Lecture</button>
+          <button type="button" id="pjNext" aria-label="Étape suivante">▶</button>
+          <button type="button" id="pjExit" aria-label="Quitter la projection" title="Quitter (Échap)">✕</button>
+        </div>
+      </section>
+
+      <div class="controls">
+        <button class="primary" id="play" type="button">Lecture</button>
+        <button id="sprev" type="button" aria-label="Étape précédente">◀ Étape</button>
+        <button id="snext" type="button" aria-label="Étape suivante">Étape ▶</button>
+        <button id="restart" type="button" aria-label="Rejouer le chapitre">↺</button>
+        <button id="prev" type="button" aria-label="Chapitre précédent">⏮ Chap.</button>
+        <button id="next" type="button" aria-label="Chapitre suivant">Chap. ⏭</button>
+        <div class="range">
+          <input id="seek" type="range" min="0" max="30" step="0.05" value="0" aria-label="Position dans le chapitre">
+          <span class="time" id="time">0 s</span>
+        </div>
+      </div>
+
+      <ul class="legend" id="legend"></ul>
+      </div>
+
+      <details class="panel" id="pTools" open>
+        <summary>Outils et réglages</summary>
+        <div class="in">
+          <div class="grp"><span>Outils sur la carte</span>
+            <button type="button" data-tool="explore" aria-pressed="false">Explorer</button>
+            <button type="button" data-tool="measure" aria-pressed="false">Mesurer</button>
+            <button type="button" data-tool="quiz" aria-pressed="false">Jeu : où est… ?</button>
+            <button type="button" id="fs">Projection plein écran</button>
+          </div>
+          <div class="grp"><span>Projection de la carte</span>
+            <div class="seg" id="segProj">
+              <button type="button" data-proj="auto" aria-pressed="true">Auto</button>
+              <button type="button" data-proj="globe" aria-pressed="false">Globe</button>
+              <button type="button" data-proj="plan" aria-pressed="false">Planisphère</button>
+              <button type="button" data-proj="merc" aria-pressed="false">Mercator</button>
+            </div>
+          </div>
+          <div class="grp"><span>Vitesse de l’animation</span>
+            <div class="seg" id="segSpeed">
+              <button type="button" data-speed="0.5" aria-pressed="false">× 0,5</button>
+              <button type="button" data-speed="1" aria-pressed="true">× 1</button>
+              <button type="button" data-speed="1.5" aria-pressed="false">× 1,5</button>
+              <button type="button" data-speed="2" aria-pressed="false">× 2</button>
+            </div>
+          </div>
+          <div class="opts">
+            <label class="opt"><input type="checkbox" data-opt="step"> Pause à chaque étape</label>
+            <label class="opt"><input type="checkbox" data-opt="auto"> Enchaîner les chapitres</label>
+            <label class="opt"><input type="checkbox" data-opt="labels"> Noms des lieux</label>
+            <label class="opt"><input type="checkbox" data-opt="photos"> Photos et documents</label>
+            <label class="opt"><input type="checkbox" data-opt="names"> Océans et continents</label>
+            <label class="opt"><input type="checkbox" data-opt="lines"> Équateur, tropiques…</label>
+            <label class="opt"><input type="checkbox" data-opt="scale"> Échelle</label>
+            <label class="opt"><input type="checkbox" data-opt="coord"> Coordonnées</label>
+            <label class="opt"><input type="checkbox" data-opt="big"> Gros texte</label>
+            <label class="opt"><input type="checkbox" data-opt="voice"> Lire le texte à voix haute</label>
+          </div>
+          <div class="grp"><span>Exporter la carte affichée (A4 paysage, fond clair pour l’impression)</span>
+            <button type="button" data-exp="lu">Carte en PDF</button>
+            <button type="button" data-exp="muette">Carte muette</button>
+            <button type="button" data-exp="vierge">Fond de carte</button>
+            <button type="button" data-exp="volet">Tout le volet (PDF)</button>
+            <button type="button" data-exp="png">Image PNG</button>
+          </div>
+          <p class="hint" id="expMsg" aria-live="polite"></p>
+          <p class="hint">Clavier : Espace = lecture ou pause · → = étape suivante · ← = étape précédente · F = projection plein écran (carte + texte seuls, Échap pour sortir). Décoche « Noms des lieux » pour obtenir une carte muette.</p>
+        </div>
+      </details>
+
+      <details class="panel" id="pFiche">
+        <summary>Fiche du chapitre : récit, mots-clés, questions</summary>
+        <div class="in fiche" id="fiche"></div>
+      </details>
+
+      <details class="panel" id="pVolet">
+        <summary>Repères et liens avec les programmes</summary>
+        <div class="in vinfo" id="vinfo"></div>
+      </details>
+
+      <p class="note">Tracés schématiques : les flèches, pirogues et navires montrent des directions, pas des trajets exacts. Les dates anciennes sont approximatives ; le badge « Hypothèse » et les pointillés signalent ce qui est encore discuté par les chercheurs. Photos et documents réels (aucune image générée), crédits sous chaque image ; clique dessus pour l’agrandir. Fonds de carte Natural Earth (domaine public).</p>
+    </div>
+  </div>
+</main>
+<div class="prev" id="prev-ov" hidden role="dialog" aria-label="Aperçu de l’export">
+  <div class="prev-in">
+    <p id="prev-txt"></p>
+    <img id="prev-img" alt="Aperçu de la carte exportée">
+    <button type="button" id="prev-close">Fermer</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="js/geo.js"></script>
+<script src="js/img.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/v-monde.js"></script>
+<script src="js/v-pacifique.js"></script>
+<script src="js/v-decouvertes.js"></script>
+<script src="js/v-caledonie.js"></script>
+<script>window.ATLAS.start();</script>
+</body>
+</html>
