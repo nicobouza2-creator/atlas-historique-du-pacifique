@@ -5,7 +5,7 @@
 var GEO=window.GEO,DEEPG=window.DEEPG,IMG=window.IMG||{};
 var CO={afr:'#f59e0b',aus:'#2dd4bf',lap:'#b794f6',pol:'#ff6b57',kan:'#ffd166',pap:'#f472b6',xet:'#86efac',mis:'#7cb7ff',eur:'#e8edf2',sand:'#f0dc9a',jade:'#5eead4',cat:'#ff9ecb',
   ere:'#d6a56c',nean:'#8fd3ff',ice:'#eaf6ff',ame:'#fb7185',neo:'#a3e635',late:'#f472b6',dense:'#ff5d5d',vide:'#9fb3c8',
-  zh:'#ff8a8a',por:'#4ade80',esp:'#fbbf24',fra:'#7cb7ff',ned:'#fb923c',gbr:'#f4a8e0',epi:'#e8b04a',ott:'#c084fc'};
+  zh:'#ff8a8a',por:'#4ade80',esp:'#fbbf24',fra:'#7cb7ff',ned:'#fb923c',gbr:'#f4a8e0',epi:'#e8b04a',ott:'#c084fc',deni:'#c99bff',flo:'#34d399',mix:'#ff7ab6'};
 var TH_DARK={light:false,bg:'#050f1c',sea0:'#17557f',sea1:'#071d33',flat:['#0c2f4f','#134a72','#0c2f4f'],land:'#cdbb8c',coast:'rgba(60,45,15,.55)',cw:0.6,grat:'rgba(160,210,255,.10)',ink:'#f4f0e6',sub:'#d3e6f7',halo:'rgba(6,20,36,.92)',gold:'#ffd166',mk:'#061424',casing:null,ocean:'rgba(160,214,255,.9)',cont:'rgba(255,244,214,.82)',line:'rgba(255,209,102,.7)',linet:'rgba(255,221,150,.95)'};
 var TH_LIGHT={light:true,bg:'#ffffff',sea0:'#eef5fb',sea1:'#dcebf6',flat:['#e9f2f9','#e9f2f9','#e9f2f9'],land:'#f6f1e3',coast:'rgba(60,55,45,.95)',cw:1,grat:'rgba(40,80,120,.16)',ink:'#12202e',sub:'#3a4b5c',halo:'rgba(255,255,255,.96)',gold:'#7a4a00',mk:'#12202e',casing:'rgba(20,30,40,.8)',ocean:'rgba(40,90,140,.85)',cont:'rgba(90,70,30,.8)',line:'rgba(150,100,0,.8)',linet:'rgba(110,70,0,.95)'};
 var TH=TH_DARK,EXPORT=false,BARE=false;

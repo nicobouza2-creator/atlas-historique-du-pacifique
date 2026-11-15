@@ -42,6 +42,8 @@ var V_AUSTRALIE=[[115.5,-22.5],[122,-19.5],[134,-17.5],[142,-21],[144,-29],[137,
 var V_TIBET=[[78,31],[80,36],[92,38.5],[101,36],[99,29.5],[90,28.2]];
 var NCM=[[165.6,-21.3,2.0],[167.2,-20.9,0.7],[168.0,-21.5,0.6],[166.5,-20.55,0.5],[167.5,-22.6,0.5]];
 
+var DENI=[[76,43],[80,49],[84,53.5],[95,53],[108,53.5],[120,53.5],[130,49],[135,46],[131,42],[125,39.5],[122,36],[122,30],[122.3,25.4],[121.8,21.8],[120,22],[113,21],[111,18],[108,18],[106,17],[102,17],[100,19],[97,23],[93,27],[88,28.5],[82,31],[78,34.5],[75,38]];
+var DENI_SUD=[[95,6],[99,14],[105,15.5],[109,12],[116,8],[119,11],[124,14],[127,8],[131,-1],[141,-2.5],[141,-9],[128,-10],[116,-10.5],[105,-8],[95,3]];
 var CH=[
 
 /* 1 --------------------------------------------------------------- */
@@ -148,6 +150,76 @@ var CH=[
  mots:[['Migration','Déplacement d’un groupe qui part vivre ailleurs.'],['ADN','« Notice » présente dans chacune de nos cellules, héritée de nos parents. Elle garde la trace de nos ancêtres.'],['Sunda et Sahul','Deux grands continents de l’époque glaciaire : l’Asie du Sud-Est réunie, et l’Australie reliée à la Nouvelle-Guinée.']],
  q:[['Par où Homo sapiens quitte-t-il l’Afrique ?','Par le nord-est : la mer Rouge et le Proche-Orient.'],['Comment sait-on que sapiens a rencontré Néandertal ?','Grâce à l’ADN : beaucoup d’humains en portent encore un petit morceau.'],['Pourquoi l’Australie est-elle une étape difficile ?','Il faut traverser la mer : aucun passage à pied, même quand la mer est basse.']],
  wiki:['Origine africaine de l\'homme moderne','Sahul','Homme de Denisova']},
+
+/* 3 bis ------------------------------------------------------------ */
+{short:'Plusieurs humanités : qui a rencontré qui ?',col:'deni',dur:78,when:[-400000,-40000],dates:'il y a 400 000 à 40 000 ans',
+ cam:[{t:0,lon:75,lat:12,z:0.6},{t:9,lon:75,lat:12,z:0.6},{t:11,lon:42,lat:46,z:1.15},{t:17,lon:42,lat:46,z:1.15},{t:19,lon:106,lat:36,z:1.15},{t:24,lon:106,lat:30,z:1.1},{t:26,lon:112,lat:20,z:1.0},
+      {t:28,lon:118,lat:3,z:1.7},{t:34,lon:118,lat:3,z:1.7},{t:36,lon:88,lat:46,z:1.4},{t:42,lon:88,lat:46,z:1.4},{t:44,lon:45,lat:28,z:1.2},{t:50,lon:45,lat:28,z:1.2},
+      {t:52,lon:112,lat:8,z:0.85},{t:59,lon:112,lat:8,z:0.85},{t:61,lon:75,lat:12,z:0.6},{t:78,lon:75,lat:12,z:0.6}],
+ zones:[
+  Rg(AFRICA,'afr',1,0.45,2),
+  ext(Rg(NEAN,'nean',3,0.55,2),{t2:60,t3:63}),ext(Rg(NEAN,'nean',61,0.4,2),{}),
+  ext(Rg(DENI,'deni',4,0.55,2),{t2:60,t3:63}),ext(Rg(DENI,'deni',61,0.4,2),{}),
+  ext(Rg(DENI_SUD,'deni',24,0.25,2),{t2:60,t3:63}),
+  ext(Rg([27.7,-26.0,3.2],'ere',5,0.75,1.5),{t2:60,t3:63}),Rg([27.7,-26.0,3.2],'ere',61,0.4,2),
+  ext(Rg([111,-7.3,3],'ere',6,0.75,1.5),{t2:60,t3:63}),Rg([111,-7.3,3],'ere',61,0.4,2),
+  ext(Rg([121.2,-8.6,1.9],'flo',7,0.85,1.5),{t2:60,t3:63}),Rg([121.2,-8.6,1.9],'flo',61,0.45,2),
+  ext(Rg([121.3,16.6,2.3],'flo',7,0.85,1.5),{t2:60,t3:63}),Rg([121.3,16.6,2.3],'flo',61,0.45,2),
+  Rg(SAHUL,'afr',55,0.4,2.5)
+ ],
+ routes:[
+  r('afr',43,47,3.2,[[31,26],[32.6,30],[34.8,32.2],[37,35]]),
+  r('afr',46,57,3.2,[[37,35],[45,33.5],[52,30],[58,27],[64,25.5],[70,23],[75,15],[80,10],[85,20],[92,22],[98,13],[101,4],[105,-2],[112,-7],[119,-8.7],[124,-9.6]]),
+  r('afr',48,56,2.6,[[44,37],[58,38.5],[70,41],[80,46],[85,50.5]]),
+  r('afr',56,58.5,2.6,[[124.2,-9.6],[126.5,-10.6],[129,-11.8],[130.6,-12.3]],{straight:true,step:0.3}),
+  r('afr',57,60,2.6,[[131,-12],[136,-8],[142,-5.8]])
+ ],
+ labels:[
+  L(1,20,3,'Homo sapiens',{sub:'depuis ≈ 300 000 ans',nomark:true,big:true}),
+  L(3,22,48.5,'Néandertaliens',{sub:'≈ 400 000 → 40 000 ans',nomark:true,big:true}),
+  L(4,104,43,'Dénisoviens',{sub:'≈ 300 000 → 50 000 ans au moins',nomark:true,big:true}),
+  L(5,27.7,-26.0,'Homo naledi',{sub:'≈ 335 000 → 236 000 ans',mark:'site',dx:10,al:'left'}),
+  L(6,111,-7.3,'Homo erectus (Java)',{sub:'jusqu’à ≈ 110 000 ans',mark:'site',dx:-10,dy:12,al:'right'}),
+  L(7,120.45,-8.55,'Homo floresiensis (Florès)',{sub:'≈ 1 m · jusqu’à ≈ 50 000 ans',mark:'site',dx:10,dy:14,al:'left'}),
+  L(7,121.8,17.7,'Homo luzonensis (Luçon)',{sub:'≈ 50 000 ans et avant',mark:'site',dx:-10,dy:-4,al:'right'}),
+  L(11,6.95,51.23,'Vallée de Neander (Allemagne)',{sub:'premier fossile reconnu, 1856',mark:'site',dx:-10,al:'right',zmin:0.9}),
+  L(12,44.2,36.8,'Shanidar (Irak)',{sub:'≈ 70 000 à 45 000 ans',mark:'site',dx:10,dy:6,al:'left',zmin:0.9}),
+  L(14,84.68,51.4,'Altaï (Sibérie)',{sub:'Néandertaliens et Dénisoviens',dx:10,dy:-8,al:'left',end:18}),
+  L(19,84.68,51.4,'Grotte de Denisova',{sub:'un os de doigt, 2010',mark:'site',dx:10,dy:-8,al:'left'}),
+  L(20,102.57,35.45,'Xiahe (Tibet)',{sub:'mâchoire, ≈ 160 000 ans',mark:'site',dx:-10,al:'right',zmin:0.9}),
+  L(21,126.6,45.75,'Harbin (Chine)',{sub:'crâne, ≈ 146 000 ans',mark:'site',dx:10,al:'left',zmin:0.9}),
+  L(22,119.5,23.5,'Penghu (Taïwan)',{sub:'mâchoire',mark:'site',dx:10,dy:6,al:'left',zmin:0.9}),
+  L(23,102.7,25,'Bianfu (Yunnan)',{sub:'os et outils, étudiés en 2026',mark:'site',dx:-10,dy:8,al:'right',zmin:0.9}),
+  L(24,108,1,'Dénisoviens ?',{sub:'connus seulement par l’ADN',nomark:true,end:60}),
+  L(36,84.68,51.4,'Denny, ≈ 90 000 ans',{sub:'mère néandertalienne, père dénisovien',nomark:true,dx:10,dy:26,al:'left',zmin:1.2}),
+  L(46,36,33,'Proche-Orient',{sub:'rencontre sapiens–Néandertaliens',mark:'site',dx:-10,dy:10,al:'right',zmin:0.9}),
+  L(54,91,29.7,'Tibet',{sub:'un gène dénisovien aide à vivre en altitude',mark:'site',dx:-10,dy:10,al:'right',zmin:0.7}),
+  L(56,142,-5.8,'Océanie',{sub:'des gènes dénisoviens contre des maladies',mark:'site',dx:10,dy:-6,al:'left',zmin:0.7}),
+  L(69,0,61,'En Europe',{sub:'traces néandertaliennes',nomark:true}),
+  L(70,118,30,'En Asie',{sub:'traces néandertaliennes et dénisoviennes',nomark:true}),
+  L(71,148,-25,'En Océanie',{sub:'traces néandertaliennes et dénisoviennes',nomark:true}),
+  L(72,22,-12,'En Afrique',{sub:'la plus grande diversité humaine du monde',nomark:true})
+ ],
+ pulses:[Pu(36,84.68,51.4,'#ff7ab6'),Pu(46,36,33,'#ff7ab6'),Pu(54,91,29.7,'#ff7ab6'),Pu(55,127,-3,'#ff7ab6'),Pu(56,142,-5.8,'#ff7ab6')],
+ ph:[
+  Ph(0,'Il y a ≈ 300 000 ans','Homo sapiens n’est pas seul sur Terre. Plusieurs sortes d’humains vivent en même temps, chacune dans sa région : au moins six.','afr'),
+  Ph(10,'Les Néandertaliens','Ils vivent en Europe et jusqu’en Sibérie, de ≈ 400 000 à 40 000 ans. Bien adaptés au froid, ils chassent, font du feu, soignent leurs blessés et enterrent leurs morts.','nean'),
+  Ph(18,'Les Dénisoviens','On les découvre en 2010, grâce à l’ADN d’un petit os de doigt trouvé dans une grotte de Sibérie. Depuis, on a retrouvé un crâne, des mâchoires et des dents, du Tibet jusqu’à Taïwan.','deni'),
+  Ph(27,'Les humains des îles d’Asie','Sur l’île de Florès vit Homo floresiensis : environ 1 m de haut, jusqu’à il y a ≈ 50 000 ans. Aux Philippines vit Homo luzonensis. À Java, Homo erectus survit jusqu’à ≈ 110 000 ans.','flo'),
+  Ph(35,'Des cousins qui se rencontrent','Dans la grotte de Denisova, on a trouvé l’os d’une fille d’≈ 90 000 ans, « Denny » : sa mère était néandertalienne, son père dénisovien. Comme ils pouvaient avoir des enfants ensemble, certains savants les voient comme des sous-espèces d’une même grande famille.','mix'),
+  Ph(43,'Il y a ≈ 50 000 à 43 000 ans','Homo sapiens sort d’Afrique. Au Proche-Orient, il rencontre les Néandertaliens et ils ont des enfants ensemble. C’est pour cela que beaucoup d’humains portent encore un peu d’ADN néandertalien.','mix'),
+  Ph(51,'En Asie et en Océanie','Plus à l’est, sapiens rencontre plusieurs groupes de Dénisoviens. Leurs gènes ont aidé les habitants du Tibet à vivre en altitude, et ceux d’Océanie à résister à certaines maladies.','deni'),
+  Ph(60,'Il y a ≈ 40 000 ans : il ne reste que nous','Les autres humains disparaissent peu à peu. On ne sait pas exactement pourquoi : changements de climat, petits groupes isolés, arrivée de sapiens… sans doute un peu tout cela.','afr',true),
+  Ph(68,'Une seule humanité','Tous les humains d’aujourd’hui sont des Homo sapiens. Partout sur Terre, chacun porte de petites traces de ces rencontres anciennes. Elles ne rendent personne meilleur ni moins bon : elles racontent seulement le chemin de nos ancêtres.','afr')
+ ],
+ photos:[Sh('neandertal',11,17,'tr',2),Sh('xiahe',20,26,'bl',-2,'contain'),Sh('flores',28,34,'tr',2,'contain')],
+ legend:[['afr','Homo sapiens'],['nean','Néandertaliens'],['deni','Dénisoviens'],['flo','Humains des îles (Florès, Luçon)'],['ere','Autres humains anciens (Homo erectus, Homo naledi)'],['mix','Lieux de rencontre']],
+ mots:[['Espèce','Groupe d’êtres vivants qui se ressemblent et peuvent avoir ensemble des petits, capables à leur tour d’avoir des petits.'],['Sous-espèce','Partie d’une espèce un peu différente des autres, parce qu’elle a vécu longtemps à part.'],['Métissage','Quand deux groupes humains différents ont des enfants ensemble.'],['Paléogénétique','Science qui lit l’ADN conservé dans des os très anciens.']],
+ q:[['Combien de sortes d’humains vivaient sur Terre il y a 300 000 ans ?','Plusieurs, au moins six : Homo sapiens, les Néandertaliens, les Dénisoviens, Homo erectus, Homo naledi, puis les humains de Florès et de Luçon.'],
+    ['Comment a-t-on découvert les Dénisoviens ?','Grâce à l’ADN d’un petit os de doigt trouvé dans une grotte de Sibérie, en 2010.'],
+    ['Qui était Denny ?','Une fille d’il y a ≈ 90 000 ans : sa mère était néandertalienne, son père dénisovien.'],
+    ['Les traces d’ADN de ces anciens cousins rendent-elles certains humains supérieurs aux autres ?','Non. Tous les humains d’aujourd’hui sont des Homo sapiens : ces traces racontent seulement les rencontres de nos ancêtres.']],
+ wiki:['Homme de Denisova','Homme de Néandertal','Homo floresiensis','Homo luzonensis','Homo naledi']},
 
 /* 4 --------------------------------------------------------------- */
 {short:'L’Europe : Néandertal, la glace, les grottes',col:'nean',dur:54,when:[-45000,-10000],dates:'il y a 45 000 à 10 000 ans',
@@ -374,11 +446,11 @@ var CH=[
  wiki:['Population mondiale','Densité de population','Foyer de peuplement']}
 ];
 
-var SPK={2:{sps:{2:'radeau'}},6:{sp:'balancier',sps:{0:'drakkar',1:'drakkar',2:'drakkar',4:'boutre',6:'polynesien',7:'polynesien',8:'polynesien',9:'polynesien'}}};
+var SPK={2:{sps:{2:'radeau'}},3:{sps:{3:'radeau'}},7:{sp:'balancier',sps:{0:'drakkar',1:'drakkar',2:'drakkar',4:'boutre',6:'polynesien',7:'polynesien',8:'polynesien',9:'polynesien'}}};
 CH.forEach(function(c,i){var x=SPK[i]||{};if(x.sp)c.sp=x.sp;if(x.sps)c.sps=x.sps;});
-A.add({id:'monde',title:'Peupler la Terre',tag:'8 chapitres · des premiers humains à aujourd’hui',col:'afr',proj:'plan',
- sub:'Comment les humains ont peuplé toute la planète : 8 chapitres, de l’Afrique aux dernières îles.',
+A.add({id:'monde',title:'Peupler la Terre',tag:'9 chapitres · des premiers humains à aujourd’hui',col:'afr',proj:'plan',
+ sub:'Comment les humains ont peuplé toute la planète : 9 chapitres, de l’Afrique aux dernières îles.',
  frise:{from:-7000000,to:2026,ref:2100,ticks:[[-7000000,'7 millions d’années'],[-2000000,'2 millions',1],[-300000,'300 000 ans'],[-70000,'70 000',1],[-20000,'20 000 ans'],[-9500,'9500 av. J.-C.',1],[-1100,'1100 av. J.-C.'],[1000,'an 1000',1],[2022,'2022']]},
- info:'<p><b>Collège, 6e, histoire</b> : thème 1 « La longue histoire de l’humanité et des migrations » : les débuts de l’humanité (chapitres 1 à 5), la « révolution » néolithique (chapitre 6).</p><p><b>Collège, 6e, géographie</b> : « Le monde habité », la répartition de la population mondiale et ses dynamiques (chapitre 8).</p><p><b>Cycle 3, Nouvelle-Calédonie</b> : ce volet replace le peuplement austronésien du pays dans l’histoire du monde (chapitres 6 et 7), avant le volet « Vers le Pacifique ».</p><p><b>En classe</b> : passe en « Globe » pour montrer que la Béringie relie deux continents ; compare « Planisphère » et « Mercator » pour faire voir que le Groenland n’a pas la même taille selon la carte ; mesure la traversée Bornéo – Madagascar avec l’outil « Mesurer ».</p>',
+ info:'<p><b>Collège, 6e, histoire</b> : thème 1 « La longue histoire de l’humanité et des migrations » : les débuts de l’humanité (chapitres 1 à 6, dont le chapitre 4 sur les différentes espèces humaines et leurs rencontres), la « révolution » néolithique (chapitre 7).</p><p><b>Collège, 6e, géographie</b> : « Le monde habité », la répartition de la population mondiale et ses dynamiques (chapitre 9).</p><p><b>Cycle 3, Nouvelle-Calédonie</b> : ce volet replace le peuplement austronésien du pays dans l’histoire du monde (chapitres 7 et 8), avant le volet « Vers le Pacifique ».</p><p><b>En classe</b> : passe en « Globe » pour montrer que la Béringie relie deux continents ; compare « Planisphère » et « Mercator » pour faire voir que le Groenland n’a pas la même taille selon la carte ; mesure la traversée Bornéo – Madagascar avec l’outil « Mesurer ».</p><p><b>Chapitre 4 (espèces humaines)</b> : message à faire passer : tous les humains d’aujourd’hui sont des Homo sapiens. Les traces d’ADN néandertalien ou dénisovien racontent des rencontres anciennes, elles ne classent ni ne hiérarchisent personne. Les zones sont schématiques ; la recherche évolue vite (fossiles dénisoviens du Yunnan publiés en 2026).</p>',
  chapters:CH});
 })();
