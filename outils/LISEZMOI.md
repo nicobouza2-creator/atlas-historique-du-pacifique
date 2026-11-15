@@ -11,3 +11,6 @@ Chaîne (Python 3, `python-docx`, `pymupdf`, `pillow`, `playwright` + Chrome) :
 Chemins codés en dur : dépôt `/home/claude/repo/`, sortie `/home/claude/dossiers/`. `dump.py` = lecture des lignes d'un PDF (PyMuPDF).
 
 Les dossiers PDF eux-mêmes viennent d'un autre générateur (ReportLab), conservé dans le projet Claude « Création d'un second cerveau » (`claude/atlas-dossiers/`).
+
+## Paquets pour l'artefact (plafond de 512 fichiers)
+`pack.py <dépôt> pdf|docx` regroupe `pdf/<volet>-<nn>.pdf` (ou les .docx) en `pdf/<volet>.pdf.txt` + `pdf/index.json` ({volet: [[début, longueur], …]}). Déterministe : reproduit à l'octet près les paquets docx existants. À relancer après toute régénération de dossiers, puis publier les paquets (pas les fichiers individuels) dans l'artefact.

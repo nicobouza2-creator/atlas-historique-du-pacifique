@@ -145,11 +145,12 @@ function hush(){try{window.speechSynthesis.cancel();}catch(e){}}
 var DL=null;try{if(window.claude&&typeof window.claude.use==='function')window.claude.use('downloads').then(function(d){DL=d||null;},function(){});}catch(e){}
 function pad2(n){return (n<10?'0':'')+n;}
 function slugify(t){return String(t).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9]+/g,'-').replace(/^-|-$/g,'');}
-/* dossiers Word : l'hébergement des artefacts refuse l'extension .docx et limite le nombre de fichiers ; chaque volet a donc un seul fichier
-   docx/<volet>.docx.txt (les .docx du volet en base64, mis bout à bout) et docx/index.json donne [début, longueur] de chaque dossier */
-function getDocx(S){return fetch('docx/index.json').then(function(r){if(!r.ok)throw new Error('absent');return r.json();}).then(function(ix){
+/* dossiers PDF et Word : l'hébergement des artefacts refuse l'extension .docx et limite le nombre de fichiers (512) ; chaque volet a donc
+   un seul fichier <ext>/<volet>.<ext>.txt (les dossiers du volet en base64, mis bout à bout ; outils/pack.py) et <ext>/index.json
+   donne [début, longueur] de chaque dossier. Repli : le fichier individuel <ext>/<volet>-<nn>.<ext> (présent sur le dépôt GitHub). */
+function getPack(S,ext){return fetch(ext+'/index.json').then(function(r){if(!r.ok)throw new Error('absent');return r.json();}).then(function(ix){
   var p=(ix[S.vol]||[])[S.ci];if(!p)throw new Error('absent');
-  return fetch('docx/'+S.vol+'.docx.txt',{headers:{Range:'bytes='+p[0]+'-'+(p[0]+p[1]-1)}}).then(function(r){if(!r.ok)throw new Error('absent');
+  return fetch(ext+'/'+S.vol+'.'+ext+'.txt',{headers:{Range:'bytes='+p[0]+'-'+(p[0]+p[1]-1)}}).then(function(r){if(!r.ok)throw new Error('absent');
     return r.text().then(function(t){return b64(r.status===206?t:t.slice(p[0],p[0]+p[1]));});});});}
 function b64(t){var s=atob(t.trim()),u=new Uint8Array(s.length);for(var i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return new Blob([u]);}
 var MIME={pdf:'application/pdf',docx:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'};
@@ -158,7 +159,7 @@ function dossier(S,b,ext){
   var code=({pacifique:'P',caledonie:'NC',monde:'PT',decouvertes:'GD',geonc:'GN',nickel:'NI',mondial:'MO'}[S.vol]||'X')+'-'+pad2(S.ci+1),url=ext+'/'+S.vol+'-'+pad2(S.ci+1)+'.'+ext,name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.'+ext;
   var old=b.textContent;b.disabled=true;b.textContent='⏳ Préparation du dossier…';
   function done(t){b.disabled=false;b.textContent=t||old;if(t)setTimeout(function(){b.textContent=old;},4000);}
-  (ext==='docx'?getDocx(S):fetch(url).then(function(r){if(!r.ok)throw new Error('absent');return r.blob();})).then(function(blob){
+  getPack(S,ext).catch(function(){return fetch(url).then(function(r){if(!r.ok)throw new Error('absent');return r.blob();});}).then(function(blob){
     blob=new Blob([blob],{type:MIME[ext]});
     if(DL)return DL.save({filename:name,data:blob}).then(function(){done('✔ Dossier enregistré');},function(e){done(e&&e.code==='declined'?'Enregistrement annulé':'⚠ Échec, réessaie');});
     if(!window.claude){var u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.style.display='none';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove();},5000);done('✔ Dossier téléchargé');return;}
