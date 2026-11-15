@@ -150,6 +150,9 @@ function L(t,lon,lat,text,o){o=o||{};o.t=t;o.lon=lon;o.lat=lat;o.text=text;retur
 function Pu(t,lon,lat,col,loop){return {t:t,lon:lon,lat:lat,col:col,loop:!!loop};}
 function Ph(t,era,txt,col,unc){return {t:t,era:era,txt:txt,c:col,unc:!!unc};}
 /* mode « Facile » : texte simplifié (fa) quand l'option est cochée ; *mot* = mot-clé en gras */
+var LCK={};
+function lc(c,force){if((!TH.light&&!force)||typeof c!=='string'||c.charAt(0)!=='#'||c.length!==7)return c;if(LCK[c])return LCK[c];var n=parseInt(c.slice(1),16),R=n>>16,G=(n>>8)&255,B=n&255,Lm=(0.299*R+0.587*G+0.114*B)/255,k=clamp((Lm-0.75)*3,0,0.7),T=[59,90,120];return LCK[c]='#'+[R,G,B].map(function(v,i){return ('0'+Math.round(v*(1-k)+T[i]*k).toString(16)).slice(-2);}).join('');}
+var NUMS=null;
 var EMO=/[\u{1F000}-\u{1FAFF}\u{2300}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu,HIDELAB=false;
 function phT(p){return opt.easy&&p.fa?p.fa:p.txt;}
 function plainT(p){return phT(p).replace(/\*/g,'');}
@@ -278,7 +281,7 @@ function drawShip(x,y,dir,s,col){
   ctx.beginPath();ctx.moveTo(1,-16);ctx.quadraticCurveTo(7,-12,10,-16);ctx.lineTo(10,-4);ctx.quadraticCurveTo(6,-1.5,1,-4);ctx.closePath();ctx.fill();ctx.stroke();
   ctx.restore();
 }
-var SPR={},SPR_NAMES={radeau:'Radeau de bambou',balancier:'Pirogue à balancier',polynesien:'Pirogue double polynésienne',kanak:'Pirogue double kanak',drakkar:'Drakkar viking',jonque:'Jonque chinoise',boutre:'Boutre de l’océan Indien',goelette:'Goélette de commerce',caravelle:'Caravelle portugaise',nao:'Caraque (nao)',flute:'Flûte hollandaise',fregate:'Frégate française',endeavour:'L’Endeavour de Cook',troismats:'Trois-mâts du XIXe siècle',vapeur:'Navire à vapeur',liberty:'Navire de transport (1942)'};
+var SPR={},SPR_NAMES={radeau:'Radeau de bambou',balancier:'Pirogue à balancier',polynesien:'Pirogue double polynésienne',kanak:'Pirogue double kanak',drakkar:'Drakkar viking',jonque:'Jonque chinoise',boutre:'Boutre de l’océan Indien',goelette:'Goélette de commerce',caravelle:'Caravelle portugaise',nao:'Caraque (nao)',nef:'Nef française de Cartier',galion:'Galion espagnol',flute:'Flûte hollandaise',fregate:'Frégate française',endeavour:'L’Endeavour de Cook',troismats:'Trois-mâts du XIXe siècle',vapeur:'Navire à vapeur',liberty:'Navire de transport (1942)'};
 function sprSrc(k){return (window.BOATS&&window.BOATS[k])||('img/b-'+k+'.png');}
 Object.keys(SPR_NAMES).forEach(function(k){var im=new Image();im.onload=function(){SPR[k]=im;schedule();};im.onerror=function(){};im.src=sprSrc(k);});
 function sprKey(rt){return rt.sp||(rt.ship?'nao':'balancier');}
@@ -303,8 +306,9 @@ function drawRoute(rt,tt,K){
   function trace(){ctx.beginPath();var pen=false;for(var j=0;j<M;j++){var q=sp[j];if(!q){pen=false;continue;}if(!pen){ctx.moveTo(q[0],q[1]);pen=true;}else ctx.lineTo(q[0],q[1]);}}
   ctx.setLineDash([]);
   if(TH.casing){if(!rt.taper){if(rt.dash)ctx.setLineDash([7*K,6*K]);ctx.strokeStyle=TH.casing;ctx.lineWidth=w+2.2;trace();ctx.stroke();ctx.setLineDash([]);}}
-  else if(!rt.thin){ctx.strokeStyle=rgba(rt.col,.22);ctx.lineWidth=w*2.6;trace();ctx.stroke();}
-  ctx.strokeStyle=rt.col;
+  var RC=lc(rt.col);
+  if(false){}else if(!rt.thin){ctx.strokeStyle=rgba(RC,.22);ctx.lineWidth=w*2.6;trace();ctx.stroke();}
+  ctx.strokeStyle=RC;
   if(rt.taper){
     for(i=1;i<M;i++){
       var a=sp[i-1],b=sp[i];if(!a||!b)continue;
@@ -325,13 +329,13 @@ function drawRoute(rt,tt,K){
         var im=SPR[sprKey(rt)];
         if(p<1){
           if(im){var bw=46*sc,bh=bw*im.height/im.width;ctx.save();ctx.translate(tip[0],tip[1]);ctx.scale(dir,1);ctx.drawImage(im,-bw/2,-bh*0.74,bw,bh);ctx.restore();}
-          else if(rt.ship)drawShip(tip[0],tip[1],dir,sc,rt.col);else drawBoat(tip[0],tip[1],dir,sc,rt.col);
+          else if(rt.ship)drawShip(tip[0],tip[1],dir,sc,RC);else drawBoat(tip[0],tip[1],dir,sc,RC);
         }
-        else{ctx.save();ctx.fillStyle=rt.col;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(tip[0],tip[1],4*K,0,6.2832);ctx.fill();ctx.stroke();ctx.restore();}
+        else{ctx.save();ctx.fillStyle=RC;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(tip[0],tip[1],4*K,0,6.2832);ctx.fill();ctx.stroke();ctx.restore();}
       }else{
         var s=(8+rt.w*1.6)*K;
         ctx.save();ctx.translate(tip[0],tip[1]);ctx.rotate(ang);
-        ctx.fillStyle=rt.col;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.2;
+        ctx.fillStyle=RC;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.2;
         ctx.beginPath();ctx.moveTo(s*0.65,0);ctx.lineTo(-s*0.55,-s*0.6);ctx.lineTo(-s*0.25,0);ctx.lineTo(-s*0.55,s*0.6);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();
       }
     }
@@ -348,7 +352,7 @@ function growGeo(z,tt){
 }
 function drawZone(z,tt){
   var a=zoneAlpha(z,tt);if(a<0.01)return;
-  var col=CO[z.col]||z.col;
+  var col=lc(CO[z.col]||z.col);
   if(z.k==='poly'){
     var pg=z._g||(z._g=polyGeo(z.ring));
     ctx.beginPath();path(pg);ctx.fillStyle=rgba(col,a*0.7);ctx.fill();
@@ -384,7 +388,7 @@ function drawRegs(Z,tt){
     if(!z._mk)z._mk=z.circ?d3.geoCircle().center([z.circ[0],z.circ[1]]).radius(z.circ[2])():polyGeo(z.ring);
     ctx.save();
     if(z.grow){ctx.beginPath();path(growGeo(z,tt));ctx.clip();}
-    ctx.globalAlpha=a;ctx.fillStyle=CO[z.col]||z.col;ctx.beginPath();path(z._mk);ctx.fill();
+    ctx.globalAlpha=a;ctx.fillStyle=lc(CO[z.col]||z.col);ctx.beginPath();path(z._mk);ctx.fill();
     ctx.restore();
   }
   if(any)ctx.restore();
@@ -506,6 +510,32 @@ function drawLabels(LB,tt){
   ctx.lineJoin='round';ctx.textBaseline='middle';
   LB.forEach(function(Lb){var a=labelVisible(Lb,tt);if(a>0)drawOneLabel(Lb,a,fs);});
 }
+/* export imprimé : tous les lieux encore valables à la fin du chapitre (zoom ignoré), sans chevauchement ;
+   carte muette : pastilles numérotées, noms rangés dans NUMS */
+function drawLabelsX(LB,tt){
+  var fs=clamp(Math.min(W,H*1.3)/40,10.5,15),boxes=[],seen={};
+  ctx.lineJoin='round';ctx.textBaseline='middle';
+  function free(b){if(b[0]<2||b[1]<2||b[2]>W-2||b[3]>H-2)return false;for(var i=0;i<boxes.length;i++){var o=boxes[i];if(b[0]<o[2]+3&&b[2]>o[0]-3&&b[1]<o[3]+3&&b[3]>o[1]-3)return false;}return true;}
+  var L2=LB.filter(function(Lb){if(tt<Lb.t||!Lb.text)return false;if(Lb.end&&Lb.end+0.8<tt)return false;if(hidden([Lb.lon,Lb.lat],1.42))return false;var q=projection([Lb.lon,Lb.lat]);return q&&q[0]>=10&&q[0]<=W-10&&q[1]>=10&&q[1]<=H-10;});
+  L2.sort(function(a,b){return ((b.gold?2:0)+(b.big?1:0))-((a.gold?2:0)+(a.big?1:0))||(a.nomark?1:0)-(b.nomark?1:0)||b.t-a.t;});
+  L2.forEach(function(Lb){
+    if(seen[Lb.text])return;
+    var q=projection([Lb.lon,Lb.lat]),x=q[0]+(Lb.nomark?(Lb.dx||0):0),y=q[1]+(Lb.nomark?(Lb.dy||0):0);
+    if(NUMS){
+      var r=fs*0.85,bb=[x-r,y-r,x+r,y+r];if(!free(bb))return;
+      seen[Lb.text]=1;boxes.push(bb);NUMS.push(Lb.text);
+      ctx.fillStyle='#fff';ctx.strokeStyle='#12202e';ctx.lineWidth=1.6;ctx.beginPath();ctx.arc(x,y,r,0,6.2832);ctx.fill();ctx.stroke();
+      ctx.fillStyle='#12202e';ctx.font='700 '+(fs*0.95)+'px '+FONT;ctx.textAlign='center';ctx.fillText(String(NUMS.length),x,y+0.5);
+      return;
+    }
+    var size=Lb.big?fs*1.3:fs;ctx.font='600 '+size+'px '+FONT;var w=ctx.measureText(Lb.text).width,x2=q[0]+(Lb.dx||0),y2=q[1]+(Lb.dy||0);
+    if(Lb.sub){ctx.font='400 '+(fs*0.84)+'px '+FONT;w=Math.max(w,ctx.measureText(Lb.sub).width);}
+    var al=Lb.al||'center',bx0=al==='left'?x2:al==='right'?x2-w:x2-w/2,b=[bx0,y2-size*0.6,bx0+w,y2+size*0.6+(Lb.sub?fs*1.05:0)];
+    if(!free(b))return;
+    seen[Lb.text]=1;boxes.push(b);if(!Lb.nomark)boxes.push([q[0]-5,q[1]-5,q[0]+5,q[1]+5]);
+    drawOneLabel(Lb,1,fs);
+  });
+}
 /* repères géographiques */
 var NAMES=[['OCÉAN PACIFIQUE',-150,3,1],['OCÉAN PACIFIQUE',160,22,1],['OCÉAN ATLANTIQUE',-38,26,1],['OCÉAN ATLANTIQUE',-16,-22,1],['OCÉAN INDIEN',78,-24,1],['OCÉAN ARCTIQUE',-150,80,1],['OCÉAN AUSTRAL',95,-58,1],['OCÉAN AUSTRAL',-120,-60,1],
   ['AFRIQUE',19,9,0],['EUROPE',18,51,0],['ASIE',92,46,0],['AMÉRIQUE DU NORD',-102,45,0],['AMÉRIQUE DU SUD',-58,-14,0],['OCÉANIE',134,-25,0],['ANTARCTIQUE',60,-78,0]];
@@ -618,7 +648,7 @@ function render(){
   if(opt.lines)drawGeoLines();
   if(!BARE){(ch.routes||[]).forEach(function(rt){drawRoute(rt,tt,K);});if(!EXPORT)drawPulses(ch.pulses||[],tt,K);}
   if(opt.names)drawNames();
-  if(!BARE&&opt.labels&&tool!=='quiz'&&!HIDELAB)drawLabels(ch.labels||[],tt);
+  if(!BARE&&opt.labels&&tool!=='quiz'&&!HIDELAB)(EXPORT?drawLabelsX:drawLabels)(ch.labels||[],tt);
   if(!EXPORT)drawTools();
   if(opt.scale)drawScale();
   if(opt.coord&&!EXPORT)drawCoord();
@@ -1084,7 +1114,7 @@ function renderTo(w,h,scale,o){
 }
 function mapCanvas(ci,o){
   var keep={ci:cur.ci,t:cur.t,free:free,fly:flyFrom},ch=CH[ci],flat=projKindFor(ch)!=='globe';
-  if(!o.current){cur.ci=ci;cur.t=ch.dur;free=null;flyFrom=null;}
+  if(!o.current){cur.ci=ci;cur.t=ch.dur;free=null;flyFrom=null;}else{cur.t=ch.dur;flyFrom=null;}
   var cv;
   try{cv=renderTo(flat?820:650,flat?546:650,2,o);}
   finally{cur.ci=keep.ci;cur.t=keep.t;free=keep.free;flyFrom=keep.fly;render();}
@@ -1098,55 +1128,100 @@ function wrap(c,text,maxW){
 /* page A4 paysage, 2480 x 1754 px. o.kind : 'lu' (noms + récit), 'muette' (sans noms), 'vierge' (fond seul) */
 function composePage(ci,o){
   var ch=CH[ci],PW=2480,PH=1754,M=84,DISP='"Bricolage Grotesque","Trebuchet MS",sans-serif';
-  var map=mapCanvas(ci,{labels:o.kind==='lu',bare:o.kind==='vierge',current:o.current});
-  var flat=map.width>map.height,mw=flat?1640:1300,mh=flat?1092:1300;
+  var lu=o.kind==='lu',mut=o.kind==='muette',vie=o.kind==='vierge';
+  NUMS=mut?[]:null;var map,nums;
+  try{map=mapCanvas(ci,{labels:!vie,bare:vie,current:o.current});}finally{nums=NUMS||[];NUMS=null;}
+  var flat=map.width>map.height,FOOT=PH-M-14;
   var pg=document.createElement('canvas');pg.width=PW;pg.height=PH;var c=pg.getContext('2d');
   c.fillStyle='#fff';c.fillRect(0,0,PW,PH);c.textBaseline='alphabetic';
   c.fillStyle='#5b6b7a';c.font='600 30px '+FONT;c.textAlign='left';c.fillText(VOL.title,M,M+6);
   c.textAlign='right';c.fillText(ch.dates||'',PW-M,M+6);c.textAlign='left';
-  var title=(ci+1)+'. '+ch.short+(o.kind==='muette'?' — carte muette':o.kind==='vierge'?' — fond de carte':''),fz=60;
+  var title=(ci+1)+'. '+ch.short+(mut?' — carte muette':vie?' — fond de carte':''),fz=60;
   c.fillStyle='#12202e';do{c.font='700 '+fz+'px '+DISP;fz-=3;}while(c.measureText(title).width>PW-2*M&&fz>30);
   c.fillText(title,M,M+78);
-  var y0=M+112;
-  c.drawImage(map,M,y0,mw,mh);c.strokeStyle='#12202e';c.lineWidth=3;c.strokeRect(M,y0,mw,mh);
-  var x1=M+mw+46,cw=PW-M-x1,y=y0+34;
-  function head(t){c.fillStyle='#8a5a00';c.font='700 30px '+DISP;c.fillText(t.toUpperCase(),x1,y);y+=14;c.fillStyle='#12202e';}
-  function para(t,size,x,w,bold){c.font=(bold?'600 ':'400 ')+size+'px '+FONT;wrap(c,t,w).forEach(function(l){y+=size*1.34;c.fillText(l,x,y);});}
-  if(o.kind!=='lu'){
-    c.font='400 32px '+FONT;c.fillStyle='#12202e';
-    c.fillText('Prénom : ................................',x1,y+6);y+=64;c.fillText('Date : ....................................',x1,y+6);y+=74;
+  var y0=M+112,y=0,x1=0,cw=0;
+  function head(t){y+=40;c.fillStyle='#8a5a00';c.font='700 30px '+DISP;c.fillText(t.toUpperCase(),x1,y);y+=10;c.fillStyle='#12202e';}
+  function wl(t,size,w,bold){c.font=(bold?'700 ':'400 ')+size+'px '+FONT;return wrap(c,t,w);}
+  /* récit : « époque : texte », époque en gras */
+  var txt=ch.ph.map(function(p){return [p.era,plainT(p)];});
+  function stepH(t,size,w){return wl(t[0]+' : '+t[1],size,w*0.96).length*size*1.36+size*0.5;}
+  function drawStep(t,x,yy,size,w){
+    var ls=wl(t[0]+' : '+t[1],size,w*0.96);
+    ls.forEach(function(l,i){yy+=size*1.36;
+      if(i===0&&l.indexOf(t[0]+' :')===0){var e=t[0]+' :';c.font='700 '+size+'px '+FONT;c.fillText(e,x,yy);var ew=c.measureText(e+' ').width;c.font='400 '+size+'px '+FONT;c.fillText(l.slice(e.length+1),x+ew,yy);}
+      else{c.font='400 '+size+'px '+FONT;c.fillText(l,x,yy);}});
+    return yy+size*0.5;
   }
-  var lg=(o.kind==='vierge')?[]:(ch.legend||[]);
-  head('Légende');
-  lg.forEach(function(l){
-    y+=46;var col=CO[l[0]]||l[0];
-    c.fillStyle=col;c.strokeStyle='#12202e';c.lineWidth=2;
-    if(l[2]){c.setLineDash([14,8]);c.lineWidth=8;c.strokeStyle=col;c.beginPath();c.moveTo(x1,y-10);c.lineTo(x1+64,y-10);c.stroke();c.setLineDash([]);}
-    else{c.fillRect(x1,y-22,64,22);c.strokeRect(x1,y-22,64,22);}
-    c.fillStyle='#12202e';c.font='400 27px '+FONT;
-    if(o.kind==='muette'){c.fillText('..........................................',x1+82,y-2);}
-    else{var ls=wrap(c,l[1],cw-86);c.fillText(ls[0],x1+82,y-2);for(var k=1;k<ls.length;k++){y+=34;c.fillText(ls[k],x1+82,y-2);}}
-  });
-  if(o.kind==='vierge'){for(var b=0;b<5;b++){y+=58;c.strokeStyle='#12202e';c.lineWidth=2;c.strokeRect(x1,y-30,64,30);c.font='400 27px '+FONT;c.fillStyle='#12202e';c.fillText('..........................................',x1+82,y-4);}}
-  y+=40;
-  if(o.kind==='lu'){
-    var txt=ch.ph.map(function(p){return [p.era,plainT(p)];});
-    if(flat){ /* récit sous la carte, mots-clés à droite */
-      if(ch.mots&&ch.mots.length){head('Mots-clés');ch.mots.forEach(function(m){para(m[0]+' : '+m[1],25,x1,cw);y+=8;});}
-      var yy=y0+mh+46,size=27,W2=mw,lines;
-      for(;size>=19;size--){c.font='400 '+size+'px '+FONT;lines=0;txt.forEach(function(t){lines+=wrap(c,t[0]+' : '+t[1],W2).length;});if(lines*size*1.32+txt.length*6<PH-M-30-yy)break;}
-      y=yy-size*0.6;txt.forEach(function(t){c.font='400 '+size+'px '+FONT;var ls=wrap(c,t[0]+' : '+t[1],W2);ls.forEach(function(l,i){y+=size*1.32;if(i===0){var e=t[0]+' :';c.font='700 '+size+'px '+FONT;c.fillText(e,M,y);var ew=c.measureText(e+' ').width;c.font='400 '+size+'px '+FONT;c.fillText(l.slice(e.length).replace(/^\s/,''),M+ew,y);}else c.fillText(l,M,y);});y+=6;});
-    }else{
-      head('Le récit');var size2=27,tot;
-      for(;size2>=19;size2--){c.font='400 '+size2+'px '+FONT;tot=0;txt.forEach(function(t){tot+=wrap(c,t[0]+' : '+t[1],cw).length;});if(tot*size2*1.34+txt.length*10<PH-M-40-y)break;}
-      txt.forEach(function(t){para(t[0]+' : '+t[1],size2,x1,cw);y+=10;});
+  function legendH(w){var h=50;(ch.legend||[]).forEach(function(l){h+=10+Math.max(1,wl(l[1],27,w-86).length)*36;});return h;}
+  function drawLegend(){
+    var lg=vie?[]:(ch.legend||[]);head('Légende');
+    lg.forEach(function(l){
+      y+=46;var col=lc(CO[l[0]]||l[0],true);
+      if(l[2]){c.setLineDash([14,8]);c.lineWidth=8;c.strokeStyle=col;c.beginPath();c.moveTo(x1,y-10);c.lineTo(x1+64,y-10);c.stroke();c.setLineDash([]);}
+      else{c.fillStyle=col;c.strokeStyle='#12202e';c.lineWidth=2;c.fillRect(x1,y-24,64,24);c.strokeRect(x1,y-24,64,24);}
+      c.fillStyle='#12202e';c.font='400 27px '+FONT;
+      if(mut){c.fillText('……………………………………',x1+82,y-2);}
+      else{var ls=wl(l[1],27,cw-86);c.font='400 27px '+FONT;c.fillText(ls[0],x1+82,y-2);for(var k=1;k<ls.length;k++){y+=36;c.fillText(ls[k],x1+82,y-2);}}
+    });
+    if(vie){for(var b=0;b<5;b++){y+=56;c.strokeStyle='#12202e';c.lineWidth=2;c.strokeRect(x1,y-28,64,28);c.font='400 27px '+FONT;c.fillStyle='#12202e';c.fillText('……………………………………',x1+82,y-4);}}
+  }
+  function drawMots(limit){
+    if(!(ch.mots&&ch.mots.length))return;
+    if(y+120>limit)return;head('Mots-clés');
+    ch.mots.forEach(function(m){var ls=wl(m[0]+' : '+m[1],25,cw);if(y+ls.length*34>limit)return;ls.forEach(function(l,i){y+=34;if(i===0){var e=m[0]+' :';c.font='700 25px '+FONT;c.fillText(e,x1,y);var ew=c.measureText(e+' ').width;c.font='400 25px '+FONT;c.fillText(l.slice(e.length+1),x1+ew,y);}else{c.font='400 25px '+FONT;c.fillText(l,x1,y);}});y+=8;});
+  }
+  var mw0=flat?1640:1300,mh0=flat?1092:1300,s=1,size=28;
+  if(lu&&flat){
+    /* planisphère : récit sur deux colonnes sous la carte ; on réduit la carte avant de réduire le texte */
+    var gap=64,colW=(PW-2*M-gap)/2,ok=false,split=0;
+    var tries=[];[1,0.95,0.9,0.85,0.8].forEach(function(a){[30,29,28,27,26].forEach(function(b){tries.push([a,b]);});});
+    [0.8,0.75,0.7].forEach(function(a){[25,24,23,22].forEach(function(b){tries.push([a,b]);});});
+    for(var i=0;i<tries.length&&!ok;i++){
+      s=tries[i][0];size=tries[i][1];
+      var hs=txt.map(function(t){return stepH(t,size,colW);}),tot=hs.reduce(function(a,b){return a+b;},0),acc=0,k=0;
+      while(k<hs.length&&acc+hs[k]/2<tot/2){acc+=hs[k];k++;}
+      var h1=acc,h2=tot-acc;if(Math.max(h1,h2)<=FOOT-(y0+mh0*s+30)){ok=true;split=k;}
     }
+    var mw=mw0*s,mh=mh0*s;
+    c.drawImage(map,M,y0,mw,mh);c.strokeStyle='#12202e';c.lineWidth=3;c.strokeRect(M,y0,mw,mh);
+    x1=M+mw+46;cw=PW-M-x1;y=y0-6;drawLegend();drawMots(y0+mh);
+    c.fillStyle='#12202e';var ya=y0+mh+22,yb=ya;
+    txt.forEach(function(t,j){if(j<split)ya=drawStep(t,M,ya,size,colW);else yb=drawStep(t,M+colW+gap,yb,size,colW);});
+  }else if(lu){
+    /* globe : carte carrée, légende puis récit à droite */
+    var ok2=false;
+    var t2=[];[1,0.95,0.9,0.85].forEach(function(a){[30,29,28,27,26,25].forEach(function(b){t2.push([a,b]);});});
+    [0.8,0.75].forEach(function(a){[24,23,22].forEach(function(b){t2.push([a,b]);});});
+    for(var j=0;j<t2.length&&!ok2;j++){
+      s=t2[j][0];size=t2[j][1];var cwj=PW-M-(M+mw0*s+46);
+      var h=legendH(cwj)+60+txt.reduce(function(a,t){return a+stepH(t,size,cwj);},0);
+      if(h<=FOOT-y0)ok2=true;
+    }
+    var mws=mw0*s;
+    c.drawImage(map,M,y0,mws,mws);c.strokeStyle='#12202e';c.lineWidth=3;c.strokeRect(M,y0,mws,mws);
+    x1=M+mws+46;cw=PW-M-x1;y=y0-6;drawLegend();
+    head('Le récit');txt.forEach(function(t){y=drawStep(t,x1,y,size,cw);});
+    drawMots(FOOT);
   }else{
+    /* carte muette numérotée ou fond de carte : colonne de travail à droite */
+    c.drawImage(map,M,y0,mw0,mh0);c.strokeStyle='#12202e';c.lineWidth=3;c.strokeRect(M,y0,mw0,mh0);
+    x1=M+mw0+46;cw=PW-M-x1;y=y0+6;
+    c.font='400 30px '+FONT;c.fillStyle='#12202e';
+    c.fillText('Prénom : ……………………………',x1,y+20);y+=62;c.fillText('Date : ………………………………',x1,y+20);y+=34;
+    drawLegend();
+    if(mut&&nums.length){
+      head('Nomme les lieux');var two=nums.length>6&&cw>600,lh=48;
+      nums.forEach(function(n,k){var col=two?(k%2):0,row=two?Math.floor(k/2):k,xx=x1+col*(cw/2),yy=y+40+row*lh;
+        c.fillStyle='#fff';c.strokeStyle='#12202e';c.lineWidth=2.5;c.beginPath();c.arc(xx+16,yy-9,16,0,6.2832);c.fill();c.stroke();
+        c.fillStyle='#12202e';c.font='700 20px '+FONT;c.textAlign='center';c.fillText(String(k+1),xx+16,yy-2);c.textAlign='left';
+        c.font='400 27px '+FONT;c.fillText(two?'…………………':'…………………………………',xx+42,yy);});
+      y+=40+Math.ceil(nums.length/(two?2:1))*lh;
+    }
     head('Consigne');c.font='400 27px '+FONT;
-    for(var q=0;q<4;q++){y+=58;c.fillText('.....................................................................',x1,y);}
+    for(var q=0;q<3&&y+60<FOOT;q++){y+=56;c.fillText('……………………………………………………',x1,y);}
   }
   c.fillStyle='#5b6b7a';c.font='400 21px '+FONT;c.textAlign='left';
-  c.fillText('Atlas animé d’histoire-géographie · tracés schématiques, dates approximatives pour les périodes anciennes · fond de carte Natural Earth',M,PH-M+34);
+  c.fillText('Atlas historique du Pacifique · tracés schématiques, dates approximatives pour les périodes anciennes · fond de carte Natural Earth',M,PH-M+34);
   return pg;
 }
 function jpegBytes(cv){return new Promise(function(res,rej){cv.toBlob(function(b){if(!b){rej(new Error('image'));return;}var fr2=new FileReader();fr2.onload=function(){res(new Uint8Array(fr2.result));};fr2.onerror=rej;fr2.readAsArrayBuffer(b);},'image/jpeg',0.9);});}

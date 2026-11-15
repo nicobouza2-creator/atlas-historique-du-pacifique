@@ -638,7 +638,7 @@ var CH=[
  wiki:['Échange colombien','Traite atlantique','Grandes découvertes']}
 ];
 
-var SPK=[{sps:{0:'boutre',1:'boutre'}},{sp:'jonque'},{sp:'caravelle'},{sp:'nao',sps:{2:'caravelle'}},{sp:'nao'},{sp:'nao'},{sp:'caravelle'},{sp:'nao'},{sp:'nao'},{sp:'nao'},{sp:'flute'},{sp:'fregate'},{sp:'endeavour'},{sp:'fregate'}];
+var SPK=[{sps:{0:'boutre',1:'boutre'}},{sp:'jonque'},{sp:'caravelle'},{sp:'nao',sps:{2:'caravelle'}},{sp:'nao'},{sp:'nao'},{sp:'caravelle'},{sp:'nao'},{sp:'nef'},{sp:'galion'},{sp:'flute'},{sp:'fregate'},{sp:'endeavour'},{sp:'fregate'}];
 CH.forEach(function(c,i){var x=SPK[i]||{};if(x.sp)c.sp=x.sp;if(x.sps)c.sps=x.sps;});
 A.add({id:'decouvertes',title:'Les Grandes Découvertes',tag:'15 cartes · une par navigateur, 1400 – 1790',col:'esp',proj:'plan',
  sub:'Le temps des Grandes Découvertes : une carte par navigateur, de Zheng He à La Pérouse.',
