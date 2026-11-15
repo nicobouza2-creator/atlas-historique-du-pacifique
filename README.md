@@ -26,6 +26,7 @@ Pour chaque enquête, un dossier à télécharger :
 - `pdf/<volet>-<nn>.pdf` : dossier à imprimer (pièces, cahiers primaire et collège, corrigé) ;
 - `docx/<volet>-<nn>.docx` : le même dossier en Word, modifiable (même numérotation, même corrigé).
   `docx/<volet>.docx.txt` + `docx/index.json` servent au bouton « Dossier Word » de l'atlas (même format que l'artefact Claude, qui refuse les .docx).
+- `pdf/<volet>.pdf.txt` + `pdf/index.json` : les PDF d'un volet regroupés (base64 bout à bout) pour le bouton « Dossier PDF » ; l'artefact Claude ne garde que ces paquets (plafond de 512 fichiers). Régénérer avec `python3 outils/pack.py . pdf` (ou `docx`) après toute modification d'un dossier.
 
 Le dossier `outils/` contient les scripts Python qui régénèrent les dossiers Word à partir de l'atlas et des PDF (voir `outils/LISEZMOI.md`).
 
