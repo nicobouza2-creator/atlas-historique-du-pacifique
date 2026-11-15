@@ -3,7 +3,7 @@
 'use strict';
 var A=window.ATLAS,r=A.r,L=A.L,Pu=A.Pu,Ph=A.Ph,Sh=A.Sh,Lz=A.Lz,Rg=A.Rg;
 function ext(o,x){Object.keys(x).forEach(function(k){o[k]=x[k];});return o;}
-var NC={lon:165.9,lat:-21.25,z:19};
+var NC={lon:165.85,lat:-21.2,z:23};
 function cam(t,lon,lat,z){return {t:t,lon:lon,lat:lat,z:z};}
 function nc(t){return cam(t,NC.lon,NC.lat,NC.z);}
 
@@ -36,7 +36,7 @@ var CH=[
  labels:[
   L(6,164.1,-20.25,'Hoot ma Whaap',{nomark:true,dx:-14,al:'right'}),
   L(9,165.55,-20.72,'Paicî-Cèmuhî',{nomark:true,dx:10,al:'left'}),
-  L(12,165.1,-21.85,'Ajië-Aro',{nomark:true,dx:-12,al:'right'}),
+  L(12,165.1,-21.85,'Ajië-Arhö',{nomark:true,dx:-12,al:'right'}),
   L(15,166.5,-21.4,'Xârâcùù',{nomark:true,dx:10,al:'left'}),
   L(18,166.1,-22.6,'Drubea-Kapumë',{nomark:true,dx:-10,al:'right'}),
   L(21,166.55,-20.38,'Iaai (Ouvéa)',{nomark:true,dy:-12}),
@@ -52,14 +52,14 @@ var CH=[
   Ph(31,'28 langues','On parle 28 langues kanak. Avant l’arrivée des Européens, le pays compte plusieurs dizaines de milliers d’habitants. On cultive l’igname et le taro, on échange entre le bord de mer et la montagne.','kan')
  ],
  photos:[Sh('grandecase',1,6,'tr',2),Sh('tribu',32,39,'tr',2),Sh('fleche',39,46,'bl',-2,'contain')],
- legend:[['afr','Hoot ma Whaap'],['aus','Paicî-Cèmuhî'],['lap','Ajië-Aro'],['pol','Xârâcùù'],['neo','Drubea-Kapumë'],['xet','Iaai'],['mis','Drehu'],['pap','Nengone']],
+ legend:[['afr','Hoot ma Whaap'],['aus','Paicî-Cèmuhî'],['lap','Ajië-Arhö'],['pol','Xârâcùù'],['neo','Drubea-Kapumë'],['xet','Iaai'],['mis','Drehu'],['pap','Nengone']],
  mots:[['Aire coutumière','Grande région kanak qui regroupe des clans et des langues proches.'],['Coutume','Ensemble des règles, des gestes et des paroles qui organisent la vie kanak.'],['Clan','Groupe de familles qui ont le même ancêtre.']],
  q:[['Combien y a-t-il d’aires coutumières ?','Huit : cinq sur la Grande Terre et trois aux îles Loyauté.'],['Dans quelle aire se trouve Pouembout ?','Dans l’aire Paicî-Cèmuhî.'],['Combien de langues kanak parle-t-on ?','28.']],
  wiki:['Aire coutumière','Langues kanak','Kanak']},
 
 /* 2 --------------------------------------------------------------- */
 {short:'Premiers contacts',col:'eur',dur:50,when:[1774,1853],dates:'1774 – 1853',
- cam:[nc(0),cam(8,165.2,-20.5,34),cam(14,165.6,-21.2,22),cam(22,167.3,-22.2,30),cam(34,166.8,-21.1,26),nc(44),nc(50)],
+ cam:[nc(0),cam(8,165.2,-20.5,61),cam(14,165.6,-21.2,22),cam(22,167.3,-22.2,54),cam(34,166.8,-21.1,47),nc(44),nc(50)],
  zones:[Rg(GT,'kan',-5,0.35,0.01),Lz(LOY,'kan',-5,0.35,0.01)],
  routes:[
   r('eur',2,9,3.2,[[169.6,-19.9],[168.5,-20],[166.6,-19.95],[164.6,-20.1]],{ship:true,sp:'endeavour',straight:true,step:0.2}),
@@ -79,7 +79,7 @@ var CH=[
  ],
  pulses:[Pu(8,164.5,-20.3,'#ffd166',true)],
  ph:[
-  Ph(0,'4 septembre 1774','Le navigateur anglais James Cook aborde à Balade. Il nomme le pays « New Caledonia ». Les Kanak l’accueillent et échangent avec lui.','eur'),
+  Ph(0,'4 – 5 septembre 1774','Le navigateur anglais James Cook aperçoit la Grande Terre le 4 septembre ; le 5, il débarque à Balade. Il nomme le pays « New Caledonia ». Les Kanak l’accueillent et échangent avec lui.','eur'),
   Ph(12,'1792 – 1793','Le Français d’Entrecasteaux, parti à la recherche de La Pérouse, longe la côte ouest, puis séjourne à Balade.','fra'),
   Ph(20,'1841 : santaliers et baleiniers','Des marchands viennent chercher le bois de santal, d’abord à l’île des Pins et aux Loyauté. Ils apportent du fer, des tissus, des fusils… et des maladies inconnues, qui tuent beaucoup de Kanak.','epi'),
   Ph(30,'1841 – 1843 : les missionnaires','Des enseignants protestants venus de Polynésie s’installent à Maré, puis à Lifou. En 1843, des pères maristes catholiques fondent une mission à Balade.','mis'),
@@ -93,7 +93,7 @@ var CH=[
 
 /* 3 --------------------------------------------------------------- */
 {short:'1853 : la prise de possession',col:'fra',dur:48,when:[1853,1864],dates:'1853 – 1864',
- cam:[nc(0),cam(6,165,-20.5,36),cam(12,165,-20.5,36),cam(19,167.1,-22.4,36),cam(24,167.1,-22.4,36),cam(30,166.6,-22.3,60),cam(35,166.6,-22.3,60),nc(40),nc(48)],
+ cam:[nc(0),cam(6,165,-20.5,65),cam(12,165,-20.5,65),cam(19,167.1,-22.4,65),cam(24,167.1,-22.4,65),cam(30,166.6,-22.3,108),cam(35,166.6,-22.3,108),nc(40),nc(48)],
  zones:[Rg(GT,'kan',-5,0.35,0.01),Lz(LOY,'kan',-5,0.35,0.01),Rg(GT,'fra',10,0.5,3),Lz(LOY,'fra',36,0.6,2)],
  routes:[
   r('fra',2,9,3.2,[[168.5,-19.5],[166.5,-19.9],[164.7,-20.1]],{ship:true,sp:'troismats',straight:true,step:0.2}),
@@ -122,11 +122,11 @@ var CH=[
 
 /* 4 --------------------------------------------------------------- */
 {short:'Le bagne',col:'eur',dur:68,when:[1864,1931],dates:'1864 – 1931',
- cam:[cam(0,0,32,1),cam(6,55,-30,1),cam(12,150,-32,1.5),cam(18,166.5,-22.25,80),cam(27,166.5,-22.25,80),cam(31,167,-22.4,46),cam(40,167,-22.4,46),cam(44,165.75,-21.75,60),cam(52,165.3,-21.4,46),cam(59,165.3,-21.4,46),nc(63),nc(68)],
+ cam:[cam(0,0,32,1),cam(6,55,-30,1),cam(12,150,-32,1.5),cam(18,166.5,-22.25,144),cam(27,166.5,-22.25,144),cam(31,167,-22.4,83),cam(40,167,-22.4,83),cam(44,165.75,-21.75,108),cam(52,165.3,-21.4,83),cam(59,165.3,-21.4,83),nc(63),nc(68)],
  zones:[],
  routes:[r('eur',1,17,3,[[-1.4,46.15],[-4.5,46.2],[-9.5,44.6],[-11.5,41],[-13,36],[-20.5,26],[-22,8],[-15,-12],[5,-34],[18,-37],[50,-42],[90,-43],[125,-43],[148,-45],[160,-37],[165.5,-27],[166.2,-22.6]],{ship:true,sp:'troismats'})],
  labels:[
-  L(1,-1.4,46.2,'Île de Ré',{sub:'départ des convois',dx:10,al:'left',end:9}),
+  L(1,-1.4,46.2,'Île de Ré',{sub:'départ des convois à partir de 1873 (avant : Toulon)',dx:10,al:'left',end:9}),
   L(18,166.41,-22.26,'Île Nou',{sub:'pénitencier-dépôt, 1864',mark:'site',dx:-10,dy:12,al:'right',gold:true,zmin:30}),
   L(19,166.46,-22.28,'Nouméa',{dx:10,dy:12,al:'left',zmin:14}),
   L(29,166.42,-22.22,'Presqu’île Ducos',{sub:'déportés politiques',mark:'site',dx:-10,dy:-14,al:'right',zmin:30}),
@@ -146,7 +146,7 @@ var CH=[
   Ph(28,'1872 : les déportés de la Commune','Plus de 4 000 condamnés politiques arrivent après la Commune de Paris. Ils sont enfermés à la presqu’île Ducos, comme Louise Michel, ou à l’île des Pins. Des Kabyles d’Algérie, révoltés en 1871, sont déportés eux aussi.','cat'),
   Ph(41,'Des camps dans la brousse','Prony, Fort Teremba, La Foa, Bourail : les forçats coupent le bois, cultivent ou travaillent dans les mines. Les plus rebelles sont envoyés au camp disciplinaire de Camp Brun.','eur'),
   Ph(52,'Rester dans la colonie','Sa peine finie, le condamné doit rester en Nouvelle-Calédonie. Certains reçoivent une terre, une « concession », à Bourail, à La Foa ou à Pouembout, créé en 1883 comme centre agricole pénitentiaire.','kan'),
-  Ph(62,'1897 – 1931 : la fin du bagne','Environ 30 000 condamnés ont été envoyés en Nouvelle-Calédonie. Les convois s’arrêtent en 1897. Le bagne ferme peu à peu ; il disparaît officiellement en 1931.','eur')
+  Ph(62,'1897 – 1931 : la fin du bagne','Environ 30 000 condamnés ont été envoyés en Nouvelle-Calédonie. Les convois s’arrêtent en 1897. Le bagne ferme peu à peu ; les derniers centres pénitentiaires ferment en 1931.','eur')
  ],
  photos:[Sh('surveillant',19,27,'tr',2),Sh('forcats',22,28,'bl',-2),Sh('ducos',29,35,'tr',2,'contain'),Sh('pins_bagne',35,40,'tl',-2),Sh('teremba',45,51,'tr',2)],
  legend:[['eur','Convois de forçats (1864–1897)'],['kan','◆ Centres pénitentiaires']],
@@ -156,7 +156,7 @@ var CH=[
 
 /* 5 --------------------------------------------------------------- */
 {short:'Colons libres et cantonnement',col:'kan',dur:58,when:[1855,1903],dates:'1855 – 1903',
- cam:[nc(0),nc(10),cam(16,165.6,-21.6,30),cam(34,165.6,-21.6,30),nc(40),nc(58)],
+ cam:[nc(0),nc(10),cam(16,165.6,-21.6,54),cam(34,165.6,-21.6,54),nc(40),nc(58)],
  zones:[
   Rg(GT,'kan',1,0.6,1.5),Lz(LOY,'kan',1,0.6,1.5),
   Rg(OUEST,'eur',12,0.85,3,{c:[166.45,-22.27],r0:0.05,r1:3.2,d:20}),
@@ -190,7 +190,7 @@ var CH=[
 
 /* 6 --------------------------------------------------------------- */
 {short:'Les Kanak face à la colonisation',col:'ame',dur:56,when:[1878,1921],dates:'1878 – 1921',
- cam:[cam(0,165.75,-21.7,44),cam(22,165.6,-21.6,44),nc(30),nc(38),cam(42,164.95,-20.9,46),cam(49,164.95,-20.9,46),nc(53),nc(56)],
+ cam:[cam(0,165.75,-21.7,79),cam(22,165.6,-21.6,79),nc(30),nc(38),cam(42,164.95,-20.9,83),cam(49,164.95,-20.9,83),nc(53),nc(56)],
  zones:[
   Rg(GT,'kan',-5,0.3,0.01),
   Rg(R1878,'ame',3,0.7,2,{c:[165.85,-21.72],r0:0.04,r1:1.1,d:14}),
@@ -229,7 +229,7 @@ var CH=[
 
 /* 7 --------------------------------------------------------------- */
 {short:'Le nickel et les travailleurs venus d’ailleurs',col:'jade',dur:60,when:[1864,1949],dates:'1864 – 1949',
- cam:[nc(0),cam(10,166,-21.5,34),cam(17,166,-21.5,34),cam(23,148,2,1.5),cam(42,148,2,1.5),nc(48),nc(60)],
+ cam:[nc(0),cam(10,166,-21.5,61),cam(17,166,-21.5,61),cam(23,148,2,1.5),cam(42,148,2,1.5),nc(48),nc(60)],
  zones:[
   Rg(GT,'kan',-5,0.25,0.01),
   Rg([166.22,-21.63,0.13],'jade',3,0.9,2),Rg([165.83,-21.41,0.1],'jade',5,0.9,2),Rg([165.68,-21.3,0.1],'jade',6,0.9,2),Rg([165.05,-21.27,0.1],'jade',7,0.9,2),Rg([164.8,-21,0.1],'jade',7.5,0.9,2),Rg([164.22,-20.46,0.1],'jade',8,0.9,2),Rg([166.95,-22.3,0.12],'jade',8.5,0.9,2)
@@ -269,7 +269,7 @@ var CH=[
 
 /* 8 --------------------------------------------------------------- */
 {short:'Deux guerres mondiales',col:'mis',dur:58,when:[1914,1946],dates:'1914 – 1946',
- cam:[nc(0),cam(6,100,-10,1),cam(15,45,25,1.2),cam(22,45,25,1.2),cam(27,-165,-5,1),cam(34,164,-16,4),cam(40,164,-16,4),cam(44,165.8,-21.6,30),cam(58,165.8,-21.6,30)],
+ cam:[nc(0),cam(6,100,-10,1),cam(15,45,25,1.2),cam(22,45,25,1.2),cam(27,-165,-5,1),cam(34,164,-16,4),cam(40,164,-16,4),cam(44,165.8,-21.6,54),cam(58,165.8,-21.6,54)],
  zones:[],
  routes:[
   r('fra',3,16,3,[[166.2,-22.7],[158,-33],[151,-40.5],[135,-39],[113,-37],[95,-20],[78,2],[58,11.5],[45,12],[43.3,12.6],[38,20],[33.5,27.5],[32.4,31.5],[25,34],[15,37],[8,41],[5.3,43.1]],{sp:'vapeur',ship:true,nosea:true}),
@@ -290,7 +290,7 @@ var CH=[
  ],
  pulses:[Pu(33,166.4,-22.3,'#7cb7ff',true)],
  ph:[
-  Ph(0,'1914 – 1918','Environ 2 000 Calédoniens partent se battre en France, à 17 000 km. Parmi eux, près d’un millier de tirailleurs kanak, qui n’étaient pourtant pas citoyens. Plus de 500 soldats ne reviendront pas.','fra'),
+  Ph(0,'1914 – 1918','Environ 2 000 Calédoniens partent se battre en France, à 17 000 km. Parmi eux, plus d’un millier (1 134) de tirailleurs kanak, qui n’étaient pourtant pas citoyens. Plus de 500 soldats ne reviendront pas.','fra'),
   Ph(16,'1940 : la France libre','En septembre 1940, la Nouvelle-Calédonie choisit le camp du général de Gaulle. Le Bataillon du Pacifique se bat à Bir Hakeim, dans le désert de Libye, en 1942.','fra'),
   Ph(23,'12 mars 1942 : les Américains','Après l’attaque japonaise de Pearl Harbor, la guerre arrive dans le Pacifique. Environ 17 000 soldats américains débarquent à Nouméa en une seule journée. Le pays devient une immense base arrière pour la bataille de Guadalcanal.','mis'),
   Ph(43,'Un pays transformé','Plus d’un million de soldats passent par la Nouvelle-Calédonie. Ils construisent des routes, des hôpitaux et des aérodromes, comme Tontouta ou la Plaine des Gaïacs, près de Pouembout.','mis'),
@@ -299,7 +299,7 @@ var CH=[
  photos:[Sh('tirailleurs',4,12,'tr',2),Sh('us1942',28,36,'tr',2)],
  legend:[['fra','Soldats calédoniens vers la France (1915–1918)'],['mis','Armée américaine (1942–1946)']],
  mots:[['Tirailleur','Soldat recruté dans les colonies.'],['Base arrière','Lieu, loin des combats, où l’armée se repose, se soigne et prépare ses attaques.'],['Aérodrome','Terrain aménagé pour les avions.']],
- q:[['Combien de Calédoniens partent à la guerre de 1914–1918 ?','Environ 2 000, dont près d’un millier de tirailleurs kanak.'],['Que se passe-t-il le 12 mars 1942 ?','Les soldats américains débarquent à Nouméa.'],['Quel aérodrome américain se trouvait près de Pouembout ?','La Plaine des Gaïacs.']],
+ q:[['Combien de Calédoniens partent à la guerre de 1914–1918 ?','Environ 2 000, dont plus d’un millier (1 134) de tirailleurs kanak.'],['Que se passe-t-il le 12 mars 1942 ?','Les soldats américains débarquent à Nouméa.'],['Quel aérodrome américain se trouvait près de Pouembout ?','La Plaine des Gaïacs.']],
  wiki:['Bataillon du Pacifique','Histoire de la Nouvelle-Calédonie','Bataille de Bir Hakeim']},
 
 /* 9 --------------------------------------------------------------- */

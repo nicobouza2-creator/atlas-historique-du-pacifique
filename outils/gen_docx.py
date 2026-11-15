@@ -11,8 +11,11 @@ from docx.oxml import OxmlElement
 from PIL import Image
 
 REPO = '/home/claude/repo/'; DOS = '/home/claude/dossiers/'; OUT = DOS + 'docx/'; os.makedirs(OUT, exist_ok=True)
+HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes'}   # volets d’histoire : « historiques », méthode du témoin
+METH = {True: ['Qui l’a fait ? (un témoin, un savant, un voyageur, l’atlas…)', 'Quand ? (au moment des faits, ou bien plus tard ?)', 'Qu’est-ce que c’est ? (photo, carte, texte, tableau, objet…)', 'Pour quoi faire ? (raconter, expliquer, convaincre, garder une trace…)'],
+        False: ['Qui l’a fait ? (un témoin, un savant, un organisme officiel, l’atlas…)', 'Quand ? (au moment des faits, ou bien plus tard ?)', 'Qu’est-ce que c’est ? (photo, carte, texte, tableau, graphique…)', 'Pour quoi faire ? (raconter, expliquer, informer, convaincre…)']}
 D = json.load(open(DOS + 'data.json')); IMG = D['IMG']; X = json.load(open(DOS + 'extras.json'))
-PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GNC', 'nickel': 'NI', 'mondial': 'MO'}
+PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GNC', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC'}
 INK, BROWN, RED, MUTED = RGBColor(0x1b, 0x24, 0x30), RGBColor(0x6b, 0x41, 0x00), RGBColor(0xb3, 0x26, 0x1e), RGBColor(0x5b, 0x64, 0x70)
 FONT = 'Arial'; KFONT = {'carnet': ('Segoe Print', False, 11), 'lettre': ('Georgia', True, 12), 'tapuscrit': ('Courier New', False, 11), 'officiel': ('Courier New', False, 11)}
 EMO = re.compile('[\U0001F000-\U0001FAFF⌀-➿⬀-⯿️‍]')
@@ -208,7 +211,7 @@ class Doc:
         has_map = any(d['k'] == 'map' for pg in pgs for d in ds(pg['d'])); n_ex = len(pgs) + 1
         n_map = None if has_map else n_ex + 1; n_last = (n_map or n_ex) + 1
         # couverture
-        s.p('ATLAS HISTORIQUE DU PACIFIQUE · BUREAU DES ENQUÊTES HISTORIQUES', 9.5, bold=True, color=MUTED, align=WD_ALIGN_PARAGRAPH.CENTER)
+        s.p('ATLAS HISTORIQUE DU PACIFIQUE · BUREAU DES ENQUÊTES' + (' HISTORIQUES' if s.vol in HIST else ''), 9.5, bold=True, color=MUTED, align=WD_ALIGN_PARAGRAPH.CENTER)
         s.p('DOSSIER D’ENQUÊTE', 30, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, after=2)
         s.p('Affaire n° %s  ·  %s' % (key, ch['dates']), 13, font='Courier New', align=WD_ALIGN_PARAGRAPH.CENTER, after=10)
         s.p(ch['short'], 21, bold=True, color=BROWN, align=WD_ALIGN_PARAGRAPH.CENTER, after=6)
@@ -224,13 +227,11 @@ class Doc:
         s.boxed('ORDRE DE MISSION N° ' + key, ['Objet : enquête sur « %s » (%s).' % (ch['short'], ch['dates']), 'Enquêteur, enquêtrice,',
                  'Une question reste à élucider : « %s »' % e['q'],
                  'Ce dossier contient %d pièces : photographies, textes, cartes et tableaux. Étudie chacune d’elles, réponds aux questions de ton cahier, note les indices, puis rédige ton rapport d’enquête.' % n_last,
-                 'Le chef du Bureau des enquêtes historiques'], 'FFFFFF', 'tapuscrit', badge='CONFIDENTIEL')
+                 'Le chef du Bureau des enquêtes' + (' historiques' if s.vol in HIST else '')], 'FFFFFF', 'tapuscrit', badge='CONFIDENTIEL')
         s.h('Avant d’ouvrir les pièces, coche ton hypothèse :')
         for x in e['h'] + ['Je ne sais pas encore']: s.p('%s  %s' % (BOX, clean(x)), indent=0.8, after=2)
         s.p(after=4)
-        s.boxed('La méthode de l’enquêteur : 5 questions à poser à chaque pièce', ['Qui l’a fait ? (un témoin, un savant, un voyageur, l’atlas…)',
-                 'Quand ? (au moment des faits, ou bien plus tard ?)', 'Qu’est-ce que c’est ? (photo, carte, texte, tableau, objet…)',
-                 'Pour quoi faire ? (raconter, expliquer, convaincre, garder une trace…)', 'Peut-on lui faire confiance ? (est-ce un point de vue ? faut-il le comparer à une autre pièce ?)'],
+        s.boxed('La méthode de l’enquêteur : 5 questions à poser à chaque pièce', METH[s.vol in HIST] + ['Peut-on lui faire confiance ? (est-ce un point de vue ? faut-il le comparer à une autre pièce ?)'],
                 'DBE9F6', title_color=INK)
         toc = [('Pièce n° %d' % (i + 1), pg['t']) for i, pg in enumerate(pgs)] + [('Pièce n° %d' % n_ex, ex['t'])]
         if n_map: toc.append(('Pièce n° %d' % n_map, 'Carte de l’atlas'))

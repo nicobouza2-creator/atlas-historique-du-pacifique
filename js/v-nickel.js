@@ -4,7 +4,7 @@
 'use strict';
 var A=window.ATLAS,r=A.r,L=A.L,Pu=A.Pu,Ph=A.Ph,Sh=A.Sh,Lz=A.Lz,Rg=A.Rg;
 function cam(t,lon,lat,z){return {t:t,lon:lon,lat:lat,z:z};}
-function nc(t){return cam(t,165.9,-21.25,19);}
+function nc(t){return cam(t,165.85,-21.2,23);}
 
 /* contours schématiques */
 var GT=[[163.3,-19.3],[164.6,-19.7],[165.6,-20.45],[166.9,-21.6],[167.25,-22.3],[167.9,-22.5],[167.8,-23],[166.2,-22.9],[164.9,-21.9],[163.4,-20.6]];
@@ -26,7 +26,7 @@ var CH=[
 
 /* 2 --------------------------------------------------------------- */
 {short:'Pourquoi du nickel ici ?',col:'pol',dur:56,dates:'il y a plus de 30 millions d’années → aujourd’hui',
- cam:[nc(0),nc(16),cam(20,166.7,-22.1,36),cam(30,166.7,-22.1,36),cam(34,164.85,-21.0,40),cam(42,164.85,-21.0,40),nc(48),nc(56)],
+ cam:[nc(0),nc(16),cam(20,166.7,-22.1,65),cam(30,166.7,-22.1,65),cam(34,164.85,-21.0,72),cam(42,164.85,-21.0,72),nc(48),nc(56)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)].concat(massifs(6,0.75)),
  routes:[r('mis',1,6,3,[[169.5,-19.4],[168.2,-20.1],[166.9,-20.6]],{straight:true,dash:true})],
  labels:[
@@ -56,7 +56,7 @@ var CH=[
 
 /* 3 --------------------------------------------------------------- */
 {short:'Les premiers métaux (1864 – 1914)',col:'ere',dur:58,when:[1864,1914],dates:'1864 – 1914',
- cam:[nc(0),cam(6,164.38,-20.38,42),cam(19,164.38,-20.38,42),cam(23,166.2,-21.65,48),cam(31,166.2,-21.65,48),cam(36,166.65,-22.05,30),cam(44,166.65,-22.05,30),nc(50),nc(58)],
+ cam:[nc(0),cam(6,164.38,-20.38,76),cam(19,164.38,-20.38,76),cam(23,166.2,-21.65,86),cam(31,166.2,-21.65,86),cam(36,166.65,-22.05,54),cam(44,166.65,-22.05,54),nc(50),nc(58)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)].concat(massifs(-5,0.3)),
  routes:[
   r('ere',25,29,2.6,[[166.15,-21.67],[166.19,-21.64],[166.23,-21.6]],{straight:true,step:0.01}),
@@ -90,7 +90,7 @@ var CH=[
 
 /* 4 --------------------------------------------------------------- */
 {short:'Où sont les mines aujourd’hui ?',col:'pol',dur:60,when:[1990,2026],dates:'aujourd’hui',
- cam:[nc(0),nc(6),cam(8,164.55,-20.7,30),cam(18,164.55,-20.7,30),cam(21,165.95,-21.5,36),cam(30,165.95,-21.5,36),cam(33,166.88,-22.3,42),cam(40,166.88,-22.3,42),nc(46),nc(60)],
+ cam:[nc(0),nc(6),cam(8,164.55,-20.7,54),cam(18,164.55,-20.7,54),cam(21,165.95,-21.5,65),cam(30,165.95,-21.5,65),cam(33,166.88,-22.3,76),cam(40,166.88,-22.3,76),nc(46),nc(60)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)].concat(massifs(1,0.45)),
  routes:[],
  labels:[
@@ -117,14 +117,14 @@ var CH=[
   Ph(52,'Des mines à l’arrêt','Depuis les violences de mai 2024, sept sites de la SLN sur la côte Est, dont trois à Thio, sont inaccessibles. La SLN espère en rouvrir quatre en 2026 et ceux de Thio en 2027.','ame')
  ],
  photos:[Sh('laterit',8,16,'tr',2),Sh('panoramavoh',20,28,'bl',-2),Sh('goromine',32,40,'tr',2),Sh('casque',43,51,'bl',-2),Sh('thiocentre',52,60,'tr',2)],
- legend:[['pol','Massifs miniers'],['ere','Mine de nickel','mine'],['eur','Ville','ville'],['ame','Site bloqué depuis 2024']],
+ legend:[['pol','Massifs de péridotite (roches à nickel)'],['ere','Mine de nickel','mine'],['eur','Ville','ville'],['ame','Site bloqué depuis 2024']],
  mots:[['Mine à ciel ouvert','Mine creusée en surface, en gradins, et non sous terre.'],['Exploitant','Entreprise qui a le droit d’extraire le minerai.'],['Petit mineur','Entreprise qui extrait du minerai pour le vendre brut, sans usine.'],['Titre minier','Autorisation officielle d’exploiter une zone.']],
  q:[['Citer trois mines de la côte Ouest.','Par exemple Tiébaghi, Poum, Ouaco, le Koniambo, Népoui-Kopéto.'],['Citer deux mines de la côte Est.','Par exemple Thio, Kouaoua, Nakéty, Poro.'],['Quelle est la plus ancienne société minière ?','La SLN (Société Le Nickel), créée en 1880.'],['Quelle mine est la plus proche de Pouembout ?','Le Koniambo.']],
  wiki:['Société Le Nickel','Société minière du Sud Pacifique','Koniambo Nickel','Mine à ciel ouvert']},
 
 /* 5 --------------------------------------------------------------- */
 {short:'De la montagne à la mer',col:'mis',dur:60,dates:'aujourd’hui',
- cam:[cam(0,164.78,-21.05,58),cam(16,164.78,-21.05,58),cam(19,165.85,-21.45,52),cam(24,165.85,-21.45,52),cam(29,166.4,-21.95,22),cam(46,166,-21.7,20),nc(52),nc(60)],
+ cam:[cam(0,164.78,-21.05,104),cam(16,164.78,-21.05,104),cam(19,165.85,-21.45,94),cam(24,165.85,-21.45,94),cam(29,166.4,-21.95,22),cam(46,166,-21.7,20),nc(52),nc(60)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)].concat(massifs(-5,0.35)),
  routes:[
   r('ere',3,8,3.2,[[164.84,-20.99],[164.78,-21.0],[164.73,-21.01]],{straight:true,step:0.01}),
@@ -163,7 +163,7 @@ var CH=[
 
 /* 6 --------------------------------------------------------------- */
 {short:'Les trois usines',col:'lap',dur:62,when:[1910,2026],dates:'1910 – aujourd’hui',
- cam:[nc(0),cam(5,166.5,-22.22,52),cam(12,166.7,-22.22,40),cam(28,166.7,-22.22,40),cam(31,164.78,-21.02,52),cam(42,164.78,-21.02,52),cam(46,148,4,1.45),cam(55,148,4,1.45),nc(62)],
+ cam:[nc(0),cam(5,166.5,-22.22,94),cam(12,166.7,-22.22,72),cam(28,166.7,-22.22,72),cam(31,164.78,-21.02,94),cam(42,164.78,-21.02,94),cam(46,148,4,1.45),cam(55,148,4,1.45),nc(62)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)].concat(massifs(-5,0.3)),
  routes:[
   r('kan',13,16,2.4,[[166.88,-22.15],[166.7,-22.2],[166.55,-22.24],[166.44,-22.25]],{straight:true,dash:true,step:0.01}),
@@ -197,7 +197,7 @@ var CH=[
 
 /* 7 --------------------------------------------------------------- */
 {short:'Le Nord, VKP et le rééquilibrage',col:'afr',dur:58,when:[1988,2026],dates:'1988 – aujourd’hui',
- cam:[nc(0),nc(10),cam(12,164.6,-20.65,30),cam(17,164.6,-20.65,30),cam(20,164.82,-21.05,62),cam(42,164.82,-21.05,62),nc(48),nc(58)],
+ cam:[nc(0),nc(10),cam(12,164.6,-20.65,54),cam(17,164.6,-20.65,54),cam(20,164.82,-21.05,112),cam(42,164.82,-21.05,112),nc(48),nc(58)],
  zones:[Rg(P_NORD,'afr',1,0.32,2),Rg(P_SUD,'mis',2,0.25,2),Lz(LOY,'xet',3,0.35,2),Rg([164.8,-21.04,0.1],'kan',20,0.45,2)],
  routes:[
   r('afr',12,16,2.6,[[164.09,-20.29],[164.4,-20.55],[164.8,-20.97]],{dash:true}),
@@ -268,7 +268,7 @@ var CH=[
 
 /* 9 --------------------------------------------------------------- */
 {short:'Mines et environnement',col:'xet',dur:60,dates:'aujourd’hui',
- cam:[nc(0),cam(5,166.2,-21.64,46),cam(16,166.2,-21.64,46),cam(19,166.85,-22.2,44),cam(36,166.85,-22.2,44),nc(42),cam(46,165.5,-20.9,15),cam(60,165.5,-20.9,15)],
+ cam:[nc(0),cam(5,166.2,-21.64,83),cam(16,166.2,-21.64,83),cam(19,166.85,-22.2,79),cam(36,166.85,-22.2,79),nc(42),cam(46,165.5,-20.9,15),cam(60,165.5,-20.9,15)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)].concat(massifs(-5,0.3)).concat([
   Rg([166.95,-22.62,0.33],'aus',46,0.45,2),Rg([165.3,-21.62,0.22],'aus',46.5,0.45,2),Rg([164.6,-20.38,0.28],'aus',47,0.45,2),
   Rg([163.65,-19.45,0.38],'aus',47.5,0.45,2),Rg([163.05,-18.4,0.2],'aus',48,0.45,2),Rg([166.42,-20.55,0.26],'aus',48.5,0.45,2)]),
@@ -293,14 +293,14 @@ var CH=[
   Ph(45,'Le lagon, patrimoine mondial','Depuis 2008, une grande partie des lagons calédoniens est inscrite au patrimoine mondial de l’UNESCO. Protéger le lagon, c’est aussi surveiller ce que les rivières y apportent.','aus')
  ],
  photos:[Sh('rivrouge',0,7,'tr',2),Sh('paysagesud',7,15,'bl',-2),Sh('tailings',18,26,'tr',2),Sh('maquis',27,35,'tr',2),Sh('rivbleue',36,44,'bl',-2),Sh('lagonsat',46,54,'tr',2)],
- legend:[['aus','Lagons inscrits à l’UNESCO (2008)'],['pol','Massifs miniers'],['ere','Mine','mine'],['lap','Usine','usine'],['pol','Terre emportée par l’érosion']],
+ legend:[['aus','Lagons inscrits à l’UNESCO (2008)'],['pol','Massifs de péridotite (roches à nickel)'],['ere','Mine','mine'],['lap','Usine','usine'],['pol','Terre emportée par l’érosion']],
  mots:[['Érosion','Usure du sol par la pluie, le vent ou les rivières.'],['Stériles','Roches et terres sans assez de métal, retirées pour atteindre le minerai.'],['Endémique','Qui ne vit nulle part ailleurs dans le monde.'],['Revégétalisation','Replanter une végétation sur un terrain abîmé.'],['Patrimoine mondial','Lieux protégés pour toute l’humanité par l’UNESCO.']],
  q:[['Pourquoi les rivières près des mines deviennent-elles rouges ?','Parce que la pluie emporte la terre des pentes nues (érosion).'],['Que veut dire « endémique » ?','Qui ne vit nulle part ailleurs dans le monde.'],['Depuis quand les lagons sont-ils au patrimoine mondial ?','Depuis 2008.'],['Comment répare-t-on une ancienne mine ?','On remodèle le terrain et on replante des plantes locales.']],
  wiki:['Lagons de Nouvelle-Calédonie','Maquis minier','Endémisme','Parc provincial de la Rivière Bleue']},
 
 /* 10 -------------------------------------------------------------- */
 {short:'Un pays qui vit du nickel',col:'kan',dur:56,when:[2024,2026],dates:'2024 – 2026',
- cam:[nc(0),cam(9,166.45,-22.27,58),cam(18,166.45,-22.27,58),nc(24),nc(56)],
+ cam:[nc(0),cam(9,166.45,-22.27,104),cam(18,166.45,-22.27,104),nc(24),nc(56)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)],
  routes:[],
  labels:[
