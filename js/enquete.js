@@ -156,7 +156,7 @@ function b64(t){var s=atob(t.trim()),u=new Uint8Array(s.length);for(var i=0;i<s.
 var MIME={pdf:'application/pdf',docx:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'};
 function dossier(S,b,ext){
   ext=ext||'pdf';
-  var code=({pacifique:'P',caledonie:'NC',monde:'PT',decouvertes:'GD',geonc:'GN',nickel:'NI',mondial:'MO'}[S.vol]||'X')+'-'+pad2(S.ci+1),url=ext+'/'+S.vol+'-'+pad2(S.ci+1)+'.'+ext,name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.'+ext;
+  var code=({pacifique:'P',caledonie:'NC',monde:'PT',decouvertes:'GD',geonc:'GN',nickel:'NI',mondial:'MO',emc:'EMC'}[S.vol]||'X')+'-'+pad2(S.ci+1),url=ext+'/'+S.vol+'-'+pad2(S.ci+1)+'.'+ext,name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.'+ext;
   var old=b.textContent;b.disabled=true;b.textContent='⏳ Préparation du dossier…';
   function done(t){b.disabled=false;b.textContent=t||old;if(t)setTimeout(function(){b.textContent=old;},4000);}
   getPack(S,ext).catch(function(){return fetch(url).then(function(r){if(!r.ok)throw new Error('absent');return r.blob();});}).then(function(blob){

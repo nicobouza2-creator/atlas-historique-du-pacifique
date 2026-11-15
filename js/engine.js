@@ -16,7 +16,7 @@ function sstep(x){x=clamp(x,0,1);return x*x*(3-2*x);}
 function fr(n){return Math.round(n).toLocaleString('fr-FR');}
 
 var canvas=document.getElementById('c'),ctx=canvas.getContext('2d'),elStage=document.getElementById('stage');
-var AVOID=null,W=0,H=0,DPR=1,center=[0,0],camNow={lon:0,lat:0,z:1},R=100,KPX=100;
+var LBOX=[],AVOID=null,W=0,H=0,DPR=1,center=[0,0],camNow={lon:0,lat:0,z:1},R=100,KPX=100;
 var PROJ={globe:d3.geoOrthographic().clipAngle(90).precision(0.5),plan:d3.geoEqualEarth().precision(0.5),merc:d3.geoMercator().precision(0.5)};
 var projKind='globe',projection=PROJ.globe;
 var path=d3.geoPath(projection,ctx);
@@ -546,11 +546,12 @@ function drawLabels(LB,tt){
     if(v.f>0.6)placed.push(v);
   });
   vis.sort(function(x,y){return x.f-y.f;}).forEach(function(v){drawOneLabel(v.L,v.a*v.f,fs);});
+  LBOX=placed.map(function(v){return v.b;});
 }
 /* export imprimé : tous les lieux encore valables à la fin du chapitre (zoom ignoré), sans chevauchement ;
    carte muette : pastilles numérotées, noms rangés dans NUMS */
 function drawLabelsX(LB,tt){
-  var fs=clamp(Math.min(W,H*1.3)/40,10.5,15),boxes=[],seen={};
+  var fs=clamp(Math.min(W,H*1.3)/40,10.5,15),boxes=[],seen={};LBOX=boxes;
   ctx.lineJoin='round';ctx.textBaseline='middle';
   function free(b){if(b[0]<2||b[1]<2||b[2]>W-2||b[3]>H-2)return false;for(var i=0;i<boxes.length;i++){var o=boxes[i];if(b[0]<o[2]+3&&b[2]>o[0]-3&&b[1]<o[3]+3&&b[3]>o[1]-3)return false;}return true;}
   var L2=LB.filter(function(Lb){if(tt<Lb.t||!Lb.text)return false;if(Lb.end&&Lb.end+0.8<tt)return false;if(hidden([Lb.lon,Lb.lat],1.42))return false;var q=projection([Lb.lon,Lb.lat]);return q&&q[0]>=10&&q[0]<=W-10&&q[1]>=10&&q[1]<=H-10;});
@@ -615,12 +616,21 @@ function drawScale(){
   var target=Math.min(110,W*0.22)/ppk,pow=Math.pow(10,Math.floor(Math.log(target)/Math.LN10)),m=target/pow,nice=(m>=5?5:m>=2?2:1)*pow,len=nice*ppk;
   var x0=W/2-len/2,y=H-13;
   if(AVOID&&AVOID.isConnected&&AVOID.offsetHeight&&!EXPORT){var ra=AVOID.getBoundingClientRect(),rk=canvas.getBoundingClientRect();if(ra.top<rk.bottom)y=Math.max(30,Math.min(y,ra.top-rk.top-10));}
+  /* l'échelle ne cache pas un nom : autre position en bas, sinon un peu plus haut */
+  var cx=W/2;(function(){
+    function hit(xc,yy){var b=[xc-len/2-6,yy-24,xc+len/2+6,yy+4];for(var i=0;i<LBOX.length;i++){var o=LBOX[i];if(o&&b[0]<o[2]&&b[2]>o[0]&&b[1]<o[3]&&b[3]>o[1])return true;}return false;}
+    if(!LBOX.length||!hit(cx,y))return;
+    var c=[W/2-len-60,W/2+len+60,W*0.18,W*0.62],k,d;
+    for(k=0;k<c.length;k++)if(c[k]-len/2>8&&c[k]+len/2<W-70&&!hit(c[k],y)){cx=c[k];return;}
+    for(d=8;d<=64;d+=8)if(!hit(cx,y-d)){y-=d;return;}
+  })();
+  x0=cx-len/2;
   ctx.save();ctx.lineCap='butt';
   ctx.strokeStyle=TH.halo;ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(x0,y);ctx.lineTo(x0+len,y);ctx.stroke();
   ctx.strokeStyle=TH.ink;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x0,y-5);ctx.lineTo(x0,y);ctx.lineTo(x0+len,y);ctx.lineTo(x0+len,y-5);ctx.stroke();
   ctx.font='600 11.5px '+FONT;ctx.textAlign='center';ctx.textBaseline='alphabetic';
   var tx=fr(nice)+' km'+(projKind==='globe'?'':' (au centre)');
-  ctx.strokeStyle=TH.halo;ctx.lineWidth=3.5;ctx.strokeText(tx,W/2,y-8);ctx.fillStyle=TH.ink;ctx.fillText(tx,W/2,y-8);
+  ctx.strokeStyle=TH.halo;ctx.lineWidth=3.5;ctx.strokeText(tx,cx,y-8);ctx.fillStyle=TH.ink;ctx.fillText(tx,cx,y-8);
   ctx.restore();
 }
 function fmtCoord(p){
@@ -684,6 +694,7 @@ function render(){
     prevBK=bk;
   }
   if(opt.lines)drawGeoLines();
+  if(!BARE)drawChLines(ch,tt);
   if(!BARE){(ch.routes||[]).forEach(function(rt){drawRoute(rt,tt,K);});if(!EXPORT)drawPulses(ch.pulses||[],tt,K);}
   if(opt.names)drawNames();
   if(!BARE&&opt.labels&&tool!=='quiz'&&!HIDELAB)(EXPORT?drawLabelsX:drawLabels)(ch.labels||[],tt);
@@ -691,10 +702,15 @@ function render(){
   if(opt.scale)drawScale();
   if(opt.coord&&!EXPORT)drawCoord();
 }
+/* lignes fixes d'un chapitre (frontières…) : {ml:[[[lon,lat],…],…], col, t0, t1, w, dash} */
+function drawChLines(ch,tt){(ch.lines||[]).forEach(function(l){var a=sstep((tt-l.t0)/1.5)*(l.t1?1-sstep((tt-l.t1)/1.5):1);if(EXPORT&&l.t1)a=1;if(a<=0.01)return;
+  ctx.save();ctx.globalAlpha=a;ctx.beginPath();path({type:'MultiLineString',coordinates:l.ml});ctx.strokeStyle=lc(CO[l.col]||l.col);ctx.lineWidth=l.w||1.4;if(l.dash)ctx.setLineDash(l.dash);ctx.stroke();ctx.restore();});}
 function drawLand(){
   var p=landPath();
   ctx.fillStyle=TH.land;ctx.fill(p);
   ctx.strokeStyle=TH.coast;ctx.lineWidth=TH.cw;ctx.stroke(p);
+  /* récifs (Natural Earth 10 m) : visibles seulement quand on zoome sur une région du Pacifique */
+  if(GEO.reef&&camNow.z>=6&&!BARE){ctx.save();ctx.beginPath();path(GEO.reef);ctx.strokeStyle=TH.light?'rgba(13,120,110,.8)':'rgba(150,240,230,.6)';ctx.lineWidth=camNow.z>=30?1.6:1.1;ctx.stroke();ctx.restore();}
 }
 function drawBase(ch,Z,tt,flat){
   var c=camNow,cx=W/2,cy=H/2,i;
@@ -1354,7 +1370,7 @@ function composePage(ci,o){
     for(var q=0;q<3&&y+60<FOOT;q++){y+=56;c.fillText('……………………………………………………',x1,y);}
   }
   c.fillStyle='#5b6b7a';c.font='400 21px '+FONT;c.textAlign='left';
-  c.fillText('Atlas historique du Pacifique · tracés schématiques, dates approximatives pour les périodes anciennes · fond de carte Natural Earth',M,PH-M+34);
+  c.fillText('Atlas historique du Pacifique · tracés schématiques, dates approximatives pour les périodes anciennes · fond de carte Natural Earth, côtes de la NC © OpenStreetMap',M,PH-M+34);
   return pg;
 }
 function jpegBytes(cv){return new Promise(function(res,rej){cv.toBlob(function(b){if(!b){rej(new Error('image'));return;}var fr2=new FileReader();fr2.onload=function(){res(new Uint8Array(fr2.result));};fr2.onerror=rej;fr2.readAsArrayBuffer(b);},'image/jpeg',0.9);});}
@@ -1471,7 +1487,11 @@ A.api={vol:function(){return VOL;},chs:function(){return CH;},ci:function(){retu
   /* mode enquête (enquete.js) : jouer le chapitre, image de la carte en fin de chapitre, volets */
   play:function(){go(cur.ci,0,true);},
   snap:function(ci,o){o=o||{};var cv=mapCanvas(ci,{labels:o.labels!==false,dark:o.dark!==false});return cv.toDataURL('image/jpeg',0.86);},
-  vols:function(){return VOLS;},volet:function(i,ci){setVolet(i,ci||0,false);}};
+  vols:function(){return VOLS;},volet:function(i,ci){setVolet(i,ci||0,false);},
+  /* carte « Tout en même temps » (simul.js) : quitter le menu d'entrée, enregistrer un PDF de pages-canevas (A4 paysage) */
+  leaveHome:function(){started=true;closeHome(true);},
+  pdf:function(name,cvs){return Promise.all(cvs.map(function(cv){return jpegBytes(cv).then(function(j){return {w:cv.width,h:cv.height,jpg:j};});})).then(function(pp){return save(name,buildPdf(pp),cvs[0]);});},
+  colors:function(){return CO;}};
 /* aides pour les tests */
 window.__go=function(vi,ci,t,o){playing=false;flyFrom=null;if(o)Object.keys(o).forEach(function(k){opt[k]=o[k];});if(vi!==VI){VI=vi;VOL=VOLS[vi];CH=VOL.chapters;buildVolet();}cur.ci=ci;cur.t=t<0?CH[ci].dur:t;setFree(null);syncOptUI();setChapterUI();render();updateUI();return W+'x'+H+' '+projKind;};
 window.__camNow=function(){return {lon:camNow.lon,lat:camNow.lat,z:camNow.z};};window.__camPath=function(vi,ci,T){window.__go(vi,ci-1,-1);flyFrom={lon:camNow.lon,lat:camNow.lat,z:camNow.z};cur.ci=ci;setProj(projKindFor(CH[ci]));var o=[],t;for(t=0;t<=T;t+=1/60){var c=camAt(ci,t);o.push([c.lon,c.lat,Math.log(c.z)]);}flyFrom=null;return o;};window.__tool=setTool;window.__cam=function(c){setFree(c);render();return 1;};

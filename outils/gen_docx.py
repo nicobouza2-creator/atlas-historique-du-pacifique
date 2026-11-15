@@ -12,7 +12,7 @@ from PIL import Image
 
 REPO = '/home/claude/repo/'; DOS = '/home/claude/dossiers/'; OUT = DOS + 'docx/'; os.makedirs(OUT, exist_ok=True)
 D = json.load(open(DOS + 'data.json')); IMG = D['IMG']; X = json.load(open(DOS + 'extras.json'))
-PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GNC', 'nickel': 'NI', 'mondial': 'MO'}
+PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GNC', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC'}
 INK, BROWN, RED, MUTED = RGBColor(0x1b, 0x24, 0x30), RGBColor(0x6b, 0x41, 0x00), RGBColor(0xb3, 0x26, 0x1e), RGBColor(0x5b, 0x64, 0x70)
 FONT = 'Arial'; KFONT = {'carnet': ('Segoe Print', False, 11), 'lettre': ('Georgia', True, 12), 'tapuscrit': ('Courier New', False, 11), 'officiel': ('Courier New', False, 11)}
 EMO = re.compile('[\U0001F000-\U0001FAFF⌀-➿⬀-⯿️‍]')

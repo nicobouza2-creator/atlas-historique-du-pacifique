@@ -6,7 +6,7 @@ Atlas animé d'histoire-géographie pour l'école primaire, centré sur la Nouve
 
 ## Contenu
 
-Sept volets, 71 cartes animées, chacune avec sa galerie d'images :
+Huit volets, 79 cartes animées, chacune avec sa galerie d'images, et une carte « Tout en même temps » :
 
 Histoire
 - **Peupler la Terre** (9) : les premiers humains, de l'Afrique au reste du monde, et les autres humanités.
@@ -19,9 +19,15 @@ Géographie
 - **Le nickel** (9) : pourquoi ici, premières mines, mines et usines d'aujourd'hui, VKP, exportations, environnement.
 - **Le monde et la mondialisation** (12) : se repérer, reliefs et climats, population et villes, routes de la mer, câbles, migrations, inégalités, changement climatique.
 
+Enseignement moral et civique
+- **Vivre ensemble (EMC)** (8) : la République de Paris à Nouméa, communes et élections, institutions de la Nouvelle-Calédonie, droit de vote, esclavage et abolitions, droits humains (1789, 1948, 1989), laïcité, solidarité.
+
+Simultanéité
+- **Tout en même temps** : tous les événements des volets d'histoire (et une quarantaine de repères du programme) sur une seule carte, avec un curseur du temps, une frise par région et dix « moments clés » (1492, 1774-1789, 1853-1879…). Lien direct : `index.html#simultane`.
+
 ## Mode enquête
 
-71 enquêtes (une par chapitre), niveau école primaire ou collège : hypothèse, 4 pages de documents, carnet d'indices, conclusion.
+79 enquêtes (une par chapitre), niveau école primaire ou collège : hypothèse, 4 pages de documents, carnet d'indices, conclusion.
 Pour chaque enquête, un dossier à télécharger :
 - `pdf/<volet>-<nn>.pdf` : dossier à imprimer (pièces, cahiers primaire et collège, corrigé) ;
 - `docx/<volet>-<nn>.docx` : le même dossier en Word, modifiable (même numérotation, même corrigé).
@@ -37,4 +43,4 @@ Le dossier `outils/` contient les scripts Python qui régénèrent les dossiers 
 - Outils : explorer la carte, mesurer une distance, jeu « Où est… ? », carte muette, lecture à voix haute, gros texte.
 - Fiche du chapitre (récit, mots-clés, questions), export PDF et PNG.
 
-Tracés schématiques ; dates anciennes approximatives. Photos et documents réels (crédits sous chaque image). Fonds de carte Natural Earth (domaine public).
+Tracés schématiques ; dates anciennes approximatives. Photos et documents réels (crédits sous chaque image). Fonds de carte Natural Earth (domaine public) ; côtes de la Nouvelle-Calédonie © contributeurs OpenStreetMap (ODbL), via geo-maps ; récifs et limites administratives Natural Earth 10 m.
