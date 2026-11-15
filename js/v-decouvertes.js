@@ -182,7 +182,7 @@ var CH=[
   Ph(37,'1488 : le cap est passé','Quand il retrouve la côte, elle file vers l’est : il a contourné l’Afrique sans le voir ! Son équipage, épuisé, refuse d’aller plus loin.','por'),
   Ph(45,'Le cap de Bonne-Espérance','Au retour, Dias découvre le grand cap. Selon la tradition, il le nomme « cap des Tempêtes », et le roi Jean II préfère « Bonne-Espérance » : la route de l’Inde est ouverte.','kan')
  ],
- photos:[Sh('henri',1,9,'tr',2,'contain'),Sh('caravelle',15,23,'tr',2,'contain'),Sh('padrao',38,45,'tl',-2)],
+ photos:[Sh('sagres',1,9,'tr',2,'contain'),Sh('caravelle',15,23,'tr',2,'contain'),Sh('padrao',38,45,'tl',-2)],
  legend:[['por','Navigateurs portugais (1415–1488)'],['kan','Retour de Dias (1488)']],
  mots:[['Comptoir','Port fortifié où des marchands étrangers font du commerce.'],['Cap','Pointe de terre qui avance dans la mer.'],['Esclave','Personne privée de liberté, achetée et vendue comme une marchandise.']],
  q:[['Quel prince organise les premières expéditions portugaises ?','Henri le Navigateur.'],['Que réussit Bartolomeu Dias en 1488 ?','Il contourne l’Afrique par le sud : il passe le cap de Bonne-Espérance.'],['Pourquoi ce cap est-il si important ?','Il prouve qu’on peut passer de l’océan Atlantique à l’océan Indien : la route maritime de l’Inde est ouverte.']],
@@ -385,7 +385,7 @@ var CH=[
   Ph(33,'1535 : le deuxième voyage','Guidé par les deux jeunes Iroquoiens, Cartier remonte un immense fleuve : le Saint-Laurent. Il atteint Stadaconé (Québec), puis Hochelaga (Montréal).','kan'),
   Ph(46,'Un hiver terrible','Les navires sont pris dans la glace. Le scorbut tue 25 marins. Les Iroquoiens sauvent les autres avec une tisane de conifère. Le mot « Canada » vient de leur langue : « kanata », le village.','kan')
  ],
- photos:[Sh('cartier',1,8,'tr',2,'contain'),Sh('hochelaga',38,46,'bl',-2,'contain')],
+ photos:[Sh('cartier',1,8,'tr',2,'contain'),Sh('saintlaurent',38,46,'bl',-2,'contain')],
  legend:[['fra','1er voyage (1534)'],['kan','2e voyage (1535–1536)']],
  mots:[['Iroquoiens','Peuple amérindien de la vallée du Saint-Laurent.'],['Golfe','Grande avancée de la mer dans les terres.'],['Passage du Nord-Ouest','Route maritime vers l’Asie par le nord de l’Amérique, cherchée pendant des siècles.']],
  q:[['Quel roi envoie Jacques Cartier, et pourquoi ?','François Ier : il veut un passage vers l’Asie et de l’or, et refuse le partage de Tordesillas.'],['Que fait Cartier à Gaspé en 1534 ?','Il plante une croix : il prend possession du pays au nom du roi de France.'],['D’où vient le mot « Canada » ?','Du mot iroquoien « kanata », qui veut dire village.']],
