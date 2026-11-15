@@ -281,7 +281,7 @@ function drawShip(x,y,dir,s,col){
   ctx.beginPath();ctx.moveTo(1,-16);ctx.quadraticCurveTo(7,-12,10,-16);ctx.lineTo(10,-4);ctx.quadraticCurveTo(6,-1.5,1,-4);ctx.closePath();ctx.fill();ctx.stroke();
   ctx.restore();
 }
-var SPR={},SPR_NAMES={radeau:'Radeau de bambou',balancier:'Pirogue à balancier',polynesien:'Pirogue double polynésienne',kanak:'Pirogue double kanak',drakkar:'Drakkar viking',jonque:'Jonque chinoise',boutre:'Boutre de l’océan Indien',goelette:'Goélette de commerce',caravelle:'Caravelle portugaise',nao:'Caraque (nao)',nef:'Nef française de Cartier',galion:'Galion espagnol',flute:'Flûte hollandaise',fregate:'Frégate française',endeavour:'L’Endeavour de Cook',troismats:'Trois-mâts du XIXe siècle',vapeur:'Navire à vapeur',liberty:'Navire de transport (1942)'};
+var SPR={},SPR_NAMES={radeau:'Radeau de bambou',balancier:'Pirogue à balancier',polynesien:'Pirogue double polynésienne',kanak:'Pirogue double kanak',drakkar:'Drakkar viking',jonque:'Jonque chinoise',boutre:'Boutre de l’océan Indien',goelette:'Goélette de commerce',caravelle:'Caravelle portugaise',nao:'Caraque (nao)',nef:'Nef française de Cartier',galion:'Galion espagnol',flute:'Flûte hollandaise',fregate:'Frégate française',endeavour:'L’Endeavour de Cook',troismats:'Trois-mâts du XIXe siècle',vapeur:'Navire à vapeur',liberty:'Navire de transport (1942)',mineralier:'Minéralier (transport du minerai)',conteneurs:'Porte-conteneurs'};
 function sprSrc(k){return (window.BOATS&&window.BOATS[k])||('img/b-'+k+'.png');}
 Object.keys(SPR_NAMES).forEach(function(k){var im=new Image();im.onload=function(){SPR[k]=im;schedule();};im.onerror=function(){};im.src=sprSrc(k);});
 function sprKey(rt){return rt.sp||(rt.ship?'nao':'balancier');}
@@ -499,11 +499,34 @@ function drawOneLabel(Lb,a,fs){
   if(mk==='dot'){ctx.beginPath();ctx.arc(q[0],q[1],gold?5:3.2,0,6.2832);ctx.fill();ctx.stroke();}
   else if(mk==='site'){ctx.save();ctx.translate(q[0],q[1]);ctx.rotate(Math.PI/4);ctx.fillStyle=GOLD;ctx.fillRect(-4.5,-4.5,9,9);ctx.strokeRect(-4.5,-4.5,9,9);ctx.restore();}
   else if(mk==='star'){ctx.save();ctx.translate(q[0],q[1]);ctx.fillStyle='#ff9ecb';ctx.beginPath();for(var k=0;k<10;k++){var rr=k%2?3:7,an=-Math.PI/2+k*Math.PI/5;ctx.lineTo(rr*Math.cos(an),rr*Math.sin(an));}ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();}
+  else if(SYMS[mk]){drawSym(ctx,mk,q[0],q[1],1,TH.mk);ctx.fillStyle=gold?TH.gold:TH.ink;}
   ctx.textAlign=Lb.al||'center';ctx.strokeStyle=TH.halo;ctx.lineWidth=4;
   ctx.font='600 '+size+'px '+FONT;ctx.fillStyle=gold?TH.gold:TH.ink;
   ctx.strokeText(Lb.text,x,y);ctx.fillText(Lb.text,x,y);
   if(Lb.sub){var y2=y+fs*1.1;ctx.font='400 '+(fs*0.84)+'px '+FONT;ctx.fillStyle=gold?TH.gold:TH.sub;ctx.strokeText(Lb.sub,x,y2);ctx.fillText(Lb.sub,x,y2);}
   ctx.globalAlpha=1;
+}
+/* symboles de carte (géographie) : mine, usine, port, barrage, ville ; s = échelle (1 sur la carte) */
+var SYMS={mine:'#e8590c',usine:'#7048e8',port:'#1c7ed6',barrage:'#0b7285',ville:'#f4f0e6',projet:'#868e96',aero:'#0ca678'};
+function drawSym(c,k,x,y,s,stroke){
+  c.save();c.translate(x,y);c.scale(s,s);c.lineWidth=1.5;c.strokeStyle=stroke||'#12202e';c.fillStyle=SYMS[k];c.lineJoin='round';
+  if(k==='mine'){c.beginPath();c.moveTo(0,-7);c.lineTo(6.5,5);c.lineTo(-6.5,5);c.closePath();c.fill();c.stroke();}
+  else if(k==='usine'||k==='projet'){c.beginPath();c.rect(-6,-2,12,8);c.rect(2,-8,3,6);c.fill();c.stroke();}
+  else if(k==='port'){c.beginPath();c.arc(0,0,6,0,6.2832);c.fill();c.stroke();c.strokeStyle='#fff';c.lineWidth=1.6;c.beginPath();c.moveTo(0,-3.5);c.lineTo(0,3.5);c.moveTo(-2.5,-1.5);c.lineTo(2.5,-1.5);c.moveTo(-3,1.5);c.quadraticCurveTo(0,5,3,1.5);c.stroke();}
+  else if(k==='barrage'){c.beginPath();c.rect(-7,-3,14,6);c.fill();c.stroke();}
+  else if(k==='ville'){c.beginPath();c.rect(-4,-4,8,8);c.fill();c.stroke();}
+  else if(k==='aero'){c.beginPath();c.moveTo(0,-8);c.lineTo(1.6,-2);c.lineTo(7,1.5);c.lineTo(7,3.2);c.lineTo(1.6,1.4);c.lineTo(1.2,5.5);c.lineTo(3,7);c.lineTo(-3,7);c.lineTo(-1.2,5.5);c.lineTo(-1.6,1.4);c.lineTo(-7,3.2);c.lineTo(-7,1.5);c.lineTo(-1.6,-2);c.closePath();c.fill();c.stroke();}
+  c.restore();
+}
+function symSVG(k){
+  var f=SYMS[k],s='<svg viewBox="-9 -9 18 18" width="18" height="18" aria-hidden="true"><g stroke="#12202e" stroke-width="1.5" stroke-linejoin="round" fill="'+f+'">';
+  if(k==='mine')s+='<path d="M0-7L6.5 5H-6.5Z"/>';
+  else if(k==='usine'||k==='projet')s+='<path d="M-6-2h12v8h-12zM2-8h3v6h-3z"/>';
+  else if(k==='port')s+='<circle r="6"/><path d="M0-3.5V3.5M-2.5-1.5H2.5M-3 1.5Q0 5 3 1.5" stroke="#fff" fill="none" stroke-width="1.6"/>';
+  else if(k==='barrage')s+='<rect x="-7" y="-3" width="14" height="6"/>';
+  else if(k==='aero')s+='<path d="M0-8L1.6-2L7 1.5V3.2L1.6 1.4L1.2 5.5L3 7H-3L-1.2 5.5L-1.6 1.4L-7 3.2V1.5L-1.6-2Z"/>';
+  else s+='<rect x="-4" y="-4" width="8" height="8"/>';
+  return s+'</g></svg>';
 }
 function drawLabels(LB,tt){
   var fs=clamp(Math.min(W,H*1.3)/40,10.5,15);
@@ -769,14 +792,43 @@ function updatePhotos(){
     if(on!==p.on){p.on=on;p.el.classList.toggle('on',on);if(!on)p.el.classList.remove('big');}
   });
 }
+/* tous les documents d'un chapitre : ceux de l'animation (photos) puis la galerie (gal), sans doublon */
+function chImgs(ch){
+  var seen={},out=[];
+  (ch.photos||[]).map(function(p){return p.id;}).concat(ch.gal||[]).forEach(function(id){if(IMG[id]&&!seen[id]){seen[id]=1;out.push(id);}});
+  return out;
+}
+/* visionneuse plein écran (galerie) : flèches, Échap, clic hors de l'image */
+var LB_EL=null,LB_LIST=[],LB_I=0,LB_WAS=false;
+function openLight(list,i){
+  LB_LIST=list;LB_I=i;
+  if(!LB_EL){
+    LB_EL=el('div','lightbox');LB_EL.setAttribute('role','dialog');LB_EL.setAttribute('aria-modal','true');
+    LB_EL.innerHTML='<figure><img alt=""><figcaption><b></b><small></small><em></em></figcaption></figure><button type="button" class="lb-x" aria-label="Fermer">✕</button><button type="button" class="lb-p" aria-label="Document précédent">‹</button><button type="button" class="lb-n" aria-label="Document suivant">›</button>';
+    LB_EL.addEventListener('click',function(e){var t=e.target;if(t.classList.contains('lb-p'))stepLight(-1);else if(t.classList.contains('lb-n'))stepLight(1);else if(t.tagName!=='IMG')closeLight();});
+    document.addEventListener('keydown',function(e){if(!LB_EL||LB_EL.hidden)return;if(e.key==='Escape')closeLight();else if(e.key==='ArrowRight')stepLight(1);else if(e.key==='ArrowLeft')stepLight(-1);});
+    (document.fullscreenElement||document.body).appendChild(LB_EL);
+  }
+  if(LB_EL.parentNode!==(document.fullscreenElement||document.body))(document.fullscreenElement||document.body).appendChild(LB_EL);
+  if(LB_EL.hidden!==false){LB_WAS=playing;pause();}
+  LB_EL.hidden=false;showLight();
+}
+function showLight(){
+  var im=IMG[LB_LIST[LB_I]];if(!im)return;
+  LB_EL.querySelector('img').src=im.u||im.f;LB_EL.querySelector('img').alt=im.c;
+  LB_EL.querySelector('b').textContent=im.c;LB_EL.querySelector('small').textContent=im.r;
+  LB_EL.querySelector('em').textContent=(LB_I+1)+' / '+LB_LIST.length;
+}
+function stepLight(d){LB_I=(LB_I+d+LB_LIST.length)%LB_LIST.length;showLight();}
+function closeLight(){if(LB_EL){LB_EL.hidden=true;if(LB_WAS)play();}}
 function wikiUrl(t){return 'https://fr.wikipedia.org/w/index.php?go=Go&search='+encodeURIComponent(t);}
 function ficheText(ch){
   var s=VOL.title+' — '+(cur.ci+1)+'. '+ch.short+(ch.dates?' ('+ch.dates+')':'')+'\n\nLE RÉCIT\n';
   ch.ph.forEach(function(p){s+='• '+p.era+' : '+plainT(p)+(p.unc?' [hypothèse discutée]':'')+'\n';});
   if(ch.mots&&ch.mots.length){s+='\nMOTS-CLÉS\n';ch.mots.forEach(function(m){s+='• '+m[0]+' : '+m[1]+'\n';});}
   if(ch.q&&ch.q.length){s+='\nQUESTIONS\n';ch.q.forEach(function(q,i){s+=(i+1)+'. '+q[0]+'\n   → '+q[1]+'\n';});}
-  var ph=(ch.photos||[]).filter(function(p){return IMG[p.id];});
-  if(ph.length){s+='\nDOCUMENTS\n';ph.forEach(function(p){s+='• '+IMG[p.id].c+' ('+IMG[p.id].r+')\n';});}
+  var ph=chImgs(ch);
+  if(ph.length){s+='\nDOCUMENTS\n';ph.forEach(function(id){s+='• '+IMG[id].c+' ('+IMG[id].r+')\n';});}
   if(ch.wiki&&ch.wiki.length){s+='\nPOUR ALLER PLUS LOIN\n';ch.wiki.forEach(function(w){s+='• '+w+' : '+wikiUrl(w)+'\n';});}
   return s;
 }
@@ -801,10 +853,16 @@ function buildFiche(){
     bl.forEach(function(k){var f=el('figure'),im=document.createElement('img');im.src=sprSrc(k);im.alt='';im.loading='lazy';f.appendChild(im);f.appendChild(el('figcaption','',SPR_NAMES[k]));bx.appendChild(f);});
     elFiche.appendChild(bx);
   }
-  var ph=(ch.photos||[]).filter(function(p){return IMG[p.id];});
-  if(ph.length){
-    elFiche.appendChild(el('h4','','Documents'));var ul=el('ul');
-    ph.forEach(function(p){var li=el('li','',IMG[p.id].c+' ');li.appendChild(el('span','cred','('+IMG[p.id].r+')'));ul.appendChild(li);});elFiche.appendChild(ul);
+  var gi=chImgs(ch);
+  if(gi.length){
+    elFiche.appendChild(el('h4','','Galerie du chapitre ('+gi.length+' documents)'));var gal=el('div','gal');
+    gi.forEach(function(id,k){
+      var im=IMG[id],b=el('button','gal-it');b.type='button';b.title=im.c;
+      var ig=document.createElement('img');ig.loading='lazy';ig.decoding='async';ig.alt=im.c;ig.src=im.u||im.f;
+      b.appendChild(ig);b.appendChild(el('span','',im.c));
+      b.addEventListener('click',function(){openLight(gi,k);});gal.appendChild(b);
+    });
+    elFiche.appendChild(gal);
   }
   if(ch.wiki&&ch.wiki.length){
     elFiche.appendChild(el('h4','','Pour aller plus loin'));var u2=el('ul');
@@ -827,8 +885,9 @@ function setChapterUI(){
   elSeek.max=ch.dur;
   elLegend.innerHTML='';
   (ch.legend||[]).forEach(function(l){
-    var li=el('li'),sw=el('span','swatch'+(l[2]?' dash':''));
-    var c=CO[l[0]]||l[0];sw.style.background=c;sw.style.setProperty('--c',c);
+    var li=el('li'),sy=SYMS[l[2]],sw=el('span','swatch'+(sy?' sym':l[2]?' dash':''));
+    var c=CO[l[0]]||l[0];
+    if(sy)sw.innerHTML=symSVG(l[2]);else{sw.style.background=c;sw.style.setProperty('--c',c);}
     li.appendChild(sw);li.appendChild(el('span','',l[1]));elLegend.appendChild(li);
   });
   buildFiche();
@@ -1157,7 +1216,8 @@ function composePage(ci,o){
     var lg=vie?[]:(ch.legend||[]);head('Légende');
     lg.forEach(function(l){
       y+=46;var col=lc(CO[l[0]]||l[0],true);
-      if(l[2]){c.setLineDash([14,8]);c.lineWidth=8;c.strokeStyle=col;c.beginPath();c.moveTo(x1,y-10);c.lineTo(x1+64,y-10);c.stroke();c.setLineDash([]);}
+      if(SYMS[l[2]]){drawSym(c,l[2],x1+32,y-12,2.4,'#12202e');}
+      else if(l[2]){c.setLineDash([14,8]);c.lineWidth=8;c.strokeStyle=col;c.beginPath();c.moveTo(x1,y-10);c.lineTo(x1+64,y-10);c.stroke();c.setLineDash([]);}
       else{c.fillStyle=col;c.strokeStyle='#12202e';c.lineWidth=2;c.fillRect(x1,y-24,64,24);c.strokeRect(x1,y-24,64,24);}
       c.fillStyle='#12202e';c.font='400 27px '+FONT;
       if(mut){c.fillText('……………………………………',x1+82,y-2);}
@@ -1309,7 +1369,7 @@ window.__pdf=function(kind){var pages=[],i=0;function nx(){if(i>=CH.length)retur
 var A=window.ATLAS={CO:CO,r:r,L:L,Pu:Pu,Ph:Ph,Sh:Sh,Lz:Lz,Rg:Rg,
   K:{AFRICA:[[-5.9,35.8],[3,37],[10,37.3],[11,33],[20,32.5],[30,31.3],[32.5,30],[34,27],[37,21],[39,16],[43.1,12.6],[51.5,12.2],[51,10],[48,5],[41,-2],[40.5,-10],[36,-19],[35.5,-24.5],[32.8,-28],[28,-33.5],[20,-35],[17.8,-32],[12,-17],[13.5,-9],[9,-1],[9.5,4],[4,6],[-4,5],[-8,4.3],[-13,8],[-17,14.7],[-17,21],[-13,27.5],[-9.8,31.5]],
      TRI:[[-155.5,19.6],[-109.4,-27.1],[173.5,-40.5],[-155.5,19.6]]},
-  add:function(v){var F=(window.FACILE||{})[v.id],Q=(window.QCM||{})[v.id];(v.chapters||[]).forEach(function(c,ci){if(F&&F[ci])(c.ph||[]).forEach(function(p,k){if(F[ci][k])p.fa=F[ci][k];});if(Q&&Q[ci])c.qcm=Q[ci];});(v.chapters||[]).forEach(function(c){(c.routes||[]).forEach(function(rt,i){var k=c.sps&&c.sps[i];if(k){rt.sp=k;if(!rt.ship)rt.boat=true;}else if((rt.boat||rt.ship)&&!rt.sp&&c.sp)rt.sp=c.sp;});});VOLS.push(v);},
+  add:function(v){var F=(window.FACILE||{})[v.id],Q=(window.QCM||{})[v.id],G=(window.GAL||{})[v.id];(v.chapters||[]).forEach(function(c,ci){if(G&&G[ci])c.gal=(c.gal||[]).concat(G[ci]);if(F&&F[ci])(c.ph||[]).forEach(function(p,k){if(F[ci][k])p.fa=F[ci][k];});if(Q&&Q[ci])c.qcm=Q[ci];});(v.chapters||[]).forEach(function(c){(c.routes||[]).forEach(function(rt,i){var k=c.sps&&c.sps[i];if(k){rt.sp=k;if(!rt.ship)rt.boat=true;}else if((rt.boat||rt.ship)&&!rt.sp&&c.sp)rt.sp=c.sp;});});VOLS.push(v);},
   start:function(){
     syncOptUI();buildTabs();
     var i=voletFromHash();

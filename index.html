@@ -131,6 +131,23 @@ input[type=range]{flex:1;accent-color:var(--gold);height:32px}
 .fiche .cred{color:var(--muted);font-size:12px}
 .fiche textarea{width:100%;height:120px;margin-top:8px;background:#050f1c;color:var(--ink);border:1px solid var(--line);border-radius:8px;font:13px var(--font-body);padding:8px}
 .vinfo p,.vinfo li{font-size:14.5px;line-height:1.5}.vinfo p{margin:4px 0}.vinfo ul{margin:4px 0;padding-left:20px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px}
+.gal-it{display:flex;flex-direction:column;gap:4px;margin:0;padding:4px;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;cursor:zoom-in;color:var(--ink);text-align:left;font:inherit}
+.gal-it:hover,.gal-it:focus-visible{border-color:var(--gold,#ffd166)}
+.gal-it img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:5px;background:#16202c}
+.gal-it span{font-size:11px;line-height:1.2;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.lightbox{position:fixed;inset:0;z-index:60;background:rgba(3,10,20,.92);display:flex;align-items:center;justify-content:center;padding:3vh 7vw}
+.lightbox[hidden]{display:none}
+.lightbox figure{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center}
+.lightbox img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:4px;background:#111;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.lightbox figcaption{color:#f4f0e6;text-align:center;margin-top:10px;font:400 14px/1.35 var(--font-body);max-width:900px}
+.lightbox figcaption b{display:block;font-weight:600;font-size:15px}
+.lightbox figcaption small{display:block;color:#b8c6d4;font-size:12px;margin-top:3px}
+.lightbox figcaption em{display:block;font-style:normal;color:#ffd166;font-size:12px;margin-top:4px}
+.lightbox button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;width:46px;height:46px;font-size:26px;line-height:1;cursor:pointer}
+.lightbox button:hover{background:rgba(255,255,255,.25)}
+.lb-x{top:14px;right:14px}.lb-p{left:14px;top:50%;transform:translateY(-50%)}.lb-n{right:14px;top:50%;transform:translateY(-50%)}
+.swatch.sym{background:none!important;border:0!important;display:inline-flex;align-items:center;justify-content:center;height:18px}
 .boats{display:flex;flex-wrap:wrap;gap:10px}
 .boats figure{margin:0;width:104px;text-align:center;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:6px 4px}
 .boats img{display:block;width:76px;height:54px;object-fit:contain;margin:0 auto 3px}
@@ -319,10 +336,17 @@ body.pj .pj-ctl .primary{flex:1 1 auto}
 <script src="js/enq-caledonie.js"></script>
 <script src="js/enq-monde.js"></script>
 <script src="js/enq-decouvertes.js"></script>
+<script src="js/enq-geonc.js"></script>
+<script src="js/enq-nickel.js"></script>
+<script src="js/enq-mondial.js"></script>
+<script src="js/galerie.js"></script>
 <script src="js/v-monde.js"></script>
 <script src="js/v-pacifique.js"></script>
 <script src="js/v-decouvertes.js"></script>
 <script src="js/v-caledonie.js"></script>
+<script src="js/v-geonc.js"></script>
+<script src="js/v-nickel.js"></script>
+<script src="js/v-mondial.js"></script>
 <script>window.ATLAS.start();</script>
 </body>
 </html>
