@@ -115,6 +115,8 @@ var css=[
 '.enq-shake{animation:enqShake .4s}',
 '@keyframes enqShake{0%,100%{translate:0}20%,60%{translate:-7px}40%,80%{translate:7px}}',
 '.stage .enq-back{position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:8;background:var(--gold);color:#12202e;border-color:var(--gold);font-size:18px;box-shadow:0 6px 20px rgba(0,0,0,.5)}',
+'.enq-dos{display:inline-flex;flex-direction:column;gap:4px;align-items:flex-start}',
+'.enq-doslink{font-size:14px;color:#9fd0ff;text-decoration:underline;padding:2px 2px}',
 '.enq-list{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}',
 '.enq-list button{text-align:left;display:flex;flex-direction:column;gap:5px;align-items:flex-start;font-weight:500;font-size:15.5px;line-height:1.35;min-height:96px}',
 '.enq-list button b{font:700 15px var(--font-display);color:var(--gold)}',
@@ -144,17 +146,23 @@ var DL=null;try{if(window.claude&&typeof window.claude.use==='function')window.c
 function pad2(n){return (n<10?'0':'')+n;}
 function slugify(t){return String(t).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9]+/g,'-').replace(/^-|-$/g,'');}
 function dossier(S,b){
-  var code=(S.vol==='pacifique'?'P':'NC')+'-'+pad2(S.ci+1),url='pdf/'+S.vol+'-'+pad2(S.ci+1)+'.pdf',name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.pdf';
+  var code=({pacifique:'P',caledonie:'NC',monde:'PT',decouvertes:'GD'}[S.vol]||'X')+'-'+pad2(S.ci+1),url='pdf/'+S.vol+'-'+pad2(S.ci+1)+'.pdf',name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.pdf';
   var old=b.textContent;b.disabled=true;b.textContent='⏳ Préparation du dossier…';
   function done(t){b.disabled=false;b.textContent=t||old;if(t)setTimeout(function(){b.textContent=old;},4000);}
   fetch(url).then(function(r){if(!r.ok)throw new Error('absent');return r.blob();}).then(function(blob){
     blob=new Blob([blob],{type:'application/pdf'});
     if(DL)return DL.save({filename:name,data:blob}).then(function(){done('✔ Dossier enregistré');},function(e){done(e&&e.code==='declined'?'Enregistrement annulé':'⚠ Échec, réessaie');});
     if(!window.claude){var u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.style.display='none';document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove();},5000);done('✔ Dossier téléchargé');return;}
-    done('⚠ Enregistrement indisponible dans cette vue');
+    done('⚠ Ici, utilise le lien « Ouvrir le PDF » juste en dessous');
   }).catch(function(){done('⚠ Dossier introuvable');});
 }
-function dosBtn(S,cls){var b=btn('📄 Dossier PDF à imprimer',cls||'',function(){dossier(S,b);});b.title='Pièces du dossier, cahiers primaire et collège, corrigé';return b;}
+/* lien direct (dépôt GitHub) : marche partout, y compris dans l'appli Claude sur téléphone, où l'enregistrement direct n'existe pas */
+var GH='https://raw.githubusercontent.com/nicobouza2-creator/atlas-historique-du-pacifique/main/';
+function dosBtn(S,cls){
+  var w=el('span','enq-dos'),b=btn('📄 Dossier PDF à imprimer',cls||'',function(){dossier(S,b);});b.title='Pièces du dossier, cahiers primaire et collège, corrigé';
+  var a=el('a','enq-doslink','📱 Ouvrir le PDF (téléphone, tablette) ↗');a.href=GH+'pdf/'+S.vol+'-'+pad2(S.ci+1)+'.pdf';a.target='_blank';a.rel='noopener';
+  w.appendChild(b);w.appendChild(a);return w;
+}
 function zoom(src,cap){
   var z=el('div','enq-zoom'),im=document.createElement('img');im.src=src;im.alt=cap||'';z.appendChild(im);if(cap)z.appendChild(el('p','',cap));
   z.addEventListener('click',function(){z.remove();});host().appendChild(z);
