@@ -165,7 +165,7 @@ function Rg(ring,col,t0,a,fade,grow){var z={k:'reg',col:col,a:a==null?0.55:a,t0:
 /* ---------- Volets ---------- */
 var VOLS=[],VI=-1,VOL=null,CH=[];
 var cur={ci:0,t:0},playing=false,last=0,free=null,tool='none',stepHold=false,VIS=ALL,hover=null;
-var opt={proj:'auto',speed:1,auto:false,step:false,labels:true,photos:true,names:false,lines:false,scale:true,coord:false,big:false,voice:false,easy:false};
+var opt={proj:'auto',speed:1,auto:false,step:false,labels:true,photos:true,names:false,lines:false,scale:true,coord:false,big:false,voice:false,easy:false,frise:true};
 try{var sv=JSON.parse(localStorage.getItem('atlas-hg-opts')||'null');if(sv)Object.keys(opt).forEach(function(k){if(typeof sv[k]===typeof opt[k])opt[k]=sv[k];});}catch(e){}
 function saveOpt(){try{localStorage.setItem('atlas-hg-opts',JSON.stringify(opt));}catch(e){}}
 
@@ -528,10 +528,24 @@ function symSVG(k){
   else s+='<rect x="-4" y="-4" width="8" height="8"/>';
   return s+'</g></svg>';
 }
+function labelBox(Lb,fs){
+  var q=projection([Lb.lon,Lb.lat]);if(!q||q[0]<16||q[0]>W-16||q[1]<12||q[1]>H-12)return null;
+  var size=Lb.big?fs*1.3:fs,key=fs+'|'+size;
+  if(Lb._wk!==key){ctx.font='600 '+size+'px '+FONT;var w0=ctx.measureText(Lb.text).width;if(Lb.sub){ctx.font='400 '+(fs*0.84)+'px '+FONT;w0=Math.max(w0,ctx.measureText(Lb.sub).width);}Lb._w=w0;Lb._wk=key;}
+  var w=Lb._w,x2=q[0]+(Lb.dx||0),y2=q[1]+(Lb.dy||0),al=Lb.al||'center',bx0=al==='left'?x2:al==='right'?x2-w:x2-w/2;
+  return [bx0,y2-size*0.6,bx0+w,y2+size*0.6+(Lb.sub?fs*1.05:0)];
+}
+/* écran : quand deux noms se chevauchent, le plus important (or, gros) puis le plus récent reste net, l'autre s'estompe en douceur */
 function drawLabels(LB,tt){
-  var fs=clamp(Math.min(W,H*1.3)/40,10.5,15);
+  var fs=clamp(Math.min(W,H*1.3)/40,10.5,15),vis=[],placed=[];
   ctx.lineJoin='round';ctx.textBaseline='middle';
-  LB.forEach(function(Lb){var a=labelVisible(Lb,tt);if(a>0)drawOneLabel(Lb,a,fs);});
+  LB.forEach(function(Lb){var a=labelVisible(Lb,tt);if(a>0)vis.push({L:Lb,a:a,f:1,b:Lb.text?labelBox(Lb,fs):null});});
+  vis.slice().sort(function(x,y){return ((y.L.gold?2:0)+(y.L.big?1:0))-((x.L.gold?2:0)+(x.L.big?1:0))||y.L.t-x.L.t;}).forEach(function(v){
+    if(!v.b)return;
+    for(var i=0;i<placed.length;i++){var o=placed[i];if(v.b[0]<o.b[2]+2&&v.b[2]>o.b[0]-2&&v.b[1]<o.b[3]+2&&v.b[3]>o.b[1]-2)v.f=Math.min(v.f,1-0.62*o.a);}
+    if(v.f>0.6)placed.push(v);
+  });
+  vis.sort(function(x,y){return x.f-y.f;}).forEach(function(v){drawOneLabel(v.L,v.a*v.f,fs);});
 }
 /* export imprimé : tous les lieux encore valables à la fin du chapitre (zoom ignoré), sans chevauchement ;
    carte muette : pastilles numérotées, noms rangés dans NUMS */
@@ -721,15 +735,25 @@ var elEra=$('era'),elTxt=$('txt'),elCap=$('cap'),elUnc=$('unc'),elPlay=$('play')
     phIdx=-1,lastSec=-1,chipEls=[],polEls=[],segEls=[],tabEls=[];
 function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
 
+function voletThumb(v){
+  var k,j,ph,im;
+  for(k=0;k<v.chapters.length;k++){ph=v.chapters[k].photos||[];for(j=0;j<ph.length;j++){im=IMG[ph[j].id];if(im&&(im.u||im.f))return im.u||im.f;}}
+  return null;
+}
 function buildTabs(){
   elTabs.innerHTML='';tabEls=[];
   VOLS.forEach(function(v,i){
-    var b=el('button','tab');b.type='button';b.setAttribute('role','tab');b.style.setProperty('--c',CO[v.col]||v.col);
-    b.appendChild(document.createTextNode(v.title));b.appendChild(el('small','',v.tag));
-    b.addEventListener('click',function(){setVolet(i,0,true);});
+    var b=el('button','tab');b.type='button';b.style.setProperty('--c',CO[v.col]||v.col);
+    var th=voletThumb(v);if(th){var ig=document.createElement('img');ig.alt='';ig.loading='lazy';ig.decoding='async';ig.src=th;b.appendChild(ig);}
+    var tx=el('span','tab-tx');tx.appendChild(el('span','tab-t',v.title));tx.appendChild(el('small','',v.tag));if(v.sub)tx.appendChild(el('span','tab-s',v.sub));b.appendChild(tx);
+    b.addEventListener('click',function(){var same=i===VI;closeHome(true);if(same&&started){if(!playing)play();return;}started=true;setVolet(i,0,true);});
     elTabs.appendChild(b);tabEls.push(b);
   });
 }
+/* menu d'entrée : choix du volet (au premier chargement sans #volet, et via le bouton du titre) */
+var started=false,homeWas=false;
+function openHome(){var h=$('home');if(!h)return;homeWas=playing;pause();hush();h.hidden=false;document.body.classList.add('home-on');var b=tabEls[VI]||tabEls[0];if(b)try{b.focus({preventScroll:true});}catch(e){}}
+function closeHome(pick){var h=$('home');if(!h||h.hidden)return;h.hidden=true;document.body.classList.remove('home-on');if(pick)return;if(!started){started=true;play();}else if(homeWas)play();}
 function buildVolet(){
   elChips.innerHTML='';chipEls=[];elPhotos.innerHTML='';polEls=[];
   CH.forEach(function(ch,i){
@@ -750,7 +774,8 @@ function buildVolet(){
   buildFrise();
   $('sub').textContent=VOL.sub||'';
   $('vinfo').innerHTML=VOL.info||'';
-  tabEls.forEach(function(b,i){b.setAttribute('aria-selected',i===VI?'true':'false');});
+  tabEls.forEach(function(b,i){b.setAttribute('aria-current',i===VI?'true':'false');});
+  var vt=$('vTitle');if(vt)vt.textContent=VOL.title;
 }
 function buildFrise(){
   elFrise.innerHTML='';segEls=[];
@@ -1007,9 +1032,15 @@ function banner(html){
   }
   elTb.innerHTML=html;elTb.hidden=false;
 }
+/* temps de trajet affiché par l'outil Mesurer, selon le volet : [texte, vitesse, unité] */
+var TRAVEL={monde:['À pied, à ≈ 25 km par jour',25,'j'],pacifique:['À la voile, à ≈ 150 km par jour',150,'j'],decouvertes:['À la voile, à ≈ 150 km par jour',150,'j'],caledonie:['À la voile, à ≈ 150 km par jour',150,'j'],
+  geonc:['En voiture, à ≈ 70 km/h (la route est plus longue que le vol d’oiseau)',70,'h'],nickel:['En minéralier, à ≈ 550 km par jour',550,'j'],mondial:['En avion de ligne, à ≈ 850 km/h',850,'h']};
 function measureDone(){
   var km=d3.geoDistance(meas.a,meas.b)*6371;
-  banner('Distance à vol d’oiseau : <b>'+fr(km<100?Math.round(km):Math.round(km/10)*10)+' km</b> (≈ '+fr(km/1.852)+' milles marins).<br>À la voile, à ≈ 150 km par jour : environ <b>'+fr(Math.max(1,km/150))+' jour'+(km/150>=1.5?'s':'')+'</b>. <button type="button" id="mclr">Effacer</button>');
+  var M=TRAVEL[VOL&&VOL.id]||TRAVEL.pacifique,n=km/M[1],dur;
+  if(M[2]==='h'){if(n<1)dur=Math.max(5,Math.round(n*12)*5)+' min';else if(n<10){var hh=Math.round(n*2)/2;dur=Math.floor(hh)+' h'+(hh%1?' 30':'');}else dur=fr(n)+' h';}
+  else{var d=Math.max(1,Math.round(n));dur=fr(d)+' jour'+(d>1?'s':'');}
+  banner('Distance à vol d’oiseau : <b>'+fr(km<100?Math.round(km):Math.round(km/10)*10)+' km</b> (≈ '+fr(km/1.852)+' milles marins).<br>'+M[0]+' : environ <b>'+dur+'</b>. <button type="button" id="mclr">Effacer</button>');
   $('mclr').addEventListener('click',function(){meas.a=meas.b=null;banner();schedule();});
 }
 function quizPool(){
@@ -1022,7 +1053,7 @@ function quizAsk(){
   if(!q.left.length){banner('Terminé : <b>'+q.score+' / '+q.n+'</b>. <button type="button" id="qre">Rejouer</button> <button type="button" id="qst">Fermer</button>');
     $('qre').addEventListener('click',quizStart);$('qst').addEventListener('click',function(){setTool('none');});schedule();return;}
   q.target=q.left.splice(Math.floor(Math.random()*q.left.length),1)[0];
-  banner('Où est : <b>'+q.target.text.replace(/</g,'&lt;')+'</b> ? Clique sur la carte. <span>('+q.score+' / '+q.n+')</span>');
+  banner('Où est : <b>'+q.target.text.replace(/</g,'&lt;')+'</b> ? Clique sur la carte.'+(q.n?' <span>Trouvés : '+q.score+' sur '+q.n+'</span>':''));
   schedule();
 }
 function quizStart(){
@@ -1057,6 +1088,7 @@ var toolBtns=[].slice.call(document.querySelectorAll('[data-tool]'));
 function setTool(t){
   if(t===tool)t='none';
   tool=t;quiz=null;meas.a=meas.b=null;
+  if(tool==='measure')pause();
   ['explore','measure','quiz'].forEach(function(k){elStage.classList.toggle('t-'+k,tool===k);});
   toolBtns.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-tool')===tool?'true':'false');});
   banner();
@@ -1112,8 +1144,7 @@ elSeek.addEventListener('input',function(){var t=parseFloat(elSeek.value)||0;if(
 function isPj(){return document.body.classList.contains('pj');}
 function setPj(on){
   document.body.classList.toggle('pj',on);
-  $('fs').textContent=on?'Quitter la projection':'Projection plein écran';
-  $('zfs').setAttribute('aria-pressed',on?'true':'false');
+  var fb=$('fs');if(fb)fb.setAttribute('aria-pressed',on?'true':'false');
   syncPj();
 }
 function syncPj(){var b=$('pjPlay');if(b)b.textContent=playing?'❚❚ Pause':uiPlay;var c=$('pjCh');if(c&&VOL)c.textContent=VOL.title+' · '+(cur.ci+1)+'. '+CH[cur.ci].short;}
@@ -1126,7 +1157,7 @@ function toggleFs(){
     try{if(document.fullscreenElement)document.exitFullscreen();}catch(e){}
   }
 }
-$('fs').addEventListener('click',toggleFs);$('zfs').addEventListener('click',toggleFs);$('pjExit').addEventListener('click',toggleFs);
+$('fs').addEventListener('click',toggleFs);$('pjExit').addEventListener('click',toggleFs);
 $('pjPrev').addEventListener('click',stepPrev);$('pjNext').addEventListener('click',stepNext);
 $('pjPlay').addEventListener('click',function(){elPlay.click();});
 document.addEventListener('fullscreenchange',function(){if(!document.fullscreenElement&&isPj())setPj(false);});
@@ -1134,18 +1165,25 @@ function syncOptUI(){
   [].forEach.call(document.querySelectorAll('[data-opt]'),function(i){i.checked=!!opt[i.getAttribute('data-opt')];});
   [].forEach.call(document.querySelectorAll('[data-proj]'),function(b){b.setAttribute('aria-pressed',b.getAttribute('data-proj')===opt.proj?'true':'false');});
   [].forEach.call(document.querySelectorAll('[data-speed]'),function(b){b.setAttribute('aria-pressed',parseFloat(b.getAttribute('data-speed'))===opt.speed?'true':'false');});
-  document.body.classList.toggle('big-text',opt.big);document.body.classList.toggle('easy',opt.easy);
+  document.body.classList.toggle('big-text',opt.big);document.body.classList.toggle('easy',opt.easy);document.body.classList.toggle('no-frise',!opt.frise);
 }
 [].forEach.call(document.querySelectorAll('[data-opt]'),function(i){i.addEventListener('change',function(){
   opt[i.getAttribute('data-opt')]=i.checked;if(i.getAttribute('data-opt')==='easy'){phIdx=-1;buildFiche();}if(!opt.coord)hover=null;if(!opt.step)stepHold=false;if(!opt.voice)hush();else if(i.getAttribute('data-opt')==='voice'){var ph1=CH[cur.ci].ph[phaseIdx(cur.t)];speak(sayT(ph1));}saveOpt();syncOptUI();render();updateUI();});});
 [].forEach.call(document.querySelectorAll('[data-proj]'),function(b){b.addEventListener('click',function(){opt.proj=b.getAttribute('data-proj');setFree(null);saveOpt();syncOptUI();render();});});
 [].forEach.call(document.querySelectorAll('[data-speed]'),function(b){b.addEventListener('click',function(){opt.speed=parseFloat(b.getAttribute('data-speed'));saveOpt();syncOptUI();});});
 document.addEventListener('keydown',function(e){
-  var tg=e.target&&e.target.tagName;
-  if(tg==='INPUT'||tg==='TEXTAREA'||tg==='SELECT'||e.ctrlKey||e.metaKey||e.altKey)return;
-  if(e.code==='Space'){if(tg==='BUTTON'||tg==='SUMMARY'||tg==='A')return;e.preventDefault();playing?pause():play();}
-  else if(e.code==='ArrowRight'||e.code==='PageDown'){e.preventDefault();stepNext();}
-  else if(e.code==='ArrowLeft'||e.code==='PageUp'){e.preventDefault();stepPrev();}
+  var t=e.target,tg=t&&t.tagName,ty=String(t&&t.type||'').toLowerCase();
+  if(e.ctrlKey||e.metaKey||e.altKey||e.defaultPrevented)return;
+  if(tg==='TEXTAREA'||tg==='SELECT'||(t&&t.isContentEditable))return;
+  if(tg==='INPUT'&&!/^(checkbox|radio|range)$/.test(ty))return;
+  /* fenêtres ouvertes (accueil, activités, enquête, aperçu, image agrandie) : elles gèrent leurs touches */
+  if(document.body.classList.contains('home-on')){if(e.code==='Escape'){e.preventDefault();closeHome();}return;}
+  if(document.querySelector('.act-ov,.enq-ov,.act-layer')||!$('prev-ov').hidden||(LB_EL&&!LB_EL.hidden))return;
+  /* un bouton ou une case reçus au clavier (Tab) gardent leur comportement normal ; après un clic à la souris, ui.js leur retire le focus */
+  var native=tg==='BUTTON'||tg==='SUMMARY'||tg==='A'||(tg==='INPUT'&&ty!=='range');
+  if(e.code==='Space'){if(native)return;e.preventDefault();playing?pause():play();}
+  else if(e.code==='ArrowRight'||e.code==='PageDown'){if(tg==='INPUT'&&ty==='range')return;e.preventDefault();stepNext();}
+  else if(e.code==='ArrowLeft'||e.code==='PageUp'){if(tg==='INPUT'&&ty==='range')return;e.preventDefault();stepPrev();}
   else if(e.code==='KeyF'){toggleFs();}
   else if(e.code==='Escape'&&isPj()){toggleFs();}
 });
@@ -1372,7 +1410,7 @@ var A=window.ATLAS={CO:CO,r:r,L:L,Pu:Pu,Ph:Ph,Sh:Sh,Lz:Lz,Rg:Rg,
   add:function(v){var F=(window.FACILE||{})[v.id],Q=(window.QCM||{})[v.id],G=(window.GAL||{})[v.id];(v.chapters||[]).forEach(function(c,ci){if(G&&G[ci])c.gal=(c.gal||[]).concat(G[ci]);if(F&&F[ci])(c.ph||[]).forEach(function(p,k){if(F[ci][k])p.fa=F[ci][k];});if(Q&&Q[ci])c.qcm=Q[ci];});(v.chapters||[]).forEach(function(c){(c.routes||[]).forEach(function(rt,i){var k=c.sps&&c.sps[i];if(k){rt.sp=k;if(!rt.ship)rt.boat=true;}else if((rt.boat||rt.ship)&&!rt.sp&&c.sp)rt.sp=c.sp;});});VOLS.push(v);},
   start:function(){
     syncOptUI();buildTabs();
-    var i=voletFromHash();
+    var i=voletFromHash(),deep=i>=0;
     if(i<0){try{var id=localStorage.getItem('atlas-hg-volet');VOLS.forEach(function(v,k){if(v.id===id)i=k;});}catch(e){}}
     if(i<0)i=0;
     VI=i;VOL=VOLS[i];CH=VOL.chapters;
@@ -1383,6 +1421,10 @@ var A=window.ATLAS={CO:CO,r:r,L:L,Pu:Pu,Ph:Ph,Sh:Sh,Lz:Lz,Rg:Rg,
     if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){render();});
     resize();updateUI();
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var hb=$('homeBtn');if(hb)hb.addEventListener('click',openHome);
+    var hx=$('homeX');if(hx)hx.addEventListener('click',function(){closeHome();});
+    if(!deep&&$('home')){openHome();homeWas=false;return;}
+    started=true;
     if(reduce){cur.t=CH[0].dur;render();updateUI();}else{play();}
   }};
 /* accès pour les activités élèves (activites.js) */
