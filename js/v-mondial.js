@@ -358,7 +358,7 @@ var CH=[
  wiki:['Mondialisation','Économie de la Nouvelle-Calédonie','Commerce international','Échelle (géographie)']}
 ];
 
-A.add({id:'mondial',title:'Le monde et la mondialisation',tag:'12 cartes · repères, milieux, population, flux, inégalités, climat',col:'mis',proj:'plan',
+A.add({id:'mondial',title:'Le monde et la mondialisation',tag:'12 chapitres · repères, milieux, population, flux, inégalités, climat',col:'mis',proj:'plan',
  sub:'Le monde en 12 cartes : se repérer, reliefs et climats, où vivent les humains, villes géantes, routes maritimes, câbles, voyages et migrations, mondialisation d’un objet, inégalités, climat qui change, et la place de la Nouvelle-Calédonie.',
  frise:null,
  info:'<p><b>Géographie, cycle 3 et collège</b> : repères (continents, océans, lignes imaginaires), grands ensembles de relief et fleuves, climats et milieux, répartition de la population, métropoles, mondialisation (flux, interfaces, firmes transnationales), inégalités de développement, changement climatique, changement d’échelle.</p><p><b>Croquis</b> : exportez la carte muette ou vierge en PDF pour faire compléter un planisphère.</p><p><b>Sources</b> : ONU (World Urbanization Prospects 2025), DNV/Menon et classements portuaires 2024-2025, OPT, IEOM (partenaires commerciaux), traité Falepili (Australie-Tuvalu, 2023). Zones et routes tracées à grands traits ; chiffres arrondis.</p>',
