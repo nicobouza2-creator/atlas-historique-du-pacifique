@@ -87,6 +87,9 @@ canvas{display:block;width:100%;height:100%}
 .caption p{margin:6px 0 0;font-size:16px;line-height:1.5}
 body.big-text .caption p{font-size:21px;line-height:1.45}
 body.big-text .caption .era{font-size:24px}
+body.easy .caption p{font-size:19px;line-height:1.6;letter-spacing:.01em}
+body.easy.big-text .caption p{font-size:24px}
+body.easy .caption p b{color:var(--gold);font-weight:700}
 .controls{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
 button{font:600 15px var(--font-body);color:var(--ink);background:var(--panel-2);border:2px solid var(--line);border-radius:10px;padding:9px 13px;min-height:44px;cursor:pointer}
 button:hover{border-color:var(--muted)}
@@ -236,6 +239,11 @@ body.pj .pj-ctl .primary{flex:1 1 auto}
             <button type="button" data-tool="quiz" aria-pressed="false">Jeu : où est… ?</button>
             <button type="button" id="fs">Projection plein écran</button>
           </div>
+          <div class="grp"><span>Activités pour les élèves (chapitre affiché)</span>
+            <button type="button" data-act="noms">Placer les noms</button>
+            <button type="button" data-act="frise">Remettre dans l’ordre</button>
+            <button type="button" data-act="qcm">Quiz</button>
+          </div>
           <div class="grp"><span>Projection de la carte</span>
             <div class="seg" id="segProj">
               <button type="button" data-proj="auto" aria-pressed="true">Auto</button>
@@ -262,6 +270,7 @@ body.pj .pj-ctl .primary{flex:1 1 auto}
             <label class="opt"><input type="checkbox" data-opt="scale"> Échelle</label>
             <label class="opt"><input type="checkbox" data-opt="coord"> Coordonnées</label>
             <label class="opt"><input type="checkbox" data-opt="big"> Gros texte</label>
+            <label class="opt"><input type="checkbox" data-opt="easy"> Texte facile (phrases courtes)</label>
             <label class="opt"><input type="checkbox" data-opt="voice"> Lire le texte à voix haute</label>
           </div>
           <div class="grp"><span>Exporter la carte affichée (A4 paysage, fond clair pour l’impression)</span>
@@ -302,6 +311,8 @@ body.pj .pj-ctl .primary{flex:1 1 auto}
 <script src="js/geo.js"></script>
 <script src="js/img.js"></script>
 <script src="js/engine.js"></script>
+<script src="js/facile.js"></script>
+<script src="js/activites.js"></script>
 <script src="js/v-monde.js"></script>
 <script src="js/v-pacifique.js"></script>
 <script src="js/v-decouvertes.js"></script>

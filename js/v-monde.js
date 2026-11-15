@@ -354,7 +354,7 @@ var CH=[
   L(29,105,66,'Sibérie',{nomark:true,zmax:0.7}),
   L(30,-100,66,'Grand Nord',{nomark:true,zmax:0.7}),
   L(31,-62,-4,'Amazonie',{nomark:true,zmax:0.7}),
-  L(32,131,-25,'Désert australien',{nomark:true,zmax:0.7}),
+  L(32,131,-25,'Désert australien',{nomark:true,zmax:0.7,end:45}),
   L(33,88,34,'Himalaya',{nomark:true,zmax:0.7}),
   L(47,165.5,-21.3,'Nouvelle-Calédonie',{sub:'environ 265 000 habitants',gold:true,dx:-10,dy:16,al:'right'})
  ],
