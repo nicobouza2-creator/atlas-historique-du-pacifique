@@ -1330,7 +1330,11 @@ A.api={vol:function(){return VOL;},chs:function(){return CH;},ci:function(){retu
   pt:function(lon,lat){if(hidden([lon,lat],1.42))return null;var q=projection([lon,lat]);return q&&isFinite(q[0])?q:null;},
   showEnd:function(pts){pause();hush();setTool('none');cur.t=CH[cur.ci].dur;flyFrom=null;setFree(pts&&pts.length>1?fitCam(pts):null);render();updateUI();},
   hideLabels:function(b){HIDELAB=!!b;render();},release:function(){HIDELAB=false;setFree(null);render();},
-  go:function(ci){go(ci,0,false);},camNow:function(){return {lon:camNow.lon,lat:camNow.lat,z:camNow.z};},cam:function(c){setFree(c);render();},hush:hush};
+  go:function(ci){go(ci,0,false);},camNow:function(){return {lon:camNow.lon,lat:camNow.lat,z:camNow.z};},cam:function(c){setFree(c);render();},hush:hush,
+  /* mode enquête (enquete.js) : jouer le chapitre, image de la carte en fin de chapitre, volets */
+  play:function(){go(cur.ci,0,true);},
+  snap:function(ci,o){o=o||{};var cv=mapCanvas(ci,{labels:o.labels!==false,dark:o.dark!==false});return cv.toDataURL('image/jpeg',0.86);},
+  vols:function(){return VOLS;},volet:function(i,ci){setVolet(i,ci||0,false);}};
 /* aides pour les tests */
 window.__go=function(vi,ci,t,o){playing=false;flyFrom=null;if(o)Object.keys(o).forEach(function(k){opt[k]=o[k];});if(vi!==VI){VI=vi;VOL=VOLS[vi];CH=VOL.chapters;buildVolet();}cur.ci=ci;cur.t=t<0?CH[ci].dur:t;setFree(null);syncOptUI();setChapterUI();render();updateUI();return W+'x'+H+' '+projKind;};
 window.__camNow=function(){return {lon:camNow.lon,lat:camNow.lat,z:camNow.z};};window.__camPath=function(vi,ci,T){window.__go(vi,ci-1,-1);flyFrom={lon:camNow.lon,lat:camNow.lat,z:camNow.z};cur.ci=ci;setProj(projKindFor(CH[ci]));var o=[],t;for(t=0;t<=T;t+=1/60){var c=camAt(ci,t);o.push([c.lon,c.lat,Math.log(c.z)]);}flyFrom=null;return o;};window.__tool=setTool;window.__cam=function(c){setFree(c);render();return 1;};
