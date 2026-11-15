@@ -332,7 +332,7 @@ var CH=[
   L(36,10,13,'Sahel',{sub:'mil, sorgho · ≈ 3000 av. J.-C.',nomark:true,dy:20,zmax:1.2}),
   L(38.5,-87,37,'Est de l’Amérique du Nord',{sub:'tournesol · ≈ 2500 av. J.-C.',nomark:true,dy:-18,zmax:1.2}),
   L(48,3,46.5,'France',{sub:'≈ 5800 av. J.-C.',nomark:true,zmin:1,zmax:1.5}),
-  L(55,121,23.8,'Taïwan',{sub:'≈ 3000 av. J.-C.',dx:10,al:'left',zmin:1.5})
+  L(55,121,23.8,'Taïwan',{sub:'riz, millet · ≈ 3500 av. J.-C.',dx:10,al:'left',zmin:1.5})
  ],
  pulses:[Pu(3,40,36,'#a3e635')],
  ph:[

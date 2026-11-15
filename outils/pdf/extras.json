@@ -1,0 +1,1711 @@
+{
+ "monde-0": {
+  "t": "Carnet de fouille, Dmanissi (Géorgie)",
+  "src": "Personnage fictif. Les faits viennent des fouilles réelles de Dmanissi.",
+  "kind": "carnet",
+  "txt": "Jour 9. Sous les ruines d'une ville du Moyen Âge, nous creusons une couche bien plus ancienne. Un crâne apparaît : petit, avec de gros bourrelets au-dessus des yeux. À côté, des outils de pierre très simples et des os d'animaux disparus.\nLes datations donnent environ 1,8 million d'années. C'est l'un des plus vieux humains connus hors d'Afrique !\nCes humains sont donc sortis d'Afrique bien avant notre espèce.",
+  "qp": {
+   "k": "vf",
+   "q": "Le crâne de Dmanissi a environ 1,8 million d’années.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi ce crâne change-t-il l’histoire des premières sorties d’Afrique ?",
+   "m": "Il montre que des humains plus anciens que nous, proches d'Homo erectus, avaient déjà quitté l'Afrique il y a 1,8 million d'années, bien avant Homo sapiens."
+  }
+ },
+ "monde-1": {
+  "t": "Fiche du laboratoire : comment date-t-on un fossile ?",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Le carbone 14 ne marche que pour des restes de moins de 50 000 ans environ.\nPour les fossiles plus vieux, on date souvent ce qui les entoure : les silex brûlés trouvés dans la même couche, ou les couches de cendres volcaniques au-dessus et en dessous. C'est ainsi qu'on a daté Jebel Irhoud (environ 300 000 ans) et Omo (environ 230 000 ans, grâce à une couche de cendres).\nUne date est toujours donnée avec une marge d'erreur : on écrit « environ ».",
+  "qp": {
+   "k": "qcm",
+   "q": "Le carbone 14 permet de dater des restes jusqu’à environ…",
+   "a": [
+    "50 000 ans",
+    "300 000 ans",
+    "7 millions d’années"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les dates des fossiles sont-elles toujours données avec « environ » ?",
+   "m": "Les méthodes de datation ont une marge d’erreur, et l’on date souvent les couches autour du fossile, pas le fossile lui-même."
+  }
+ },
+ "monde-2": {
+  "t": "Journal d’une généticienne",
+  "src": "Personnage fictif. Les résultats décrits sont ceux des études génétiques réelles.",
+  "kind": "carnet",
+  "txt": "Aujourd'hui, j'ai comparé l'ADN de personnes venues de tous les continents. C'est en Afrique qu'il est le plus varié. Plus on s'en éloigne, moins il est varié à l'intérieur de chaque population : comme si chaque groupe parti plus loin n'avait emporté qu'une partie de la variété de départ.\nC'est la trace de la grande sortie d'Afrique, il y a environ 70 000 à 60 000 ans.\nNote pour moi-même : aucune population n'est « en avance » sur une autre. L'ADN raconte seulement des chemins.",
+  "qp": {
+   "k": "vf",
+   "q": "C’est en Afrique que l’ADN humain est le plus varié.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi la variété de l’ADN diminue-t-elle quand on s’éloigne de l’Afrique ?",
+   "m": "Chaque petit groupe parti plus loin n’emportait qu’une partie de la variété de départ : c’est une trace des migrations successives depuis l’Afrique."
+  }
+ },
+ "monde-3": {
+  "t": "Fiche : qui vivait où, il y a 100 000 ans ?",
+  "src": "Fiche de l’atlas, d’après les découvertes connues aujourd’hui.",
+  "kind": "fiche",
+  "txt": "Homo sapiens : en Afrique, et quelques groupes au Proche-Orient.\nNéandertaliens : en Europe et en Asie de l'Ouest, jusqu'à l'Altaï (Sibérie).\nDénisoviens : en Asie, de la Sibérie au Tibet, et peut-être jusqu'aux îles d'Asie du Sud-Est.\nHomo floresiensis : sur l'île de Florès (Indonésie). Homo luzonensis : sur l'île de Luçon (Philippines).\nAucun de ces groupes n'était « en avance » sur les autres : chacun était adapté à sa région.",
+  "qp": {
+   "k": "qcm",
+   "q": "Où vivait Homo floresiensis ?",
+   "a": [
+    "Sur l’île de Florès",
+    "En Amérique",
+    "En Europe"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi dit-on qu’aucun groupe n’était « en avance » sur les autres ?",
+   "m": "Chacun avait ses outils, ses savoirs et ses adaptations à son milieu (froid, îles, altitude) : les différences ne font pas une hiérarchie."
+  }
+ },
+ "monde-4": {
+  "t": "Fiche : la découverte de Lascaux (1940)",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Le 12 septembre 1940, quatre adolescents explorent un trou près de Montignac, en Dordogne. Ils descendent dans une grotte et découvrent des parois couvertes d'animaux peints : chevaux, taureaux, cerfs, bouquetins.\nLa grotte ouvre au public en 1948. Mais le souffle et la chaleur de milliers de visiteurs abîment les peintures : elle est fermée en 1963.\nAujourd'hui, on visite des copies très fidèles (Lascaux II, puis Lascaux IV).",
+  "qp": {
+   "k": "qcm",
+   "q": "Qui a découvert la grotte de Lascaux en 1940 ?",
+   "a": [
+    "Quatre adolescents",
+    "Des astronautes",
+    "Un roi"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi a-t-on fermé la grotte de Lascaux au public ?",
+   "m": "Le souffle, la chaleur et l’humidité apportés par des milliers de visiteurs abîmaient les peintures : on visite donc des copies."
+  }
+ },
+ "monde-5": {
+  "t": "Carnet de terrain, White Sands (États-Unis)",
+  "src": "Personnage fictif. Les faits viennent des études publiées en 2021 et 2023.",
+  "kind": "carnet",
+  "txt": "Le sol du lac asséché garde des empreintes : un enfant, un adulte… et à côté, les traces d'un paresseux géant et d'un mammouth !\nDans les couches de boue, il y a des graines de plantes aquatiques. En laboratoire, on les date : 23 000 à 21 000 ans. D'autres méthodes ont ensuite confirmé ces dates.\nDes humains marchaient donc ici pendant le grand froid de la glaciation.",
+  "qp": {
+   "k": "vf",
+   "q": "À White Sands, on a aussi trouvé des traces de mammouth.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les chercheurs ont-ils voulu confirmer la date avec d’autres méthodes ?",
+   "m": "La date était surprenante : une seule méthode pouvait se tromper. Plusieurs méthodes qui donnent le même résultat rendent la preuve solide."
+  }
+ },
+ "monde-6": {
+  "t": "Fiche : la vie dans un village du Néolithique",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Les familles vivent toute l'année au même endroit : elles sont sédentaires. Elles construisent des maisons en terre, en bois ou en pierre.\nOn cultive des céréales, on élève des animaux, on garde les récoltes dans des greniers et des poteries. On polit les haches de pierre pour défricher la forêt. On tisse le lin.\nMais il y a aussi de nouveaux soucis : maladies transmises par les animaux, mauvaises récoltes, réserves à défendre.",
+  "qp": {
+   "k": "qcm",
+   "q": "Comment appelle-t-on des gens qui vivent toute l’année au même endroit ?",
+   "a": [
+    "Des sédentaires",
+    "Des nomades",
+    "Des navigateurs"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "L’agriculture n’apporte pas que des avantages. Cite deux inconvénients.",
+   "m": "Les maladies transmises par les animaux, la dépendance aux récoltes (famine si elles ratent), un travail très dur, des réserves à défendre."
+  }
+ },
+ "monde-7": {
+  "t": "Fiche : le Livre de la colonisation de l’Islande",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Aux XIIe et XIIIe siècles, des Islandais ont écrit un livre qui raconte l'installation des premiers colons, vers 870 – 930 : le Landnámabók, ou « Livre de la colonisation ».\nIl donne les noms d'environ 400 colons, d'où ils venaient et où ils se sont installés.\nC'est une source rare : un peuple qui a raconté par écrit son arrivée sur une île vide. Mais il a été écrit deux à trois siècles après les faits.",
+  "qp": {
+   "k": "vf",
+   "q": "Ce livre raconte l’installation des premiers colons en Islande.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi l’historien doit-il être prudent avec ce livre ?",
+   "m": "Il a été écrit deux à trois siècles après les faits : certains détails ont pu être oubliés, transformés ou embellis."
+  }
+ },
+ "monde-8": {
+  "t": "Fiche : atouts et contraintes pour s’installer",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Les humains s'installent surtout là où il y a des atouts : de l'eau douce, un climat doux, des plaines fertiles, une côte avec des ports, des routes et des emplois.\nIls évitent les contraintes : le froid extrême, la sécheresse, la très haute altitude, la forêt très dense.\nMais les techniques changent les choses : l'irrigation, le dessalement de l'eau de mer ou la climatisation permettent de vivre dans des milieux difficiles, comme à Dubaï, dans le désert.",
+  "qp": {
+   "k": "qcm",
+   "q": "Lequel de ces éléments attire les humains ?",
+   "a": [
+    "L’eau douce",
+    "La très haute altitude",
+    "Le froid extrême"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Comment Dubaï, en plein désert, a-t-elle pu devenir une grande ville ?",
+   "m": "Grâce aux techniques (dessalement, climatisation), à la richesse tirée du pétrole et du commerce, et à son port : on peut dépasser certaines contraintes."
+  }
+ },
+ "pacifique-0": {
+  "t": "Carnet de fouille, Jebel Irhoud (Maroc)",
+  "src": "Personnage fictif. Les faits viennent des fouilles réelles publiées en 2017.",
+  "kind": "carnet",
+  "txt": "Jour 12. Dans une couche profonde de la grotte, nous dégageons des fragments de crâne et des silex brûlés. Ces silex ont chauffé dans un feu : en laboratoire, on peut mesurer depuis combien de temps.\nRésultat : environ 300 000 ans ! Le visage ressemble déjà beaucoup au nôtre ; l'arrière du crâne est encore allongé.\nOn pensait que notre espèce avait 200 000 ans. Il faut réécrire les livres.",
+  "qp": {
+   "k": "vf",
+   "q": "Les chercheurs ont daté les silex brûlés trouvés avec les os.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les silex brûlés permettent-ils de dater le crâne ?",
+   "m": "Ils ont chauffé dans un feu : on mesure en laboratoire depuis quand. Comme ils sont dans la même couche que les os, ils donnent l'âge du crâne (≈ 300 000 ans)."
+  }
+ },
+ "pacifique-1": {
+  "t": "Fiche technique : traverser la mer jusqu’au Sahul",
+  "src": "Fiche de l’atlas, d’après les reconstitutions des chercheurs.",
+  "kind": "fiche",
+  "txt": "Même au plus froid de la glaciation, il a toujours fallu traverser la mer entre Sunda et Sahul. Certains bras de mer faisaient plusieurs dizaines de kilomètres.\nPour passer, il fallait : une embarcation (un radeau de bambou ?), de l'eau douce, de la nourriture, et un groupe assez nombreux, d'hommes et de femmes, pour fonder une population.\nCes traversées sont parmi les plus anciennes navigations connues au monde.",
+  "qp": {
+   "k": "qcm",
+   "q": "Pour arriver au Sahul, il fallait…",
+   "a": [
+    "une embarcation",
+    "un pont",
+    "un avion"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi fallait-il un groupe nombreux, avec des hommes et des femmes ?",
+   "m": "Pour fonder une population capable de survivre et d’avoir des enfants sur la nouvelle terre."
+  }
+ },
+ "pacifique-2": {
+  "t": "Notes d’une linguiste : le mot « pirogue »",
+  "src": "Personnage fictif. Les mots cités sont réels.",
+  "kind": "carnet",
+  "txt": "Pirogue se dit vaka en tongien, waka en maori, wa'a en hawaïen, waqa en fidjien. Des îles séparées par des milliers de kilomètres, et presque le même mot !\nC'est à Taïwan que les langues austronésiennes sont les plus variées : c'est un indice qu'elles y sont nées et y ont eu le plus de temps pour changer.\nConclusion : ces peuples ont des ancêtres communs, partis de Taïwan.",
+  "qp": {
+   "k": "qcm",
+   "q": "Comment dit-on « pirogue » en maori ?",
+   "a": [
+    "waka",
+    "lima",
+    "roa"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi la grande variété des langues de Taïwan est-elle un indice de l’origine des Austronésiens ?",
+   "m": "Là où une famille de langues est née, elle a eu le plus de temps pour se diversifier ; les régions peuplées plus tard ont des langues plus proches entre elles."
+  }
+ },
+ "pacifique-3": {
+  "t": "Carnet de fouille, site de Lapita (Koné)",
+  "src": "Personnage fictif. La méthode décrite est celle des archéologues.",
+  "kind": "carnet",
+  "txt": "La pluie a cessé. Dans le carré B4, sous le sable, des tessons rouges apparaissent. Je brosse doucement : des rangées de petits points, faits avec un outil dentelé, comme un peigne.\nJe numérote chaque tesson, je note sa profondeur, je le photographie. Rien ne doit bouger avant d'être noté.\nUn objet sorti de sa couche sans être noté perd la moitié de son histoire.",
+  "qp": {
+   "k": "vf",
+   "q": "L’archéologue note la profondeur de chaque tesson.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi un objet sorti de sa couche « perd la moitié de son histoire » ?",
+   "m": "La couche (sa profondeur, les objets trouvés avec) permet de dater l’objet et de comprendre son usage ; sans ces informations, il ne reste que l’objet."
+  }
+ },
+ "pacifique-4": {
+  "t": "Tupaia, le navigateur de Raiatea",
+  "src": "Texte adapté, d’après les récits de l’expédition de James Cook (1769-1770).",
+  "kind": "lettre",
+  "txt": "En 1769, Tupaia, prêtre et navigateur de l'île de Raiatea, monte à bord de l'Endeavour. Pour les marins anglais, il dessine une carte d'environ soixante-dix îles autour de Tahiti, qu'il connaît sans avoir jamais vu de boussole.\nLes récits du voyage racontent qu'il savait toujours montrer la direction de Tahiti, même très loin en mer. Il sert aussi d'interprète à Cook jusqu'en Nouvelle-Zélande.",
+  "qp": {
+   "k": "qcm",
+   "q": "Qui est Tupaia ?",
+   "a": [
+    "Un navigateur polynésien",
+    "Un roi de France",
+    "Un capitaine anglais"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Que montre l’exemple de Tupaia sur le savoir des navigateurs polynésiens ?",
+   "m": "Ils avaient une connaissance précise et très étendue de l’océan et des îles, sans instruments, transmise de génération en génération."
+  }
+ },
+ "pacifique-5": {
+  "t": "Fiche du muséum : le sylviornis",
+  "src": "Fiche de l’atlas, d’après les paléontologues.",
+  "kind": "fiche",
+  "txt": "Le sylviornis vivait sur la Grande Terre et à l'île des Pins. C'était un grand oiseau qui ne volait pas, à peu près aussi lourd qu'un gros chien.\nOn a retrouvé ses os dans des grottes et sur des sites archéologiques. On pense qu'il a disparu dans les siècles qui ont suivi l'arrivée des humains : chasse, œufs mangés par les animaux apportés, forêts transformées.",
+  "qp": {
+   "k": "vf",
+   "q": "Le sylviornis savait voler.",
+   "a": false
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les oiseaux qui ne volent pas sont-ils fragiles quand les humains arrivent ?",
+   "m": "Ils ne peuvent pas fuir en volant, ils ne connaissent pas ce prédateur, et les animaux apportés (chiens, rats, cochons) mangent leurs œufs."
+  }
+ },
+ "pacifique-6": {
+  "t": "Fiche : la grande case et ses symboles",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Dans la grande case, chaque élément a un sens. Le poteau central représente le chef, qui soutient le clan. Les chevrons qui partent du sommet représentent les familles, toutes reliées au chef. Les chambranles sculptés, de chaque côté de l'entrée, représentent les ancêtres.\nLa porte est basse : on se courbe pour entrer, en signe de respect.",
+  "qp": {
+   "k": "qcm",
+   "q": "Que représente le poteau central de la grande case ?",
+   "a": [
+    "Le chef, qui soutient le clan",
+    "Un arbre",
+    "La mer"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi peut-on dire que la grande case est « l’image du clan » ?",
+   "m": "Chaque partie représente un élément de la société : le poteau central le chef, les chevrons les familles reliées à lui, les chambranles les ancêtres."
+  }
+ },
+ "pacifique-7": {
+  "t": "Fiche : la monnaie kanak",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "La monnaie kanak est faite de minuscules perles de coquillage enfilées sur une tresse, avec une tête sculptée et un étui.\nElle ne sert pas à acheter au marché. On la donne lors des grandes cérémonies (naissance, mariage, deuil) pour sceller une alliance ou rendre ce qu'on doit.\nElle circule entre les clans, entre le bord de mer et la montagne, et entre les îles.",
+  "qp": {
+   "k": "qcm",
+   "q": "Quand donne-t-on la monnaie kanak ?",
+   "a": [
+    "Lors des grandes cérémonies",
+    "Pour acheter du pain",
+    "Pour payer le bus"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "En quoi la monnaie kanak est-elle différente de notre monnaie ?",
+   "m": "Elle ne sert pas à acheter des objets : elle crée et entretient des liens (alliances, mariages, deuils) entre les clans."
+  }
+ },
+ "pacifique-8": {
+  "t": "Fiche : Wallis, Futuna et la Nouvelle-Calédonie aujourd’hui",
+  "src": "Fiche de l’atlas, d’après les recensements récents (chiffres arrondis).",
+  "kind": "fiche",
+  "txt": "Les liens entre Wallis et la Nouvelle-Calédonie ne datent pas d'hier.\nAujourd'hui, environ deux fois plus de Wallisiens et de Futuniens vivent en Nouvelle-Calédonie (environ 22 000) qu'à Wallis-et-Futuna (environ 11 000).\nBeaucoup sont arrivés à partir des années 1950-1970 pour travailler, notamment pendant le boom du nickel.",
+  "qp": {
+   "k": "vf",
+   "q": "Aujourd’hui, beaucoup de Wallisiens vivent en Nouvelle-Calédonie.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Compare les deux arrivées de Wallisiens (vers 1750 et après 1950). Qu’est-ce qui change ?",
+   "m": "Vers 1750 : des pirogues, une installation à Ouvéa, connue par la tradition. Après 1950 : des travailleurs venus en bateau ou en avion pour le travail (nickel), surtout vers le Grand Nouméa."
+  }
+ },
+ "pacifique-9": {
+  "t": "Ce que l’on échange vers 1840",
+  "src": "Tableau de l’atlas, d’après les récits des marchands et des missionnaires.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Les navires apportent",
+    "haches et couteaux en fer, tissus, perles de verre, tabac, fusils et poudre"
+   ],
+   [
+    "Les Kanak donnent",
+    "bois de santal, ignames et cochons pour nourrir les équipages, eau douce"
+   ],
+   [
+    "Où va le santal ?",
+    "en Chine, où il est vendu très cher"
+   ],
+   [
+    "Ce qui arrive aussi",
+    "des maladies inconnues : grippe, rougeole, tuberculose…"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Que donnent les Kanak pour nourrir les équipages ?",
+   "a": [
+    "Des ignames et des cochons",
+    "Du pétrole",
+    "Du chocolat"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Qui profite le plus de ces échanges, selon toi ? Justifie.",
+   "m": "On peut discuter : les marchands revendent très cher le santal en Chine ; les Kanak obtiennent des outils en fer utiles, mais aussi des fusils et des maladies aux lourdes conséquences."
+  }
+ },
+ "decouvertes-0": {
+  "t": "Fiche : le livre de Marco Polo",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Vers 1298, le marchand vénitien Marco Polo raconte ses voyages en Chine dans un livre, le « Devisement du monde ». Il y décrit des villes immenses, la soie, les épices, et une île lointaine, Cipango (le Japon), si riche en or que le palais du roi en serait couvert.\nDeux siècles plus tard, Christophe Colomb possède un exemplaire de ce livre, qu'il a annoté de sa main. C'est en partie pour atteindre ces richesses qu'il partira vers l'ouest.",
+  "qp": {
+   "k": "qcm",
+   "q": "Quel pays Marco Polo appelle-t-il Cipango ?",
+   "a": [
+    "Le Japon",
+    "L’Amérique",
+    "L’Inde"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Comment un livre peut-il pousser des marins à partir ?",
+   "m": "Il fait connaître des pays riches et lointains et fait rêver d’or et d’épices ; Colomb a lu et annoté le livre de Marco Polo avant de partir."
+  }
+ },
+ "decouvertes-1": {
+  "t": "Fiche : la jonque, un navire chinois",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "La coque de la jonque est divisée en compartiments étanches : si l'un est percé, les autres empêchent le navire de couler. Ses voiles sont raidies par des lattes de bambou ; on peut les replier comme un éventail. Un gouvernail, à l'arrière, permet de bien la diriger.\nLes marins chinois utilisaient aussi la boussole, une invention chinoise, bien avant les Européens.",
+  "qp": {
+   "k": "vf",
+   "q": "La boussole est une invention chinoise.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les compartiments étanches rendent-ils la jonque plus sûre ?",
+   "m": "Si la coque est percée à un endroit, l’eau n’entre que dans un compartiment : les autres restent secs et le navire continue de flotter."
+  }
+ },
+ "decouvertes-2": {
+  "t": "Journal d’un mousse de Bartolomeu Dias, 1488",
+  "src": "Personnage fictif. Récit imaginé d’après les chroniques du voyage de Dias.",
+  "kind": "carnet",
+  "txt": "Treize jours que la tempête nous pousse vers le sud, loin de toute terre. Il fait froid, la mer est énorme. Le capitaine ordonne de tourner vers l'est pour retrouver la côte… mais elle n'est plus là !\nAlors il met le cap au nord. Enfin, la terre : une côte qui file vers l'est. Les vieux marins disent que nous avons passé le bout de l'Afrique sans le voir.\nL'équipage est épuisé. Nous voulons rentrer.",
+  "qp": {
+   "k": "qcm",
+   "q": "Combien de jours dure la tempête ?",
+   "a": [
+    "Treize jours",
+    "Trois heures",
+    "Un an"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi la côte qui « file vers l’est » est-elle une grande nouvelle ?",
+   "m": "Elle prouve qu’on a contourné le sud de l’Afrique : par là, on peut remonter vers l’océan Indien et l’Inde."
+  }
+ },
+ "decouvertes-3": {
+  "t": "L’accord entre Colomb et les rois d’Espagne (17 avril 1492)",
+  "src": "Résumé de l’atlas d’après les « capitulations de Santa Fe » ; ce n’est pas le texte original.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Date",
+    "17 avril 1492, à Santa Fe, près de Grenade"
+   ],
+   [
+    "Signé par",
+    "les rois Isabelle et Ferdinand, et Christophe Colomb"
+   ],
+   [
+    "Titres promis",
+    "amiral de la mer Océane, vice-roi et gouverneur des terres qu’il découvrira"
+   ],
+   [
+    "Part des richesses",
+    "un dixième de l’or, des perles, des épices et des marchandises trouvés"
+   ],
+   [
+    "Héritage",
+    "ses titres passeront à ses héritiers"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Quelle part des richesses Colomb doit-il recevoir ?",
+   "a": [
+    "Un dixième",
+    "La moitié",
+    "Rien du tout"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Que montre cet accord sur les motivations de Colomb ?",
+   "m": "Il espère devenir très riche et puissant : titres d’amiral et de vice-roi, une part des richesses, transmis à ses enfants."
+  }
+ },
+ "decouvertes-4": {
+  "t": "Fiche : le scorbut, le tueur des marins",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Le scorbut frappe les marins après plusieurs semaines en mer sans fruits ni légumes frais. Les gencives saignent et gonflent, les dents tombent, les anciennes blessures se rouvrent, on est épuisé. Sans soins, on en meurt.\nOn sait aujourd'hui qu'il est dû au manque de vitamine C. Pendant le voyage de Vasco de Gama, des oranges achetées sur la côte est de l'Afrique ont guéri des malades.",
+  "qp": {
+   "k": "qcm",
+   "q": "Le scorbut est dû au manque de…",
+   "a": [
+    "vitamine C (fruits et légumes frais)",
+    "soleil",
+    "sommeil"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi le scorbut tue-t-il surtout pendant les très longues traversées ?",
+   "m": "Les vivres frais s’épuisent vite ; sans escale pour en acheter, les marins manquent de vitamine C pendant des semaines."
+  }
+ },
+ "decouvertes-5": {
+  "t": "Traité de Tordesillas, 7 juin 1494 (résumé)",
+  "src": "Texte adapté (résumé), d’après le traité de Tordesillas du 7 juin 1494.",
+  "kind": "tapuscrit",
+  "txt": "Les rois de Castille et d'Aragon et le roi de Portugal conviennent de tracer, dans la mer Océane, une ligne droite du pôle Nord au pôle Sud, à 370 lieues à l'ouest des îles du Cap-Vert.\nTout ce qui a été ou sera découvert à l'est de cette ligne appartiendra au roi de Portugal ; tout ce qui sera découvert à l'ouest appartiendra aux rois de Castille et d'Aragon.",
+  "qp": {
+   "k": "qcm",
+   "q": "À combien de lieues des îles du Cap-Vert passe la ligne ?",
+   "a": [
+    "370 lieues",
+    "37 lieues",
+    "3 700 lieues"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Qu’est-ce qui manque dans ce traité, du point de vue des peuples d’Amérique ?",
+   "m": "Leur avis et leurs droits : le traité partage leurs terres comme si elles étaient vides, sans qu’ils soient consultés."
+  }
+ },
+ "decouvertes-6": {
+  "t": "Fiche : Saint-Dié, « marraine de l’Amérique »",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "En 1507, à Saint-Dié, dans les Vosges, un petit groupe de savants, dont le cartographe Martin Waldseemüller, publie un livre de géographie et une grande carte du monde en douze feuilles. Sur la carte, le mot « America » apparaît pour la première fois.\nOn n'en connaît qu'un seul exemplaire imprimé. Il a été acheté par la Bibliothèque du Congrès, à Washington, au début des années 2000. Saint-Dié se surnomme depuis « la marraine de l'Amérique ».",
+  "qp": {
+   "k": "vf",
+   "q": "Le mot « America » apparaît pour la première fois sur une carte faite à Saint-Dié.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi cette carte est-elle si précieuse aujourd’hui ?",
+   "m": "C’est le « certificat de naissance » du nom « Amérique », et il n’en reste qu’un seul exemplaire connu."
+  }
+ },
+ "decouvertes-7": {
+  "t": "Fiche : le jour perdu",
+  "src": "Fiche de l’atlas, d’après le récit d’Antonio Pigafetta.",
+  "kind": "fiche",
+  "txt": "Juillet 1522 : la Victoria fait escale aux îles du Cap-Vert. Les marins descendus à terre apprennent, stupéfaits, qu'on est jeudi. Or, d'après le journal tenu chaque jour par Pigafetta, on est mercredi !\nIls ne se sont pas trompés : en faisant le tour de la Terre vers l'ouest, dans le même sens que le Soleil, ils ont vu un lever de soleil de moins que ceux restés sur place. Ils ont « perdu » un jour.",
+  "qp": {
+   "k": "qcm",
+   "q": "Quel jour les marins croient-ils être ?",
+   "a": [
+    "Mercredi",
+    "Dimanche",
+    "Jeudi"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les marins ont-ils « perdu » un jour ?",
+   "m": "En faisant le tour de la Terre vers l’ouest, ils ont vu un lever de soleil de moins que ceux qui sont restés sur place : un jour entier sur tout le voyage."
+  }
+ },
+ "decouvertes-8": {
+  "t": "Fiche : les Iroquoiens du Saint-Laurent",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Les Iroquoiens du Saint-Laurent vivent dans des villages entourés de palissades, comme Hochelaga. Ils habitent de grandes maisons longues, où vivent plusieurs familles. Ils cultivent le maïs, les haricots et les courges, pêchent et chassent.\nQuand Samuel de Champlain remonte le fleuve en 1603, ces villages ont disparu. On ne sait pas exactement pourquoi : guerres, maladies venues d'Europe ? Leurs descendants se sont sans doute mêlés aux peuples voisins.",
+  "qp": {
+   "k": "qcm",
+   "q": "Que cultivent les Iroquoiens ?",
+   "a": [
+    "Le maïs, les haricots et les courges",
+    "Le blé et la vigne",
+    "Le riz"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Que constate Champlain en 1603, et quelles hypothèses peut-on faire ?",
+   "m": "Les villages iroquoiens du Saint-Laurent ont disparu ; on pense à des guerres avec les peuples voisins et aux maladies apportées par les Européens."
+  }
+ },
+ "decouvertes-9": {
+  "t": "Lettre d’un marin de la flotte, Manille, 1596",
+  "src": "Personnage fictif. Lettre imaginée d’après les récits du second voyage de Mendaña.",
+  "kind": "lettre",
+  "txt": "Mon frère,\nNous voici enfin à Manille, ou plutôt ce qu'il reste de nous. Le général Mendaña est mort à Santa Cruz, et la fièvre a emporté beaucoup des nôtres. C'est doña Isabel, son épouse, qui a pris le commandement. Elle a gardé l'eau et les vivres sous clé, et beaucoup lui en ont voulu ; mais nous sommes arrivés.\nDe l'or ? Nous n'en avons pas vu. Seulement des îles, la mer et la faim.\nTon frère.",
+  "qp": {
+   "k": "qcm",
+   "q": "Qui commande la flotte après la mort de Mendaña ?",
+   "a": [
+    "Doña Isabel, son épouse",
+    "Le roi d’Espagne",
+    "Un pirate"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Cette lettre est inventée. Qu’apporte-t-elle quand même à l’enquête ?",
+   "m": "Elle s’appuie sur des faits réels (mort de Mendaña, commandement d’Isabel Barreto, arrivée à Manille, pas d’or) et fait comprendre ce que vivaient les marins ; mais ce n’est pas un vrai témoignage."
+  }
+ },
+ "decouvertes-10": {
+  "t": "Les ordres de la Compagnie à Abel Tasman (1642)",
+  "src": "Résumé de l’atlas d’après les instructions données à Tasman en 1642 ; ce n’est pas le texte original.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Donnés par",
+    "le gouverneur général Antonio van Diemen et le conseil des Indes, à Batavia"
+   ],
+   [
+    "Mission",
+    "découvrir le continent du Sud et une route vers le Chili"
+   ],
+   [
+    "À noter",
+    "les côtes, les profondeurs, les vents et les courants"
+   ],
+   [
+    "À chercher",
+    "or, argent, épices et autres marchandises ; ce que possèdent les habitants"
+   ],
+   [
+    "Conduite",
+    "aborder les habitants avec prudence et douceur, sans les provoquer"
+   ],
+   [
+    "Au retour",
+    "remettre journaux et cartes à la Compagnie"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Qui donne ces ordres à Tasman ?",
+   "a": [
+    "La Compagnie, depuis Batavia",
+    "Le roi de France",
+    "Les Maoris"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Relève ce qui montre que la Compagnie cherche avant tout le profit.",
+   "m": "Elle demande de chercher de l’or, de l’argent, des épices et une route commerciale, et de décrire ce que possèdent les habitants."
+  }
+ },
+ "decouvertes-11": {
+  "t": "Un philosophe répond à Bougainville : Diderot (1772)",
+  "src": "Texte de l’atlas, d’après le « Supplément au voyage de Bougainville » de Denis Diderot (écrit en 1772). Seule la phrase entre guillemets est de Diderot.",
+  "kind": "lettre",
+  "txt": "Dans ce livre, le philosophe Denis Diderot imagine le discours d'un vieux Tahitien qui regarde partir les navires de Bougainville. Le vieil homme reproche aux Européens d'avoir planté leur drapeau comme si l'île leur appartenait. Il demande : « Ce pays est à toi ! et pourquoi ? parce que tu y as mis le pied ? »\nPuis il demande ce que penseraient les Français si un Tahitien débarquait chez eux et déclarait que leur pays appartient à Tahiti.\nDiderot se sert de Tahiti pour critiquer l'Europe et la colonisation.",
+  "qp": {
+   "k": "vf",
+   "q": "Ce discours a été inventé par un philosophe français.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi Diderot fait-il parler un Tahitien plutôt que de critiquer directement ?",
+   "m": "Faire parler un « étranger » permet de regarder l’Europe de l’extérieur et de montrer l’injustice de la colonisation, tout en évitant une critique trop directe."
+  }
+ },
+ "decouvertes-12": {
+  "t": "Fiche : le chronomètre de marine",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Pour savoir où l'on est en mer, il faut connaître sa latitude (assez facile, avec la hauteur du Soleil) et sa longitude (très difficile). Pour la longitude, il faut connaître l'heure exacte au port de départ et la comparer avec l'heure du bateau : une heure d'écart correspond à 15 degrés de longitude.\nL'horloger anglais John Harrison invente une montre assez précise pour supporter la mer. Cook emporte une copie de sa montre lors de son deuxième voyage : ses cartes deviennent d'une précision jamais vue.",
+  "qp": {
+   "k": "qcm",
+   "q": "Une heure de décalage correspond à…",
+   "a": [
+    "15 degrés de longitude",
+    "100 degrés",
+    "1 degré"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi faut-il une montre très précise pour calculer la longitude ?",
+   "m": "La longitude se calcule à partir de la différence d’heure entre le port de départ et le bateau ; quelques minutes d’erreur donnent des dizaines de kilomètres d’erreur."
+  }
+ },
+ "decouvertes-13": {
+  "t": "Carnet de fouille sous-marine, Vanikoro",
+  "src": "Personnage fictif. Les fouilles sous-marines de Vanikoro sont réelles.",
+  "kind": "carnet",
+  "txt": "Plongée n° 14. Visibilité moyenne. Sous le corail, nous dégageons des canons, des boulets, une ancre, puis des objets du quotidien : assiettes, boutons, pièces de monnaie.\nCertains objets portent des marques qui permettent de les relier à L'Astrolabe et à La Boussole.\nÀ terre, les habitants de Vanikoro racontent les récits transmis par leurs ancêtres sur le naufrage et sur les survivants.",
+  "qp": {
+   "k": "qcm",
+   "q": "Qu’a-t-on trouvé sous le corail ?",
+   "a": [
+    "Des canons, une ancre, des objets du quotidien",
+    "Un trésor de pirate",
+    "Un sous-marin"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les récits des habitants de Vanikoro sont-ils précieux pour l’enquête ?",
+   "m": "Ils gardent la mémoire du naufrage et de ce que sont devenus les survivants, ce que les épaves seules ne racontent pas."
+  }
+ },
+ "decouvertes-14": {
+  "t": "D’où viennent les ingrédients de nos plats ?",
+  "src": "Tableau de l’atlas.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Une pizza",
+    "tomate venue d’Amérique, blé venu du Proche-Orient"
+   ],
+   [
+    "Des frites",
+    "pomme de terre venue des Andes"
+   ],
+   [
+    "Un chocolat chaud",
+    "cacao d’Amérique, sucre de canne venu d’Asie et d’Océanie, lait de vache"
+   ],
+   [
+    "Un bougna",
+    "igname, taro et banane d’Asie du Sud-Est et d’Océanie, poulet d’Asie, lait de coco"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "D’où vient la pomme de terre ?",
+   "a": [
+    "Des Andes, en Amérique du Sud",
+    "D’Afrique",
+    "De France"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Choisis un plat que tu aimes et retrouve l’origine de ses ingrédients.",
+   "m": "Réponse libre : l’important est de montrer que beaucoup d’aliments ont voyagé d’un continent à l’autre, surtout depuis les Grandes Découvertes."
+  }
+ },
+ "caledonie-0": {
+  "t": "Fiche : faire la coutume",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Quand on arrive dans une tribu, on fait la coutume : on se présente au chef, ou à celui qui le représente, avec un petit présent (un manou, un morceau de tissu, parfois du tabac ou un billet) et des paroles.\nC'est une façon de dire qui l'on est, d'où l'on vient, et de demander à être accueilli.\nLes chemins coutumiers relient les clans : ce sont les routes des alliances et des paroles échangées.",
+  "qp": {
+   "k": "qcm",
+   "q": "Que fait-on en arrivant dans une tribu ?",
+   "a": [
+    "On fait la coutume avec un petit présent",
+    "On paie un billet d’entrée",
+    "On entre sans rien dire"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi « faire la coutume » est-il important ?",
+   "m": "C’est se présenter, dire d’où l’on vient et respecter les gens du lieu : cela crée un lien et permet d’être accueilli."
+  }
+ },
+ "caledonie-1": {
+  "t": "Fiche : les épidémies du XIXe siècle",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Grippe, rougeole, tuberculose, dysenterie : ces maladies arrivent avec les navires. Les Kanak n'y avaient jamais été exposés : leur corps ne savait pas se défendre.\nDans certaines régions, une épidémie peut emporter une grande partie d'un village en quelques semaines. Les missionnaires et les marins notent ces morts dans leurs lettres et leurs journaux.",
+  "qp": {
+   "k": "qcm",
+   "q": "Comment ces maladies arrivent-elles ?",
+   "a": [
+    "Avec les navires",
+    "Avec les ignames",
+    "Avec le vent"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi peut-on parler d’une « catastrophe invisible » ?",
+   "m": "On ne voit pas les microbes ; les maladies tuent sans combat, très vite, des gens sans défense contre elles, et changent la population plus que les armes."
+  }
+ },
+ "caledonie-2": {
+  "t": "Accord de Nouméa, 5 mai 1998 : préambule (extraits)",
+  "src": "Accord sur la Nouvelle-Calédonie signé à Nouméa le 5 mai 1998, Journal officiel du 29 mai 1998. Texte officiel, extraits.",
+  "tp": "En 1998, l'État, les indépendantistes et les non-indépendantistes signent l'accord de Nouméa. Ce texte officiel dit :\n– en 1853, la France a pris le pays selon les règles des Européens ;\n– les accords signés ensuite avec les chefs n'étaient pas justes : c'est la France qui décidait seule ;\n– « Or, ce territoire n'était pas vide » : les Kanak y vivaient.",
+  "tp_title": "En mots simples",
+  "kind": "tapuscrit",
+  "txt": "« Lorsque la France prend possession de la Grande Terre, que James Cook avait dénommée \"Nouvelle-Calédonie\", le 24 septembre 1853, elle s'approprie un territoire selon les conditions du droit international alors reconnu par les nations d'Europe et […]. »\n« Les traités passés, au cours de l'année 1854 et les années suivantes, avec les autorités coutumières, ne constituent pas des accords équilibrés mais, de fait, des actes unilatéraux. »\n« Or, ce territoire n'était pas vide. »",
+  "qp": {
+   "k": "vf",
+   "q": "L’accord de Nouméa (1998) dit que le territoire « n’était pas vide » en 1853.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi est-il important qu’un texte officiel de 1998 dise que « ce territoire n’était pas vide » ?",
+   "m": "Il reconnaît officiellement que les Kanak vivaient là, avec leurs terres et leur organisation, et que la prise de possession s’est faite sans leur accord."
+  }
+ },
+ "caledonie-3": {
+  "t": "Fiche matricule d’un transporté",
+  "src": "Reconstitution pédagogique : personnage fictif. Rubriques inspirées des registres des bagnes conservés aux Archives nationales d’outre-mer.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Matricule",
+    "n° 4 812 (fictif)"
+   ],
+   [
+    "Nom",
+    "Louis M., né en 1841 à Lyon"
+   ],
+   [
+    "Métier",
+    "ouvrier tisserand"
+   ],
+   [
+    "Condamnation",
+    "1866, cour d’assises du Rhône : 8 ans de travaux forcés pour vol avec effraction"
+   ],
+   [
+    "Arrivée",
+    "Nouméa, 1867, après plus de trois mois de mer"
+   ],
+   [
+    "Affectations",
+    "pénitencier de l’île Nou, puis chantier de route de Bourail"
+   ],
+   [
+    "Libération",
+    "1875 : peine terminée, mais obligation de rester dans la colonie toute sa vie (« doublage »)"
+   ],
+   [
+    "Observation",
+    "1876 : reçoit une concession agricole à Bourail"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Combien d’années de travaux forcés a-t-il eues ?",
+   "a": [
+    "8 ans",
+    "2 ans",
+    "30 ans"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi Louis M. ne peut-il pas rentrer en France après sa peine ?",
+   "m": "À cause du « doublage » : condamné à 8 ans ou plus, il doit rester toute sa vie dans la colonie ; on lui donne une concession pour qu’il s’installe et peuple le pays."
+  }
+ },
+ "caledonie-4": {
+  "t": "Lettre d’une famille de colons, Voh, 1898",
+  "src": "Personnage fictif. Lettre imaginée d’après les témoignages des colons venus avec le gouverneur Feillet.",
+  "kind": "lettre",
+  "txt": "Ma chère sœur,\nNous voici installés près de Voh depuis six mois. L'administration nous a donné notre lot de terre ; Jean défriche du matin au soir et nous avons planté nos premiers caféiers. Il faudra attendre trois ou quatre ans avant la première récolte.\nOn nous a dit que cette vallée était aux gens de la tribu, qui ont été envoyés plus haut, dans la montagne. Les enfants jouent avec les leurs au bord de la rivière.\nTon frère qui t'embrasse.",
+  "qp": {
+   "k": "qcm",
+   "q": "Que plante la famille de colons ?",
+   "a": [
+    "Du café",
+    "Des fleurs",
+    "Du riz"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "La lettre dit que la vallée « était aux gens de la tribu ». Que nous apprend cette phrase sur le cantonnement ?",
+   "m": "Que les terres données aux colons ont été prises aux Kanak, repoussés plus loin dans des réserves ; les colons le savaient parfois."
+  }
+ },
+ "caledonie-5": {
+  "t": "Ce que disent les historiens aujourd’hui",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Pendant longtemps, les récits français de 1878 parlaient surtout des attaques contre les colons. Aujourd'hui, les historiens étudient aussi les causes : la perte des terres, le bétail qui détruit les champs, les lieux sacrés profanés, le travail forcé.\nIls s'appuient sur les archives, mais écoutent aussi la mémoire des clans. On parle maintenant souvent de « guerre de 1878 » ou de « grande révolte kanak ».",
+  "qp": {
+   "k": "vf",
+   "q": "Aujourd’hui, les historiens étudient aussi les causes de la révolte.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les historiens écoutent-ils aussi la mémoire des clans ?",
+   "m": "Les archives coloniales donnent surtout le point de vue des Européens ; la mémoire des clans apporte le point de vue kanak."
+  }
+ },
+ "caledonie-6": {
+  "t": "Contrat d’engagement d’un travailleur javanais",
+  "src": "Reconstitution pédagogique : personnage fictif. Clauses inspirées des contrats d’engagement conservés aux archives.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Engagé",
+    "Sastro, né à Java en 1912 (fictif)"
+   ],
+   [
+    "Employeur",
+    "une société minière de la côte Est"
+   ],
+   [
+    "Durée",
+    "5 ans, sans pouvoir changer d’employeur"
+   ],
+   [
+    "Travail",
+    "26 jours par mois, 10 heures par jour, à la mine"
+   ],
+   [
+    "En échange",
+    "un petit salaire, un logement, une ration de riz"
+   ],
+   [
+    "Absence",
+    "retenue sur le salaire"
+   ],
+   [
+    "Fin du contrat",
+    "retour à Java payé… ou nouveau contrat"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Pour combien d’années le travailleur est-il engagé ?",
+   "a": [
+    "5 ans",
+    "5 jours",
+    "50 ans"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Relève dans le contrat ce qui montre que le travailleur n’est pas libre.",
+   "m": "Il ne peut pas changer d’employeur pendant 5 ans, ses horaires sont imposés et ses absences sont punies par des retenues sur salaire."
+  }
+ },
+ "caledonie-7": {
+  "t": "Lettre d’un volontaire du Bataillon du Pacifique, juin 1942",
+  "src": "Personnage fictif. Lettre imaginée d’après les témoignages des volontaires calédoniens.",
+  "kind": "lettre",
+  "txt": "Désert de Libye, juin 1942.\nChère maman,\nIci, pas de cocotiers : du sable, des cailloux, et une chaleur qui écrase. Avec la brigade du général Kœnig, nous tenons la position de Bir Hakeim. Les attaques ennemies se succèdent, mais nous tenons.\nJe pense à la case, au lagon, à vous tous. Dis aux petits que leur grand frère se bat pour que la France redevienne libre.\nTon fils.",
+  "qp": {
+   "k": "qcm",
+   "q": "D’où écrit le soldat ?",
+   "a": [
+    "Du désert de Libye",
+    "De Nouméa",
+    "De Paris"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi des Calédoniens combattent-ils si loin en 1942 ?",
+   "m": "La Nouvelle-Calédonie a rejoint la France libre en 1940 : ses volontaires combattent avec les Alliés contre l’Allemagne et l’Italie, jusqu’en Afrique du Nord."
+  }
+ },
+ "caledonie-8": {
+  "t": "Fiche : des signes pour un destin commun",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "L'accord de Nouméa prévoyait de chercher ensemble des « signes identitaires ».\nEn 2010, le Congrès adopte un hymne, « Soyons unis, devenons frères », et une devise, « Terre de parole, terre de partage ». La même année, il est décidé que le drapeau kanak flotterait à côté du drapeau français.\nLe nom du pays, lui, fait encore débat.",
+  "qp": {
+   "k": "qcm",
+   "q": "Quelle est la devise du pays ?",
+   "a": [
+    "Terre de parole, terre de partage",
+    "Liberté, égalité, nickel",
+    "Un pour tous, tous pour un"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi chercher des symboles communs (hymne, devise) dans un pays où les avis sont partagés ?",
+   "m": "Pour construire un « destin commun » : des symboles que toutes les communautés peuvent partager, malgré les désaccords politiques."
+  }
+ },
+ "geonc-0": {
+  "t": "Carnet de route : de Koné à la côte Est par la transversale",
+  "src": "Personnage fictif. Les paysages décrits sont ceux de la transversale Koné – Tiwaka.",
+  "kind": "carnet",
+  "txt": "8 h, Koné. Ciel bleu, herbe sèche, niaoulis : la plaine est jaune. La route grimpe vers la chaîne.\n9 h 15, au col. Les nuages s'accrochent aux sommets, il bruine. De l'autre côté, tout devient vert foncé : fougères, grands arbres, cascades.\n10 h 30, côte Est. Il pleut fort. Une habitante me dit en riant : « Ici, l'herbe ne jaunit jamais ! »",
+  "qp": {
+   "k": "vf",
+   "q": "De l’autre côté de la chaîne, le paysage devient plus vert.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Quel phénomène le voyageur observe-t-il au col ? Explique-le.",
+   "m": "Les nuages s’accrochent aux sommets et il pleut : les alizés poussent l’air humide contre la chaîne ; en montant, il se refroidit et donne de la pluie, surtout du côté est."
+  }
+ },
+ "geonc-1": {
+  "t": "Fiche : que mettre dans son kit cyclone ?",
+  "src": "Fiche de l’atlas, d’après les conseils de la sécurité civile.",
+  "kind": "fiche",
+  "txt": "De l'eau potable pour plusieurs jours.\nDes conserves et un ouvre-boîte.\nUne lampe de poche, une radio à piles et des piles de rechange.\nUne trousse de secours et les médicaments habituels.\nLes papiers importants dans un sac étanche, et un téléphone chargé.",
+  "qp": {
+   "k": "qcm",
+   "q": "Pourquoi prendre une radio à piles ?",
+   "a": [
+    "Pour écouter les alertes, même sans électricité",
+    "Pour écouter de la musique",
+    "Pour appeler les pompiers"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi faut-il préparer ce kit avant la saison des cyclones ?",
+   "m": "Quand l’alerte arrive, les magasins sont pris d’assaut ou fermés et l’électricité peut être coupée : il faut pouvoir tenir plusieurs jours."
+  }
+ },
+ "geonc-2": {
+  "t": "Bulletin de recensement (exemple simplifié)",
+  "src": "Reconstitution pédagogique : famille imaginaire ; questions simplifiées, inspirées d’un recensement. Ce n’est pas le vrai formulaire.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Commune",
+    "Pouembout"
+   ],
+   [
+    "Logement",
+    "maison individuelle"
+   ],
+   [
+    "Personnes dans le logement",
+    "4"
+   ],
+   [
+    "Âges",
+    "41, 38, 10 et 7 ans"
+   ],
+   [
+    "Où habitiez-vous il y a 5 ans ?",
+    "à Nouméa"
+   ],
+   [
+    "Activités",
+    "2 salariés, 2 élèves"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Combien de personnes vivent dans ce logement ?",
+   "a": [
+    "4",
+    "2",
+    "10"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi le recensement demande-t-il où l’on habitait il y a 5 ans ?",
+   "m": "Pour mesurer les déplacements de population (départs vers Nouméa, ou retours en brousse comme cette famille) et prévoir les écoles, les routes et les services."
+  }
+ },
+ "geonc-3": {
+  "t": "Lettre d’un élève de Maré à sa correspondante de Nouméa",
+  "src": "Personnage fictif. Situation inspirée de la vie aux îles Loyauté décrite par l’atlas.",
+  "kind": "lettre",
+  "txt": "Salut Léa,\nIci, à Maré, je vis en tribu avec mes grands-parents. Le matin, je vais à l'école à pied. Le week-end, on va au champ d'ignames et on pêche.\nQuand le bateau a du retard, il n'y a plus de lait au magasin ! Pour le collège, je resterai sur l'île, mais pour certaines études il faudra peut-être partir.\nEt toi, c'est comment, la ville ?\nTon correspondant, Johann",
+  "qp": {
+   "k": "vf",
+   "q": "À Maré, le magasin peut manquer de lait quand le bateau est en retard.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Relève dans la lettre deux avantages et deux difficultés de la vie sur une île.",
+   "m": "Avantages : la vie en tribu, la nature, le champ et la pêche. Difficultés : la dépendance au bateau (pénuries), le départ obligatoire pour certaines études."
+  }
+ },
+ "geonc-4": {
+  "t": "Le voyage d’un conteneur, de Shanghai à Pouembout",
+  "src": "Reconstitution pédagogique : trajet simplifié, durées approximatives.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Départ",
+    "port de Shanghai (Chine)"
+   ],
+   [
+    "Contenu",
+    "vélos, jouets, ustensiles de cuisine"
+   ],
+   [
+    "Traversée",
+    "environ 2 à 3 semaines de mer, parfois avec un changement de navire en Asie"
+   ],
+   [
+    "Arrivée",
+    "port de Nouméa : déchargement, contrôle en douane"
+   ],
+   [
+    "Dernière étape",
+    "camion sur la RT1 jusqu’à un magasin de Pouembout"
+   ],
+   [
+    "À retenir",
+    "chaque étape ajoute un coût au prix final"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Par quelle route le camion va-t-il jusqu’à Pouembout ?",
+   "a": [
+    "La RT1",
+    "La route de Lifou",
+    "Le câble Gondwana-1"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi ce vélo coûtera-t-il plus cher à Pouembout qu’en Chine ?",
+   "m": "Il a voyagé des semaines en bateau puis en camion, avec des frais de port, de douane et de transport à chaque étape."
+  }
+ },
+ "geonc-5": {
+  "t": "Carnet d’un éleveur de la côte Ouest",
+  "src": "Personnage fictif. Activité inspirée de l’élevage bovin des plaines de l’Ouest.",
+  "kind": "carnet",
+  "txt": "Lever à 5 h. Tour des clôtures à cheval avec mon fils : la sécheresse a jauni l'herbe, il faudra déplacer les bêtes vers le paddock du creek.\nLe vétérinaire passe jeudi. Ensuite, quelques bêtes partiront à l'abattoir ; leur viande sera vendue dans le pays.\nCe soir, réunion à la mairie sur les feux de brousse : il faut nettoyer les pare-feux avant le cœur de la saison sèche.",
+  "qp": {
+   "k": "qcm",
+   "q": "Comment l’éleveur fait-il le tour des clôtures ?",
+   "a": [
+    "À cheval",
+    "En bateau",
+    "En avion"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Quels liens fais-tu entre ce carnet et le chapitre sur les risques naturels ?",
+   "m": "La sécheresse jaunit l’herbe et augmente le risque de feux de brousse : l’éleveur doit déplacer ses bêtes et entretenir les pare-feux."
+  }
+ },
+ "geonc-6": {
+  "t": "Fiche : le cagou, oiseau emblème",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Le cagou vit dans les forêts humides de la Grande Terre. Il ne vole pas : il court au sol et chasse des vers, des escargots et des insectes.\nIl est menacé par les chiens, les chats, les rats et les cochons arrivés avec les humains, et par la destruction de la forêt. Des parcs, comme celui de la Rivière Bleue, le protègent.\nC'est l'oiseau emblème de la Nouvelle-Calédonie.",
+  "qp": {
+   "k": "qcm",
+   "q": "Où vit le cagou ?",
+   "a": [
+    "Dans les forêts de la Grande Terre",
+    "Dans le désert",
+    "Sur la banquise"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi les animaux arrivés avec les humains menacent-ils le cagou ?",
+   "m": "Il vit au sol et ne vole pas : chiens, chats, rats et cochons attaquent ses œufs, ses petits et les adultes, alors qu’il n’avait pas ces prédateurs avant."
+  }
+ },
+ "nickel-0": {
+  "t": "Fiche du géologue : la garniérite",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Couleur : vert pâle à vert vif.\nOù la trouve-t-on ? Dans la saprolite, sous la terre rouge, sur les massifs de péridotite.\nNom : en l'honneur de Jules Garnier, qui l'a découverte en 1864.\nTeneur : la saprolite riche contient environ 2 à 3 % de nickel ; la péridotite intacte, environ 0,25 %.\nUsage : on la fond pour obtenir du ferronickel.",
+  "qp": {
+   "k": "qcm",
+   "q": "De quelle couleur est la garniérite ?",
+   "a": [
+    "Verte",
+    "Blanche",
+    "Rouge"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi la saprolite est-elle plus intéressante à exploiter que la péridotite intacte ?",
+   "m": "Elle contient environ dix fois plus de nickel (2 à 3 % contre 0,25 %), parce que la pluie y a concentré le métal."
+  }
+ },
+ "nickel-1": {
+  "t": "Carnet d’un mineur à Thio, 1905",
+  "src": "Personnage fictif. Situation inspirée des photographies et des récits des mines de Thio au début du XXe siècle.",
+  "kind": "carnet",
+  "txt": "Debout avant l'aube. On monte à pied jusqu'au chantier, sur le plateau. Pioche, pelle, brouette : on remplit les wagonnets toute la journée, sous le soleil.\nLe petit train descend le minerai jusqu'au wharf. Là-bas, un bateau attend pour Nouméa.\nCe soir, les jambes me font mal. Le contremaître dit qu'il faut aller plus vite : le nickel se vend bien.",
+  "qp": {
+   "k": "qcm",
+   "q": "Comment le minerai descend-il jusqu’au wharf ?",
+   "a": [
+    "Par le petit train",
+    "À pied",
+    "En avion"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Ce carnet est inventé. Sur quelles sources réelles un historien peut-il s’appuyer ?",
+   "m": "Sur les photographies anciennes de Thio (train, trémie, wharf), les récits des mineurs et les archives des compagnies minières."
+  }
+ },
+ "nickel-2": {
+  "t": "Fiche d’identité d’une mine (exemple)",
+  "src": "Reconstitution pédagogique : mine imaginaire ; rubriques inspirées des documents miniers.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Nom",
+    "mine du Plateau Rouge (imaginaire)"
+   ],
+   [
+    "Lieu",
+    "massif de péridotite de la côte Ouest, vers 700 m d’altitude"
+   ],
+   [
+    "Type",
+    "mine à ciel ouvert, en gradins"
+   ],
+   [
+    "Autorisation",
+    "titre minier accordé par la province"
+   ],
+   [
+    "Minerai",
+    "saprolite riche en nickel"
+   ],
+   [
+    "Transport",
+    "camions jusqu’au bord de mer, puis minéralier"
+   ],
+   [
+    "Obligations",
+    "stocker les stériles, gérer l’eau de pluie, replanter après l’exploitation"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Quel type de mine est-ce ?",
+   "a": [
+    "Une mine à ciel ouvert, en gradins",
+    "Une mine de sel",
+    "Une mine souterraine"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi l’exploitant doit-il « gérer l’eau de pluie » ?",
+   "m": "Sur les pentes nues, la pluie emporte la terre rouge vers les rivières et le lagon : il faut canaliser l’eau et la laisser déposer sa boue pour limiter l’érosion et la pollution."
+  }
+ },
+ "nickel-3": {
+  "t": "Journal de bord d’un minéralier",
+  "src": "Personnage fictif. Trajet inspiré des flux de minerai décrits par l’atlas.",
+  "kind": "carnet",
+  "txt": "Jour 1 : chargement du minerai au bord de mer, sur la côte Est.\nJour 2 : nous contournons le sud de la Grande Terre. Mer formée, vent d'est.\nJour 3 : entrée dans le lagon par une passe, puis arrivée à Doniambo. Le minerai est déchargé pour les fours de l'usine.",
+  "qp": {
+   "k": "qcm",
+   "q": "Où le navire décharge-t-il le minerai ?",
+   "a": [
+    "À Doniambo",
+    "À Lifou",
+    "À Sydney"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi le minéralier venu de la côte Est doit-il contourner le sud de l’île ?",
+   "m": "Doniambo est à Nouméa, sur la côte Ouest : depuis la côte Est, le chemin par la mer passe par le sud de la Grande Terre."
+  }
+ },
+ "nickel-4": {
+  "t": "Fiche : comment fonctionne un four électrique ?",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Le minerai est d'abord séché, puis chauffé.\nDans le four, d'énormes électrodes font passer un courant très puissant : la chaleur dépasse 1 500 °C et le minerai fond.\nLe métal, plus lourd, descend au fond : c'est le ferronickel. Le reste, plus léger, forme les scories.\nIl faut énormément d'électricité : c'est pour cela qu'on a construit le barrage de Yaté.",
+  "qp": {
+   "k": "qcm",
+   "q": "Comment s’appelle le métal obtenu ?",
+   "a": [
+    "Le ferronickel",
+    "Le chocolat",
+    "Le verre"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi le prix de l’électricité compte-t-il autant pour Doniambo ?",
+   "m": "Les fours consomment énormément d’électricité : si elle est chère, chaque tonne de métal coûte plus cher à produire et l’usine perd de l’argent."
+  }
+ },
+ "nickel-5": {
+  "t": "Lettre d’une habitante de Pouembout, septembre 2024",
+  "src": "Personnage fictif. Situation inspirée de l’arrêt de l’usine du Nord décrit par l’atlas.",
+  "kind": "lettre",
+  "txt": "Chère cousine,\nTu te souviens de Pouembout il y a vingt ans ? Depuis l'usine, il y a eu des lotissements, des commerces, des familles venues de partout.\nMais depuis le 31 août, mon voisin ne travaille plus à l'usine. Le restaurant où il déjeunait a moins de clients, et la boulangerie aussi.\nTout le monde espère un repreneur. Je t'embrasse.",
+  "qp": {
+   "k": "vf",
+   "q": "Après l’arrêt de l’usine, des commerces ont moins de clients.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Montre avec cette lettre comment une crise se propage dans une région.",
+   "m": "L’usine s’arrête → les salariés perdent leur travail → ils dépensent moins → restaurants et boulangeries ont moins de clients : toute la région est touchée."
+  }
+ },
+ "nickel-6": {
+  "t": "Le voyage d’une cargaison de nickel (exemple)",
+  "src": "Reconstitution pédagogique : parcours simplifié.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Départ",
+    "minerai brut chargé sur un minéralier en Nouvelle-Calédonie"
+   ],
+   [
+    "Destination",
+    "une usine en Chine"
+   ],
+   [
+    "Transformation",
+    "le minerai est fondu pour en tirer le nickel"
+   ],
+   [
+    "Fabrication",
+    "le nickel entre dans de l’acier inoxydable"
+   ],
+   [
+    "Produit final",
+    "un évier ou des casseroles, vendus… peut-être en Nouvelle-Calédonie"
+   ],
+   [
+    "À retenir",
+    "le nickel fait le tour du monde avant de revenir chez nous"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Dans quoi le nickel entre-t-il ?",
+   "a": [
+    "L’acier inoxydable",
+    "Le plastique",
+    "Le pain"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi peut-on dire que le nickel « fait le tour du monde » ?",
+   "m": "Extrait en Nouvelle-Calédonie, il est transformé en Asie, devient de l’inox puis des objets vendus partout, parfois de retour en Nouvelle-Calédonie."
+  }
+ },
+ "nickel-7": {
+  "t": "Carnet d’une technicienne de pépinière",
+  "src": "Personnage fictif. Méthode inspirée de la revégétalisation décrite par l’atlas.",
+  "kind": "carnet",
+  "txt": "Aujourd'hui, nous avons semé des graines récoltées sur le maquis minier, à côté de la mine. Elles germent lentement : il faut des mois avant de pouvoir planter.\nSur l'ancienne piste, nous avons replanté 300 petits plants. Dans dix ans, ce sera peut-être de nouveau un maquis.\nLa règle : seulement des espèces locales, celles qui poussaient là avant.",
+  "qp": {
+   "k": "qcm",
+   "q": "Quelles espèces replante-t-on ?",
+   "a": [
+    "Seulement des espèces locales",
+    "Des fleurs en plastique",
+    "Des espèces venues d’Europe"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi n’utiliser que des espèces locales ?",
+   "m": "Elles sont adaptées à ces sols pauvres et font partie de la flore endémique qu’on veut reconstituer ; des espèces étrangères pourraient envahir le milieu."
+  }
+ },
+ "nickel-8": {
+  "t": "Le nickel en chiffres",
+  "src": "Tableau de l’atlas (situation fin 2026).",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Ressources",
+    "20 à 30 % des ressources mondiales (estimation)"
+   ],
+   [
+    "Exportations",
+    "environ 9 sur 10, en valeur"
+   ],
+   [
+    "Usines",
+    "Doniambo (1910), usine du Sud (2010), usine du Nord (2013, à l’arrêt depuis 2024)"
+   ],
+   [
+    "Concurrent",
+    "l’Indonésie : environ 60 % du nickel mondial en 2024"
+   ],
+   [
+    "Sites bloqués",
+    "7 sites de la SLN sur la côte Est depuis mai 2024"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Quelle part des exportations vient du nickel ?",
+   "a": [
+    "Environ 9 sur 10",
+    "La moitié",
+    "Environ 1 sur 10"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "À partir de ces chiffres, explique pourquoi le pays est fragile.",
+   "m": "Presque toutes ses exportations dépendent d’un seul produit, dont le prix se fixe sur le marché mondial et dont l’Indonésie produit la majorité : une crise du nickel touche tout le pays."
+  }
+ },
+ "mondial-0": {
+  "t": "Carnet de bord d’un voilier : de Sydney à Nouméa",
+  "src": "Personnage fictif. Les coordonnées sont approximatives mais réelles.",
+  "kind": "carnet",
+  "txt": "Départ de Sydney. Le GPS affiche notre position : 33° S, 151° E.\nTrois jours plus tard : 26° S, 158° E. La latitude diminue : nous remontons vers l'équateur. La longitude augmente : nous allons vers l'est.\nCe matin : 22° S, 166° E. La passe de Boulari est devant nous : voici Nouméa !",
+  "qp": {
+   "k": "qcm",
+   "q": "Vers quelle ville navigue le voilier ?",
+   "a": [
+    "Nouméa",
+    "Paris",
+    "Tokyo"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi la latitude diminue-t-elle pendant le voyage ?",
+   "m": "Le voilier remonte vers le nord et se rapproche de l’équateur : sa latitude sud diminue (de 33° S à 22° S)."
+  }
+ },
+ "mondial-1": {
+  "t": "Fiche : le Nil et le haut barrage d’Assouan",
+  "src": "Fiche de l’atlas.",
+  "kind": "fiche",
+  "txt": "Pendant des millénaires, la crue du Nil, chaque été, apportait l'eau et le limon qui fertilisaient les champs d'Égypte.\nEn 1970, l'Égypte termine le haut barrage d'Assouan. Il retient l'eau dans un immense lac, le lac Nasser : on peut irriguer toute l'année, produire de l'électricité et éviter les crues dangereuses.\nMais le limon reste bloqué derrière le barrage : les agriculteurs doivent maintenant acheter des engrais.",
+  "qp": {
+   "k": "qcm",
+   "q": "Comment s’appelle le lac créé par le barrage ?",
+   "a": [
+    "Le lac Nasser",
+    "Le lac de Yaté",
+    "Le lac Léman"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Cite un avantage et un inconvénient du barrage d’Assouan.",
+   "m": "Avantages : irrigation toute l’année, électricité, crues maîtrisées. Inconvénient : le limon reste bloqué derrière le barrage, il faut acheter des engrais."
+  }
+ },
+ "mondial-2": {
+  "t": "Carnet d’une scientifique en Antarctique",
+  "src": "Personnage fictif. Conditions inspirées des bases scientifiques de l’Antarctique.",
+  "kind": "carnet",
+  "txt": "Base scientifique, Antarctique. Dehors : –35 °C et un vent glacial. Pour sortir, trois couches de vêtements, des lunettes et des gants épais.\nIci, pas d'arbres, pas d'herbe : seulement la glace, jusqu'à l'horizon. Aucun habitant permanent : nous sommes des scientifiques venus pour quelques mois.\nTout arrive par avion ou par bateau ; les gros chargements, souvent une seule fois par an.",
+  "qp": {
+   "k": "vf",
+   "q": "En Antarctique, il n’y a pas d’habitants permanents.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi l’Antarctique est-il un « désert humain » ?",
+   "m": "Le froid extrême, la glace partout et l’absence de végétation empêchent d’y vivre en permanence : seuls des scientifiques y séjournent quelques mois."
+  }
+ },
+ "mondial-3": {
+  "t": "Calculer une densité de population",
+  "src": "Reconstitution pédagogique : exercice simplifié, chiffres arrondis.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Formule",
+    "densité = nombre d’habitants ÷ superficie (en km²)"
+   ],
+   [
+    "Exemple 1 : Nouvelle-Calédonie",
+    "264 596 habitants ÷ environ 18 600 km² ≈ 14 hab./km²"
+   ],
+   [
+    "Exemple 2 : commune imaginaire",
+    "2 000 habitants ÷ 100 km² = 20 hab./km²"
+   ],
+   [
+    "Unité",
+    "habitants par km² (hab./km²)"
+   ],
+   [
+    "À retenir",
+    "une densité est une moyenne : certains endroits sont très peuplés, d’autres presque vides"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Une commune de 2 000 habitants sur 100 km² a une densité de…",
+   "a": [
+    "20 hab./km²",
+    "200 hab./km²",
+    "2 hab./km²"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi une densité moyenne peut-elle cacher des différences ?",
+   "m": "C’est une moyenne : en Nouvelle-Calédonie, le Grand Nouméa est très peuplé alors que la chaîne est presque vide, ce que la densité moyenne ne montre pas."
+  }
+ },
+ "mondial-4": {
+  "t": "Lettre de Rina à sa grand-mère, restée au village",
+  "src": "Personnage fictif. Situation inspirée de l’exode rural décrit par l’atlas.",
+  "kind": "lettre",
+  "txt": "Chère grand-mère,\nJakarta est immense : des tours, des centres commerciaux, des milliers de motos. À l'usine, je gagne plus qu'aux rizières, et j'envoie un peu d'argent à la maison chaque mois.\nMais le ciel est souvent gris de pollution, et quand il pleut fort, certaines rues sont inondées.\nTu me manques, et le calme du village aussi.\nTa petite-fille, Rina",
+  "qp": {
+   "k": "qcm",
+   "q": "Que fait Rina avec une partie de son salaire ?",
+   "a": [
+    "Elle l’envoie à sa famille",
+    "Elle le perd au jeu",
+    "Elle achète une île"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Relève dans la lettre un avantage et deux inconvénients de la vie à Jakarta.",
+   "m": "Avantage : un meilleur salaire, qui permet d’aider la famille. Inconvénients : la pollution, les inondations, le manque de calme."
+  }
+ },
+ "mondial-5": {
+  "t": "Le voyage d’un conteneur, de Shanghai à Rotterdam",
+  "src": "Reconstitution pédagogique : trajet simplifié, durées approximatives.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Départ",
+    "port de Shanghai (Chine)"
+   ],
+   [
+    "Contenu",
+    "vélos, téléphones, vêtements"
+   ],
+   [
+    "Route",
+    "mer de Chine, détroit de Malacca, océan Indien, Bab-el-Mandeb, mer Rouge, canal de Suez, Méditerranée, Gibraltar"
+   ],
+   [
+    "Durée",
+    "environ un mois de mer"
+   ],
+   [
+    "Si Suez est fermé",
+    "détour par le sud de l’Afrique : une à deux semaines de plus"
+   ],
+   [
+    "Arrivée",
+    "port de Rotterdam (Pays-Bas), puis camions et trains vers toute l’Europe"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Par quel canal passe le conteneur ?",
+   "a": [
+    "Le canal de Suez",
+    "Aucun canal",
+    "Le canal de Panama"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Que se passe-t-il pour ce conteneur si le canal de Suez est fermé ?",
+   "m": "Le navire doit faire le tour de l’Afrique : le voyage dure une à deux semaines de plus, coûte plus cher, et les marchandises arrivent en retard."
+  }
+ },
+ "mondial-6": {
+  "t": "Journal de bord d’un technicien câblier",
+  "src": "Personnage fictif. Travail inspiré de la réparation des câbles sous-marins.",
+  "kind": "carnet",
+  "txt": "Jour 1 : départ du port. Dans la cale, des kilomètres de câble de rechange.\nJour 4 : nous arrivons au-dessus de la panne. Une ancre de bateau a sans doute arraché le câble. Un robot sous-marin le repère par plus de 1 000 mètres de fond.\nJour 6 : les deux bouts sont remontés à bord, raccordés fibre par fibre, puis redescendus. Internet est rétabli !",
+  "qp": {
+   "k": "vf",
+   "q": "Un câble sous-marin peut être abîmé par une ancre de bateau.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi la réparation d’un câble prend-elle plusieurs jours ?",
+   "m": "Le navire câblier doit arriver sur place, un robot doit retrouver le câble au fond de la mer, puis on remonte les deux bouts et on raccorde chaque fibre avant de tout redescendre."
+  }
+ },
+ "mondial-7": {
+  "t": "Carte d’embarquement : Nouméa → Paris",
+  "src": "Reconstitution pédagogique : passager imaginaire, trajet simplifié.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Passager",
+    "M. Kalolo (imaginaire)"
+   ],
+   [
+    "Départ",
+    "Nouméa – La Tontouta"
+   ],
+   [
+    "Escale",
+    "Bangkok, Singapour ou Sydney, selon la compagnie"
+   ],
+   [
+    "Arrivée",
+    "Paris"
+   ],
+   [
+    "Durée du voyage",
+    "plus de 20 heures, escale comprise"
+   ],
+   [
+    "Décalage horaire",
+    "il est 10 heures de moins à Paris (9 heures pendant l’été de là-bas)"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "Combien de temps dure environ le voyage Nouméa – Paris ?",
+   "a": [
+    "Plus de 20 heures",
+    "20 minutes",
+    "2 heures"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi faut-il une escale pour aller de Nouméa à Paris ?",
+   "m": "Paris est de l’autre côté de la Terre, à plus de 16 000 km : l’avion fait escale dans un grand aéroport (un hub) pour refaire le plein, et les passagers y changent souvent d’avion."
+  }
+ },
+ "mondial-8": {
+  "t": "Fiche : ce que contient un téléphone",
+  "src": "Fiche de l’atlas (liste simplifiée).",
+  "kind": "fiche",
+  "txt": "Écran : verre et indium.\nBatterie : lithium et cobalt.\nCircuits : cuivre, un peu d'or et d'argent.\nAimants du haut-parleur et du vibreur : terres rares, comme le néodyme.\nCoque : aluminium ou plastique.\nAu total, plusieurs dizaines de métaux différents, venus de mines du monde entier.",
+  "qp": {
+   "k": "qcm",
+   "q": "Quels métaux trouve-t-on dans la batterie ?",
+   "a": [
+    "Le lithium et le cobalt",
+    "Seulement du fer",
+    "Aucun métal"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi dit-on qu’un vieux téléphone est une « petite mine » ?",
+   "m": "Il contient des dizaines de métaux (or, argent, cuivre, cobalt, lithium, terres rares) : en le recyclant, on peut en récupérer une partie."
+  }
+ },
+ "mondial-9": {
+  "t": "Fiche : comment calcule-t-on l’IDH ?",
+  "src": "Fiche de l’atlas, d’après le Programme des Nations unies pour le développement (simplifié).",
+  "kind": "fiche",
+  "txt": "Chaque année, le Programme des Nations unies pour le développement (PNUD) publie un classement des pays.\nPour chaque pays, on regarde trois choses : combien de temps on vit en moyenne (santé), combien d'années on va à l'école (éducation) et combien on gagne en moyenne (niveau de vie).\nOn obtient un nombre entre 0 et 1. Plus il est proche de 1, plus le pays est développé.\nUn pays peut progresser en construisant des écoles et des hôpitaux, en apportant l'eau potable et l'électricité.",
+  "qp": {
+   "k": "qcm",
+   "q": "Entre quels nombres se situe l’IDH ?",
+   "a": [
+    "Entre 0 et 1",
+    "Entre 10 et 20",
+    "Entre 0 et 1 000"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Que doit faire un pays pour améliorer son IDH ?",
+   "m": "Améliorer la santé (hôpitaux, eau potable), l’éducation (écoles) et le niveau de vie (emplois, revenus)."
+  }
+ },
+ "mondial-10": {
+  "t": "Lettre d’une élève de Funafuti (Tuvalu)",
+  "src": "Personnage fictif. Situation inspirée de la vie à Tuvalu décrite par l’atlas.",
+  "kind": "lettre",
+  "txt": "Bonjour à toi, élève de Nouvelle-Calédonie,\nJ'habite à Funafuti. Notre île est si étroite qu'on voit la mer des deux côtés de la piste de l'aéroport. Le point le plus haut du pays n'est qu'à quelques mètres au-dessus de la mer.\nLors des grandes marées, l'eau salée remonte par le sol et abîme les jardins de taro. Mon oncle va peut-être partir travailler en Australie, grâce au nouveau traité.\nEt chez toi, la mer monte-t-elle aussi ?\nTon amie Losa",
+  "qp": {
+   "k": "vf",
+   "q": "À Funafuti, on voit la mer des deux côtés de la piste de l’aéroport.",
+   "a": true
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Relève dans la lettre deux conséquences de la montée de la mer à Tuvalu.",
+   "m": "L’eau salée remonte lors des grandes marées et abîme les jardins de taro ; des habitants envisagent de partir en Australie grâce au traité de 2023."
+  }
+ },
+ "mondial-11": {
+  "t": "Bon de livraison : une voiture pour Koné",
+  "src": "Reconstitution pédagogique : trajet simplifié, durées approximatives.",
+  "kind": "formulaire",
+  "fields": [
+   [
+    "Produit",
+    "une voiture neuve"
+   ],
+   [
+    "Fabriquée",
+    "au Japon (exemple)"
+   ],
+   [
+    "Transport",
+    "navire spécial pour les voitures : environ deux semaines de mer"
+   ],
+   [
+    "Arrivée",
+    "port de Nouméa : déchargement, contrôle en douane, taxes"
+   ],
+   [
+    "Dernière étape",
+    "camion sur la RT1 jusqu’à un garage de Koné"
+   ],
+   [
+    "À retenir",
+    "le transport et les taxes s’ajoutent au prix de la voiture"
+   ]
+  ],
+  "qp": {
+   "k": "qcm",
+   "q": "D’où vient cette voiture ?",
+   "a": [
+    "Du Japon",
+    "Du Sahara",
+    "De Lifou"
+   ]
+  },
+  "qc": {
+   "k": "libre",
+   "q": "Pourquoi cet exemple montre-t-il que la Nouvelle-Calédonie dépend du reste du monde ?",
+   "m": "La voiture est fabriquée à l’étranger et arrive par la mer : sans les échanges avec le monde et sans le port de Nouméa, on ne pourrait pas l’acheter ici."
+  }
+ }
+}

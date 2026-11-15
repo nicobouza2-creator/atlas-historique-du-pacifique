@@ -180,7 +180,7 @@ var CH=[
   L(20,101,3.5,'détroit de Malacca',{nomark:true,dx:-10,dy:-12,al:'right'}),L(21,43.4,12.6,'Bab-el-Mandeb',{nomark:true,dx:10,al:'left'}),
   L(22,32.4,30.5,'canal de Suez (1869)',{nomark:true,dx:10,al:'left'}),L(23,-79.7,9.1,'canal de Panama (1914)',{nomark:true,dx:10,al:'left'}),
   L(24,56.3,26.5,'Ormuz',{nomark:true,dx:10,al:'left'}),L(25,-5.6,36,'Gibraltar',{nomark:true,dx:-10,al:'right'}),
-  L(32,166.4,-22.3,'Nouméa',{mark:'port',dx:10,al:'left'})
+  L(32,166.43,-22.27,'Nouméa',{mark:'port',dx:10,al:'left'})
  ],
  pulses:[Pu(20,101,3.5,'#ffd166',false),Pu(21,43.4,12.6,'#ffd166',false),Pu(22,32.4,30.5,'#ffd166',false),Pu(23,-79.7,9.1,'#ffd166',false)],
  ph:[
@@ -268,7 +268,7 @@ var CH=[
   L(8,112,32,'terres rares (Chine)',{mark:'mine',dx:-10,al:'right'}),
   L(14,121,24.8,'puces (Taïwan)',{mark:'usine',dx:10,al:'left'}),L(14.5,127,37.5,'écrans (Corée du Sud)',{mark:'usine',dx:10,al:'left'}),
   L(18,114,22.5,'Assemblage (Chine, Inde, Vietnam)',{mark:'usine',dx:-10,dy:12,al:'right',gold:true}),
-  L(27,166.4,-22.3,'vendu partout, jusqu’à Nouméa',{mark:'ville',dx:10,al:'left'})],
+  L(27,166.44,-22.27,'vendu partout, jusqu’à Nouméa',{mark:'ville',dx:10,al:'left'})],
  pulses:[],
  ph:[
   Ph(0,'Inventé ici…','Un téléphone est souvent conçu en Californie, en Corée du Sud ou en Chine, par une firme transnationale : une entreprise installée dans de nombreux pays.','zh'),

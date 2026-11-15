@@ -145,12 +145,13 @@ function hush(){try{window.speechSynthesis.cancel();}catch(e){}}
 var DL=null;try{if(window.claude&&typeof window.claude.use==='function')window.claude.use('downloads').then(function(d){DL=d||null;},function(){});}catch(e){}
 function pad2(n){return (n<10?'0':'')+n;}
 function slugify(t){return String(t).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^A-Za-z0-9]+/g,'-').replace(/^-|-$/g,'');}
-/* dossiers PDF et Word : l'hébergement des artefacts refuse l'extension .docx et limite le nombre de fichiers (512) ; chaque volet a donc
-   un seul fichier <ext>/<volet>.<ext>.txt (les dossiers du volet en base64, mis bout à bout ; outils/pack.py) et <ext>/index.json
-   donne [début, longueur] de chaque dossier. Repli : le fichier individuel <ext>/<volet>-<nn>.<ext> (présent sur le dépôt GitHub). */
-function getPack(S,ext){return fetch(ext+'/index.json').then(function(r){if(!r.ok)throw new Error('absent');return r.json();}).then(function(ix){
-  var p=(ix[S.vol]||[])[S.ci];if(!p)throw new Error('absent');
-  return fetch(ext+'/'+S.vol+'.'+ext+'.txt',{headers:{Range:'bytes='+p[0]+'-'+(p[0]+p[1]-1)}}).then(function(r){if(!r.ok)throw new Error('absent');
+/* dossiers PDF et Word : l'hébergement des artefacts refuse l'extension .docx et limite le nombre de fichiers (512) ; l'artefact contient donc
+   paquets/<format>-<volet>.txt (les dossiers du volet en base64, mis bout à bout ; outils/pack.py) et paquets/index.json, qui donne
+   [début, longueur] de chaque dossier. Ailleurs (dépôt, GitHub Pages) : le fichier individuel <format>/<volet>-<nn>.<format>. */
+var PIX=null;
+function getPack(S,ext){if(!PIX)PIX=fetch('paquets/index.json').then(function(r){if(!r.ok)throw new Error('absent');return r.json();});
+  return PIX.then(function(ix){var p=((ix[ext]||{})[S.vol]||[])[S.ci];if(!p)throw new Error('absent');
+  return fetch('paquets/'+ext+'-'+S.vol+'.txt',{headers:{Range:'bytes='+p[0]+'-'+(p[0]+p[1]-1)}}).then(function(r){if(!r.ok)throw new Error('absent');
     return r.text().then(function(t){return b64(r.status===206?t:t.slice(p[0],p[0]+p[1]));});});});}
 function b64(t){var s=atob(t.trim()),u=new Uint8Array(s.length);for(var i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return new Blob([u]);}
 var MIME={pdf:'application/pdf',docx:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'};

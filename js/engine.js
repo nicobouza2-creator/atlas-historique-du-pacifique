@@ -489,10 +489,9 @@ function labelVisible(Lb,tt){
   if(hidden([Lb.lon,Lb.lat],1.42))return 0;
   return a;
 }
-function drawOneLabel(Lb,a,fs){
-  var q=projection([Lb.lon,Lb.lat]);if(!q)return;
-  if(q[0]<16||q[0]>W-16||q[1]<12||q[1]>H-12)return;
-  var gold=!!Lb.gold,x=q[0]+(Lb.dx||0),y=q[1]+(Lb.dy||0),size=Lb.big?fs*1.3:fs;
+function drawOneLabel(Lb,a,fs,o){
+  var P=lpos(Lb,fs,o);if(!P)return;var q=P.q;
+  var gold=!!Lb.gold,x=P.x,y=P.y,size=P.size;
   ctx.globalAlpha=a;
   var mk=Lb.mark||(Lb.nomark?'none':'dot');
   ctx.fillStyle=gold?TH.gold:TH.ink;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.5;
@@ -500,7 +499,7 @@ function drawOneLabel(Lb,a,fs){
   else if(mk==='site'){ctx.save();ctx.translate(q[0],q[1]);ctx.rotate(Math.PI/4);ctx.fillStyle=GOLD;ctx.fillRect(-4.5,-4.5,9,9);ctx.strokeRect(-4.5,-4.5,9,9);ctx.restore();}
   else if(mk==='star'){ctx.save();ctx.translate(q[0],q[1]);ctx.fillStyle='#ff9ecb';ctx.beginPath();for(var k=0;k<10;k++){var rr=k%2?3:7,an=-Math.PI/2+k*Math.PI/5;ctx.lineTo(rr*Math.cos(an),rr*Math.sin(an));}ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();}
   else if(SYMS[mk]){drawSym(ctx,mk,q[0],q[1],1,TH.mk);ctx.fillStyle=gold?TH.gold:TH.ink;}
-  ctx.textAlign=Lb.al||'center';ctx.strokeStyle=TH.halo;ctx.lineWidth=4;
+  ctx.textAlign=P.al;ctx.strokeStyle=TH.halo;ctx.lineWidth=4;
   ctx.font='600 '+size+'px '+FONT;ctx.fillStyle=gold?TH.gold:TH.ink;
   ctx.strokeText(Lb.text,x,y);ctx.fillText(Lb.text,x,y);
   if(Lb.sub){var y2=y+fs*1.1;ctx.font='400 '+(fs*0.84)+'px '+FONT;ctx.fillStyle=gold?TH.gold:TH.sub;ctx.strokeText(Lb.sub,x,y2);ctx.fillText(Lb.sub,x,y2);}
@@ -528,13 +527,17 @@ function symSVG(k){
   else s+='<rect x="-4" y="-4" width="8" height="8"/>';
   return s+'</g></svg>';
 }
-function labelBox(Lb,fs){
+/* position d'une étiquette : décalage propre (ou o = {dx,dy,al} proposé par le placement automatique), gardée dans le cadre */
+function lpos(Lb,fs,o){
   var q=projection([Lb.lon,Lb.lat]);if(!q||q[0]<16||q[0]>W-16||q[1]<12||q[1]>H-12)return null;
   var size=Lb.big?fs*1.3:fs,key=fs+'|'+size;
   if(Lb._wk!==key){ctx.font='600 '+size+'px '+FONT;var w0=ctx.measureText(Lb.text).width;if(Lb.sub){ctx.font='400 '+(fs*0.84)+'px '+FONT;w0=Math.max(w0,ctx.measureText(Lb.sub).width);}Lb._w=w0;Lb._wk=key;}
-  var w=Lb._w,x2=q[0]+(Lb.dx||0),y2=q[1]+(Lb.dy||0),al=Lb.al||'center',bx0=al==='left'?x2:al==='right'?x2-w:x2-w/2;
-  return [bx0,y2-size*0.6,bx0+w,y2+size*0.6+(Lb.sub?fs*1.05:0)];
+  var dx=o?o.dx:(Lb.dx||0),dy=o?o.dy:(Lb.dy||0),al=o?o.al:(Lb.al||'center');
+  var w=Lb._w,x2=q[0]+dx,y2=q[1]+dy,bx0=al==='left'?x2:al==='right'?x2-w:x2-w/2,sh=0;
+  if(bx0<4)sh=4-bx0;else if(bx0+w>W-4)sh=W-4-bx0-w;
+  return {q:q,x:x2+sh,y:y2,al:al,size:size,b:[bx0+sh,y2-size*0.6,bx0+sh+w,y2+size*0.6+(Lb.sub?fs*1.05:0)]};
 }
+function labelBox(Lb,fs,o){var P=lpos(Lb,fs,o);return P?P.b:null;}
 /* écran : quand deux noms se chevauchent, le plus important (or, gros) puis le plus récent reste net, l'autre s'estompe en douceur */
 function drawLabels(LB,tt){
   var fs=clamp(Math.min(W,H*1.3)/40,10.5,15),vis=[],placed=[];
@@ -542,10 +545,17 @@ function drawLabels(LB,tt){
   LB.forEach(function(Lb){var a=labelVisible(Lb,tt);if(a>0)vis.push({L:Lb,a:a,f:1,b:Lb.text?labelBox(Lb,fs):null});});
   vis.slice().sort(function(x,y){return ((y.L.gold?2:0)+(y.L.big?1:0))-((x.L.gold?2:0)+(x.L.big?1:0))||y.L.t-x.L.t;}).forEach(function(v){
     if(!v.b)return;
-    for(var i=0;i<placed.length;i++){var o=placed[i];if(v.b[0]<o.b[2]+2&&v.b[2]>o.b[0]-2&&v.b[1]<o.b[3]+2&&v.b[3]>o.b[1]-2)v.f=Math.min(v.f,1-0.62*o.a);}
+    function hit(b){for(var i=0;i<placed.length;i++){var o=placed[i];if(b[0]<o.b[2]+2&&b[2]>o.b[0]-2&&b[1]<o.b[3]+2&&b[3]>o.b[1]-2)return o;}return null;}
+    if(v.L._o&&!v.L.nomark){var ob=labelBox(v.L,fs,v.L._o);if(ob){v.b=ob;v.o=v.L._o;}}
+    var h=hit(v.b);
+    if(h&&!v.L.nomark&&!v.L.fixed){
+      var sz=v.L.big?fs*1.3:fs,C=[{dx:10,dy:4,al:'left'},{dx:-10,dy:4,al:'right'},{dx:0,dy:-sz*1.1,al:'center'},{dx:0,dy:sz*1.5,al:'center'}];
+      for(var k=0;k<C.length;k++){var nb=labelBox(v.L,fs,C[k]);if(nb&&!hit(nb)){v.o=v.L._o=C[k];v.b=nb;h=null;break;}}
+    }
+    for(var i=0;i<placed.length&&h;i++){var o=placed[i];if(v.b[0]<o.b[2]+2&&v.b[2]>o.b[0]-2&&v.b[1]<o.b[3]+2&&v.b[3]>o.b[1]-2)v.f=Math.min(v.f,1-0.62*o.a);}
     if(v.f>0.6)placed.push(v);
   });
-  vis.sort(function(x,y){return x.f-y.f;}).forEach(function(v){drawOneLabel(v.L,v.a*v.f,fs);});
+  vis.sort(function(x,y){return x.f-y.f;}).forEach(function(v){drawOneLabel(v.L,v.a*v.f,fs,v.o);});
   LBOX=placed.map(function(v){return v.b;});
 }
 /* export imprimé : tous les lieux encore valables à la fin du chapitre (zoom ignoré), sans chevauchement ;
@@ -1370,7 +1380,8 @@ function composePage(ci,o){
     for(var q=0;q<3&&y+60<FOOT;q++){y+=56;c.fillText('……………………………………………………',x1,y);}
   }
   c.fillStyle='#5b6b7a';c.font='400 21px '+FONT;c.textAlign='left';
-  c.fillText('Atlas historique du Pacifique · tracés schématiques, dates approximatives pour les périodes anciennes · fond de carte Natural Earth, côtes de la NC © OpenStreetMap',M,PH-M+34);
+  c.fillText('Atlas historique du Pacifique · tracés schématiques, dates approximatives pour les périodes anciennes · fond de carte Natural Earth, côtes de la NC © OpenStreetMap',M,PH-M+12);
+  c.font='400 17px '+FONT;c.fillStyle='#8a97a3';c.fillText('© Atlas historique du Pacifique · usage en classe, pas d’usage commercial (CC BY-NC-ND 4.0)',M,PH-M+38);
   return pg;
 }
 function jpegBytes(cv){return new Promise(function(res,rej){cv.toBlob(function(b){if(!b){rej(new Error('image'));return;}var fr2=new FileReader();fr2.onload=function(){res(new Uint8Array(fr2.result));};fr2.onerror=rej;fr2.readAsArrayBuffer(b);},'image/jpeg',0.9);});}

@@ -73,19 +73,19 @@ var CH=[
   r('#2dd4bf',6,26,3.6,[[121.3,24],[122.4,20.5],[123.8,17.5],[125.6,13.8],[126.6,11],[127.2,7.5],[127.8,4.5],[130.5,1.8],[134,-0.2],[138.5,-1.0],[143,-2.6],[147,-4.0],[149.7,-4.9]],{boat:true})
  ],
  labels:[
-  L(4,121.3,24,'Taïwan',{sub:'≈ 3000 av. J.-C.',dx:-9,dy:-6,al:'right'}),
+  L(4,121.3,24,'Taïwan',{sub:'départ ≈ 2200 av. J.-C.',dx:-9,dy:-6,al:'right'}),
   L(12,122,13,'Philippines',{dx:-9,dy:0,al:'right',end:30}),
-  L(25,150.5,-5.2,'Archipel Bismarck',{sub:'≈ 1600 av. J.-C.',dx:-9,dy:-24,al:'right',gold:true}),
+  L(25,150.5,-5.2,'Archipel Bismarck',{sub:'≈ 1350 av. J.-C.',dx:-9,dy:-24,al:'right',gold:true}),
   L(22,141,-5.5,'Nouvelle-Guinée',{dx:-6,dy:14,al:'center'})
  ],
  pulses:[Pu(4,121.3,24,'#2dd4bf'),Pu(25,150.5,-5.2,'#2dd4bf')],
  ph:[
-  Ph(0,'≈ 3000 av. J.-C.','Des paysans-marins quittent Taïwan. Ils parlent des langues « austronésiennes ».','aus'),
+  Ph(0,'≈ 2200 av. J.-C.','Des paysans-marins quittent Taïwan, où leurs ancêtres, venus de Chine, vivaient depuis plus d’un millier d’années. Ils parlent des langues « austronésiennes ».','aus'),
   Ph(10,'En pirogue à balancier','Dans les pirogues : taro, igname, banane, cochons, chiens et poules.','aus'),
-  Ph(24,'≈ 1600 av. J.-C.','Ils arrivent près de la Nouvelle-Guinée. Des Papous y vivent déjà depuis très longtemps. Les groupes se rencontrent et se mélangent.','aus')
+  Ph(24,'≈ 1400 – 1300 av. J.-C.','Ils arrivent près de la Nouvelle-Guinée. Des Papous y vivent déjà depuis très longtemps. Les groupes se rencontrent et se mélangent.','aus')
  ],
  photos:[Sh('carteaustro',1,11,'bl',-2,'contain'),Sh('pirogue',11,19,'tr',2),Sh('taro',19,24,'bl',-2),Sh('igname',24,29,'tl',2),Sh('banane',29,36,'tl',-2)],
- legend:[['aus','Austronésiens (≈ 3000 av. J.-C.)']]},
+ legend:[['aus','Austronésiens (départ de Taïwan ≈ 2200 av. J.-C.)']]},
 
 /* 4 --------------------------------------------------------------- */
 {short:'Les Lapita',col:'lap',dur:44,
@@ -102,18 +102,18 @@ var CH=[
   r('#b794f6',27,33,3.0,[[-175.5,-21.0],[-174.8,-17.5],[-172.2,-14.2]],{boat:true})
  ],
  labels:[
-  L(3,150,-5.5,'Bismarck',{sub:'≈ 1600 av. J.-C.',dx:-9,dy:-24,al:'right',end:14}),
-  L(14,168,-16,'Vanuatu',{sub:'≈ 1200 av. J.-C.',dx:10,dy:-8,al:'left'}),
+  L(3,150,-5.5,'Bismarck',{sub:'≈ 1350 av. J.-C.',dx:-9,dy:-24,al:'right',end:14}),
+  L(14,168,-16,'Vanuatu',{sub:'≈ 1100–1000 av. J.-C.',dx:10,dy:-8,al:'left'}),
   L(19,165.8,-21.5,'Nouvelle-Calédonie',{sub:'≈ 1100 av. J.-C.',dx:-9,dy:20,al:'right',gold:true}),
-  L(23,178,-17.8,'Fidji',{sub:'≈ 1100 av. J.-C.',dx:0,dy:-16,al:'center'}),
+  L(23,178,-17.8,'Fidji',{sub:'≈ 1000 av. J.-C.',dx:0,dy:-16,al:'center'}),
   L(27,-175.2,-21.2,'Tonga',{sub:'≈ 900 av. J.-C.',dx:0,dy:18,al:'center'}),
   L(32,-171.7,-13.8,'Samoa',{sub:'≈ 800 av. J.-C.',dx:0,dy:-16,al:'center'})
  ],
  pulses:[Pu(14,168.8,-17.5,'#b794f6'),Pu(19,165.5,-21,'#ffd166',true),Pu(23,178,-17.8,'#b794f6'),Pu(27,-175.2,-21.2,'#b794f6'),Pu(32,-171.7,-13.8,'#b794f6')],
  ph:[
-  Ph(0,'≈ 1600 av. J.-C.','Les Lapita fabriquent des poteries décorées de petits points. Ils partent de l’archipel Bismarck.','lap'),
-  Ph(12,'≈ 1200 av. J.-C.','En quelques générations, ils traversent la haute mer jusqu’à Vanuatu et la Nouvelle-Calédonie. Personne n’y vivait.','lap'),
-  Ph(23,'≈ 1100 à 800 av. J.-C.','Ils vont aussi à Fidji, Tonga et Samoa. Leurs descendants créeront la culture polynésienne.','lap')
+  Ph(0,'≈ 1350 av. J.-C.','Les Lapita fabriquent des poteries décorées de petits points. Ils partent de l’archipel Bismarck.','lap'),
+  Ph(12,'≈ 1100 – 1000 av. J.-C.','En quelques générations, ils traversent la haute mer jusqu’à la Nouvelle-Calédonie et au Vanuatu. Personne n’y vivait.','lap'),
+  Ph(23,'≈ 1000 à 800 av. J.-C.','Ils vont aussi à Fidji, Tonga et Samoa. Leurs descendants créeront la culture polynésienne.','lap')
  ],
  photos:[Sh('lapitapot',6,16,'tr',2),Sh('lapitatesson',24,34,'bl',-2),Sh('croixsud',36,44,'tr',2)],
  legend:[['lap','Lapita (≈ 1600 à 800 av. J.-C.)'],['aus','Austronésiens']]},
@@ -137,17 +137,17 @@ var CH=[
  labels:[
   L(1,-171.7,-13.8,'Samoa',{dx:0,dy:-14,al:'center',end:10}),
   L(1,-175.2,-21.2,'Tonga',{dx:0,dy:16,al:'center',end:10}),
-  L(12,-149.5,-17.5,'Tahiti',{sub:'≈ 800–1000',dx:0,dy:18,al:'center'}),
+  L(12,-149.5,-17.5,'Tahiti',{sub:'≈ 1000–1100',dx:0,dy:18,al:'center'}),
   L(19.5,-155.5,19.6,'Hawaï',{sub:'≈ 1000–1250',dx:12,dy:0,al:'left'}),
   L(20.5,-109.4,-27.1,'Rapa Nui',{dx:0,dy:-16,al:'center'}),
-  L(21.5,173.5,-40.5,'Aotearoa',{sub:'≈ 1000–1250',dx:12,dy:4,al:'left'}),
+  L(21.5,173.5,-40.5,'Aotearoa',{sub:'≈ 1250–1300',dx:12,dy:4,al:'left'}),
   L(31,-135,-4,'Le triangle polynésien',{nomark:true,big:true,dx:0,dy:0,al:'center'})
  ],
  pulses:[Pu(12,-149.5,-17.5,'#ff6b57'),Pu(19.5,-155.5,19.6,'#ff6b57'),Pu(20.5,-109.4,-27.1,'#ff6b57'),Pu(21.5,173.5,-40.5,'#ff6b57')],
  ph:[
   Ph(0,'≈ 800 av. J.-C. à 800 apr. J.-C.','À Tonga et Samoa, les descendants des Lapita créent la culture polynésienne. Ils restent là très longtemps.','pol'),
-  Ph(9,'≈ 800 à 1000 apr. J.-C.','Puis ils repartent vers l’est, sur de grandes pirogues doubles. Ils se guident avec les étoiles, les vagues et les oiseaux.','pol'),
-  Ph(19,'≈ 1000 à 1250 apr. J.-C.','Ils atteignent Hawaï, Rapa Nui et Aotearoa (Nouvelle-Zélande) : parmi les dernières terres peuplées au monde.','pol',true),
+  Ph(9,'≈ 1000 à 1100 apr. J.-C.','Puis ils repartent vers l’est, sur de grandes pirogues doubles. Ils se guident avec les étoiles, les vagues et les oiseaux.','pol'),
+  Ph(19,'≈ 1000 à 1300 apr. J.-C.','Ils atteignent Hawaï, Rapa Nui et Aotearoa (Nouvelle-Zélande) : parmi les dernières terres peuplées au monde.','pol',true),
   Ph(29,'Le triangle polynésien','Hawaï, Rapa Nui et Aotearoa forment un immense triangle : des milliers de kilomètres d’océan.','pol')
  ],
  photos:[Sh('croixsud',3,13,'tr',2),Sh('pirogue',13,22,'bl',-2),Sh('hokulea',23,32,'tr',2),Sh('moai',32,42,'bl',-2)],
@@ -176,7 +176,7 @@ var CH=[
  ],
  pulses:[Pu(14,164.3,-19.85,'#b794f6'),Pu(20,164.8,-21.0,'#ffd166',true)],
  ph:[
-  Ph(0,'≈ 1100 av. J.-C.','Des pirogues Lapita venues de Vanuatu arrivent en Nouvelle-Calédonie. Personne n’y avait jamais vécu.','lap'),
+  Ph(0,'≈ 1100 av. J.-C.','Des pirogues Lapita, venues du nord par le Vanuatu, arrivent en Nouvelle-Calédonie. Personne n’y avait jamais vécu.','lap'),
   Ph(10,'Au bord du lagon','Ils s’installent près des plages. Ils pêchent, ramassent des coquillages et plantent taro, igname et banane.','lap'),
   Ph(22,'Foué, près de Koné','Les archéologues y ont trouvé des tessons de poterie Lapita et des tombes très anciennes. C’est tout près de Pouembout !','kan'),
   Ph(34,'Un pays qui se construit','Avec ceux qui arriveront ensuite, ils sont à l’origine de la société kanak.','kan')
@@ -289,7 +289,7 @@ var CH=[
  ],
  labels:[
   L(2,169.3,-19.5,'Tanna (Vanuatu)',{dx:8,dy:-12,al:'left',zmin:6,end:16}),
-  L(14,164.65,-20.28,'Balade',{mark:'site',dx:-9,dy:-4,al:'right'}),
+  L(14,164.5,-20.3,'Balade',{mark:'site',dx:-9,dy:-4,al:'right'}),
   L(22,167.5,-22.65,'Île des Pins',{dx:0,dy:16,al:'center'}),
   L(30,168.0,-21.5,'Maré',{dx:12,dy:6,al:'left'}),
   L(30,167.24,-20.9,'Lifou',{dx:0,dy:-12,al:'center'}),
@@ -297,7 +297,7 @@ var CH=[
  ],
  pulses:[Pu(20,164.9,-20.3,'#e8edf2'),Pu(46,164.9,-20.35,'#ff9ecb'),Pu(52,164.9,-20.3,'#ffd166',true)],
  ph:[
-  Ph(0,'4 septembre 1774','Le capitaine britannique James Cook arrive sur la Grande Terre, à Balade. Il l’appelle « Nouvelle-Calédonie », car elle lui rappelle l’Écosse.','eur'),
+  Ph(0,'4 – 5 septembre 1774','Le capitaine britannique James Cook aperçoit la Grande Terre le 4 septembre et débarque le lendemain à Balade. Il l’appelle « Nouvelle-Calédonie », car elle lui rappelle l’Écosse.','eur'),
   Ph(12,'Cook longe la côte','Il passe devant l’île des Pins, nommée ainsi à cause de ses grands pins colonnaires. Puis il repart vers la Nouvelle-Zélande.','eur'),
   Ph(21,'≈ 1840 : baleiniers et santaliers','Des bateaux viennent chasser la baleine et chercher du santal pour la Chine. Ils échangent des haches, des fusils et des tissus.','eur'),
   Ph(30,'1840 – 1842 : missionnaires protestants','La London Missionary Society envoie des enseignants polynésiens à Maré et à Lifou. Des missionnaires européens suivront.','mis'),
@@ -317,15 +317,15 @@ var X=[
  mots:[['Glaciation','Période très froide : une partie de l’eau de la Terre est gelée et la mer baisse.'],['Sunda et Sahul','Deux grands continents de l’époque glaciaire : l’Asie du Sud-Est réunie, et l’Australie reliée à la Nouvelle-Guinée.']],
  q:[['Pourquoi pouvait-on presque aller à pied jusqu’en Australie ?','La mer était environ 120 m plus basse : beaucoup d’îles étaient reliées entre elles.'],['Depuis combien de temps des humains vivent-ils en Australie ?','Depuis plus de 50 000 ans.']],
  wiki:['Sahul','Sundaland']},
-{when:[-3000,-1600],dates:'≈ 3000 à 1600 av. J.-C.',
+{when:[-2200,-1350],dates:'≈ 2200 à 1350 av. J.-C.',
  mots:[['Austronésiens','Peuples de marins et de paysans partis de Taïwan. Leurs langues se ressemblent, de Madagascar à l’île de Pâques.'],['Pirogue à balancier','Pirogue équilibrée par un flotteur placé sur le côté.']],
- q:[['D’où partent les Austronésiens ?','De Taïwan, vers 3000 av. J.-C.'],['Qu’emportent-ils dans leurs pirogues ?','Des plantes (taro, igname, banane) et des animaux (cochons, chiens, poules).']],
+ q:[['D’où partent les Austronésiens ?','De Taïwan, vers 2200 av. J.-C.'],['Qu’emportent-ils dans leurs pirogues ?','Des plantes (taro, igname, banane) et des animaux (cochons, chiens, poules).']],
  wiki:['Langues austronésiennes','Pirogue à balancier']},
-{when:[-1600,-800],dates:'≈ 1600 à 800 av. J.-C.',
+{when:[-1350,-800],dates:'≈ 1350 à 800 av. J.-C.',
  mots:[['Lapita','Nom d’un site proche de Koné, en Nouvelle-Calédonie, donné à ces potiers-navigateurs.'],['Archéologue','Chercheur qui étudie les traces laissées par les humains du passé.']],
  q:[['À quoi reconnaît-on une poterie Lapita ?','À ses décors faits de petits points imprimés.'],['Qui vivait en Nouvelle-Calédonie avant les Lapita ?','Personne : ce sont les premiers habitants.']],
  wiki:['Lapita']},
-{when:[-800,1250],dates:'≈ 800 av. J.-C. à 1250 apr. J.-C.',
+{when:[-800,1300],dates:'≈ 800 av. J.-C. à 1300 apr. J.-C.',
  mots:[['Triangle polynésien','Immense partie du Pacifique entre Hawaï, Rapa Nui (île de Pâques) et Aotearoa (Nouvelle-Zélande).'],['Navigation aux étoiles','Se diriger en mer en observant les étoiles, les vagues et les oiseaux.']],
  q:[['Quels sont les trois sommets du triangle polynésien ?','Hawaï, Rapa Nui (île de Pâques) et Aotearoa (Nouvelle-Zélande).'],['Comment les Polynésiens se repéraient-ils en mer ?','Avec les étoiles, les vagues et les oiseaux.']],
  wiki:['Triangle polynésien','Peuplement de l\'Océanie']},

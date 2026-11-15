@@ -34,7 +34,7 @@ def draw_cover(c, doc):
     c.setLineWidth(0.5); c.rect(lx + 2.5 * mm, ly + 2.5 * mm, lw - 5 * mm, lh - 5 * mm, fill=0, stroke=1)
     c.setStrokeColor(colors.HexColor('#8d949c')); c.setLineWidth(2.2); c.roundRect(lx + 12 * mm, ly + lh - 14 * mm, 7 * mm, 28 * mm, 3.5 * mm, stroke=1, fill=0)
     c.roundRect(lx + 13.6 * mm, ly + lh - 9 * mm, 3.8 * mm, 19 * mm, 1.9 * mm, stroke=1, fill=0)
-    c.setFillColor(MUTED); c.setFont('AtkB', 9.5); c.drawCentredString(W / 2, ly + lh - 11 * mm, 'ATLAS HISTORIQUE DU PACIFIQUE · BUREAU DES ENQUÊTES')
+    c.setFillColor(MUTED); c.setFont('AtkB', 9.5); c.drawCentredString(W / 2, ly + lh - 11 * mm, 'ATLAS HISTORIQUE DU PACIFIQUE · BUREAU DES ENQUÊTES' + (' HISTORIQUES' if doc.vol in HIST else ''))
     c.setFillColor(INK); c.setFont('Stamp', 31); c.drawCentredString(W / 2, ly + lh - 28 * mm, 'DOSSIER D’ENQUÊTE')
     c.setFont('Type', 13.5); c.drawCentredString(W / 2, ly + lh - 38 * mm, 'Affaire n° %s  ·  %s' % (doc.code, clean(ch['dates'], 'Type')))
     p = Paragraph(esc(ch['short']), S('ct', 'AtkB', 21, 25, BROWN, alignment=TA_CENTER)); ph = p.wrap(lw - 24 * mm, 40 * mm)[1]
@@ -69,12 +69,12 @@ def story(vol, ci, book):
     sto = [NextPageTemplate('paper'), PageBreak()]
     hyp = e['h'] + ['Je ne sais pas encore']
     sto += [Sheet('tapuscrit', 'ORDRE DE MISSION N° ' + key,
-                  'Objet : enquête sur « %s » (%s).\nEnquêteur, enquêtrice,\nUne question reste à élucider : « %s »\nCe dossier contient %d pièces : photographies, textes, cartes et tableaux. Étudie chacune d’elles, réponds aux questions de ton cahier, note les indices, puis rédige ton rapport d’enquête.\nLe chef du Bureau des enquêtes'
-                  % (ch['short'], ch['dates'], e['q'], n_last), '', 'CONFIDENTIEL'), Spacer(1, 6 * mm),
+                  'Objet : enquête sur « %s » (%s).\nEnquêteur, enquêtrice,\nUne question reste à élucider : « %s »\nCe dossier contient %d pièces : photographies, textes, cartes et tableaux. Étudie chacune d’elles, réponds aux questions de ton cahier, note les indices, puis rédige ton rapport d’enquête.\nLe chef du Bureau des enquêtes%s'
+                  % (ch['short'], ch['dates'], e['q'], n_last, ' historiques' if vol in HIST else ''), '', 'CONFIDENTIEL'), Spacer(1, 6 * mm),
             Paragraph('Avant d’ouvrir les pièces, coche ton hypothèse :', ST['h2'])]
     sto += [Paragraph(BOX + '&nbsp; ' + esc(h), ST['opt']) for h in hyp]
     sto += [Spacer(1, 5 * mm), Sheet('fiche', 'La méthode de l’enquêteur : 5 questions à poser à chaque pièce',
-            'Qui l’a fait ? (un témoin, un savant, un organisme officiel, l’atlas…)\nQuand ? (au moment des faits, ou bien plus tard ?)\nQu’est-ce que c’est ? (photo, carte, texte, tableau, graphique…)\nPour quoi faire ? (raconter, expliquer, informer, convaincre…)\nPeut-on lui faire confiance ? (est-ce un point de vue ? faut-il le comparer à une autre pièce ?)')]
+            METH[vol in HIST] + '\nPeut-on lui faire confiance ? (est-ce un point de vue ? faut-il le comparer à une autre pièce ?)')]
     toc = [['Pièce n° %d' % (i + 1), t, 'p%d' % (i + 1)] for i, (t, d) in enumerate(pieces)] + [['Pièce n° %d' % n_ex, ex['t'], 'p%d' % n_ex]]
     if n_map: toc.append(['Pièce n° %d' % n_map, 'Carte de l’atlas', 'p%d' % n_map])
     toc += [['Pièce n° %d' % n_last, 'Pli cacheté : note de synthèse et lexique', 'p%d' % n_last], ['Cahier', 'Niveau école primaire', 'cP'], ['Cahier', 'Niveau collège', 'cC'], ['Enseignant', 'Corrigé (à ne pas distribuer)', 'K']]
@@ -129,7 +129,7 @@ def build(vol, ci):
         buf = io.BytesIO() if total is None else OUT + '%s-%02d.pdf' % (vol, ci + 1)
         doc = BaseDocTemplate(buf, pagesize=A4, leftMargin=M, rightMargin=M, topMargin=18 * mm, bottomMargin=16 * mm,
                               title='Dossier d’enquête %s · %s' % (code(vol, ci), D['vols'][vol]['chapters'][ci]['short']), author='Atlas historique du Pacifique')
-        doc.code = code(vol, ci); doc.ch = D['vols'][vol]['chapters'][ci]; doc.E = D['vols'][vol]['enq'][ci]; doc.total = total
+        doc.vol = vol; doc.code = code(vol, ci); doc.ch = D['vols'][vol]['chapters'][ci]; doc.E = D['vols'][vol]['enq'][ci]; doc.total = total
         fr = Frame(M, 16 * mm, FW, H - 34 * mm, id='f', leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
         doc.addPageTemplates([PageTemplate('cover', [fr], onPage=draw_cover), PageTemplate('paper', [fr], onPage=bg_paper),
                               PageTemplate('cahP', [fr], onPage=bg_P), PageTemplate('cahC', [fr], onPage=bg_C), PageTemplate('corr', [fr], onPage=bg_K)])
@@ -137,6 +137,10 @@ def build(vol, ci):
         doc.build([Spacer(1, 1)] + sto)
         total = doc.page
     return total
+
+HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes'}   # volets d’histoire : en-tête « historiques », méthode du témoin
+METH = {True: 'Qui l’a fait ? (un témoin, un savant, un voyageur, l’atlas…)\nQuand ? (au moment des faits, ou bien plus tard ?)\nQu’est-ce que c’est ? (photo, carte, texte, tableau, objet…)\nPour quoi faire ? (raconter, expliquer, convaincre, garder une trace…)',
+        False: 'Qui l’a fait ? (un témoin, un savant, un organisme officiel, l’atlas…)\nQuand ? (au moment des faits, ou bien plus tard ?)\nQu’est-ce que c’est ? (photo, carte, texte, tableau, graphique…)\nPour quoi faire ? (raconter, expliquer, informer, convaincre…)'}
 
 if __name__ == '__main__':
     # python3 gen_build.py emc        -> un volet ;  python3 gen_build.py emc 3 -> une enquête

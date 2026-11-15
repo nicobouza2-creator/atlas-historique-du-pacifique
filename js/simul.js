@@ -7,7 +7,7 @@
 'use strict';
 var EV=[
 /* Peupler la Terre */
-[-7000000,-7000000,17.0,16.0,'Toumaï','Un des plus anciens ancêtres connus de la lignée humaine, au Tchad.','m',0,'a',1],
+[-7000000,-7000000,17.0,16.0,'Toumaï','Peut-être un des plus anciens ancêtres de la lignée humaine, au Tchad.','m',0,'a',1],
 [-3200000,-3200000,40.5,11.1,'Lucy','Une australopithèque qui marche déjà debout, en Éthiopie.','m',0,'a',1],
 [-1800000,-1800000,44.3,41.3,'Dmanisi','Des Homo erectus sont déjà sortis d’Afrique (Géorgie).','m',0,'e'],
 [-1200000,-800000,-3.5,42.4,'Atapuerca','Les plus vieux humains connus d’Europe de l’Ouest (Espagne).','m',0,'e'],
@@ -15,7 +15,7 @@ var EV=[
 [-700000,-700000,115.9,39.7,'Zhoukoudian','L’« homme de Pékin », un Homo erectus de Chine.','m',0,'s'],
 [-400000,-40000,22.0,48.5,'Néandertaliens','Une autre humanité vit en Europe et en Asie de l’Ouest.','m',3,'e',1],
 [-335000,-236000,27.7,-26.0,'Homo naledi','Une humanité au petit cerveau, en Afrique du Sud.','m',3,'a'],
-[-300000,-50000,104.0,43.0,'Dénisoviens','Une humanité d’Asie, connue surtout grâce à son ADN.','m',3,'s'],
+[-200000,-50000,104.0,43.0,'Dénisoviens','Une humanité d’Asie, connue surtout grâce à son ADN.','m',3,'s'],
 [-300000,-300000,-8.9,31.9,'Jebel Irhoud','Les plus anciens fossiles connus d’Homo sapiens (Maroc).','m',1,'a',1],
 [-230000,-230000,35.9,5.4,'Omo','Des Homo sapiens en Éthiopie.','m',1,'a'],
 [-190000,-50000,120.5,-8.6,'L’homme de Florès','Un humain d’environ 1 m de haut, sur l’île de Florès (Indonésie).','m',3,'s'],
@@ -44,21 +44,21 @@ var EV=[
 [1250,1300,173.5,-41.0,'Aotearoa','Les Polynésiens atteignent la Nouvelle-Zélande : ce sont les ancêtres des Maori.','m',7,'o',1],
 [2022,2022,79.0,22.0,'8 milliards d’humains','La Terre compte 8 milliards d’habitants ; plus de la moitié vivent en Asie.','m',8,'s'],
 /* Vers le Pacifique */
-[-3000,-3000,121.3,24.0,'Départ de Taïwan','Les Austronésiens, grands navigateurs, partent de Taïwan.','p',2,'s',1],
-[-1600,-1600,150.5,-5.2,'Naissance des Lapita','Une culture de potiers et de navigateurs apparaît dans l’archipel Bismarck.','p',3,'o',1],
-[-1200,-1200,168.0,-16.0,'Lapita au Vanuatu','Les Lapita arrivent au Vanuatu.','p',3,'o'],
+[-2200,-2200,121.3,24.0,'Départ de Taïwan','Les Austronésiens, paysans et navigateurs, partent de Taïwan vers les Philippines.','p',2,'s',1],
+[-1350,-1350,150.5,-5.2,'Naissance des Lapita','Une culture de potiers et de navigateurs apparaît dans l’archipel Bismarck.','p',3,'o',1],
+[-1100,-1000,168.0,-16.0,'Lapita au Vanuatu','Les Lapita arrivent au Vanuatu (vers 1100–1000 av. J.-C.).','p',3,'o'],
 [-1100,-1100,164.8,-21.0,'Arrivée en Nouvelle-Calédonie','Les premiers habitants arrivent ; on retrouve leurs poteries à Foué, près de Koné.','p',5,'n',1],
-[-1100,-1100,178.0,-17.8,'Lapita aux Fidji','Les Lapita arrivent aux Fidji.','p',3,'o'],
+[-1000,-1000,178.0,-17.8,'Lapita aux Fidji','Les Lapita arrivent aux Fidji (vers 1000 av. J.-C.).','p',3,'o'],
 [-900,-900,-175.2,-21.2,'Lapita aux Tonga','Les Lapita arrivent aux Tonga.','p',3,'o'],
 [-800,-800,-171.7,-13.8,'Lapita aux Samoa','Les Lapita arrivent aux Samoa.','p',3,'o'],
-[-500,1000,165.6,-21.4,'La société kanak','De nouvelles vagues d’arrivants ; la société kanak s’organise : clans, chefferies, ignames.','p',6,'n'],
-[800,1000,-149.5,-17.5,'Tahiti','Les Polynésiens s’installent en Polynésie orientale.','p',4,'o'],
+[-500,1000,165.6,-21.4,'La société kanak','Les poteries et les modes de vie changent, peut-être avec de nouveaux arrivants ; vers l’an 1000, la société kanak traditionnelle prend forme.','p',6,'n'],
+[1000,1100,-149.5,-17.5,'Tahiti','Les Polynésiens s’installent en Polynésie orientale.','p',4,'o'],
 [1000,1250,-155.5,19.6,'Hawaï','Les Polynésiens atteignent Hawaï.','p',4,'o'],
-[1150,1250,-109.4,-27.1,'Rapa Nui (île de Pâques)','Les Polynésiens atteignent l’île habitée la plus isolée du monde.','p',4,'o'],
+[1150,1250,-109.4,-27.1,'Rapa Nui (île de Pâques)','Les Polynésiens atteignent l’une des îles habitées les plus isolées du monde.','p',4,'o'],
 [1200,1200,-175.0,-21.1,'Ha’amonga ’a Maui','Un grand portique de pierre est construit aux Tonga.','p',8,'o'],
 [1200,1700,167.2,-20.9,'Des îles reliées par la mer','Grande Terre, Loyauté, île des Pins et Vanuatu échangent jade, ignames et alliances.','p',7,'n'],
 [1750,1750,166.5,-20.6,'Les Wallisiens à Ouvéa','Des pirogues de Wallis arrivent à Ouvéa ; on y parle encore leur langue, le fagauvea.','p',8,'n'],
-[1841,1841,167.9,-21.5,'Enseignants samoans aux Loyauté','Des enseignants polynésiens protestants s’installent à Maré et à Lifou.','p',8,'n'],
+[1841,1841,167.9,-21.5,'Enseignants samoans aux Loyauté','Des enseignants polynésiens protestants s’installent à Maré (1841), puis à Lifou (1842).','p',8,'n'],
 /* Grandes Découvertes */
 [1405,1433,118.8,32.1,'Zheng He','Les grandes flottes chinoises de Zheng He vont jusqu’en Afrique de l’Est.','d',1,'s',1],
 [1420,1460,-8.9,37.0,'Henri le Navigateur','Le Portugal lance l’exploration des côtes de l’Afrique.','d',2,'e'],
@@ -82,11 +82,11 @@ var EV=[
 [1788,1788,166.9,-11.7,'Naufrage de La Pérouse','Les navires de La Pérouse font naufrage à Vanikoro (îles Salomon).','d',13,'o',1],
 /* Histoire de la Nouvelle-Calédonie */
 [1500,1774,165.3,-21.0,'Le pays kanak','Clans et chefferies, 28 langues ; le pays compte plusieurs dizaines de milliers d’habitants.','c',0,'n'],
-[1774,1774,164.4,-20.3,'Cook à Balade','Le 4 septembre 1774, James Cook aborde la Grande Terre et la nomme « Nouvelle-Calédonie ».','c',1,'n',1],
+[1774,1774,164.5,-20.3,'Cook à Balade','Le 4 septembre 1774, James Cook aperçoit la Grande Terre ; le 5, il débarque à Balade. Il la nomme « Nouvelle-Calédonie ».','c',1,'n',1],
 [1793,1793,164.5,-20.25,'D’Entrecasteaux à Balade','Parti à la recherche de La Pérouse, il séjourne à Balade.','c',1,'n'],
 [1841,1841,167.5,-22.6,'Santaliers et baleiniers','Des marchands viennent chercher le santal à l’île des Pins et aux Loyauté.','c',1,'n'],
 [1843,1843,164.45,-20.32,'Missionnaires à Balade','Mgr Douarre et les pères maristes s’installent à Balade.','c',1,'n'],
-[1853,1853,164.42,-20.28,'Prise de possession','Le 24 septembre 1853, la France prend possession de la Nouvelle-Calédonie, à Balade.','c',2,'n',1],
+[1853,1853,164.5,-20.3,'Prise de possession','Le 24 septembre 1853, la France prend possession de la Nouvelle-Calédonie, à Balade.','c',2,'n',1],
 [1854,1854,166.45,-22.27,'Fondation de Port-de-France','La ville qui deviendra Nouméa est fondée.','c',2,'n'],
 [1855,1903,165.5,-21.55,'Colons libres et réserves','Des colons s’installent ; les Kanak sont regroupés dans des réserves.','c',4,'n'],
 [1864,1864,166.42,-22.28,'Les premiers bagnards','Le 9 mai 1864, L’Iphigénie débarque à Nouméa les premiers forçats.','c',3,'n',1],
@@ -102,7 +102,7 @@ var EV=[
 [1942,1945,166.45,-22.27,'Les Américains à Nouméa','À partir de mars 1942, Nouméa devient une grande base américaine.','c',7,'n',1],
 [1946,1946,166.45,-22.25,'Fin de l’indigénat','Les Kanak deviennent citoyens ; la Nouvelle-Calédonie devient un territoire d’outre-mer.','c',8,'n',1],
 [1957,1957,166.44,-22.29,'Suffrage universel','Tous les adultes, kanak compris, peuvent désormais voter.','c',8,'n'],
-[1988,1988,166.45,-22.27,'Accords de Matignon','Après des années de violences, un accord de paix est signé (26 juin 1988).','c',8,'n',1],
+[1988,1988,2.32,48.85,'Accords de Matignon','À Paris, après des années de violences en Nouvelle-Calédonie, un accord de paix est signé (26 juin 1988).','c',8,'n',1],
 [1989,1989,166.5,-20.6,'Mort de Jean-Marie Tjibaou','Le dirigeant kanak Jean-Marie Tjibaou est assassiné à Ouvéa (4 mai 1989).','c',8,'n'],
 [1998,1998,166.45,-22.27,'Accord de Nouméa','Il prévoit des transferts de compétences et des consultations (5 mai 1998).','c',8,'n',1],
 [2018,2021,165.9,-21.3,'Trois consultations','En 2018, 2020 et 2021, les électeurs répondent à la question de l’indépendance ; le « non » l’emporte trois fois (la consultation de 2021 a été boycottée par les indépendantistes).','c',8,'n'],
@@ -139,7 +139,7 @@ var EV=[
 [1868,1868,139.7,35.7,'L’ère Meiji','Le Japon se modernise très vite.','r',-1,'s'],
 [1869,1869,32.3,30.6,'Canal de Suez','Le canal relie la Méditerranée à la mer Rouge.','r',-1,'a'],
 [1871,1871,2.3,48.9,'La Commune de Paris','Une insurrection à Paris ; des milliers de communards seront déportés en Nouvelle-Calédonie.','r',-1,'e',1],
-[1881,1882,2.5,48.8,'Lois Jules Ferry','L’école devient gratuite, obligatoire et laïque.','r',-1,'e'],
+[1881,1882,2.5,48.8,'Lois Jules Ferry','L’école publique devient gratuite et laïque ; l’instruction est obligatoire de 6 à 13 ans.','r',-1,'e'],
 [1914,1918,5.4,49.2,'Première Guerre mondiale','Verdun (1916) est l’une des batailles les plus meurtrières.','r',-1,'e',1],
 [1939,1945,13.4,52.5,'Seconde Guerre mondiale','La guerre la plus meurtrière de l’histoire (1939-1945).','r',-1,'e',1],
 [1941,1941,-157.9,21.4,'Pearl Harbor','Le Japon attaque la flotte américaine à Hawaï (7 décembre 1941).','r',-1,'o'],
@@ -151,11 +151,11 @@ var EV=[
 /* moments clés : [année, demi-fenêtre en années (0 = automatique), titre, texte « pendant ce temps »] */
 var MOM=[
 [-50000,0,'Il y a 50 000 ans','Plusieurs humanités vivent en même temps : Homo sapiens en Afrique, en Asie et en Australie, les Néandertaliens en Europe, les Dénisoviens en Asie, l’homme de Florès en Indonésie.'],
-[-2560,0,'Vers 2500 av. J.-C.','Pendant qu’on construit la grande pyramide en Égypte et Stonehenge en Angleterre, la ville de Mohenjo-daro prospère près de l’Indus et des chasseurs atteignent le Groenland. Les Austronésiens ont commencé à quitter Taïwan : leurs descendants peupleront le Pacifique.'],
-[-1100,0,'Vers 1100 av. J.-C.','Les premiers habitants arrivent en Nouvelle-Calédonie. À la même époque, les Lapita atteignent les Fidji ; en Égypte, c’est la fin du temps des grands pharaons ; au Mexique vivent les Olmèques.'],
-[1000,0,'Vers l’an 1000','Les Vikings atteignent l’Amérique pendant que les Polynésiens s’installent à Hawaï. En Nouvelle-Calédonie, la société kanak est organisée en clans et en chefferies.'],
+[-2560,0,'Vers 2500 av. J.-C.','Pendant qu’on construit la grande pyramide en Égypte et Stonehenge en Angleterre, la ville de Mohenjo-daro prospère près de l’Indus et des chasseurs atteignent le Groenland. Les Austronésiens vivent à Taïwan ; vers 2200 av. J.-C., ils commenceront à en partir et leurs descendants peupleront le Pacifique.'],
+[-1100,0,'Vers 1100 av. J.-C.','Les premiers habitants arrivent en Nouvelle-Calédonie. À la même époque, les Lapita s’installent aussi au Vanuatu et vont bientôt atteindre les Fidji ; en Égypte, c’est la fin du temps des grands pharaons ; au Mexique vivent les Olmèques.'],
+[1000,0,'Vers l’an 1000','Les Vikings atteignent l’Amérique pendant que les Polynésiens s’installent à Tahiti et approchent de Hawaï. En Nouvelle-Calédonie, la société kanak est organisée en clans et en chefferies.'],
 [1492,10,'1492','Christophe Colomb arrive aux Bahamas. Au même moment, les Aztèques vivent à Tenochtitlan, les Incas dans les Andes ; en Océanie, Kanak, Tongiens et Maori naviguent et cultivent leurs terres sans savoir que des Européens approchent.'],
-[1781,9,'1774 – 1789','Cook aborde la Grande Terre (1774). Deux ans plus tard, les États-Unis déclarent leur indépendance (1776). En 1788, La Pérouse disparaît à Vanikoro et les Britanniques s’installent à Sydney. En 1789 commence la Révolution française.'],
+[1781,9,'1774 – 1789','Cook débarque à Balade (1774). Deux ans plus tard, les États-Unis déclarent leur indépendance (1776). En 1788, La Pérouse disparaît à Vanikoro et les Britanniques s’installent à Sydney. En 1789 commence la Révolution française.'],
 [1865,14,'1853 – 1879','La France prend possession de la Nouvelle-Calédonie (1853) et y envoie des bagnards (1864). Pendant ce temps, l’esclavage est aboli aux États-Unis (1865), le canal de Suez est ouvert (1869) et, après la Commune de Paris (1871), des déportés arrivent à Nouméa. En 1878 éclate l’insurrection d’Ataï.'],
 [1916,3,'1914 – 1918','Pendant la Première Guerre mondiale, des tirailleurs kanak et des Calédoniens combattent en France. En 1917, une révolte kanak éclate dans le nord de la Grande Terre.'],
 [1943,3,'1941 – 1945','La guerre gagne le Pacifique : Pearl Harbor (1941), Guadalcanal (1942-1943). Nouméa devient une grande base américaine. En 1945, l’ONU est créée.'],
@@ -180,7 +180,7 @@ function yr(y,short){
   if(y<-10000){var n=-y,p=Math.pow(10,Math.max(0,Math.floor(Math.log(n)/Math.LN10)-1));n=Math.round(n/p)*p;
     if(n>=1000000)return (short?'':'il y a ')+(n/1000000).toLocaleString('fr-FR',{maximumFractionDigits:1})+' million'+(n>=2000000?'s':'')+' d’années';
     return (short?'':'il y a ')+fr(n)+' ans';}
-  if(y<=0)return fr(1-y)+' av. J.-C.';
+  if(y<=0)return fr(Math.max(1,-y))+' av. J.-C.';
   return String(y);
 }
 function span(e){return e.y0===e.y1?yr(e.y0):(e.y0<-10000&&e.y1<-10000?'de '+yr(e.y0,1).replace(' ans','')+' à '+yr(e.y1,1)+' environ':yr(e.y0)+' – '+yr(e.y1));}
@@ -481,7 +481,8 @@ function exportPdf(){
     var t=(e.y0===e.y1?yr(e.y0,1):yr(e.y0,1)+'–'+yr(e.y1,1))+' · '+e.t;while(c.measureText(t).width>cw-30&&t.length>10)t=t.slice(0,-2);
     c.fillText(t,M+col*cw+22,y);y+=28;});
   c.fillStyle='#5b6b7a';c.font='400 18px "Lexend","Segoe UI",sans-serif';
-  c.fillText('Atlas historique du Pacifique · « Tout en même temps » · dates approximatives pour les périodes anciennes · fond de carte Natural Earth',M,PH-24);
+  c.fillText('Atlas historique du Pacifique · « Tout en même temps » · dates approximatives pour les périodes anciennes · fond de carte Natural Earth',M,PH-48);
+  c.font='400 15px "Lexend","Segoe UI",sans-serif';c.fillStyle='#8a97a3';c.fillText('© Atlas historique du Pacifique · usage en classe, pas d’usage commercial (CC BY-NC-ND 4.0)',M,PH-24);
   A.pdf('Tout-en-meme-temps-'+String(S.all?'tout':yr(S.T)).replace(/[^0-9a-zA-Z]+/g,'-')+'.pdf',[pg]);
 }
 

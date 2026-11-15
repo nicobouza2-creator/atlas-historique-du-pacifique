@@ -17,6 +17,9 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body)}
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,select,[contenteditable="true"]{-webkit-user-select:text;user-select:text}
+img,canvas{-webkit-user-drag:none}
 .app{max-width:1480px;margin:0 auto;padding:12px 14px 24px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
 h1{font:700 clamp(21px,3.4vw,30px)/1.1 var(--font-display);margin:0;text-wrap:balance}
 .sub{margin:4px 0 0;color:var(--muted);font-size:15px;line-height:1.35}
@@ -373,6 +376,7 @@ body.pj .pj-ctl .primary{flex:1 1 auto}
         <div class="in vinfo" id="vinfo"></div>
       </details>
       <p class="note">Tracés schématiques : les flèches, pirogues et navires montrent des directions, pas des trajets exacts. Les dates anciennes sont approximatives ; le badge « Hypothèse » et les pointillés signalent ce qui est encore discuté par les chercheurs. Photos et documents réels (aucune image générée), crédits sous chaque image ; clique dessus pour l’agrandir. Fonds de carte Natural Earth (domaine public) ; côtes de la Nouvelle-Calédonie © contributeurs OpenStreetMap (ODbL).</p>
+      <p class="note">Textes, cartes animées, enquêtes et dossiers : licence <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a> (usage en classe libre, en citant l’atlas ; pas d’usage commercial ni de version modifiée diffusée). Les photos et documents gardent la licence de leur auteur, indiquée sous chacun.</p>
     </section>
 
     <section data-sec="set" data-title="Réglages" hidden>
@@ -455,6 +459,16 @@ body.pj .pj-ctl .primary{flex:1 1 auto}
 <script src="js/v-mondial.js"></script>
 <script src="js/v-emc.js"></script>
 <script src="js/simul.js"></script>
-<script>window.ATLAS.start();</script>
+<script>
+/* Protection légère contre la copie en bloc : pas de sélection hors champs de saisie, pas de clic droit ni de glisser sur les cartes et
+   les images, copie de texte limitée. Un utilisateur averti peut toujours enregistrer la page (voir README, « Protection »). */
+(function(){
+  function editable(t){return t&&t.closest&&t.closest('input,textarea,select,[contenteditable="true"]');}
+  document.addEventListener('contextmenu',function(e){if(!editable(e.target))e.preventDefault();});
+  document.addEventListener('dragstart',function(e){if(e.target&&/^(IMG|CANVAS|A)$/.test(e.target.tagName))e.preventDefault();});
+  document.addEventListener('copy',function(e){if(editable(e.target))return;var s=String(window.getSelection&&window.getSelection()||'');if(s.length>200){e.preventDefault();try{e.clipboardData.setData('text/plain',s.slice(0,200)+'… (Atlas historique du Pacifique, CC BY-NC-ND 4.0)');}catch(x){}}});
+  document.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase();if((e.ctrlKey||e.metaKey)&&(k==='s'||k==='u'||(e.shiftKey&&(k==='i'||k==='j'||k==='c'))))e.preventDefault();});
+})();
+window.ATLAS.start();</script>
 </body>
 </html>
