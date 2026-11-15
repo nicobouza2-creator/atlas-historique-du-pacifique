@@ -22,6 +22,12 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 - `node valider_enquetes.js <dépôt> <volet…>` : vérifie les enquêtes (images, réponses, indices).
 - `auto.js` : joue une enquête de bout en bout (à injecter avec `run.py`).
 
+## Données géographiques de la NC (`geo/`)
+- `georep.py <service> [couche] [simplification]` : télécharge une couche des services ArcGIS du Géorep (gouvernement de la NC) en GeoJSON WGS84. `georep.py <service> layers` liste les couches.
+- `ncgeo.py` (lancé dans le dossier des GeoJSON) : simplifie et écrit `js/nc-geo.js` (massifs de péridotites, aires coutumières, provinces, Grand Nouméa, tribus, lagons UNESCO, ZEE, centres miniers, usines). Les zones qui touchent la côte sont étendues vers la mer : la carte les découpe sur les terres, seules les limites intérieures comptent.
+- Couches utilisées : `massifs_peridotites` (1 et 0), `aires_coutumieres`, `limites_terrestres` (0 et 1), `tribus_nc`, `UNESCO` (1), `Limites_administratives_maritimes` (4), `Exploitation_minière_v2_vue` (0 et 1), `routes_territoriales` (0, à télécharger sans simplification : `georep.py routes_territoriales 0 0`).
+- Zones en mer (ZEE, lagons) : objets `{k:'poly',…}`, non découpés sur les terres ; `Rg` est réservé aux zones terrestres.
+
 ## Images (`images/`)
 - `wm.py search|info|get` : recherche et téléchargement sur Wikimedia Commons (vérifier la licence sur la page du fichier ; attendre entre deux requêtes).
 - `schemas.py` : les quatre schémas du volet nickel (`img/profil.jpg`, `chaine.jpg`, `indonesie.jpg`, `coupe.jpg`).

@@ -9,17 +9,16 @@ function nc(t){return cam(t,165.85,-21.2,23);}
 /* contours schématiques */
 var GT=[[163.3,-19.3],[164.6,-19.7],[165.6,-20.45],[166.9,-21.6],[167.25,-22.3],[167.9,-22.5],[167.8,-23],[166.2,-22.9],[164.9,-21.9],[163.4,-20.6]];
 var LOY=[[166.55,-20.6,0.45],[167.25,-20.95,0.5],[167.82,-21.12,0.15],[167.95,-21.5,0.45]];
-var P_NORD=[[163.2,-19.3],[165,-19.6],[166.3,-20.9],[166.3,-21.4],[166.1,-21.55],[166.02,-21.6],[165.85,-21.58],[165.65,-21.5],[165.47,-21.43],[165.3,-21.47],[165.05,-21.7],[163.3,-20.6]];
-var P_SUD=[[165.05,-21.7],[165.3,-21.47],[165.47,-21.43],[165.65,-21.5],[165.85,-21.58],[166.02,-21.6],[166.1,-21.55],[166.3,-21.4],[167.3,-21.9],[167.9,-22.4],[167.8,-23],[166.2,-22.9]];
 var CHAINE=[[164.15,-20.3],[164.55,-20.62],[164.95,-20.95],[165.35,-21.2],[165.75,-21.48],[166.15,-21.78],[166.55,-22.02],[166.9,-22.2]];
 /* massif du Sud (péridotites) et massifs de la côte Ouest (klippes) : tracé à grands traits */
-var MSUD=[[166.3,-22.02],[166.38,-21.86],[166.55,-21.76],[166.78,-21.76],[166.97,-21.9],[167.06,-22.1],[167.02,-22.32],[166.88,-22.42],[166.7,-22.38],[166.52,-22.28],[166.42,-22.18]];
-var KL=[[163.65,-19.72,0.07],[164.07,-20.27,0.06],[164.21,-20.45,0.06],[164.42,-20.62,0.06],[164.55,-20.78,0.07],[164.83,-20.99,0.08],[165.05,-21.2,0.09],[165.3,-21.24,0.08],[165.7,-21.33,0.06],[165.8,-21.45,0.08],[166.02,-21.55,0.07],[166.16,-21.66,0.09],[167.47,-22.62,0.09]];
-function massifs(t0,a,col){var out=[Rg(MSUD,col||'pol',t0,a,2)];KL.forEach(function(c,i){out.push(Rg(c,col||'pol',t0+0.4+i*0.25,a,1.5));});return out;}
+/* massifs de péridotites : contours officiels (Géorep, géologie au 1/1 000 000), le massif du Sud d’abord, puis les autres du nord au sud */
+var NCG=window.NCG;
+function massifs(t0,a,col){return NCG.massifs.map(function(m,i){return Rg(m[2],col||'pol',i?t0+0.4+(i-1)*0.15:t0,a,i?1.5:2);});}
+var PROV=NCG.provinces;
 /* lieux */
-var P={noumea:[166.44,-22.27],pouembout:[164.9,-21.13],kone:[164.86,-21.06],voh:[164.7,-20.96],vavouto:[164.73,-21.01],koniambo:[164.83,-20.99],
-  thio:[166.16,-21.66],thiom:[166.23,-21.6],kouaoua:[165.79,-21.44],kouaouam:[165.84,-21.4],nakety:[166.04,-21.53],poro:[165.7,-21.31],nepoui:[165.0,-21.33],kopeto:[165.06,-21.2],
-  tiebaghi:[164.21,-20.45],poum:[164.07,-20.27],ouaco:[164.53,-20.82],goro:[166.95,-22.29],prony:[166.84,-22.33],yate:[166.88,-22.15],doniambo:[166.43,-22.25]};
+var P={noumea:[166.44,-22.27],pouembout:[164.9,-21.13],kone:[164.86,-21.06],voh:[164.7,-20.96],vavouto:[164.683,-21.014],koniambo:[164.793,-20.975],
+  thio:[166.16,-21.66],thiom:[166.19,-21.616],kouaoua:[165.79,-21.44],kouaouam:[165.76,-21.42],nakety:[166.106,-21.54],poro:[165.7,-21.31],nepoui:[165.0,-21.33],kopeto:[165.01,-21.17],
+  tiebaghi:[164.211,-20.465],poum:[164.04,-20.25],ouaco:[164.5,-20.76],goro:[166.972,-22.29],prony:[166.84,-22.33],yate:[166.88,-22.15],doniambo:[166.43,-22.25]};
 function at(k,t,text,o){var p=P[k];return L(t,p[0],p[1],text,o);}
 
 var CH=[
@@ -46,7 +45,7 @@ var CH=[
   Ph(7,'Un tiers de l’île','Aujourd’hui, ces roches couvrent environ un tiers de la Grande Terre : le grand massif du Sud et une série de massifs le long de la côte Ouest, comme le Koniambo.','pol'),
   Ph(18,'La pluie fabrique le minerai','Pendant des millions d’années, la pluie tropicale a lentement attaqué la roche. Le nickel s’est concentré sous la terre rouge (la latérite), dans une couche plus verte : la saprolite, avec la garniérite.','pol'),
   Ph(32,'Sur les sommets','Les gisements sont souvent en haut des massifs, sur des plateaux. C’est pour cela que les mines sont en montagne, loin de la mer.','pol'),
-  Ph(44,'Une immense réserve','La Nouvelle-Calédonie posséderait de 20 à 30 % des ressources mondiales de nickel. Sur ces sols pauvres pour l’agriculture poussent des plantes uniques au monde.','kan')
+  Ph(44,'Une immense réserve','La Nouvelle-Calédonie posséderait de 20 à 30 % des ressources mondiales de nickel (ce que contient le sol) ; la part exploitable aujourd’hui est plus faible, environ 5 % des réserves mondiales. Sur ces sols pauvres pour l’agriculture poussent des plantes uniques au monde.','kan')
  ],
  photos:[Sh('tecto',1,7,'bl',-2,'contain'),Sh('cuirasse',8,16,'tr',2),Sh('profil',18,30,'tr',2,'contain'),Sh('rochenickel',32,40,'bl',-2),Sh('garnierite',44,52,'tr',2)],
  legend:[['pol','Massifs de péridotite (roches à nickel)'],['kan','Autres terrains'],['mis','Poussée de la plaque océanique',1]],
@@ -198,7 +197,7 @@ var CH=[
 /* 7 --------------------------------------------------------------- */
 {short:'Le Nord, VKP et le rééquilibrage',col:'afr',dur:58,when:[1988,2026],dates:'1988 – aujourd’hui',
  cam:[nc(0),nc(10),cam(12,164.6,-20.65,54),cam(17,164.6,-20.65,54),cam(20,164.82,-21.05,112),cam(42,164.82,-21.05,112),nc(48),nc(58)],
- zones:[Rg(P_NORD,'afr',1,0.32,2),Rg(P_SUD,'mis',2,0.25,2),Lz(LOY,'xet',3,0.35,2),Rg([164.8,-21.04,0.1],'kan',20,0.45,2)],
+ zones:[Rg(PROV.nord,'afr',1,0.32,2),Rg(PROV.sud,'mis',2,0.25,2),Rg(PROV.iles,'xet',3,0.35,2),Rg([164.8,-21.04,0.1],'kan',20,0.45,2)],
  routes:[
   r('afr',12,16,2.6,[[164.09,-20.29],[164.4,-20.55],[164.8,-20.97]],{dash:true}),
   r('afr',12.5,16.5,2.6,[[164.86,-20.96],[164.45,-20.52],[164.12,-20.25]],{dash:true})
@@ -243,7 +242,7 @@ var CH=[
  ],
  labels:[
   L(1,165.5,-21.3,'Nouvelle-Calédonie',{nomark:true,gold:true,dx:12,dy:16,al:'left',zmax:12}),
-  L(14,118.5,32,'Chine',{nomark:true,big:true,sub:'premier client du minerai',zmax:6}),
+  L(14,118.5,32,'Chine',{nomark:true,big:true,sub:'premier client du pays',zmax:6}),
   L(15,138.5,36.5,'Japon',{nomark:true,big:true,dx:10,al:'left',zmax:6}),
   L(16,127.8,37,'Corée du Sud',{nomark:true,dy:-12,zmax:6}),
   L(24,10,44,'Europe',{nomark:true,big:true,zmax:6}),
@@ -254,7 +253,7 @@ var CH=[
  pulses:[Pu(31,122.2,-2.8,'#fb7185',true),Pu(34,122,12.5,'#fb7185',true)],
  ph:[
   Ph(0,'Où part le nickel ?','Presque tout le nickel calédonien est vendu à l’étranger, surtout en Asie. En valeur, environ 9 exportations du pays sur 10 sont des produits du nickel.','zh'),
-  Ph(7,'Le minerai brut','Les minéraliers emportent du minerai non transformé vers la Chine (premier client), le Japon et la Corée du Sud, où des usines le transforment.','zh'),
+  Ph(7,'Le minerai brut','Les minéraliers emportent du minerai non transformé vers la Corée du Sud, la Chine et le Japon, où des usines le transforment.','zh'),
   Ph(19,'Les produits des usines','Le ferronickel de Doniambo et le produit de nickel de l’usine du Sud partent vers des aciéries et des usines de batteries, en Asie et en Europe.','lap'),
   Ph(28,'Un concurrent géant','En quelques années, l’Indonésie est devenue le premier producteur mondial : environ 31 % du nickel du monde en 2020, environ 60 % en 2024. Son nickel coûte moins cher à produire.','ame'),
   Ph(42,'À quoi sert le nickel ?','Surtout à fabriquer l’acier inoxydable : casseroles, éviers, couverts, bâtiments. Il sert aussi aux batteries des voitures électriques et à des pièces de monnaie.','kan'),
@@ -263,15 +262,14 @@ var CH=[
  photos:[Sh('vraquier2',8,16,'bl',-2),Sh('indonesie',28,39,'tr',2,'contain'),Sh('morowali',31,39,'bl',-2),Sh('inox',42,48,'tr',2),Sh('batterie',47,52,'bl',-2),Sh('piece',52,58,'tr',2)],
  legend:[['zh','Minerai vers la Chine',1],['gbr','Minerai vers le Japon',1],['aus','Minerai vers la Corée du Sud',1],['lap','Produits des usines vers l’Europe',1],['ame','Grands concurrents (Indonésie, Philippines)']],
  mots:[['Exportation','Vente de marchandises à un autre pays.'],['Concurrence','Rivalité entre pays ou entreprises qui vendent le même produit.'],['Acier inoxydable','Acier qui ne rouille pas, grâce au nickel et au chrome.'],['Matière première','Produit tiré de la nature, avant transformation.']],
- q:[['Quel est le premier client du minerai calédonien ?','La Chine.'],['Quel pays est le premier producteur mondial de nickel ?','L’Indonésie (environ 60 % en 2024).'],['À quoi sert surtout le nickel ?','À fabriquer de l’acier inoxydable.'],['Pourquoi une baisse du prix du nickel est-elle grave pour le pays ?','Parce que la plupart des exportations sont du nickel : mines et usines perdent de l’argent.']],
+ q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine, qui achète surtout les produits des usines (ferronickel, NHC).'],['Quel pays est le premier producteur mondial de nickel ?','L’Indonésie (environ 60 % en 2024).'],['À quoi sert surtout le nickel ?','À fabriquer de l’acier inoxydable.'],['Pourquoi une baisse du prix du nickel est-elle grave pour le pays ?','Parce que la plupart des exportations sont du nickel : mines et usines perdent de l’argent.']],
  wiki:['Nickel','Acier inoxydable','Morowali','Accumulateur lithium-ion']},
 
 /* 9 --------------------------------------------------------------- */
 {short:'Mines et environnement',col:'xet',dur:60,dates:'aujourd’hui',
  cam:[nc(0),cam(5,166.2,-21.64,83),cam(16,166.2,-21.64,83),cam(19,166.85,-22.2,79),cam(36,166.85,-22.2,79),nc(42),cam(46,165.5,-20.9,15),cam(60,165.5,-20.9,15)],
  zones:[Rg(GT,'kan',-5,0.25,0.01)].concat(massifs(-5,0.3)).concat([
-  Rg([166.95,-22.62,0.33],'aus',46,0.45,2),Rg([165.3,-21.62,0.22],'aus',46.5,0.45,2),Rg([164.6,-20.38,0.28],'aus',47,0.45,2),
-  Rg([163.65,-19.45,0.38],'aus',47.5,0.45,2),Rg([163.05,-18.4,0.2],'aus',48,0.45,2),Rg([166.42,-20.55,0.26],'aus',48.5,0.45,2)]),
+  ].concat(NCG.unesco.map(function(u,i){return {k:'poly',ring:u[1],col:'aus',a:0.6,t0:46+i*0.4,fade:2,nostroke:true};}))),
  routes:[r('pol',6,10,3,[[166.12,-21.7],[166.18,-21.65],[166.24,-21.6],[166.32,-21.57]],{straight:true,step:0.01})],
  labels:[
   at('thio',5,'Thio',{mark:'mine',dx:-10,al:'right',zmin:30}),

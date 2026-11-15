@@ -9,18 +9,12 @@ function nc(t){return cam(t,NC.lon,NC.lat,NC.z);}
 
 /* contours schématiques */
 var GT=[[163.3,-19.3],[164.6,-19.7],[165.6,-20.45],[166.9,-21.6],[167.25,-22.3],[167.9,-22.5],[167.8,-23],[166.2,-22.9],[164.9,-21.9],[163.4,-20.6]];
-var A_HOOT=[[163.2,-19.3],[164.9,-19.9],[165.39,-20.44],[164.46,-21.28],[163.3,-20.6]];
-var A_PAICI=[[165.39,-20.44],[165.85,-20.95],[164.8,-21.55],[164.46,-21.28]];
-var A_AJIE=[[165.85,-20.95],[165.91,-21.08],[165.67,-22.04],[164.8,-21.55]];
-var A_XARA=[[165.91,-21.08],[166.85,-21.69],[165.8,-22.11],[165.67,-22.04]];
-var A_DRUBEA=[[166.85,-21.69],[167.3,-21.9],[167.9,-22.4],[167.8,-23],[166.2,-22.9],[165.8,-22.11]];
-var L_IAAI=[[166.55,-20.6,0.45]],L_DREHU=[[167.25,-20.95,0.5],[167.82,-21.12,0.15]],L_NENGONE=[[167.95,-21.5,0.45]];
+/* aires coutumières et provinces : contours officiels (Géorep). Les limites des aires sont une donnée de travail, non officialisée. */
+var AIRES=window.NCG.aires,PROV=window.NCG.provinces;
 var LOY=[[166.55,-20.6,0.45],[167.25,-20.95,0.5],[167.82,-21.12,0.15],[167.95,-21.5,0.45]];
 var OUEST=[[166.75,-22.45],[166.3,-22.4],[165.9,-22],[165.3,-21.75],[164.7,-21.3],[164.2,-20.8],[164,-20.4],[164.35,-20.5],[164.75,-20.9],[165.05,-21.2],[165.45,-21.45],[165.85,-21.6],[166.1,-21.85],[166.45,-22.05],[166.7,-22.2]];
 var R1878=[[166.2,-22],[166.15,-21.75],[165.75,-21.55],[165.35,-21.4],[165,-21.25],[164.95,-21.45],[165.4,-21.75],[165.9,-22]];
 var R1917=[[164.75,-21.05],[164.85,-20.85],[165.05,-20.65],[165.2,-20.75],[165.05,-21],[164.9,-21.12]];
-var P_NORD=[[163.2,-19.3],[165,-19.6],[166.3,-20.9],[166.3,-21.4],[166.1,-21.55],[166.02,-21.6],[165.85,-21.58],[165.65,-21.5],[165.47,-21.43],[165.3,-21.47],[165.05,-21.7],[163.3,-20.6]];
-var P_SUD=[[165.05,-21.7],[165.3,-21.47],[165.47,-21.43],[165.65,-21.5],[165.85,-21.58],[166.02,-21.6],[166.1,-21.55],[166.3,-21.4],[167.3,-21.9],[167.9,-22.4],[167.8,-23],[166.2,-22.9]];
 
 var CH=[
 
@@ -29,14 +23,14 @@ var CH=[
  cam:[cam(0,166,-21.2,14),nc(8),nc(46)],
  zones:[
   ext(Rg(GT,'kan',1,0.55,1),{t2:5,t3:7}),ext(Lz(LOY,'kan',1,0.55,1),{t2:19,t3:21}),
-  Rg(A_HOOT,'afr',6,0.6,1.5),Rg(A_PAICI,'aus',9,0.6,1.5),Rg(A_AJIE,'lap',12,0.6,1.5),Rg(A_XARA,'pol',15,0.6,1.5),Rg(A_DRUBEA,'neo',18,0.6,1.5),
-  Lz(L_IAAI,'xet',21,0.65),Lz(L_DREHU,'mis',23,0.65),Lz(L_NENGONE,'pap',25,0.65)
+  Rg(AIRES['Hoot Ma Whaap'],'afr',6,0.6,1.5),Rg(AIRES['Paicî-Cèmuhi'],'aus',9,0.6,1.5),Rg(AIRES['Ajië Aro'],'lap',12,0.6,1.5),Rg(AIRES['Xârâcùù'],'pol',15,0.6,1.5),Rg(AIRES['Drubea-Kapumë'],'neo',18,0.6,1.5),
+  Rg(AIRES['Iaai'],'xet',21,0.65),Rg(AIRES['Drehu'],'mis',23,0.65),Rg(AIRES['Nengone'],'pap',25,0.65)
  ],
  routes:[],
  labels:[
-  L(6,164.1,-20.25,'Hoot ma Whaap',{nomark:true,dx:-14,al:'right'}),
-  L(9,165.55,-20.72,'Paicî-Cèmuhî',{nomark:true,dx:10,al:'left'}),
-  L(12,165.1,-21.85,'Ajië-Arhö',{nomark:true,dx:-12,al:'right'}),
+  L(6,164.1,-20.25,'Hoot Ma Whaap',{nomark:true,dx:-14,al:'right'}),
+  L(9,165.55,-20.72,'Paicî-Cèmuhi',{nomark:true,dx:10,al:'left'}),
+  L(12,165.1,-21.85,'Ajië Aro',{nomark:true,dx:-12,al:'right'}),
   L(15,166.5,-21.4,'Xârâcùù',{nomark:true,dx:10,al:'left'}),
   L(18,166.1,-22.6,'Drubea-Kapumë',{nomark:true,dx:-10,al:'right'}),
   L(21,166.55,-20.38,'Iaai (Ouvéa)',{nomark:true,dy:-12}),
@@ -47,14 +41,14 @@ var CH=[
  pulses:[Pu(10,164.9,-21.13,'#ffd166',true)],
  ph:[
   Ph(0,'Avant 1774','Depuis près de 3 000 ans, les Kanak vivent sur la Grande Terre et dans les îles. Chaque clan a sa terre, ses ancêtres et ses chemins d’alliance.','kan'),
-  Ph(6,'Huit aires coutumières','On regroupe aujourd’hui les pays kanak en huit aires coutumières : cinq sur la Grande Terre, trois aux îles Loyauté. Pouembout se trouve dans l’aire Paicî-Cèmuhî.','aus'),
+  Ph(6,'Huit aires coutumières','On regroupe aujourd’hui les pays kanak en huit aires coutumières : cinq sur la Grande Terre, trois aux îles Loyauté. Pouembout se trouve dans l’aire Paicî-Cèmuhi.','aus'),
   Ph(21,'Les îles','Ouvéa (Iaai), Lifou (Drehu) et Maré (Nengone) forment chacune une aire. L’île des Pins est rattachée à l’aire Drubea-Kapumë.','mis'),
   Ph(31,'28 langues','On parle 28 langues kanak. Avant l’arrivée des Européens, le pays compte plusieurs dizaines de milliers d’habitants. On cultive l’igname et le taro, on échange entre le bord de mer et la montagne.','kan')
  ],
  photos:[Sh('grandecase',1,6,'tr',2),Sh('tribu',32,39,'tr',2),Sh('fleche',39,46,'bl',-2,'contain')],
- legend:[['afr','Hoot ma Whaap'],['aus','Paicî-Cèmuhî'],['lap','Ajië-Arhö'],['pol','Xârâcùù'],['neo','Drubea-Kapumë'],['xet','Iaai'],['mis','Drehu'],['pap','Nengone']],
+ legend:[['afr','Hoot Ma Whaap'],['aus','Paicî-Cèmuhi'],['lap','Ajië Aro'],['pol','Xârâcùù'],['neo','Drubea-Kapumë'],['xet','Iaai'],['mis','Drehu'],['pap','Nengone']],
  mots:[['Aire coutumière','Grande région kanak qui regroupe des clans et des langues proches.'],['Coutume','Ensemble des règles, des gestes et des paroles qui organisent la vie kanak.'],['Clan','Groupe de familles qui ont le même ancêtre.']],
- q:[['Combien y a-t-il d’aires coutumières ?','Huit : cinq sur la Grande Terre et trois aux îles Loyauté.'],['Dans quelle aire se trouve Pouembout ?','Dans l’aire Paicî-Cèmuhî.'],['Combien de langues kanak parle-t-on ?','28.']],
+ q:[['Combien y a-t-il d’aires coutumières ?','Huit : cinq sur la Grande Terre et trois aux îles Loyauté.'],['Dans quelle aire se trouve Pouembout ?','Dans l’aire Paicî-Cèmuhi.'],['Combien de langues kanak parle-t-on ?','28.']],
  wiki:['Aire coutumière','Langues kanak','Kanak']},
 
 /* 2 --------------------------------------------------------------- */
@@ -241,10 +235,10 @@ var CH=[
   r('lap',34,39,2.6,[[168.3,-17.9],[168.7,-20],[168.5,-22],[167.6,-22.95],[166.9,-22.62],[166.5,-22.36]],{sp:'goelette',ship:true})
  ],
  labels:[
-  L(3,166.22,-21.61,'Thio',{sub:'« capitale du nickel »',dx:10,dy:-8,al:'left',gold:true,zmin:10}),
-  L(5,165.83,-21.4,'Kouaoua',{dx:10,dy:-8,al:'left',zmin:24}),
+  L(3,166.19,-21.62,'Thio',{sub:'« capitale du nickel »',dx:10,dy:-8,al:'left',gold:true,zmin:10}),
+  L(5,165.77,-21.42,'Kouaoua',{dx:10,dy:-8,al:'left',zmin:24}),
   L(7,165,-21.3,'Népoui',{dx:-10,dy:8,al:'right',zmin:14}),
-  L(7.5,164.8,-21,'Koniambo',{dx:-10,dy:-6,al:'right',zmin:14}),
+  L(7.5,164.79,-20.98,'Koniambo',{dx:-10,dy:-6,al:'right',zmin:14}),
   L(8,164.21,-20.45,'Tiébaghi',{sub:'chrome',dx:-10,al:'right',zmin:14}),
   L(12,166.44,-22.25,'Doniambo',{sub:'usine, 1910',dx:-10,dy:10,al:'right',zmin:14}),
   L(26,134,34,'Japon',{sub:'≈ 6 000 travailleurs, dès 1892',nomark:true,dx:14,al:'left',zmax:6}),
@@ -307,7 +301,7 @@ var CH=[
  cam:[nc(0),cam(10,-176,-17,2),cam(20,-176,-17,2),nc(25),nc(66)],
  zones:[
   ext(Rg(GT,'kan',1,0.5,1),{t2:28,t3:31}),ext(Lz(LOY,'kan',1,0.5,1),{t2:28,t3:31}),
-  Rg(P_NORD,'afr',32,0.6,2),Rg(P_SUD,'mis',33,0.6,2),Lz(LOY,'xet',34,0.7)
+  Rg(PROV.nord,'afr',32,0.6,2),Rg(PROV.sud,'mis',33,0.6,2),Rg(PROV.iles,'xet',34,0.7)
  ],
  routes:[
   r('pol',11,17,3,[[-176.4,-13.6],[-179,-19.5],[172,-21.5],[167.6,-21.95]]),
@@ -346,6 +340,6 @@ var CH=[
 A.add({id:'caledonie',title:'Histoire de la Nouvelle-Calédonie',tag:'9 chapitres · peuplement, bagne, colonisation, nickel',col:'kan',proj:'globe',
  sub:'L’histoire du pays en 9 cartes : mouvements de population, implantation européenne, centres pénitentiaires, nickel, guerres, provinces.',
  frise:{from:1700,to:2026,lin:true,ticks:[[1774,'1774'],[1853,'1853'],[1864,'1864',1],[1878,'1878'],[1917,'1917',1],[1946,'1946'],[1988,'1988'],[2025,'2025']]},
- info:'<p><b>Cycle 3, programmes adaptés à la Nouvelle-Calédonie</b> : civilisation kanak, premiers contacts, prise de possession (1853), colonisation pénale et colonisation libre, les Kanak face à la colonisation (Ataï, 1878), le nickel et les travailleurs sous contrat, les deux guerres mondiales, l’évolution du pays depuis 1945.</p><p><b>Neutralité</b> : le dernier chapitre s’en tient aux dates et aux faits ; il ne prend pas position sur l’avenir institutionnel du pays.</p><p><b>Schémas</b> : les limites des aires coutumières, des terres de colonisation, des régions révoltées et des provinces sont tracées à grands traits. Les effectifs (forçats, travailleurs sous contrat, soldats) sont des ordres de grandeur.</p><p><b>Ancrage local</b> : Pouembout apparaît dans les chapitres 1, 4, 5 et 8 (aire Paicî-Cèmuhî, centre agricole pénitentiaire de 1883, Plaine des Gaïacs).</p>',
+ info:'<p><b>Cycle 3, programmes adaptés à la Nouvelle-Calédonie</b> : civilisation kanak, premiers contacts, prise de possession (1853), colonisation pénale et colonisation libre, les Kanak face à la colonisation (Ataï, 1878), le nickel et les travailleurs sous contrat, les deux guerres mondiales, l’évolution du pays depuis 1945.</p><p><b>Neutralité</b> : le dernier chapitre s’en tient aux dates et aux faits ; il ne prend pas position sur l’avenir institutionnel du pays.</p><p><b>Schémas</b> : les limites des aires coutumières, des terres de colonisation, des régions révoltées et des provinces sont tracées à grands traits. Les effectifs (forçats, travailleurs sous contrat, soldats) sont des ordres de grandeur.</p><p><b>Ancrage local</b> : Pouembout apparaît dans les chapitres 1, 4, 5 et 8 (aire Paicî-Cèmuhi, centre agricole pénitentiaire de 1883, Plaine des Gaïacs).</p>',
  chapters:CH});
 })();

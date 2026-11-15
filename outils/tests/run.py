@@ -33,5 +33,6 @@ with sync_playwright() as p:
     if shot:
         pg.wait_for_timeout(300); pg.screenshot(path=shot)
     b.close()
+if os.environ.get('OUT'): open(os.environ['OUT'], 'w', encoding='utf-8').write(json.dumps(res, ensure_ascii=False))   # résultat complet dans un fichier
 print(json.dumps(res, ensure_ascii=False)[:6000] if not isinstance(res, str) else res[:6000])
 for e in errs[:15]: print(e[:400])
