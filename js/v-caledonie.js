@@ -114,7 +114,7 @@ var CH=[
   Ph(35,'1864 : les îles Loyauté','La France impose son autorité à Lifou, Maré et Ouvéa. Tout l’archipel est désormais une colonie française.','fra'),
   Ph(42,'Pourquoi cette colonie ?','La France veut une base pour ses navires dans le Pacifique, face à l’Angleterre. Elle cherche aussi une terre lointaine où envoyer ses condamnés.','eur')
  ],
- photos:[Sh('prise1853',2,9,'tr',2,'contain'),Sh('noumea1880',31,38,'bl',-2,'contain'),Sh('lifou1864',38,46,'bl',-2,'contain')],
+ photos:[Sh('prise1853',2,9,'tr',2,'contain'),Sh('chartenoumea',31,38,'bl',-2,'contain'),Sh('lifou1864',38,46,'bl',-2,'contain')],
  legend:[['fra','Marine française (1853–1854)'],['fra','Territoire sous autorité française']],
  mots:[['Prise de possession','Acte par lequel un pays déclare qu’une terre lui appartient.'],['Colonie','Territoire dominé et exploité par un pays étranger.'],['Rade','Grand bassin naturel où les navires sont à l’abri.']],
  q:[['Que se passe-t-il le 24 septembre 1853 ?','La France prend possession de la Grande Terre, à Balade.'],['Quel était le premier nom de Nouméa ?','Port-de-France.'],['Pourquoi la France veut-elle cette colonie ?','Pour avoir une base navale dans le Pacifique et un lieu où envoyer ses condamnés.']],
@@ -148,7 +148,7 @@ var CH=[
   Ph(52,'Rester dans la colonie','Sa peine finie, le condamné doit rester en Nouvelle-Calédonie. Certains reçoivent une terre, une « concession », à Bourail, à La Foa ou à Pouembout, créé en 1883 comme centre agricole pénitentiaire.','kan'),
   Ph(62,'1897 – 1931 : la fin du bagne','Environ 30 000 condamnés ont été envoyés en Nouvelle-Calédonie. Les convois s’arrêtent en 1897. Le bagne ferme peu à peu ; il disparaît officiellement en 1931.','eur')
  ],
- photos:[Sh('bagne_nou',19,27,'tr',2),Sh('forcats',22,28,'bl',-2),Sh('ducos',29,35,'tr',2,'contain'),Sh('pins_bagne',35,40,'tl',-2),Sh('teremba',45,51,'tr',2)],
+ photos:[Sh('surveillant',19,27,'tr',2),Sh('forcats',22,28,'bl',-2),Sh('ducos',29,35,'tr',2,'contain'),Sh('pins_bagne',35,40,'tl',-2),Sh('teremba',45,51,'tr',2)],
  legend:[['eur','Convois de forçats (1864–1897)'],['kan','◆ Centres pénitentiaires']],
  mots:[['Bagne','Lieu où l’on envoyait les condamnés aux travaux forcés.'],['Transporté','Condamné de droit commun envoyé au bagne.'],['Déporté','Condamné politique envoyé loin de son pays.'],['Concession','Terre donnée à un ancien forçat ou à un colon pour qu’il la cultive.']],
  q:[['Quand arrivent les premiers forçats ?','Le 9 mai 1864, à bord de L’Iphigénie.'],['Qui sont les « déportés » de 1872 ?','Des condamnés politiques : les insurgés de la Commune de Paris, comme Louise Michel, et des Kabyles d’Algérie.'],['Quel lien entre le bagne et Pouembout ?','Pouembout a été créé en 1883 comme centre agricole pénitentiaire, avec des concessions pour d’anciens forçats.'],['Combien de condamnés ont été envoyés en Nouvelle-Calédonie ?','Environ 30 000, entre 1864 et 1897.']],
@@ -182,7 +182,7 @@ var CH=[
   Ph(34,'1895 – 1903 : le gouverneur Feillet','Il arrête les convois de forçats et fait venir environ 500 familles de France pour planter du café. Pour leur donner des terres, il réduit encore les réserves : c’est le « grand cantonnement ».','eur'),
   Ph(47,'Un pays coupé en deux','Vers 1900, les réserves ne couvrent plus qu’un dixième environ de la Grande Terre, surtout en montagne et sur la côte est. Les îles Loyauté restent entièrement kanak.','kan')
  ],
- photos:[Sh('tribu',1,9,'tr',2),Sh('cafe',40,47,'tr',2),Sh('stlouis',24,31,'tr',2)],
+ photos:[Sh('tribu',1,9,'tr',2),Sh('cafecanala',40,47,'tr',2),Sh('stlouis',24,31,'tr',2)],
  legend:[['kan','Terres kanak'],['eur','Terres prises pour la colonisation (schéma)']],
  mots:[['Colon','Personne venue s’installer dans une colonie pour y vivre et cultiver.'],['Réserve','Terre laissée aux Kanak par l’administration coloniale ; ils ne pouvaient pas en sortir librement.'],['Cantonnement','Regroupement forcé des Kanak dans les réserves.'],['Station','Grande propriété d’élevage de bétail.']],
  q:[['Où s’installent surtout les colons ?','Sur la côte ouest, dans les plaines, et autour de Nouméa.'],['Qu’est-ce que le cantonnement ?','Le regroupement forcé des Kanak dans des réserves, pour donner leurs terres aux colons.'],['Quelle part de la Grande Terre reste aux Kanak vers 1900 ?','Environ un dixième.']],
@@ -261,7 +261,7 @@ var CH=[
   Ph(27,'Du Japon, du Tonkin, de Java','Des Vietnamiens du Tonkin dès 1891, des Japonais dès 1892, des Javanais dès 1896, et des Néo-Hébridais (Vanuatu). Beaucoup repartent ; d’autres restent et fondent une famille ici.','zh'),
   Ph(48,'Un pays de plusieurs peuples','Kanak, descendants de colons et de bagnards, familles d’origine asiatique ou océanienne : la population calédonienne se construit avec toutes ces arrivées.','kan')
  ],
- photos:[Sh('garnierite',1,8,'tr',2),Sh('thio',10,17,'tr',2),Sh('doniambo',12,18,'bl',-2),Sh('javanais',38,46,'tr',2)],
+ photos:[Sh('garnierite',1,8,'tr',2),Sh('thio',10,17,'tr',2),Sh('doniambo',12,18,'bl',-2),Sh('minejaponais',38,46,'tr',2)],
  legend:[['jade','Grands massifs miniers'],['zh','Japon'],['ame','Tonkin (Vietnam)'],['ned','Java'],['lap','Nouvelles-Hébrides (Vanuatu)']],
  mots:[['Nickel','Métal gris qui ne rouille pas ; il sert à fabriquer l’acier inoxydable.'],['Minerai','Roche qui contient un métal.'],['Travailleur sous contrat','Personne engagée loin de chez elle pour plusieurs années, sans pouvoir quitter son patron.']],
  q:[['Qui découvre le nickel calédonien, et quand ?','Jules Garnier, en 1864.'],['Pourquoi fait-on venir des travailleurs d’Asie ?','Parce que les mines manquent de main-d’œuvre.'],['De quels pays viennent-ils ?','Du Japon, du Tonkin (Vietnam), de Java (Indonésie) et des Nouvelles-Hébrides (Vanuatu).']],

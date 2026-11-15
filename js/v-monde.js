@@ -102,7 +102,7 @@ var CH=[
   Ph(20,'Il y a ≈ 100 000 à 75 000 ans','Ils fabriquent des outils fins et des perles en coquillage. À Blombos, ils gravent des dessins sur de l’ocre.','afr'),
   Ph(29,'Des premières sorties','Quelques groupes sortent déjà d’Afrique et atteignent le Proche-Orient. Mais ils ne vont pas plus loin.','afr',true)
  ],
- photos:[Sh('irhoud',4,12,'tr',2),Sh('omo',12,20,'tr',2),Sh('blombos',21,29,'tr',2)],
+ photos:[Sh('irhoud',4,12,'tr',2),Sh('omo',12,20,'tr',2),Sh('perles',21,29,'tr',2)],
  legend:[['afr','Homo sapiens']],
  mots:[['Homo sapiens','Notre espèce. Tous les humains d’aujourd’hui sont des Homo sapiens.'],['Fossile','Reste très ancien d’un être vivant, conservé dans la roche.'],['Ocre','Roche colorée (rouge, jaune) utilisée pour peindre et décorer.']],
  q:[['Depuis combien de temps notre espèce existe-t-elle ?','Depuis environ 300 000 ans.'],['Où sont nés les premiers Homo sapiens ?','En Afrique, dans plusieurs régions du continent.'],['Que montrent les objets trouvés à Blombos ?','Que ces humains décoraient et dessinaient déjà : ocre gravée, perles en coquillage.']],

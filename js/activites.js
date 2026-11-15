@@ -123,7 +123,7 @@ function noms(){
   var keep=sep(items.map(function(it){return it.l;}),44,6);
   items=items.filter(function(it){if(keep.indexOf(it.l)>=0)return true;it.chip.remove();return false;});
   if(items.length<2){layer.remove();api.release();toast('Les lieux de ce chapitre sont trop éloignés pour cette activité.');return;}
-  api.hideLabels(true);
+  api.hideLabels(true);if(api.avoid)api.avoid(tray);
   items.forEach(function(it){layer.insertBefore(it.dot,bar);});
   function place(){
     items.forEach(function(it){var q=api.pt(it.l.lon,it.l.lat);if(!q)return;
