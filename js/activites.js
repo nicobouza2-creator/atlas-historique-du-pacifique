@@ -93,14 +93,29 @@ function noms(){
   var ch=api.chs()[api.ci()];
   /* lieux encore affichés à la fin du chapitre ; les noms de régions (sans point) seulement s'il manque des lieux */
   function cands(all){var seen={},o=[];(ch.labels||[]).forEach(function(l){if(!l.text||l.end||seen[l.text]||(l.nomark&&!all))return;seen[l.text]=1;o.push(l);});return o;}
-  var pool=cands(false);if(pool.length<3)pool=cands(true);
+  /* s'il en reste peu à la fin du chapitre, on reprend aussi les lieux nommés plus tôt dans le récit */
+  function ended(){var seen={},o=[];(ch.labels||[]).forEach(function(l){if(!l.text||!l.end||l.nomark||seen[l.text])return;seen[l.text]=1;o.push(l);});return o;}
+  var pool=cands(false);if(pool.length<6){var names={};pool.forEach(function(l){names[l.text]=1;});pool=pool.concat(ended().filter(function(l){return !names[l.text];}));}
+  if(pool.length<3)pool=cands(true);
   pool=shuffle(pool).sort(function(a,b){return (b.gold?1:0)-(a.gold?1:0);});
   function pts(list){return list.map(function(l){return [l.lon,l.lat];});}
   /* on garde des lieux assez éloignés les uns des autres à l'écran (points bien séparés), 6 au plus */
   function sep(list,d,max){var kept=[];list.forEach(function(l){var q=api.pt(l.lon,l.lat);if(!q||kept.length>=max)return;if(kept.every(function(k){return Math.hypot(k.q[0]-q[0],k.q[1]-q[1])>=d;}))kept.push({l:l,q:q});});return kept.map(function(k){return k.l;});}
   var all=pool;
-  if(all.length>=2){api.showEnd(pts(all));pool=sep(all,64,6);}
-  if(pool.length<2&&all.length>=2){api.showEnd(null);pool=sep(all,64,6);}  /* repli : vue de fin du chapitre */
+  if(all.length>=2){
+    /* si les lieux sont trop serrés à l'écran, on resserre la vue : on écarte un à un les lieux les plus loin du groupe */
+    var cur=all.slice(),bestList=cur,best,g=0,res;
+    api.showEnd(pts(cur));best=sep(cur,48,8);
+    while(best.length<5&&cur.length>4&&g++<14){
+      var cx=d3.mean(cur,function(l){return l.lon;}),cy=d3.mean(cur,function(l){return l.lat;}),far=cur[0],fd=-1;
+      cur.forEach(function(l){var d=d3.geoDistance([l.lon,l.lat],[cx,cy]);if(d>fd){fd=d;far=l;}});
+      cur=cur.filter(function(l){return l!==far;});
+      api.showEnd(pts(cur));res=sep(cur,48,8);
+      if(res.length>best.length){best=res;bestList=cur.slice();}
+    }
+    api.showEnd(pts(bestList));pool=sep(bestList,48,8);
+  }
+  if(pool.length<2&&all.length>=2){api.showEnd(null);pool=sep(all,48,8);}  /* repli : vue de fin du chapitre */
   if(pool.length<2){api.release();toast('Pas assez de lieux nommés dans ce chapitre pour cette activité.');return;}
   api.showEnd(pts(pool));
   var cv=api.canvas(),st=stage();
@@ -120,7 +135,7 @@ function noms(){
     return items.every(function(it){var q=api.pt(it.l.lon,it.l.lat);return q&&q[0]>24&&q[0]<w-24&&q[1]>top&&q[1]<bot;});
   }
   for(var k=0;k<8&&!safe();k++){var c=api.camNow();api.cam({lon:c.lon,lat:c.lat,z:c.z*0.92});}
-  var keep=sep(items.map(function(it){return it.l;}),44,6);
+  var keep=sep(items.map(function(it){return it.l;}),44,8);
   items=items.filter(function(it){if(keep.indexOf(it.l)>=0)return true;it.chip.remove();return false;});
   if(items.length<2){layer.remove();api.release();toast('Les lieux de ce chapitre sont trop éloignés pour cette activité.');return;}
   api.hideLabels(true);if(api.avoid)api.avoid(tray);

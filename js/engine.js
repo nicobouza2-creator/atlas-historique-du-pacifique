@@ -782,7 +782,7 @@ function buildTabs(){
 /* menu d'entrée : choix du volet (au premier chargement sans #volet, et via le bouton du titre) */
 var started=false,homeWas=false;
 function openHome(){var h=$('home');if(!h)return;homeWas=playing;pause();hush();h.hidden=false;document.body.classList.add('home-on');var b=tabEls[VI]||tabEls[0];if(b)try{b.focus({preventScroll:true});}catch(e){}}
-function closeHome(pick){var h=$('home');if(!h||h.hidden)return;h.hidden=true;document.body.classList.remove('home-on');if(pick)return;if(!started){started=true;if(REDUCE)showStill();else play();}else if(homeWas)play();}
+function closeHome(pick){var h=$('home');if(!h||h.hidden)return;h.hidden=true;document.body.classList.remove('home-on');document.body.classList.add('started');if(pick)return;if(!started){started=true;if(REDUCE)showStill();else play();}else if(homeWas)play();}
 /* mouvement réduit : pas de lecture automatique, on montre la carte de fin du chapitre (Lecture la rejoue) */
 function showStill(){pause();cur.t=CH[cur.ci].dur;render();updateUI();}
 function buildVolet(){
@@ -829,7 +829,7 @@ function buildFrise(){
     for(k=0;k<3;k++){if(rows[k]<=x0-0.4){row=k;break;}if(k===2){row=rows[0]<=rows[1]&&rows[0]<=rows[2]?0:rows[1]<=rows[2]?1:2;}}
     rows[row]=x1;
     var b=el('button','fr-seg');b.type='button';b.style.setProperty('--c',CO[ch.col]||ch.col);
-    b.style.left=x0+'%';b.style.width=(x1-x0)+'%';b.style.top=(3+row*12)+'px';
+    b.style.left=x0+'%';b.style.width=(x1-x0)+'%';b.style.top=(3+row*17)+'px';b.textContent=String(i+1);
     b.title=(i+1)+'. '+ch.short+(ch.dates?' — '+ch.dates:'');b.setAttribute('aria-label',b.title);
     b.addEventListener('click',function(){go(i,0,true);});
     elFrise.appendChild(b);segEls.push(b);
@@ -1096,14 +1096,14 @@ function banner(html){
   elTb.innerHTML=html;elTb.hidden=false;
 }
 /* temps de trajet affiché par l'outil Mesurer, selon le volet : [texte, vitesse, unité] */
-var TRAVEL={monde:['À pied, à ≈ 25 km par jour',25,'j'],pacifique:['À la voile, à ≈ 150 km par jour',150,'j'],decouvertes:['À la voile, à ≈ 150 km par jour',150,'j'],caledonie:['À la voile, à ≈ 150 km par jour',150,'j'],
-  geonc:['En voiture, à ≈ 70 km/h (la route est plus longue que le vol d’oiseau)',70,'h'],nickel:['En minéralier, à ≈ 550 km par jour',550,'j'],mondial:['En avion de ligne, à ≈ 850 km/h',850,'h']};
+var TRAVEL={monde:['À pied, à environ 25 km par jour',25,'j'],pacifique:['À la voile, à environ 150 km par jour',150,'j'],decouvertes:['À la voile, à environ 150 km par jour',150,'j'],caledonie:['À la voile, à environ 150 km par jour',150,'j'],
+  geonc:['En voiture, à environ 70 km/h (la route est plus longue que le vol d’oiseau)',70,'h'],nickel:['En minéralier, à environ 550 km par jour',550,'j'],mondial:['En avion de ligne, à environ 850 km/h',850,'h']};
 function measureDone(){
   var km=d3.geoDistance(meas.a,meas.b)*6371;
   var M=TRAVEL[VOL&&VOL.id]||TRAVEL.pacifique,n=km/M[1],dur;
   if(M[2]==='h'){if(n<1)dur=Math.max(5,Math.round(n*12)*5)+' min';else if(n<10){var hh=Math.round(n*2)/2;dur=Math.floor(hh)+' h'+(hh%1?' 30':'');}else dur=fr(n)+' h';}
   else{var d=Math.max(1,Math.round(n));dur=fr(d)+' jour'+(d>1?'s':'');}
-  banner('Distance à vol d’oiseau : <b>'+fr(km<100?Math.round(km):Math.round(km/10)*10)+' km</b> (≈ '+fr(km/1.852)+' milles marins).<br>'+M[0]+' : environ <b>'+dur+'</b>. <button type="button" id="mclr">Effacer</button>');
+  banner('Distance à vol d’oiseau : <b>'+fr(km<100?Math.round(km):Math.round(km/10)*10)+' km</b> (environ '+fr(km/1.852)+' milles marins).<br>'+M[0]+' : environ <b>'+dur+'</b>. <button type="button" id="mclr">Effacer</button>');
   $('mclr').addEventListener('click',function(){meas.a=meas.b=null;banner();schedule();});
 }
 function quizPool(){
@@ -1475,7 +1475,7 @@ var A=window.ATLAS={CO:CO,r:r,L:L,Pu:Pu,Ph:Ph,Sh:Sh,Lz:Lz,Rg:Rg,
   start:function(){
     syncOptUI();buildTabs();
     var i=voletFromHash(),deep=i>=0;
-    if(i<0){try{var id=localStorage.getItem('atlas-hg-volet');VOLS.forEach(function(v,k){if(v.id===id)i=k;});}catch(e){}}
+    if(i<0){try{var id=localStorage.getItem('atlas-hg-volet');VOLS.forEach(function(v,k){if(v.id===id)i=k;});if(i>=0)document.body.classList.add('started');}catch(e){}}
     if(i<0)i=0;
     VI=i;VOL=VOLS[i];CH=VOL.chapters;
     var want=opt.proj==='auto'?(VOL.proj||'globe'):opt.proj;setProj(want);

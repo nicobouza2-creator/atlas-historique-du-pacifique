@@ -442,7 +442,7 @@ function side(){
   elY.textContent=S.all?'Toutes les époques':yr(T);
   elW.textContent=S.all?'tous les événements à la fois':(T<-10000?'(à quelques milliers d’années près)':'de '+yr(T-wn)+' à '+yr(Math.min(TO,T+wn)));
   ov.querySelectorAll('.sim-moms button').forEach(function(b,i){b.setAttribute('aria-pressed',S.mom===i?'true':'false');});
-  elCard.innerHTML='';
+  elCard.innerHTML='';elCard.style.order=(S.sel||S.mom!=null)?'':'5';
   if(S.sel){var e=S.sel;elCard.style.setProperty('--c',VN[e.v][2]);elCard.appendChild(h('h4','',e.t));elCard.appendChild(h('div','d',span(e)+' · '+RGN[e.rg]));elCard.appendChild(h('p','',e.x));
     var vn=h('p','',e.v==='r'?'Repère du programme (hors atlas).':'Volet « '+VN[e.v][1]+' », chapitre '+(e.ci+1)+'.');vn.style.cssText='font-size:13px;color:var(--muted,#9fb3c8)';elCard.appendChild(vn);
     if(e.ci>=0){var b=h('button','go','▶ Voir le chapitre animé');b.type='button';b.onclick=function(){goChapter(e);};elCard.appendChild(b);}}
@@ -496,10 +496,11 @@ function addCard(){
   b.appendChild(tx);b.onclick=function(){open();};
   var ref=tabs.children[4]||null;tabs.insertBefore(b,ref);
 }
+var HASH0=location.hash;   /* lu tout de suite : le moteur remplace l'adresse au démarrage */
 function init(){
   addCard();var tabs=document.getElementById('tabs');
   if(tabs&&window.MutationObserver)new MutationObserver(function(){if(!tabs.querySelector('.sim-tab'))addCard();}).observe(tabs,{childList:true});
-  if(location.hash==='#simultane')setTimeout(function(){open();},250);
+  if(HASH0==='#simultane'||location.hash==='#simultane')setTimeout(function(){open();},250);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 window.SIMUL={open:open,close:close,data:D,moments:MOM,state:S,moment:moment,select:select,setT:setT,exportPdf:exportPdf};

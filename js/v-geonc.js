@@ -100,16 +100,16 @@ var CH=[
  pulses:[Pu(14,166.4,-21.2,'#fb7185',false)],
  ph:[
   Ph(0,'Un climat tropical','La Nouvelle-Calédonie est juste au nord du tropique du Capricorne. Il fait doux toute l’année, avec deux grandes saisons.','kan'),
-  Ph(6,'Deux saisons','De novembre à avril, la saison chaude et humide apporte de fortes pluies : c’est aussi la saison des cyclones. De mai à septembre, la saison fraîche est plus sèche.','mis'),
+  Ph(6,'Deux saisons','De novembre à avril, la saison chaude et humide apporte de fortes pluies : c’est aussi la saison des cyclones. De mai à septembre, c’est la saison fraîche ; elle se termine par des semaines très sèches, jusqu’en octobre.','mis'),
   Ph(12,'Les cyclones','Des cyclones peuvent arriver du nord : vents très violents, pluies énormes, inondations, coupures de routes. En mars 2021, le cyclone Niran a frappé le pays.','ame'),
   Ph(24,'Sécheresse et feux','En saison sèche, des feux de brousse brûlent chaque année forêts et savanes, le plus souvent à cause des humains. Ils abîment la biodiversité et les sols.','pol'),
   Ph(34,'D’autres risques','Tsunamis après un séisme au Vanuatu, glissements de terrain, inondations : on apprend les bons gestes. La montée de la mer menace aussi les côtes basses et les îlots.','mis'),
-  Ph(44,'Se protéger','Prévoir, alerter, construire solidement, protéger les forêts : on réduit la vulnérabilité. À l’école aussi, on s’entraîne.','eur')
+  Ph(44,'Se protéger','Prévoir, alerter, construire solidement, protéger les forêts : on se met moins en danger : on réduit la vulnérabilité. À l’école aussi, on s’entraîne.','eur')
  ],
  photos:[Sh('cyclonesat',4,11,'tr',2),Sh('niran',12,20,'tr',2),Sh('wildfirepins',24,32,'tr',2),Sh('tsunamipanneau',34,42,'bl',-2)],
  legend:[['ame','Trajectoire d’un cyclone (exemple)',1],['mis','Alizés',1],['kan','Tropique du Capricorne',1]],
  mots:[['Climat tropical','Climat chaud toute l’année, avec une saison des pluies.'],['Cyclone','Énorme tempête tropicale avec des vents de plus de 118 km/h.'],['Risque','Danger qui peut toucher des habitants et leurs biens.'],['Vulnérabilité','Fragilité d’un lieu ou d’une population face à un danger.']],
- q:[['Quelles sont les deux grandes saisons ?','La saison chaude et humide (novembre-avril) et la saison fraîche (mai-septembre).'],['Pendant quelle saison arrivent les cyclones ?','Pendant la saison chaude.'],['Pourquoi les feux sont-ils dangereux pour la nature ?','Ils détruisent forêts, animaux et sols.'],['Que faire pour réduire un risque ?','Prévoir, alerter, construire solidement, protéger la nature, connaître les bons gestes.']],
+ q:[['Quelles sont les deux grandes saisons ?','La saison chaude et humide (novembre-avril) et la saison fraîche (mai-septembre), suivie de semaines très sèches jusqu’en octobre.'],['Pendant quelle saison arrivent les cyclones ?','Pendant la saison chaude.'],['Pourquoi les feux sont-ils dangereux pour la nature ?','Ils détruisent forêts, animaux et sols.'],['Que faire pour réduire un risque ?','Prévoir, alerter, construire solidement, protéger la nature, connaître les bons gestes.']],
  wiki:['Climat de la Nouvelle-Calédonie','Cyclone tropical','Cyclone Niran','Tsunami']},
 
 /* 3 --------------------------------------------------------------- */
@@ -205,7 +205,7 @@ var CH=[
  ],
  photos:[Sh('rt1',2,9,'tr',2),Sh('noumeaport',10,17,'tr',2),Sh('tontouta',19,28,'bl',-2),Sh('cablesous',32,40,'tr',2,'contain')],
  legend:[['ere','Routes'],['mis','Liaisons vers les îles',1],['fra','Lignes aériennes internationales'],['lap','Câbles internet sous-marins',1],['mis','Aéroport','aero'],['mis','Port','port']],
- mots:[['Insularité','Situation d’un territoire entouré par la mer, qui dépend des transports.'],['Réseau','Ensemble de routes, de lignes ou de câbles reliés entre eux.'],['Câble sous-marin','Câble posé au fond de la mer qui transporte internet et le téléphone.'],['Désenclaver','Relier un lieu isolé au reste du territoire.']],
+ mots:[['Insularité','Situation d’un territoire entouré par la mer, qui dépend des transports.'],['Réseau','Ensemble de routes, de lignes ou de câbles reliés entre eux.'],['Câble sous-marin','Câble posé au fond de la mer qui transporte internet et le téléphone.']],
  q:[['Quelle route longe la côte Ouest ?','La RT1.'],['Par où arrivent presque toutes les marchandises ?','Par le port de Nouméa.'],['Comment internet arrive-t-il en Nouvelle-Calédonie ?','Par deux câbles sous-marins : Gondwana-1 (Sydney) et Gondwana-2 (Fidji).'],['Citer trois destinations desservies depuis La Tontouta.','Par exemple Sydney, Auckland, Nadi, Port-Vila, Wallis, Papeete, Singapour.']],
  wiki:['Aéroport international de Nouméa-La Tontouta','Aircalin','Port autonome de la Nouvelle-Calédonie','Câble sous-marin']},
 
@@ -227,7 +227,7 @@ var CH=[
  ],
  pulses:[],
  ph:[
-  Ph(0,'Que produit le pays ?','Le nickel fournit l’essentiel des exportations (voir l’onglet « Le nickel »). Mais la plupart des Calédoniens travaillent dans d’autres activités : services, commerce, administration, agriculture, pêche, tourisme.','kan'),
+  Ph(0,'Que produit le pays ?','Le nickel fournit l’essentiel des exportations (voir le volet « Le nickel »). Mais la plupart des Calédoniens travaillent dans d’autres activités : services, commerce, administration, agriculture, pêche, tourisme.','kan'),
   Ph(8,'Élevage et cultures','Sur les plaines de la côte Ouest, on élève des bovins dans de grandes stations. On cultive aussi fruits, légumes, igname, café et vanille.','neo'),
   Ph(18,'La mer nourrit','Des bateaux pêchent le thon au large. Sur la côte Ouest, des fermes élèvent la crevette bleue, vendue en partie au Japon et en France.','mis'),
   Ph(28,'Le tourisme','Des visiteurs viennent surtout d’Australie, de Nouvelle-Zélande et de France. Des paquebots de croisière font escale à Nouméa, à l’île des Pins, à Lifou ou à Maré ; leur nombre dépend de la situation du pays.','xet'),
@@ -247,7 +247,7 @@ var CH=[
  zones:[{k:'poly',ring:NCG.zee,col:'aus',a:0.32,t0:7,fade:2.5}].concat(NCG.unesco.map(function(u,i){return {k:'poly',ring:u[1],col:'xet',a:0.7,t0:38+i*0.4,fade:2,nostroke:true};})),
  routes:[],
  labels:[
-  L(8,164.5,-24.2,'ZEE de la Nouvelle-Calédonie',{nomark:true,gold:true,big:true,sub:'≈ 1,4 million de km²',zmax:12}),
+  L(8,164.5,-24.2,'ZEE de la Nouvelle-Calédonie',{nomark:true,gold:true,big:true,sub:'environ 1,4 million de km²',zmax:12}),
   L(12,148,-20,'Australie',{nomark:true,zmax:12}),L(12,168.3,-15.6,'Vanuatu',{nomark:true,zmax:12}),L(12,160,-9.6,'Salomon',{nomark:true,zmax:12}),L(12,178.2,-17.6,'Fidji',{nomark:true,zmax:12}),
   L(19,158.3,-19.9,'Chesterfield',{dx:8,al:'left',zmax:12}),L(19.5,163.1,-18.4,'Entrecasteaux',{dx:8,al:'left',zmax:12}),
   L(20,171.35,-22.35,'Matthew',{dy:-12,zmax:12}),L(20.5,172.08,-22.4,'Hunter',{dy:14,zmax:12}),

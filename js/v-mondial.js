@@ -31,7 +31,7 @@ var CH=[
   L(6.5,0,80,'OCÉAN ARCTIQUE',{nomark:true,gold:true}),L(7,-90,-62,'OCÉAN AUSTRAL',{nomark:true,gold:true}),
   L(9,-160,2.5,'Équateur (0°)',{nomark:true,al:'left'}),L(11,-160,26,'Tropique du Cancer',{nomark:true,al:'left'}),L(11.5,-160,-21,'Tropique du Capricorne',{nomark:true,al:'left'}),
   L(13,-160,69,'Cercle polaire arctique',{nomark:true,al:'left'}),L(17,2,-50,'Méridien de Greenwich (0°)',{nomark:true,al:'left'}),
-  L(22,NC[0],NC[1],'Nouvelle-Calédonie',{mark:'star',sub:'≈ 21° S, 165° E',dx:10,al:'left',gold:true})
+  L(22,NC[0],NC[1],'Nouvelle-Calédonie',{mark:'star',sub:'environ 21° S, 165° E',dx:10,al:'left',gold:true})
  ],
  pulses:[Pu(22,NC[0],NC[1],'#ffd166',true)],
  ph:[
@@ -145,8 +145,8 @@ var CH=[
  zones:[],
  routes:[],
  labels:[
-  L(13,106.85,-6.2,'Jakarta',{mark:'ville',sub:'≈ 42 millions',dx:10,al:'left',gold:true}),L(14,90.4,23.8,'Dacca',{mark:'ville',sub:'≈ 37 à 40 millions',dx:-10,al:'right'}),
-  L(15,139.7,35.7,'Tokyo',{mark:'ville',sub:'≈ 33 millions',dx:10,al:'left'}),L(16,77.2,28.6,'New Delhi',{mark:'ville',dx:-10,al:'right'}),
+  L(13,106.85,-6.2,'Jakarta',{mark:'ville',sub:'environ 42 millions',dx:10,al:'left',gold:true}),L(14,90.4,23.8,'Dacca',{mark:'ville',sub:'environ 37 à 40 millions',dx:-10,al:'right'}),
+  L(15,139.7,35.7,'Tokyo',{mark:'ville',sub:'environ 33 millions',dx:10,al:'left'}),L(16,77.2,28.6,'New Delhi',{mark:'ville',dx:-10,al:'right'}),
   L(17,121.5,31.2,'Shanghai',{mark:'ville',dx:10,al:'left'}),L(18,113.3,23.1,'Canton',{mark:'ville',dx:10,dy:8,al:'left'}),L(19,120.98,14.6,'Manille',{mark:'ville',dx:10,al:'left'}),
   L(20,88.36,22.57,'Calcutta',{mark:'ville',dx:-10,dy:10,al:'right'}),L(21,126.98,37.57,'Séoul',{mark:'ville',dx:10,al:'left'}),
   L(33,31.24,30.04,'Le Caire',{mark:'ville',dx:10,al:'left'}),L(34,-46.6,-23.5,'São Paulo',{mark:'ville',dx:10,al:'left'}),L(34.5,-99.1,19.4,'Mexico',{mark:'ville',dx:-10,al:'right'}),
@@ -155,7 +155,7 @@ var CH=[
  ],
  pulses:[Pu(13,106.85,-6.2,'#ff5d5d',true)],
  ph:[
-  Ph(0,'De plus en plus de citadins','Selon l’ONU (2025), près de la moitié des humains vivent dans des villes, et beaucoup d’autres dans des petites villes. Il y a deux fois plus de citadins qu’en 1950.','dense'),
+  Ph(0,'De plus en plus de citadins','Selon l’ONU (2025), près de la moitié des humains vivent dans des villes, et beaucoup d’autres dans des petites villes. En 1950, c’était un humain sur cinq.','dense'),
   Ph(10,'Les géants d’Asie','Les plus grandes agglomérations sont Jakarta (environ 42 millions d’habitants), Dacca et Tokyo. Neuf des dix plus grandes sont en Asie ; Le Caire est la seule hors d’Asie.','dense'),
   Ph(24,'33 mégapoles','On compte 33 villes de plus de 10 millions d’habitants : les mégapoles. Beaucoup sont au bord de la mer ou d’un grand fleuve.','dense'),
   Ph(32,'Métropoles mondiales','New York, Londres, Paris, Tokyo ou Shanghai commandent l’économie du monde : sièges d’entreprises, bourses, universités, grands aéroports.','eur'),
@@ -214,7 +214,7 @@ var CH=[
  pulses:[],
  ph:[
   Ph(0,'Internet passe sous la mer','Presque toutes les données qui voyagent entre les continents (messages, vidéos, sites) passent par des centaines de câbles posés au fond des océans, et non par les satellites.','lap'),
-  Ph(14,'Un câble, c’est quoi ?','Un câble sous-marin contient des fibres optiques, fines comme un cheveu, qui transportent la lumière. Des navires câbliers les déroulent sur des milliers de kilomètres.','lap'),
+  Ph(14,'Un câble, c’est quoi ?','Un câble sous-marin contient des fibres optiques, fines comme un cheveu, qui transportent la lumière. Des bateaux spéciaux les déroulent sur des milliers de kilomètres.','lap'),
   Ph(24,'Les centres de données','Les données sont stockées dans d’immenses bâtiments remplis d’ordinateurs, les centres de données, surtout en Amérique du Nord, en Europe et en Asie.','eur'),
   Ph(32,'Des régions moins bien reliées','Les grandes routes relient l’Amérique du Nord, l’Europe et l’Asie. Beaucoup de petites îles n’ont qu’un seul câble : s’il casse, elles sont coupées du monde.','ame'),
   Ph(40,'Et chez nous ?','La Nouvelle-Calédonie est reliée à Sydney par Gondwana-1 (2008) et à Fidji par Gondwana-2 (2022). Avec deux câbles, une coupure ne la prive plus d’internet.','kan')
@@ -250,7 +250,7 @@ var CH=[
  ],
  photos:[Sh('aeroportdubai',1,9,'tr',2),Sh('avion',9,14,'bl',-2),Sh('touristes',12,20,'tr',2)],
  legend:[['fra','Grandes lignes aériennes (exemples)'],['ame','Grandes routes des migrations (exemples)'],['fra','Grand aéroport','aero']],
- mots:[['Hub','Grand aéroport carrefour où l’on change d’avion.'],['Tourisme','Voyage pour le loisir, hors de chez soi.'],['Migrant','Personne qui s’installe dans un autre pays ou une autre région.'],['Réfugié','Personne qui a dû fuir son pays à cause d’une guerre ou de persécutions.']],
+ mots:[['Aéroport carrefour','Grand aéroport où l’on change d’avion (en anglais : hub).'],['Tourisme','Voyage pour le loisir, hors de chez soi.'],['Migrant','Personne qui s’installe dans un autre pays ou une autre région.'],['Réfugié','Personne qui a dû fuir son pays à cause d’une guerre ou de persécutions.']],
  q:[['Combien d’arrivées de touristes internationaux en 2024 ?','Environ 1,4 milliard.'],['Combien de migrants internationaux dans le monde ?','Environ 300 millions.'],['Pourquoi migre-t-on ?','Pour travailler, étudier, fuir une guerre ou une catastrophe.'],['Quelle communauté océanienne est plus nombreuse en Nouvelle-Calédonie que chez elle ?','Les Wallisiens et Futuniens.']],
  wiki:['Tourisme','Migration humaine','Aéroport international de Dubaï','Wallisiens et Futuniens']},
 
@@ -314,13 +314,13 @@ var CH=[
  zones:[Rg([-40,75,10],'ice',3,0.6,2),Rg([0,-78,20],'ice',3.5,0.5,2)],
  routes:[],
  labels:[L(3,-40,75,'fonte des glaces',{nomark:true}),
-  L(25,179.2,-8.5,'Tuvalu',{mark:'ville',sub:'≈ 11 000 hab.',dx:10,al:'left',gold:true}),L(26,173,1.4,'Kiribati',{mark:'ville',dx:10,al:'left'}),
+  L(25,179.2,-8.5,'Tuvalu',{mark:'ville',sub:'environ 11 000 hab.',dx:10,al:'left',gold:true}),L(26,173,1.4,'Kiribati',{mark:'ville',dx:10,al:'left'}),
   L(27,171.4,7.1,'îles Marshall',{mark:'ville',dx:10,al:'left'}),L(28,147,-18.5,'Grande Barrière de corail',{nomark:true,dx:-8,al:'right'}),
   L(29,NC[0],NC[1],'Nouvelle-Calédonie',{mark:'star',dx:10,al:'left'})],
  pulses:[Pu(25,179.2,-8.5,'#ff6b57',true),Pu(26,173,1.4,'#ff6b57',true)],
  ph:[
   Ph(0,'La Terre se réchauffe','En brûlant du charbon, du pétrole et du gaz, les humains rejettent des gaz à effet de serre. La planète se réchauffe, les glaciers et les glaces des pôles fondent.','pol'),
-  Ph(10,'La mer monte','L’eau des océans se dilate en chauffant et reçoit l’eau des glaces : le niveau de la mer monte (environ 20 cm depuis 1900). Les côtes basses sont menacées.','mis'),
+  Ph(10,'La mer monte','En chauffant, l’eau des océans prend plus de place, et elle reçoit l’eau des glaces : le niveau de la mer monte (environ 20 cm depuis 1900). Les côtes basses sont menacées.','mis'),
   Ph(20,'Les atolls en danger','Tuvalu, Kiribati ou les îles Marshall dépassent à peine la mer. En 2023, Tuvalu et l’Australie ont signé un traité : chaque année, jusqu’à 280 Tuvaluans peuvent s’installer en Australie.','pol'),
   Ph(32,'Coraux et cyclones','Une eau trop chaude fait blanchir les coraux. On craint aussi des cyclones plus violents et des sécheresses plus fortes.','ame'),
   Ph(42,'Agir à deux échelles','Le monde s’est fixé des objectifs (accord de Paris, 2015) pour limiter le réchauffement. Localement, on s’adapte : protéger les mangroves et les récifs, construire loin du rivage, économiser l’énergie.','neo')
@@ -328,7 +328,7 @@ var CH=[
  photos:[Sh('banquise',1,10,'tr',2),Sh('funafuti',20,30,'tr',2),Sh('blanchiment',32,40,'tr',2),Sh('digue',42,50,'bl',-2)],
  legend:[['ice','Glaces qui fondent'],['pol','États insulaires très menacés','ville']],
  mots:[['Réchauffement climatique','Hausse des températures moyennes de la Terre causée par les activités humaines.'],['Gaz à effet de serre','Gaz qui retiennent la chaleur autour de la Terre.'],['Atoll','Île basse en forme d’anneau, formée par des coraux.'],['S’adapter','Changer sa façon de vivre pour faire face à un nouveau danger.']],
- q:[['Pourquoi le niveau de la mer monte-t-il ?','L’eau chauffe et se dilate, et les glaces fondent.'],['Quels pays du Pacifique sont les plus menacés ?','Les atolls : Tuvalu, Kiribati, îles Marshall.'],['Que prévoit le traité entre Tuvalu et l’Australie ?','Jusqu’à 280 Tuvaluans par an peuvent s’installer en Australie.'],['Citer une façon de s’adapter.','Protéger mangroves et récifs, construire loin du rivage, économiser l’énergie.']],
+ q:[['Pourquoi le niveau de la mer monte-t-il ?','L’eau chauffe et prend plus de place, et les glaces fondent.'],['Quels pays du Pacifique sont les plus menacés ?','Les atolls : Tuvalu, Kiribati, îles Marshall.'],['Que prévoit le traité entre Tuvalu et l’Australie ?','Jusqu’à 280 Tuvaluans par an peuvent s’installer en Australie.'],['Citer une façon de s’adapter.','Protéger mangroves et récifs, construire loin du rivage, économiser l’énergie.']],
  wiki:['Réchauffement climatique','Élévation du niveau de la mer','Tuvalu','Accord de Paris sur le climat']},
 
 /* 12 -------------------------------------------------------------- */
@@ -353,7 +353,7 @@ var CH=[
  ],
  photos:[Sh('noumeaport',26,34,'tr',2),Sh('tontouta',30,36,'bl',-2),Sh('conteneurs',14,22,'tr',2)],
  legend:[['zh','Exportations (surtout nickel) vers l’Asie'],['fra','Importations']],
- mots:[['Exportation','Vente de produits à l’étranger.'],['Importation','Achat de produits à l’étranger.'],['Interface','Lieu de contact et d’échanges (port, aéroport).'],['Échelle','Taille de l’espace étudié : locale, régionale, mondiale.']],
+ mots:[['Exportation','Vente de produits à l’étranger.'],['Importation','Achat de produits à l’étranger.'],['Échelle','Taille de l’espace étudié : locale, régionale, mondiale.']],
  q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine.'],['Quel est son premier fournisseur ?','La France.'],['Citer trois portes d’entrée vers le monde.','Le port de Nouméa, l’aéroport de La Tontouta, les câbles internet.'],['Comment une crise mondiale peut-elle toucher le pays ?','Par le prix du nickel, du pétrole, ou la concurrence.']],
  wiki:['Mondialisation','Économie de la Nouvelle-Calédonie','Commerce international','Échelle (géographie)']}
 ];

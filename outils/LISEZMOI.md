@@ -21,6 +21,7 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 - `D3=<chemin de d3.min.js> python3 run.py '<#lien>' regression.js` : parcourt les 79 chapitres et compte les erreurs JS.
 - `node valider_enquetes.js <dépôt> <volet…>` : vérifie les enquêtes (images, réponses, indices).
 - `auto.js` : joue une enquête de bout en bout (à injecter avec `run.py`).
+- `mesures.js` : fonction à évaluer dans la page (`page.evaluate(open('mesures.js').read())`) ; rend les textes sous le seuil de contraste, les cibles de moins de 44 px, les textes de moins de 12 px et les débordements. Sert à l'audit d'interface (16/11/2026).
 
 ## Données géographiques de la NC (`geo/`)
 - `georep.py <service> [couche] [simplification]` : télécharge une couche des services ArcGIS du Géorep (gouvernement de la NC) en GeoJSON WGS84. `georep.py <service> layers` liste les couches.

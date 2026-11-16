@@ -254,7 +254,7 @@ var CH=[
  ],
  photos:[Sh('gama',1,8,'tr',2,'contain'),Sh('calicut',46,55,'bl',-2)],
  legend:[['por','Vasco de Gama (1497–1498)']],
- mots:[['Mousson','Vent de l’océan Indien qui change de sens selon la saison.'],['Pilote','Marin qui connaît la route et guide le navire.'],['Volta do mar','« Tour par la mer » : détour par le large pour trouver des vents favorables.']],
+ mots:[['Mousson','Vent de l’océan Indien qui change de sens selon la saison.'],['Pilote','Marin qui connaît la route et guide le navire.']],
  q:[['Quelle route Vasco de Gama ouvre-t-il ?','La route maritime de l’Europe à l’Inde, par le sud de l’Afrique.'],['Qui l’aide à traverser l’océan Indien ?','Un pilote embarqué à Malindi, qui connaît les vents de mousson.'],['Pourquoi dit-on que le voyage a coûté cher en vies ?','Sur environ 170 hommes, une cinquantaine seulement rentrent au Portugal.']],
  wiki:['Vasco de Gama','Route des Indes']},
 
@@ -357,7 +357,7 @@ var CH=[
  ],
  photos:[Sh('magellan',1,8,'tr',2,'contain'),Sh('detroit',24,31,'bl',-2),Sh('victoria',62,70,'tr',2,'contain'),Sh('elcano',73,80,'tl',-2,'contain')],
  legend:[['esp','Magellan (1519–1521)'],['esp','Après la mort de Magellan',true],['kan','Retour d’Elcano (1522)']],
- mots:[['Détroit','Passage étroit de mer entre deux terres.'],['Scorbut','Maladie grave due au manque de fruits et de légumes frais.'],['Circumnavigation','Tour complet de la Terre en bateau.'],['Mutinerie','Révolte de marins contre leur chef.']],
+ mots:[['Détroit','Passage étroit de mer entre deux terres.'],['Scorbut','Maladie grave due au manque de fruits et de légumes frais.'],['Mutinerie','Révolte de marins contre leur chef.']],
  q:[['Magellan a-t-il fait le tour du monde ?','Non : il meurt aux Philippines en 1521. C’est Elcano qui termine le voyage avec la Victoria.'],['Pourquoi a-t-il appelé cet océan « Pacifique » ?','Parce qu’il l’a trouvé calme pendant sa traversée.'],['Combien de marins rentrent en Espagne en 1522 ?','18, sur environ 240 au départ, et un seul navire sur cinq.'],['Qu’a prouvé ce voyage ?','Qu’on peut faire le tour de la Terre par la mer : elle est ronde et ses océans communiquent.']],
  wiki:['Fernand de Magellan','Juan Sebastián Elcano','Détroit de Magellan']},
 
@@ -425,7 +425,7 @@ var CH=[
  ],
  photos:[Sh('quiros',32,40,'bl',-2,'contain')],
  legend:[['esp','Mendaña (1567–1568)'],['ned','Mendaña et Barreto (1595)'],['ame','Quirós (1605–1606)'],['fra','Torres (1606)']],
- mots:[['Terra Australis','Grand continent que les savants imaginaient au sud du globe.'],['Galion','Gros navire espagnol à voiles.'],['Mélanésie','Région du Pacifique : Nouvelle-Guinée, Salomon, Vanuatu, Nouvelle-Calédonie, Fidji.']],
+ mots:[['Terra Australis','Grand continent que les savants imaginaient au sud du globe.'],['Mélanésie','Région du Pacifique : Nouvelle-Guinée, Salomon, Vanuatu, Nouvelle-Calédonie, Fidji.']],
  q:[['Pourquoi les îles Salomon portent-elles ce nom ?','Les Espagnols espéraient y trouver l’or du roi Salomon.'],['Quel nom du Vanuatu vient de l’expédition de Quirós ?','Espiritu Santo, la plus grande île.'],['Quel navigateur passe près de la Nouvelle-Calédonie sans la voir, en 1606 ?','Torres.']],
  wiki:['Álvaro de Mendaña','Pedro Fernandes de Queirós','Luis Váez de Torres','Isabel Barreto']},
 
@@ -455,8 +455,8 @@ var CH=[
  ],
  photos:[Sh('tasman',1,8,'tr',2,'contain'),Sh('gilsemans',29,37,'bl',-2,'contain'),Sh('tasmanmap',47,54,'tl',-2,'contain')],
  legend:[['ned','Abel Tasman (1642–1643)']],
- mots:[['Compagnie des Indes','Grande entreprise de commerce qui possède ses navires, ses comptoirs et même ses soldats.'],['Maoris','Peuple polynésien d’Aotearoa (Nouvelle-Zélande).'],['Quarantièmes rugissants','Zone de vents d’ouest très forts, vers 40° de latitude sud.']],
- q:[['Pour qui Tasman navigue-t-il ?','Pour la Compagnie hollandaise des Indes orientales (VOC).'],['Quelles terres est-il le premier Européen à voir ?','La Tasmanie, la Nouvelle-Zélande, les Tonga et les Fidji.'],['Pourquoi son voyage est-il jugé décevant ?','Il ne rapporte ni or, ni épices, ni nouveaux marchés.']],
+ mots:[['Compagnie des Indes','Grande entreprise de commerce qui possède ses navires, ses comptoirs et même ses soldats.'],['Maoris','Peuple polynésien d’Aotearoa (Nouvelle-Zélande).']],
+ q:[['Pour qui Tasman navigue-t-il ?','Pour la Compagnie hollandaise des Indes orientales.'],['Quelles terres est-il le premier Européen à voir ?','La Tasmanie, la Nouvelle-Zélande, les Tonga et les Fidji.'],['Pourquoi son voyage est-il jugé décevant ?','Il ne rapporte ni or, ni épices, ni nouveaux marchés.']],
  wiki:['Abel Tasman','Compagnie néerlandaise des Indes orientales']},
 
 /* 12 -------------------------------------------------------------- */
@@ -537,12 +537,12 @@ var CH=[
   Ph(24,'Un navire sans scorbut','Cook impose la propreté, la choucroute et des produits frais à chaque escale. Presque aucun marin ne meurt du scorbut : c’est une révolution.','eur'),
   Ph(33,'1772 – 1775 : deuxième voyage','Il est le premier à franchir le cercle polaire antarctique et descend jusqu’à 71° sud, dans les glaces. Il prouve que le grand continent du Sud, riche et tempéré, n’existe pas.','gbr'),
   Ph(46,'Septembre 1774 : la Nouvelle-Calédonie','Venant du Vanuatu, Cook aborde à Balade. Il est bien accueilli par les Kanak. Les montagnes lui rappellent l’Écosse : il nomme l’île « New Caledonia ».','gbr'),
-  Ph(55,'1776 – 1779 : troisième voyage','Il cherche un passage entre le Pacifique et l’Atlantique par le nord. Il rencontre Hawaï, longe l’Amérique jusqu’à l’Alaska, mais les glaces l’arrêtent après le détroit de Béring.','kan'),
+  Ph(55,'1776 – 1779 : troisième voyage','Il cherche un passage entre le Pacifique et l’Atlantique par le nord. Il atteint Hawaï, longe l’Amérique jusqu’à l’Alaska, mais les glaces l’arrêtent après le détroit de Béring.','kan'),
   Ph(68,'14 février 1779','De retour à Hawaï, une dispute éclate à propos d’une chaloupe volée. Cook est tué sur la plage de Kealakekua. Grâce à lui, la carte du Pacifique est presque complète.','kan')
  ],
  photos:[Sh('cook',1,8,'tr',2,'contain'),Sh('endeavour',12,19,'tr',2,'contain'),Sh('resolution',34,41,'tr',2),Sh('carte1774',47,53,'bl',-2,'contain'),Sh('hodges',47,53,'tr',2,'contain')],
  legend:[['eur','1er voyage (1768–1771)'],['gbr','2e voyage (1772–1775)'],['kan','3e voyage (1776–1779)']],
- mots:[['Passage de Vénus','Moment rare où la planète Vénus passe devant le Soleil. Le mesurer aidait à calculer la distance entre la Terre et le Soleil.'],['Chronomètre de marine','Horloge très précise qui permet enfin de calculer la longitude en mer.'],['Cartographier','Dessiner la carte d’un lieu.']],
+ mots:[['Passage de Vénus','Moment rare où la planète Vénus passe devant le Soleil. Le mesurer aidait à calculer la distance entre la Terre et le Soleil.'],['Cartographier','Dessiner la carte d’un lieu.']],
  q:[['Combien de grands voyages James Cook a-t-il faits dans le Pacifique ?','Trois, entre 1768 et 1779.'],['Que prouve son deuxième voyage ?','Que le grand continent du Sud imaginé par les savants n’existe pas : il n’y a que l’Antarctique, glacé.'],['Quel lien avec la Nouvelle-Calédonie ?','Cook aborde à Balade en septembre 1774 et donne son nom au pays.']],
  wiki:['James Cook','Tupaia']},
 

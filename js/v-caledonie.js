@@ -13,6 +13,8 @@ var GT=[[163.3,-19.3],[164.6,-19.7],[165.6,-20.45],[166.9,-21.6],[167.25,-22.3],
 var AIRES=window.NCG.aires,PROV=window.NCG.provinces,NCG=window.NCG;
 /* zones historiques tracées sur la côte et les communes actuelles (Géorep) : schémas, pas des limites d’époque */
 var OUEST=NCG.ouest,R1878=NCG.r1878,R1917=NCG.r1917;
+/* réserves vers 1900 : schéma, un petit carré d’environ 2,5 km autour de chaque tribu d’aujourd’hui de la Grande Terre (Géorep) */
+var RESERVES=NCG.tribus.filter(function(t){return !((t[0]>166.3&&t[1]>-20.9)||(t[0]>166.9&&t[1]>-21.3)||(t[0]>167.6&&t[1]>-22));}).map(function(t){var d=0.012;return [[t[0]-d,t[1]-d],[t[0]+d,t[1]-d],[t[0]+d,t[1]+d],[t[0]-d,t[1]+d]];});
 var LOY=[[166.55,-20.6,0.45],[167.25,-20.95,0.5],[167.82,-21.12,0.15],[167.95,-21.5,0.45]];
 
 var CH=[
@@ -153,7 +155,8 @@ var CH=[
  zones:[
   Rg(GT,'kan',1,0.6,1.5),Lz(LOY,'kan',1,0.6,1.5),
   Rg(OUEST,'eur',12,0.85,3,{c:[166.45,-22.27],r0:0.05,r1:3.2,d:20}),
-  Rg(NCG.feillet[0],'eur',36,0.85,2),Rg(NCG.feillet[1],'eur',37,0.85,2),Rg(NCG.feillet[2],'eur',38,0.85,2),Rg(NCG.feillet[3],'eur',39,0.85,2)
+  Rg(NCG.feillet[0],'eur',36,0.85,2),Rg(NCG.feillet[1],'eur',37,0.85,2),Rg(NCG.feillet[2],'eur',38,0.85,2),Rg(NCG.feillet[3],'eur',39,0.85,2),
+  Rg(GT,'eur',47.5,0.85,3),Rg(RESERVES,'kan',49.5,0.95,2.5)
  ],
  routes:[],
  labels:[
@@ -176,7 +179,7 @@ var CH=[
   Ph(47,'Un pays coupé en deux','Vers 1900, les réserves ne couvrent plus qu’un dixième environ de la Grande Terre, surtout en montagne et sur la côte est. Les îles Loyauté restent entièrement kanak.','kan')
  ],
  photos:[Sh('tribu',1,9,'tr',2),Sh('cafecanala',40,47,'tr',2),Sh('stlouis',24,31,'tr',2)],
- legend:[['kan','Terres kanak'],['eur','Terres prises pour la colonisation (schéma)']],
+ legend:[['kan','Terres kanak ; vers 1900, les réserves (schéma autour des tribus d’aujourd’hui)'],['eur','Terres prises par la colonisation et par l’État (schéma)']],
  mots:[['Colon','Personne venue s’installer dans une colonie pour y vivre et cultiver.'],['Réserve','Terre laissée aux Kanak par l’administration coloniale ; ils ne pouvaient pas en sortir librement.'],['Cantonnement','Regroupement forcé des Kanak dans les réserves.'],['Station','Grande propriété d’élevage de bétail.']],
  q:[['Où s’installent surtout les colons ?','Sur la côte ouest, dans les plaines, et autour de Nouméa.'],['Qu’est-ce que le cantonnement ?','Le regroupement forcé des Kanak dans des réserves, pour donner leurs terres aux colons.'],['Quelle part de la Grande Terre reste aux Kanak vers 1900 ?','Environ un dixième.']],
  wiki:['Histoire de la Nouvelle-Calédonie','Paul Feillet','Tribu kanak']},
@@ -215,7 +218,7 @@ var CH=[
   Ph(50,'Un peuple qui a failli disparaître','Maladies, guerres, misère : vers 1920, il ne reste qu’environ 27 000 Kanak. Puis la population remonte.','kan')
  ],
  photos:[Sh('casse',2,8,'tr',2,'contain'),Sh('atai',20,27,'tr',2,'contain')],
- legend:[['ame','Régions révoltées (1878, 1917) — communes actuelles, approx.'],['eur','Guerriers de Canala, alliés de l’armée'],['ame','Exil',true]],
+ legend:[['ame','Régions révoltées (1878, 1917), tracé approximatif'],['eur','Guerriers de Canala, alliés de l’armée'],['ame','Exil',true]],
  mots:[['Insurrection','Révolte armée d’un peuple.'],['Indigénat','Règles spéciales, très dures, imposées aux Kanak de 1887 à 1946.'],['Exil','Obligation de vivre loin de sa terre.']],
  q:[['Pourquoi les Kanak se révoltent-ils en 1878 ?','On leur prend leurs terres, le bétail détruit leurs cultures, leurs lieux sacrés ne sont pas respectés.'],['Qui est Ataï ?','Un grand chef kanak de la région de La Foa, qui dirige la révolte de 1878.'],['Qu’est-ce que l’indigénat ?','Des règles spéciales imposées aux Kanak : rester dans la réserve, payer un impôt, travailler de force.']],
  wiki:['Grande révolte kanak de 1878','Ataï','Régime de l\'indigénat','Révolte kanak de 1917']},
@@ -239,9 +242,9 @@ var CH=[
   L(7.5,164.79,-20.98,'Koniambo',{dx:-10,dy:-6,al:'right',zmin:14}),
   L(8,164.21,-20.45,'Tiébaghi',{sub:'chrome',dx:-10,al:'right',zmin:14}),
   L(12,166.44,-22.25,'Doniambo',{sub:'usine, 1910',dx:-10,dy:10,al:'right',zmin:14}),
-  L(26,134,34,'Japon',{sub:'≈ 6 000 travailleurs, dès 1892',nomark:true,dx:14,al:'left',zmax:6}),
-  L(29,106.5,21,'Tonkin (Vietnam)',{sub:'≈ 14 000, dès 1891',nomark:true,dx:-6,dy:-16,al:'center',zmax:6}),
-  L(32,110.4,-7.2,'Java',{sub:'≈ 20 000, dès 1896',nomark:true,dy:20,zmax:6}),
+  L(26,134,34,'Japon',{sub:'environ 6 000 travailleurs, dès 1892',nomark:true,dx:14,al:'left',zmax:6}),
+  L(29,106.5,21,'Tonkin (Vietnam)',{sub:'environ 14 000, dès 1891',nomark:true,dx:-6,dy:-16,al:'center',zmax:6}),
+  L(32,110.4,-7.2,'Java',{sub:'environ 20 000, dès 1896',nomark:true,dy:20,zmax:6}),
   L(36,168.3,-16.5,'Nouvelles-Hébrides',{sub:'dès 1865',nomark:true,dx:12,al:'left',zmax:6}),
   L(38,165.5,-21.4,'Nouvelle-Calédonie',{nomark:true,gold:true,dx:10,dy:22,al:'left',zmax:6})
  ],

@@ -12,21 +12,21 @@ function pic(p,alt){
   if(/^i:/.test(p)){var s=X.pic?X.pic(p.slice(2)):null;return s?'<img src="'+s+'" alt="'+alt+'">':'';}
   return '<span class="exo-em">'+p+'</span>';
 }
-var css='.exo-ov{position:fixed;inset:0;z-index:19000;background:rgba(10,20,34,.9);display:flex;align-items:center;justify-content:center;padding:10px;font:17px/1.4 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}'+
- '.exo-box{background:#fff;color:#1b2430;border-radius:18px;max-width:980px;width:100%;max-height:100%;overflow:auto;padding:16px 18px 20px;position:relative}'+
- '.exo-box h2{margin:0 52px 4px 0;font-size:21px}.exo-box .exo-q{font-weight:700;font-size:19px;margin:6px 0 10px}.exo-box .exo-n{color:#66727f;font-size:14px;margin:0}'+
- '.exo-box button{font:inherit;cursor:pointer}.exo-x{position:absolute;right:10px;top:10px;width:44px;height:44px;border-radius:50%;border:0;background:#eef1f5;font-size:18px}'+
+var css='.exo-ov{position:fixed;inset:0;z-index:19000;background:rgba(10,20,34,.9);display:flex;align-items:center;justify-content:center;padding:10px;font:17px/1.4 var(--font-body,system-ui,-apple-system,"Segoe UI",Arial,sans-serif)}'+
+ '.exo-box{background:var(--panel,#0b2036);color:var(--ink,#f4f0e6);border:1px solid var(--line,#23496e);border-radius:18px;max-width:980px;width:100%;max-height:100%;overflow:auto;padding:16px 18px 20px;position:relative}'+
+ '.exo-box h2{margin:0 52px 4px 0;font:700 22px/1.2 var(--font-display,inherit)}.exo-box .exo-q{font-weight:700;font-size:19px;margin:6px 0 10px}.exo-box .exo-n{color:var(--muted,#a8bdd0);font-size:14px;margin:0}'+
+ '.exo-box button{font:inherit;cursor:pointer}.exo-x{position:absolute;right:10px;top:10px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line,#23496e);background:var(--panel-2,#12304d);color:var(--ink,#f4f0e6);font-size:18px}'+
  '.exo-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin:10px 0}'+
- '.exo-t{position:relative;background:#f7f9fc;border:3px solid #d5dce5;border-radius:14px;padding:8px 6px 0;min-height:128px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;overflow:hidden;color:#1b2430}'+
+ '.exo-t{position:relative;background:var(--panel-2,#12304d);border:3px solid var(--line,#23496e);border-radius:14px;padding:8px 6px 0;min-height:128px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;overflow:hidden;color:var(--ink,#f4f0e6)}'+
  '.exo-t .exo-em{font-size:52px;line-height:1.15}.exo-t img{max-width:100%;height:92px;object-fit:contain;border-radius:8px}'+
- '.exo-t .exo-l{display:block;width:calc(100% + 12px);margin:6px -6px 0;padding:6px 4px;font-weight:600;font-size:15px;background:#fff;border-top:2px solid #d5dce5}'+
+ '.exo-t .exo-l{display:block;width:calc(100% + 12px);margin:6px -6px 0;padding:6px 4px;font-weight:600;font-size:15px;background:rgba(6,20,36,.55);border-top:2px solid var(--line,#23496e)}'+
  '.exo-t.txt{justify-content:center;padding:8px 6px}.exo-t.txt .exo-l{border:0;background:none;font-size:18px;margin:0;width:100%}.exo-t.txt.sel::after{bottom:4px}'+
  '.exo-t.sel::after{content:"";position:absolute;left:6px;right:6px;top:4px;bottom:44px;border:5px solid #e53935;border-radius:50%;transform:rotate(-5deg);pointer-events:none}'+
- '.exo-t.ok{border-color:#2e9e5b;background:#eaf7ee}.exo-t.ko{animation:exoshake .35s}@keyframes exoshake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}'+
- '.exo-pal{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}.exo-pal button{display:flex;align-items:center;gap:8px;min-height:48px;padding:6px 14px;border-radius:999px;border:3px solid #d5dce5;background:#fff;font-weight:600}'+
- '.exo-pal button.cur{border-color:#1b2430;box-shadow:0 0 0 3px #ffd166}.exo-pal i{width:26px;height:26px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.3)}'+
- '.exo-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}.exo-go{min-height:50px;padding:8px 22px;border-radius:12px;border:0;background:#2b7de0;color:#fff;font-weight:700}'+
- '.exo-msg{font-weight:700;flex:1 1 200px}.exo-msg.good{color:#1e7b45}.exo-msg.bad{color:#b3261e}';
+ '.exo-t.ok{border-color:#3ecf7c;background:#123c2c}.exo-t.ko{animation:exoshake .35s}@keyframes exoshake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}'+
+ '.exo-pal{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}.exo-pal button{display:flex;align-items:center;gap:8px;min-height:48px;padding:6px 14px;border-radius:999px;border:3px solid var(--line,#23496e);background:var(--panel-2,#12304d);color:var(--ink,#f4f0e6);font-weight:600}'+
+ '.exo-pal button.cur{border-color:#ffd166;box-shadow:0 0 0 3px #ffd166}.exo-pal i{width:26px;height:26px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.3)}'+
+ '.exo-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:8px}.exo-go{min-height:50px;padding:8px 22px;border-radius:12px;border:0;background:var(--gold,#ffd166);color:#061424;font-weight:700}'+
+ '.exo-msg{font-weight:700;flex:1 1 200px}.exo-msg.good{color:#7be0a0}.exo-msg.bad{color:#ffa59b}';
 X.has=function(k){return !!X.data[k];};
 X.open=function(key){
   var D=X.data[key];if(!D)return;
@@ -37,7 +37,7 @@ X.open=function(key){
   var box=ov.firstChild,steps=[D.e&&'e',D.c&&'c'].filter(Boolean),si=0,errs=0;
   function step(){
     var k=steps[si],d=D[k],col=null,state=d.it.map(function(){return k=='e'?0:-1;});
-    box.innerHTML='<button class="exo-x" aria-label="Fermer">✕</button><h2>'+(k=='e'?'✏️ J’entoure':'🖍️ Je colorie')+'</h2><p class="exo-n">Exercice '+(si+1)+' sur '+steps.length+(k=='e'?' — touche une image pour l’entourer, touche encore pour effacer.':' — choisis une couleur, puis touche les étiquettes.')+'</p><p class="exo-q">'+d.q+'</p>'+
+    box.innerHTML='<button class="exo-x" aria-label="Fermer">✕</button><h2>'+(k=='e'?'✏️ J’entoure':'🖍️ Je colorie')+'</h2><p class="exo-n">Exercice '+(si+1)+' sur '+steps.length+(k=='e'?' — touche une case pour l’entourer, touche encore pour effacer.':' — choisis une couleur, puis touche les étiquettes.')+'</p><p class="exo-q">'+d.q+'</p>'+
      (k=='c'?'<div class="exo-pal">'+d.pal.map(function(p,i){return '<button data-p="'+i+'"><i style="background:'+COL[p[0]]+'"></i>'+p[0]+' : '+p[1]+'</button>';}).join('')+'</div>':'')+
      '<div class="exo-g">'+d.it.map(function(t,i){return '<button class="exo-t'+(pic(t[0],t[1])?'':' txt')+'" data-i="'+i+'">'+pic(t[0],t[1])+'<span class="exo-l">'+t[1]+'</span></button>';}).join('')+'</div>'+
      '<div class="exo-bar"><span class="exo-msg"></span><button class="exo-go" data-b="v">Vérifier</button></div>';
