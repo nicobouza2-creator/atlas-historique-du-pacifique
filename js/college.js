@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Espace collège : programmes adaptés 6e-3e, fiche séance (trame du livret d'accueil HG-EMC), séquence et évaluation, méthode, suite.
    Version reprise le 17/11/2026 de l'artefact publié, où une autre conversation avait ajouté les trois volets de 3e
    (code minifié remis en forme ; l'ancienne version commentée est dans l'historique git, commit 6ad1ef7). */
@@ -357,7 +359,7 @@
         }).join("") + "</select>"), o += (("fiche" === t[0] || "seq" === t[0]) && !window.COLLEGE.SEQC[e.id].nopdf ? '<button type="button" data-b="pdf" title="Version d’origine, sans vos modifications">⬇ PDF</button>' : "") + '<button type="button" data-b="word" title="Avec vos modifications">⬇ Word</button>' + (window.claude ? "" : '<button type="button" data-b="print">🖨 Imprimer</button>') + '<button type="button" data-b="x" aria-label="Fermer">✕ Fermer</button><span class="msg" aria-live="polite"></span>', 
         a.querySelector(".col-bar").innerHTML = o;
         var i = a.querySelector(".col-sheet");
-        i.innerHTML = t[2](), i.contentEditable = "fiche" === t[0] || "seq" === t[0] ? "true" : "false", 
+        i.innerHTML = t[2]() + (window.ATLAS_AUTEUR ? window.ATLAS_AUTEUR.html : ""), i.contentEditable = "fiche" === t[0] || "seq" === t[0] ? "true" : "false", 
         a.querySelector(".col-scroll").scrollTop = 0;
     }
     function q() {
@@ -377,7 +379,7 @@
             } else if ("x" === r.dataset.b) q(); else if ("word" === r.dataset.b) {
                 var d = a.querySelector(".col-sheet h1");
                 g(new Blob([ (i = a.querySelector(".col-sheet").innerHTML, n = d ? d.textContent : "Espace collège", 
-                '\ufeff<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>' + u(n) + "</title><style>body{font-family:Arial,sans-serif;font-size:11pt}h1{font-size:16pt}h2{font-size:13pt}h3{font-size:11.5pt}table{border-collapse:collapse;width:100%}td,th{border:1pt solid #000;padding:4pt 6pt;vertical-align:top}th{background:#eee}.col-rem,.sub{color:#555}.col-st{font-weight:bold}.col-lv{display:none}</style></head><body>" + i.replace(/<button[^>]*>(.*?)<\/button>/g, "$1") + "</body></html>") ], {
+                '\ufeff<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><meta name="author" content="Nicolas BOUZA"><title>' + u(n) + "</title><style>body{font-family:Arial,sans-serif;font-size:11pt}h1{font-size:16pt}h2{font-size:13pt}h3{font-size:11.5pt}table{border-collapse:collapse;width:100%}td,th{border:1pt solid #000;padding:4pt 6pt;vertical-align:top}th{background:#eee}.col-rem,.sub{color:#555}.col-st{font-weight:bold}.col-lv{display:none}</style></head><body>" + i.replace(/<button[^>]*>(.*?)<\/button>/g, "$1") + "</body></html>") ], {
                     type: "application/msword"
                 }), (t = d ? d.textContent : "espace-college", String(t).normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "").toLowerCase().slice(0, 50) + ".doc"));
             } else if ("pdf" === r.dataset.b) !function() {

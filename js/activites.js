@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Activités élèves de l'atlas : placer les noms sur la carte, remettre les chapitres dans l'ordre, quiz noté.
    Utilise ATLAS.api (engine.js) et les mauvaises réponses QCM (facile.js).
    Tout se fait au doigt (TBI, tablette) comme à la souris : glisser OU toucher puis toucher. */

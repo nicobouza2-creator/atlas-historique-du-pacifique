@@ -128,7 +128,7 @@ def build(vol, ci):
     for _ in range(2):
         buf = io.BytesIO() if total is None else OUT + '%s-%02d.pdf' % (vol, ci + 1)
         doc = BaseDocTemplate(buf, pagesize=A4, leftMargin=M, rightMargin=M, topMargin=18 * mm, bottomMargin=16 * mm,
-                              title='Dossier d’enquête %s · %s' % (code(vol, ci), D['vols'][vol]['chapters'][ci]['short']), author=NOMT(vol))
+                              title='Dossier d’enquête %s · %s' % (code(vol, ci), D['vols'][vol]['chapters'][ci]['short']), author='Nicolas BOUZA')
         doc.vol = vol; doc.code = code(vol, ci); doc.ch = D['vols'][vol]['chapters'][ci]; doc.E = D['vols'][vol]['enq'][ci]; doc.total = total
         fr = Frame(M, 16 * mm, FW, H - 34 * mm, id='f', leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
         doc.addPageTemplates([PageTemplate('cover', [fr], onPage=draw_cover), PageTemplate('paper', [fr], onPage=bg_paper),

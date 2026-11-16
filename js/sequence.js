@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Fiches séquences — cœur commun aux deux atlas : rendu de la fiche (trame des fiches DENC),
    fenêtre modifiable, impression / PDF, export Word. Les données viennent de SEQ.build() (un adaptateur par atlas). */
 (function(){
@@ -64,7 +66,7 @@ SEQ.css='.fsq-ov{position:fixed;inset:0;z-index:20000;background:#e9edf2;color:#
  '.fsq .fsq-vue th:nth-child(1){width:7%}.fsq .fsq-vue th:nth-child(5){width:8%}.fsq .fsq-vue th:nth-child(2){width:20%}'+
  '.fsq .fsq-box{border:1px solid #9aa7b5;border-radius:6px;padding:8px 12px;background:#f7fbf7}.fsq .fsq-tr{margin:4px 0 0}.fsq .fsq-foot{font-size:12px;color:#66727f;margin-top:16px}'+
  '@media (max-width:700px){.fsq{padding:12px}.fsq table{table-layout:auto}.fsq .fsq-ph{display:block;overflow-x:auto}.fsq .fsq-ph th,.fsq .fsq-ph td{min-width:150px}.fsq .fsq-ph th:nth-child(2),.fsq .fsq-ph td:nth-child(2){min-width:60px}}'+
- '@media print{body.fsq-on>*:not(.fsq-ov){display:none!important}body.fsq-on{background:#fff!important;overflow:visible!important;height:auto!important}html{overflow:visible!important;height:auto!important}'+
+ '@media print{body.fsq-on>*:not(.fsq-ov){display:none!important}body.fsq-on{background:#fff!important;overflow:visible!important;height:auto!important}html{overflow:visible!important;height:auto!important;background:#fff!important}'+
  '.fsq-ov{position:static!important;display:block!important;background:#fff}.fsq-bar{display:none!important}.fsq-scroll{overflow:visible!important;padding:0}.fsq{box-shadow:none;max-width:none;padding:0}'+
  '.fsq h1{font-size:15pt}.fsq h2.exo-h{break-before:page}.fsq h2{break-after:avoid;font-size:11.5pt;margin:10pt 0 4pt}.fsq tr{break-inside:avoid}.fsq thead{display:table-header-group}.fsq th,.fsq td{font-size:8.8pt;padding:2.5pt 4pt;line-height:1.3}.fsq .fsq-box,.fsq p{font-size:9.5pt}@page{size:A4 landscape;margin:10mm}}';
 var WCSS='body{font-family:Calibri,Arial,sans-serif;font-size:10.5pt}h1{font-size:16pt}h2{font-size:12.5pt;background:#eef3f8;margin-top:14pt}table{border-collapse:collapse;width:100%}'+
@@ -72,8 +74,8 @@ var WCSS='body{font-family:Calibri,Arial,sans-serif;font-size:10.5pt}h1{font-siz
  '@page WordSection1{size:841.9pt 595.3pt;mso-page-orientation:landscape;margin:1.5cm}div.WordSection1{page:WordSection1}';
 SEQ.word=function(inner,titre){
   inner=inner.replace(/<img[^>]*alt="([^"]*)"[^>]*>/g,'[$1]').replace(/<img[^>]*>/g,'');
-  return '﻿<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>'+titre+
-   '</title><!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]--><style>'+WCSS+'</style></head><body><div class="WordSection1">'+inner+'</div></body></html>';
+  return '﻿<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><meta name="author" content="Nicolas BOUZA"><title>'+titre+
+   '</title><!--[if gte mso 9]><xml><o:DocumentProperties><o:Author>Nicolas BOUZA</o:Author><o:LastAuthor>Nicolas BOUZA</o:LastAuthor></o:DocumentProperties></xml><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]--><style>'+WCSS+'</style></head><body><div class="WordSection1">'+inner+'</div></body></html>';
 };
 function slug(s){return String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase().slice(0,60);}
 SEQ.slug=slug;
@@ -104,7 +106,7 @@ SEQ.ficheNC=function(F){
     objectif:fnTxt(F.objectif),objlang:fnTxt(F.objlang),lexique:fnTxt(F.lexique),prerequis:fnTxt(F.prerequis),materiel:fnArr(F.materiel),
     demarche:fnTxt(F.demarche),obstacles:fnArr(F.obstacles).join('\n'),differenciation:fnTxt(F.diff),evalItems:fnArr(F.criteres),
     institutionnalisation:fnTxt(F.trace),seances:S};
-  return {app:'fiche-sequence-nc',version:1,origine:'atlas',date:new Date().toISOString(),fiches:lib,seances:{}};
+  return {app:'fiche-sequence-nc',version:1,origine:'atlas',auteur:'Nicolas BOUZA',credit:'Atlas — © 2026 Nicolas BOUZA, réalisé avec l’assistance de Claude (Anthropic), CC BY-NC-ND 4.0',date:new Date().toISOString(),fiches:lib,seances:{}};
 };
 SEQ.close=function(){var o=document.querySelector('.fsq-ov');if(o)o.remove();document.body.classList.remove('fsq-on');};
 /* SEQ.open(args…) : args passés à SEQ.build(args…, opt) ; SEQ.options = [{k,label,vals:[[v,texte]]}] (facultatif) */
@@ -280,5 +282,8 @@ function hook(){
   }
 }
 if(document.readyState=='loading')document.addEventListener('DOMContentLoaded',hook);else hook();
+/* mention d'auteur en tête et en pied de chaque fiche séquence (écran, impression, Word, PDF standard) */
+(function(){var h0=SEQ.html;SEQ.html=function(F){var a=window.ATLAS_AUTEUR,l=a?a.html:'<p class="aut-line">© 2026 Nicolas BOUZA — CC BY-NC-ND 4.0</p>',h=h0(F),k=h.indexOf('</p>');
+  return (k>0?h.slice(0,k+4)+l+h.slice(k+4):l+h)+l;};})();
 window.__seq=function(o){return SEQ.html(SEQ.build(o||{}));};
 })();

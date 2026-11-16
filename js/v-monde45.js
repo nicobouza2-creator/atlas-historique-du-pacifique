@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Atlas du collège — volet « Le monde depuis 1945 » (3e). Écrit dans une autre conversation, directement dans l'artefact claude.ai ;
    récupéré le 17/11/2026 depuis la version publiée (code minifié remis en forme : les noms de variables courts viennent de là).
    Même format que v-colonies.js : chapitres, étapes (ph), questions (q), fiche séance (fs). */

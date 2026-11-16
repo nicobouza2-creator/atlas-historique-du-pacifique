@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Mode Enquête : une question de départ, une hypothèse, des pages de documents (images, textes, cartes,
    tableaux, frises) avec des questions différenciées (école primaire / collège), un carnet d'indices,
    puis une conclusion et le résultat de l'enquête.

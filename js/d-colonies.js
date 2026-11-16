@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Atlas du collège — données « élèves » du volet « Conquêtes et sociétés coloniales ».
    Même format que facile.js et galerie.js (atlas du Pacifique), dans un fichier à part pour ne pas toucher à ces deux-là.
    À charger après facile.js et galerie.js, avant v-colonies.js : le moteur lit ces tables au moment de ATLAS.add().

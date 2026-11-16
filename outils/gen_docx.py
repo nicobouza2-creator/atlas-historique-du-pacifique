@@ -81,7 +81,7 @@ class Doc:
         f = sec.footer.paragraphs[0]; r = f.add_run('Dossier d’enquête %s · %s · %s        page ' % (s.code, clean(s.ch['short']), NOMT(s.vol)))
         r2 = f.add_run(); field(r2, 'PAGE'); f.add_run(' / '); r3 = f.add_run(); field(r3, 'NUMPAGES')
         for x in f.runs: x.font.size = Pt(8.5); x.font.color.rgb = MUTED
-        d.core_properties.title = 'Dossier d’enquête %s · %s' % (s.code, clean(s.ch['short'])); d.core_properties.author = NOMT(s.vol)
+        d.core_properties.title = 'Dossier d’enquête %s · %s' % (s.code, clean(s.ch['short'])); d.core_properties.author = 'Nicolas BOUZA'
     # ---------- briques ----------
     def p(s, text='', size=None, bold=False, italic=False, color=None, align=None, font=None, after=None, indent=None):
         p = s._pb(s.d.add_paragraph())

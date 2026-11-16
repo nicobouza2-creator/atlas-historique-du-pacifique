@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Atlas collège — volet « Conquêtes et sociétés coloniales » (4e, histoire, thème 2 du programme adapté à la Nouvelle-Calédonie).
    Planisphère. Les empires sont coloriés avec les pays ACTUELS (js/pays.js) : schéma, pas des frontières d’époque.
    Chaque chapitre porte aussi « fs » : les éléments de la fiche séance (trame du livret d’accueil HG-EMC), lus par js/college.js. */

@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Enquêtes du volet « Les guerres mondiales (1914-1945) » (atlas du collège, même index que v-guerres.js).
    P(titre, document(s), parcours guidé, parcours autonome, à retenir). Q : la 1re réponse est la bonne.
    Textes officiels cités exactement (traité de Versailles, proclamation de Nouméa) ; les autres sont signalés « texte de l’atlas » ou « texte résumé ». */
