@@ -9,23 +9,22 @@ function nc(t){return cam(t,165.85,-21.2,23);}
 /* contours schématiques ; provinces Nord et Sud : vraie limite (Natural Earth 10 m) prolongée en mer */
 var GT=[[163.3,-19.3],[164.6,-19.7],[165.6,-20.45],[166.9,-21.6],[167.25,-22.3],[167.9,-22.5],[167.8,-23],[166.2,-22.9],[164.9,-21.9],[163.4,-20.6]];
 var LOY=[[166.55,-20.6,0.45],[167.25,-20.95,0.5],[167.82,-21.12,0.15],[167.95,-21.5,0.45]];
-var P_NORD=[[164.763,-21.424],[163.0,-20.95],[162.75,-19.3],[163.6,-18.9],[164.6,-19.6],[165.4,-20.35],[166.0,-20.8],[166.45,-21.25],[166.434,-21.524],[166.084,-21.524],[166.074,-21.546],[166.046,-21.567],[166.029,-21.602],[166.014,-21.607],[165.981,-21.605],[165.934,-21.585],[165.892,-21.596],[165.87,-21.596],[165.845,-21.574],[165.773,-21.529],[165.75,-21.529],[165.715,-21.513],[165.697,-21.523],[165.668,-21.522],[165.653,-21.508],[165.628,-21.499],[165.607,-21.48],[165.576,-21.462],[165.558,-21.429],[165.548,-21.422],[165.512,-21.428],[165.483,-21.412],[165.441,-21.434],[165.43,-21.435],[165.378,-21.414],[165.363,-21.359],[165.344,-21.347],[165.291,-21.329],[165.28,-21.319],[165.262,-21.315],[165.203,-21.32],[165.177,-21.328],[165.117,-21.367],[165.113,-21.374]];
-var P_SUD=[[165.113,-21.374],[165.117,-21.367],[165.177,-21.328],[165.203,-21.32],[165.262,-21.315],[165.28,-21.319],[165.291,-21.329],[165.344,-21.347],[165.363,-21.359],[165.378,-21.414],[165.43,-21.435],[165.441,-21.434],[165.483,-21.412],[165.512,-21.428],[165.548,-21.422],[165.558,-21.429],[165.576,-21.462],[165.607,-21.48],[165.628,-21.499],[165.653,-21.508],[165.668,-21.522],[165.697,-21.523],[165.715,-21.513],[165.75,-21.529],[165.773,-21.529],[165.845,-21.574],[165.87,-21.596],[165.892,-21.596],[165.934,-21.585],[165.981,-21.605],[166.014,-21.607],[166.029,-21.602],[166.046,-21.567],[166.074,-21.546],[166.084,-21.524],[166.434,-21.524],[166.75,-21.55],[167.25,-22.0],[167.95,-22.35],[167.85,-23.05],[166.2,-23.0],[165.1,-22.1],[164.763,-21.424]];
-var CHAINE=[[164.15,-20.3],[164.55,-20.62],[164.95,-20.95],[165.35,-21.2],[165.75,-21.48],[166.15,-21.78],[166.55,-22.02],[166.9,-22.2]];
+var CHAINE=window.NCG.chaine;
 /* massif du Sud (péridotites) et massifs de la côte Ouest (klippes) : tracé à grands traits */
-var MSUD=[[166.3,-22.02],[166.38,-21.86],[166.55,-21.76],[166.78,-21.76],[166.97,-21.9],[167.06,-22.1],[167.02,-22.32],[166.88,-22.42],[166.7,-22.38],[166.52,-22.28],[166.42,-22.18]];
-var KL=[[163.65,-19.72,0.07],[164.07,-20.27,0.06],[164.21,-20.45,0.06],[164.42,-20.62,0.06],[164.55,-20.78,0.07],[164.83,-20.99,0.08],[165.05,-21.2,0.09],[165.3,-21.24,0.08],[165.7,-21.33,0.06],[165.8,-21.45,0.08],[166.02,-21.55,0.07],[166.16,-21.66,0.09],[167.47,-22.62,0.09]];
-function massifs(t0,a,col){var out=[Rg(MSUD,col||'pol',t0,a,2)];KL.forEach(function(c,i){out.push(Rg(c,col||'pol',t0+0.4+i*0.25,a,1.5));});return out;}
+/* massifs de péridotites : contours officiels (Géorep, géologie au 1/1 000 000), le massif du Sud d’abord, puis les autres du nord au sud */
+var NCG=window.NCG;
+function massifs(t0,a,col){return NCG.massifs.map(function(m,i){return Rg(m[2],col||'pol',i?t0+0.4+(i-1)*0.15:t0,a,i?1.5:2);});}
+var PROV=NCG.provinces;
+/* tribus : les 272 tribus localisées par le gouvernement (Géorep), chacune dessinée par un petit carré d’environ 2 km */
+var TRIBUS=NCG.tribus.map(function(t){var d=0.009;return [[t[0]-d,t[1]-d],[t[0]+d,t[1]-d],[t[0]+d,t[1]+d],[t[0]-d,t[1]+d]];});
 /* lieux */
-var P={noumea:[166.44,-22.27],pouembout:[164.9,-21.13],kone:[164.86,-21.06],voh:[164.7,-20.96],vavouto:[164.73,-21.01],koniambo:[164.83,-20.99],
-  thio:[166.16,-21.66],thiom:[166.23,-21.6],kouaoua:[165.79,-21.44],kouaouam:[165.84,-21.4],nakety:[166.04,-21.53],poro:[165.7,-21.31],nepoui:[165.0,-21.33],kopeto:[165.06,-21.2],
-  tiebaghi:[164.21,-20.45],poum:[164.07,-20.27],ouaco:[164.53,-20.82],goro:[166.95,-22.29],prony:[166.84,-22.33],yate:[166.88,-22.15],doniambo:[166.43,-22.25]};
+var P={noumea:[166.44,-22.27],pouembout:[164.9,-21.13],kone:[164.86,-21.06],voh:[164.7,-20.96],vavouto:[164.683,-21.014],koniambo:[164.793,-20.975],
+  thio:[166.19,-21.62],thiom:[166.23,-21.6],kouaoua:[165.79,-21.44],kouaouam:[165.84,-21.4],nakety:[166.106,-21.54],poro:[165.7,-21.31],nepoui:[165.0,-21.33],kopeto:[165.01,-21.17],
+  tiebaghi:[164.211,-20.465],poum:[164.04,-20.25],ouaco:[164.5,-20.76],goro:[166.93,-22.34],prony:[166.84,-22.33],yate:[166.88,-22.15],doniambo:[166.43,-22.25]};
 function at(k,t,text,o){var p=P[k];return L(t,p[0],p[1],text,o);}
 
 [['bourail',165.5,-21.57],['lafoa',165.83,-21.71],['koumac',164.29,-20.56],['hienghene',164.94,-20.69],['poindimie',165.33,-20.94],['we',167.26,-20.92],['tadine',167.88,-21.55],['fayaoue',166.545,-20.65],['kuto',167.43,-22.66],
  ['tontouta',166.21,-22.01],['dumbea',166.45,-22.16],['paita',166.37,-22.13],['montdore',166.58,-22.27],['canala',165.96,-21.52],['poya',165.15,-21.35],['tiwaka',165.25,-20.79]].forEach(function(d){P[d[0]]=[d[1],d[2]];});
-var ZEE=[[156,-17.6],[158.5,-15.7],[161.5,-17.2],[164.3,-17.4],[167.3,-18.9],[169.6,-20.3],[173.6,-21.1],[173.4,-23.4],[170.4,-24.4],[168.2,-25.9],[165.8,-26.5],[163.3,-24.9],[160.3,-24.6],[157.4,-22.6],[156.1,-20]];
-var UNESCO=[[166.95,-22.62,0.33],[165.3,-21.62,0.22],[164.6,-20.38,0.28],[163.65,-19.45,0.38],[163.05,-18.4,0.2],[166.42,-20.55,0.26]];
 var OUESTPL=[[164.226,-20.532],[164.318,-20.41],[164.38,-20.452],[164.42,-20.489],[164.456,-20.553],[164.547,-20.643],[164.573,-20.721],[164.616,-20.75],[164.657,-20.746],[164.713,-20.757],[164.761,-20.788],[164.84,-20.901],[164.921,-20.933],[164.962,-20.975],[165.007,-21.053],[165.023,-21.15],[165.126,-21.208],[165.192,-21.216],[165.24,-21.244],[165.276,-21.287],[165.299,-21.36],[165.369,-21.403],[165.405,-21.455],[165.511,-21.467],[165.575,-21.505],[165.625,-21.559],[165.735,-21.563],[165.794,-21.579],[165.827,-21.603],[165.941,-21.724],[166.002,-21.753],[166.093,-21.751],[166.15,-21.776],[166.224,-21.828],[166.268,-21.872],[166.304,-21.932],[166.315,-21.986],[166.337,-21.991],[166.219,-22.143],[166.218,-22.125],[166.17,-22.104],[166.161,-22.085],[166.127,-22.1],[166.115,-22.089],[166.123,-22.073],[166.112,-22.062],[166.125,-22.058],[166.145,-22.07],[166.156,-22.061],[166.151,-22.044],[166.115,-22.032],[166.117,-22.025],[166.138,-22.034],[166.148,-22.025],[166.137,-21.981],[166.142,-21.966],[166.119,-21.946],[166.072,-21.946],[166.071,-21.919],[166.058,-21.9],[166.034,-21.906],[166.035,-21.94],[166.018,-21.943],[166.0,-21.966],[165.973,-21.93],[165.932,-21.918],[165.935,-21.901],[165.906,-21.87],[165.86,-21.86],[165.82,-21.873],[165.808,-21.857],[165.82,-21.825],[165.806,-21.81],[165.782,-21.816],[165.77,-21.809],[165.752,-21.782],[165.762,-21.765],[165.749,-21.755],[165.721,-21.744],[165.7,-21.761],[165.674,-21.744],[165.667,-21.72],[165.627,-21.735],[165.602,-21.713],[165.584,-21.716],[165.531,-21.699],[165.469,-21.65],[165.453,-21.612],[165.417,-21.618],[165.282,-21.57],[165.262,-21.55],[165.257,-21.516],[165.232,-21.515],[165.227,-21.503],[165.168,-21.479],[165.148,-21.461],[165.135,-21.43],[165.112,-21.405],[165.124,-21.389],[165.114,-21.371],[165.096,-21.371],[165.083,-21.39],[165.058,-21.381],[165.04,-21.393],[165.03,-21.381],[165.051,-21.361],[165.043,-21.345],[165.026,-21.339],[165.015,-21.346],[164.987,-21.335],[164.97,-21.352],[164.948,-21.357],[164.936,-21.341],[164.944,-21.294],[164.909,-21.279],[164.894,-21.245],[164.867,-21.228],[164.859,-21.205],[164.829,-21.174],[164.832,-21.153],[164.854,-21.139],[164.858,-21.124],[164.849,-21.112],[164.832,-21.115],[164.824,-21.101],[164.802,-21.107],[164.8,-21.094],[164.828,-21.09],[164.824,-21.06],[164.789,-21.057],[164.767,-21.086],[164.751,-21.076],[164.745,-21.052],[164.719,-21.062],[164.692,-21.042],[164.69,-21.025],[164.671,-21.013],[164.653,-20.981],[164.648,-20.968],[164.666,-20.961],[164.668,-20.928],[164.65,-20.924],[164.64,-20.936],[164.58,-20.924],[164.57,-20.897],[164.525,-20.892],[164.504,-20.861],[164.461,-20.848],[164.456,-20.828],[164.432,-20.814],[164.412,-20.781],[164.374,-20.765],[164.371,-20.753],[164.392,-20.76],[164.411,-20.753],[164.416,-20.727],[164.366,-20.695],[164.319,-20.633],[164.298,-20.579],[164.275,-20.583]];   /* plaines de la côte Ouest : bande d’environ 16 km le long de la côte, de Koumac à Tontouta (schéma) */
 function air(col,t0,t1,to){return r(col,t0,t1,2.2,[[166.21,-22.01],to],{step:0.8});}
 
@@ -116,7 +115,7 @@ var CH=[
 /* 3 --------------------------------------------------------------- */
 {short:'Où vivent les Calédoniens ?',col:'dense',dur:56,when:[2019,2025],dates:'recensement de 2025',
  cam:[nc(0),nc(16),cam(19,166.45,-22.2,86),cam(28,166.45,-22.2,86),nc(32),nc(56)],
- zones:[Rg(P_SUD,'mis',8,0.32,2),Rg(P_NORD,'afr',9,0.32,2),Lz(LOY,'xet',10,0.4,2),Rg([166.47,-22.2,0.16],'dense',18,0.7,2)],
+ zones:[Rg(PROV.sud,'mis',8,0.32,2),Rg(PROV.nord,'afr',9,0.32,2),Rg(PROV.iles,'xet',10,0.4,2),Rg(NCG.grandnoumea,'dense',18,0.7,2)],
  routes:[],
  labels:[
   L(8,166.45,-21.95,'Province Sud',{nomark:true,sub:'194 978 hab.',big:true,zmax:30}),
@@ -147,7 +146,7 @@ var CH=[
 /* 4 --------------------------------------------------------------- */
 {short:'Habiter : ville, brousse, tribu, îles',col:'kan',dur:58,dates:'aujourd’hui',
  cam:[cam(0,166.45,-22.22,99),cam(12,166.45,-22.22,99),cam(15,165.6,-21.62,72),cam(25,165.6,-21.62,72),cam(28,164.95,-20.75,81),cam(37,164.95,-20.75,81),cam(40,167.5,-21.1,54),cam(50,167.5,-21.1,54),nc(58)],
- zones:[Rg(GT,'kan',-5,0.3,0.01),Lz(LOY,'kan',-5,0.3,0.01),Rg([166.47,-22.2,0.16],'dense',1,0.6,2),Rg(OUESTPL,'neo',15,0.35,2)],
+ zones:[Rg(GT,'kan',-5,0.3,0.01),Lz(LOY,'kan',-5,0.3,0.01),Rg(NCG.grandnoumea,'dense',1,0.6,2),Rg(OUESTPL,'neo',15,0.35,2),Rg(TRIBUS,'pap',28,0.95,1.5)],
  routes:[],
  labels:[
   at('noumea',1,'Nouméa',{mark:'ville',dx:-10,dy:8,al:'right',zmin:40}),at('dumbea',2,'Dumbéa',{mark:'ville',dx:-10,al:'right',zmin:40}),
@@ -155,7 +154,6 @@ var CH=[
   at('bourail',16,'Bourail',{mark:'ville',dx:-10,al:'right',zmin:30}),at('lafoa',17,'La Foa',{mark:'ville',dx:10,al:'left',zmin:30}),
   L(18,165.25,-21.4,'stations d’élevage',{nomark:true,zmin:30}),
   at('hienghene',29,'Hienghène',{mark:'ville',dx:10,al:'left',zmin:30}),
-  L(30,164.85,-20.68,'tribus',{nomark:true,dx:-8,al:'right',zmin:30}),
   at('we',41,'Wé (Lifou)',{mark:'ville',dx:10,al:'left',zmin:24}),at('tadine',42,'Tadine (Maré)',{mark:'ville',dx:10,al:'left',zmin:24}),at('fayaoue',42.5,'Fayaoué (Ouvéa)',{mark:'ville',dx:-10,al:'right',zmin:24}),
   at('pouembout',52,'Pouembout',{mark:'star',dx:-10,dy:10,al:'right',zmin:12})
  ],
@@ -168,7 +166,7 @@ var CH=[
   Ph(50,'Et toi ?','Ville, village ou tribu, côte Est ou côte Ouest, île ou Grande Terre : chaque lieu a ses avantages et ses difficultés (distances, services, emplois, nature).','eur')
  ],
  photos:[Sh('noumeaport',1,12,'tr',2),Sh('bourail',15,25,'tr',2),Sh('poule',28,37,'tr',2),Sh('caseslifou',40,50,'tr',2)],
- legend:[['dense','Grand Nouméa'],['neo','Plaines d’élevage de la côte Ouest'],['eur','Ville ou village','ville']],
+ legend:[['dense','Grand Nouméa (4 communes)'],['neo','Plaines d’élevage de la côte Ouest'],['pap','Tribu'],['eur','Ville ou village','ville']],
  mots:[['Habiter','Vivre dans un lieu : s’y loger, y travailler, s’y déplacer, s’y divertir.'],['Bourg','Gros village avec des services (mairie, école, commerces).'],['Tribu','Lieu de vie kanak organisé autour d’une chefferie.'],['Services','Écoles, hôpitaux, commerces, administrations utiles aux habitants.']],
  q:[['Citer un avantage et un inconvénient de la vie en ville.','Par exemple : beaucoup de services / des embouteillages.'],['Qu’y a-t-il dans un bourg de brousse ?','Une mairie, une école, quelques commerces.'],['Comment les marchandises arrivent-elles aux îles Loyauté ?','Par bateau ou par avion.'],['Où habites-tu, et quels services trouves-tu près de chez toi ?','Réponse personnelle.']],
  wiki:['Nouméa','Bourail','Tribu kanak','Lifou']},
@@ -178,7 +176,7 @@ var CH=[
  cam:[nc(0),nc(14),cam(18,155,-12,1.05),cam(44,155,-12,1.05),nc(52),nc(60)],
  zones:[Rg(GT,'kan',-5,0.3,0.01),Lz(LOY,'kan',-5,0.3,0.01)],
  routes:[
-  r('ere',2,8,3,[[166.44,-22.27],[166.2,-22.0],[165.83,-21.71],[165.5,-21.57],[165.15,-21.35],[164.9,-21.13],[164.86,-21.06],[164.7,-20.96],[164.29,-20.56],[164.03,-20.23]],{}),
+  r('ere',2,8,3,NCG.rt1,{}),   /* RT1 : tracé officiel (Géorep), de Nouméa à Koumac */
   r('ere',6,9,2.4,[[164.86,-21.06],[165.02,-20.95],[165.18,-20.84],[165.25,-20.79]],{}),
   r('mis',10,14,2.4,[[166.45,-22.3],[167.0,-21.9],[167.85,-21.55]],{dash:true}),r('mis',10.5,14.5,2.4,[[166.45,-22.3],[166.9,-21.6],[167.2,-21.0]],{dash:true}),
   air('fra',19,24,[151.2,-33.9]),air('fra',19.5,24.5,[153.0,-27.4]),air('fra',20,25,[174.8,-37.0]),air('fra',20.5,25.5,[177.4,-17.75]),
@@ -214,7 +212,7 @@ var CH=[
 /* 6 --------------------------------------------------------------- */
 {short:'Produire en Nouvelle-Calédonie',col:'neo',dur:58,dates:'aujourd’hui',
  cam:[nc(0),nc(58)],
- zones:[Rg(GT,'kan',-5,0.3,0.01),Lz(LOY,'kan',-5,0.3,0.01),Rg(OUESTPL,'neo',8,0.45,2)].concat(KL.map(function(c,i){return Rg(c,'pol',2+i*0.2,0.5,1.5);})).concat([Rg(MSUD,'pol',2,0.5,1.5)]),
+ zones:[Rg(GT,'kan',-5,0.3,0.01),Lz(LOY,'kan',-5,0.3,0.01),Rg(OUESTPL,'neo',8,0.45,2)].concat(massifs(2,0.5)),
  routes:[r('mis',40,46,2.6,[[160,-30],[164,-25.5],[166.4,-22.4]],{dash:true,sea:true}),r('mis',40.5,46.5,2.6,[[150,-14],[160,-17.5],[166.3,-22.2]],{dash:true,sea:true})],
  labels:[
   L(3,166.7,-21.95,'mines de nickel',{nomark:true,dx:8,al:'left'}),
@@ -245,10 +243,11 @@ var CH=[
 /* 7 --------------------------------------------------------------- */
 {short:'Un pays maritime',col:'aus',dur:58,when:[2008,2026],dates:'aujourd’hui',
  cam:[nc(0),cam(6,164.5,-21,5.2),cam(26,164.5,-21,5.2),cam(36,165.6,-21,15),cam(58,165.6,-21,15)],
- zones:[Rg(ZEE,'aus',7,0.28,2.5)].concat(UNESCO.map(function(c,i){return Rg(c,'xet',38+i*0.4,0.5,2);})),
+ /* zones en mer : dessinées sans découpe sur les terres (contours officiels Géorep) */
+ zones:[{k:'poly',ring:NCG.zee,col:'aus',a:0.32,t0:7,fade:2.5}].concat(NCG.unesco.map(function(u,i){return {k:'poly',ring:u[1],col:'xet',a:0.7,t0:38+i*0.4,fade:2,nostroke:true};})),
  routes:[],
  labels:[
-  L(8,164.5,-24.2,'ZEE de la Nouvelle-Calédonie',{nomark:true,gold:true,big:true,sub:'≈ 1,25 million de km²',zmax:12}),
+  L(8,164.5,-24.2,'ZEE de la Nouvelle-Calédonie',{nomark:true,gold:true,big:true,sub:'≈ 1,4 million de km²',zmax:12}),
   L(12,148,-20,'Australie',{nomark:true,zmax:12}),L(12,168.3,-15.6,'Vanuatu',{nomark:true,zmax:12}),L(12,160,-9.6,'Salomon',{nomark:true,zmax:12}),L(12,178.2,-17.6,'Fidji',{nomark:true,zmax:12}),
   L(19,158.3,-19.9,'Chesterfield',{dx:8,al:'left',zmax:12}),L(19.5,163.1,-18.4,'Entrecasteaux',{dx:8,al:'left',zmax:12}),
   L(20,171.35,-22.35,'Matthew',{dy:-12,zmax:12}),L(20.5,172.08,-22.4,'Hunter',{dy:14,zmax:12}),
@@ -256,17 +255,17 @@ var CH=[
  ],
  pulses:[],
  ph:[
-  Ph(0,'Bien plus de mer que de terre','Autour de ses îles, la Nouvelle-Calédonie a une zone économique exclusive (ZEE) d’environ 1,25 million de km² : près de 70 fois la surface de ses terres.','aus'),
+  Ph(0,'Bien plus de mer que de terre','Autour de ses îles, la Nouvelle-Calédonie a une zone économique exclusive (ZEE) d’environ 1,4 million de km² : près de 75 fois la surface de ses terres.','aus'),
   Ph(9,'Qu’est-ce qu’une ZEE ?','Jusqu’à 200 milles marins (370 km) des côtes, un pays est seul à pouvoir exploiter les poissons et les ressources du fond de la mer. Les voisins sont l’Australie, les Salomon, le Vanuatu et Fidji.','aus'),
   Ph(18,'Des récifs lointains','Chesterfield, Entrecasteaux, Matthew et Hunter sont de petites îles sans habitants permanents, très riches en vie marine. Matthew et Hunter sont aussi revendiqués par le Vanuatu.','mis'),
-  Ph(27,'Le parc naturel de la mer de Corail','Créé en 2014, il couvre toute la ZEE et les îles éloignées : environ 1,3 million de km², l’une des plus grandes aires marines protégées du monde. Depuis 2023, 10 % sont fortement protégés.','xet'),
+  Ph(27,'Le parc naturel de la mer de Corail','Créé en 2014, il couvre toute la ZEE, sauf les eaux des provinces près des côtes : environ 1,3 million de km², l’une des plus grandes aires marines protégées du monde. Depuis 2023, 10 % sont fortement protégés.','xet'),
   Ph(37,'Le lagon','Une grande partie du lagon est inscrite au patrimoine mondial de l’UNESCO depuis 2008. Tortues, dugongs, requins et baleines à bosse y vivent ou y passent.','aus'),
   Ph(48,'Une biodiversité unique','Sur terre aussi : le cagou, un oiseau qui ne vole pas, et des milliers de plantes endémiques. Sur les 19 espèces d’araucarias du monde, 13 ne poussent qu’ici.','neo')
  ],
  photos:[Sh('chesterfield',18,26,'tr',2),Sh('lagonsat',37,44,'tr',2),Sh('dugong',44,48,'bl',-2),Sh('cagou',48,56,'tr',2)],
- legend:[['aus','Zone économique exclusive (schéma)'],['xet','Lagons inscrits à l’UNESCO (2008)']],
+ legend:[['aus','Zone économique exclusive'],['xet','Lagons inscrits à l’UNESCO (2008)']],
  mots:[['ZEE','Zone économique exclusive : espace marin où un pays exploite seul les ressources.'],['Mille marin','Unité de distance en mer : 1 852 m.'],['Aire marine protégée','Espace de mer où la nature est protégée par des règles.'],['Biodiversité','Diversité des êtres vivants.']],
- q:[['Quelle est la surface de la ZEE ?','Environ 1,25 million de km².'],['Jusqu’à quelle distance des côtes s’étend une ZEE ?','200 milles marins, soit environ 370 km.'],['Quand a été créé le parc naturel de la mer de Corail ?','En 2014.'],['Quel oiseau qui ne vole pas est le symbole du pays ?','Le cagou.']],
+ q:[['Quelle est la surface de la ZEE ?','Environ 1,4 million de km² (1 386 669 km² selon le gouvernement de la Nouvelle-Calédonie).'],['Jusqu’à quelle distance des côtes s’étend une ZEE ?','200 milles marins, soit environ 370 km.'],['Quand a été créé le parc naturel de la mer de Corail ?','En 2014.'],['Quel oiseau qui ne vole pas est le symbole du pays ?','Le cagou.']],
  wiki:['Parc naturel de la mer de Corail','Zone économique exclusive','Cagou huppé','Îles Chesterfield']}
 ];
 

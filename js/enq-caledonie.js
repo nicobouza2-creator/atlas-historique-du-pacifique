@@ -9,10 +9,10 @@ E(0,{q:'Comment le pays kanak était-il organisé avant l’arrivée des Europé
 h:['En clans et en régions, avec beaucoup de langues','En un seul royaume, avec une seule langue','En villes, avec des routes et des magasins'],
 pg:[
 P('Les aires coutumières',M(),
- [Q('Combien y a-t-il d’aires coutumières ?',['Huit','Deux','Trente']),Q('Dans quelle aire se trouve Pouembout ?',['Paicî-Cèmuhî','Drehu','Xârâcùù'])],
+ [Q('Combien y a-t-il d’aires coutumières ?',['Huit','Deux','Trente']),Q('Dans quelle aire se trouve Pouembout ?',['Paicî-Cèmuhi','Drehu','Xârâcùù'])],
  [T('Il y a [cinq] aires sur la Grande Terre et [trois] aux îles Loyauté.',['huit','dix']),W('Une aire coutumière est-elle une frontière fixe, comme celle d’un pays ?','Non : c’est un découpage d’aujourd’hui, créé à la fin des années 1980, qui regroupe des pays kanak aux langues et aux alliances proches. Autrefois, chaque clan avait sa terre et ses chemins d’alliance.')],
- 'Le pays kanak se répartit aujourd’hui en 8 aires coutumières ; Pouembout est dans l’aire Paicî-Cèmuhî.'),
-P('Une terre de langues',TB('Les 28 langues kanak : quelques exemples',['Aire coutumière','Une ou deux langues de l’aire'],[['Hoot ma Whaap (nord)','nyelâyu, fwâi'],['Paicî-Cèmuhî','paicî, cèmuhî'],['Ajië-Arhö','ajië'],['Xârâcùù','xârâcùù'],['Drubea-Kapumë (sud)','drubea, numèè'],['Iaai (Ouvéa)','iaai, fagauvea'],['Drehu (Lifou)','drehu'],['Nengone (Maré)','nengone']],'Tableau de l’atlas, d’après l’Académie des langues kanak.'),
+ 'Le pays kanak se répartit aujourd’hui en 8 aires coutumières ; Pouembout est dans l’aire Paicî-Cèmuhi.'),
+P('Une terre de langues',TB('Les 28 langues kanak : quelques exemples',['Aire coutumière','Une ou deux langues de l’aire'],[['Hoot Ma Whaap (nord)','nyelâyu, fwâi'],['Paicî-Cèmuhi','paicî, cèmuhî'],['Ajië Aro','ajië'],['Xârâcùù','xârâcùù'],['Drubea-Kapumë (sud)','drubea, numèè'],['Iaai (Ouvéa)','iaai, fagauvea'],['Drehu (Lifou)','drehu'],['Nengone (Maré)','nengone']],'Tableau de l’atlas, d’après l’Académie des langues kanak.'),
  [Q('Combien de langues kanak parle-t-on ?',['28','1','300']),Q('Quelle langue parle-t-on à Lifou ?',['Le drehu','Le paicî','L’anglais'])],
  [Q('Que montrent 28 langues sur un territoire aussi petit ?',['Une grande diversité de pays et de clans, chacun avec son histoire','Que les Kanak ne se comprenaient jamais','Que ces langues sont arrivées avec les Européens']),W('Pourquoi la langue est-elle importante pour un clan ?','Elle porte les noms des lieux et des ancêtres, les récits et la coutume : c’est l’identité et la mémoire du clan.')],
  '28 langues kanak : chaque région a sa langue, sa mémoire et sa coutume.'),

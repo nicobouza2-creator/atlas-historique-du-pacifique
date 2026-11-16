@@ -188,7 +188,7 @@ decouvertes:[
 ],
 caledonie:[
 ['🏡 Les *Kanak* vivent ici depuis presque *3 000 ans*. Chaque *clan* a sa terre et ses ancêtres.',
- '🗺️ Il y a *8 aires coutumières*. *Pouembout* est dans l’aire *Paicî-Cèmuhî*.',
+ '🗺️ Il y a *8 aires coutumières*. *Pouembout* est dans l’aire *Paicî-Cèmuhi*.',
  '🏝️ *Ouvéa*, *Lifou* et *Maré* forment chacune une aire.',
  '🗣️ On parle *28 langues kanak*. On cultive l’*igname* et le *taro*.'],
 ['⛵ En *1774*, *James Cook* arrive à *Balade*. Les Kanak l’accueillent.',
@@ -503,7 +503,7 @@ decouvertes:[
 [['Le blé, le riz, le raisin.','Le poivre, la cannelle, le thé.'],['À cause d’un tremblement de terre.','Parce qu’ils partent tous en Europe.'],['Parce que les marins ont menti.','Parce que les cartes étaient fausses.']]
 ],
 caledonie:[
-[['Trois : une par province.','Douze : une par île.'],['Dans l’aire Ajië-Arhö.','Dans l’aire Drubea-Kapumë.'],['Une seule.','200.']],
+[['Trois : une par province.','Douze : une par île.'],['Dans l’aire Ajië Aro.','Dans l’aire Drubea-Kapumë.'],['Une seule.','200.']],
 [['Christophe Colomb, en 1492.','Bougainville, en 1768.'],['Du nickel, pour faire des pièces.','De l’or, pour le roi de France.'],['À Nouméa, en 1774.','À Pouembout, en 1883.']],
 [['James Cook donne son nom au pays.','Les Kanak deviennent citoyens.'],['Balade.','Port-Vila.'],['Pour y trouver de l’or.','Pour y cultiver des épices.']],
 [['En 1774, avec James Cook.','En 1946, après la guerre.'],['Des soldats américains.','Des marins de James Cook.'],['Pouembout était une mine de nickel.','Pouembout était le port des bagnards.'],['Environ 300.','Environ 1 million.']],

@@ -41,7 +41,7 @@ Le dossier `outils/` contient les scripts qui régénèrent les dossiers PDF et 
 - Outils : explorer la carte, mesurer une distance, jeu « Où est… ? », carte muette, lecture à voix haute, gros texte.
 - Fiche du chapitre (récit, mots-clés, questions), export PDF et PNG.
 
-Tracés schématiques ; dates anciennes approximatives. Photos et documents réels (crédits sous chaque image). Fonds de carte Natural Earth (domaine public) ; côtes de la Nouvelle-Calédonie © contributeurs OpenStreetMap (ODbL), via geo-maps ; récifs et limites administratives Natural Earth 10 m.
+Tracés schématiques ; dates anciennes approximatives. Photos et documents réels (crédits sous chaque image). Fonds de carte Natural Earth (domaine public) ; côtes de la Nouvelle-Calédonie © contributeurs OpenStreetMap (ODbL), via geo-maps ; récifs et limites administratives Natural Earth 10 m ; massifs de péridotites, provinces, aires coutumières (limites indicatives), tribus, ZEE, lagons inscrits à l’UNESCO, sites miniers et usines : Gouvernement de la Nouvelle-Calédonie, Géorep et DIMENC (données ouvertes), dans `js/nc-geo.js`.
 
 ## Licence
 

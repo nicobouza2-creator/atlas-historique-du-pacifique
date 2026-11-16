@@ -97,6 +97,8 @@ function pickMulti(m){
   return pickCache[k]=out;
 }
 function polyGeo(ring){
+  /* plusieurs anneaux (données officielles de nc-geo.js) : un MultiPolygon, chaque anneau orienté comme un polygone simple */
+  if(Array.isArray(ring[0][0]))return {type:'MultiPolygon',coordinates:ring.map(function(r){return polyGeo(r).coordinates;})};
   var f=ring[0],l=ring[ring.length-1];if(f[0]!==l[0]||f[1]!==l[1])ring=ring.concat([f]);
   var g={type:'Polygon',coordinates:[ring]};
   if(d3.geoArea(g)>2*Math.PI)g={type:'Polygon',coordinates:[ring.slice().reverse()]};
