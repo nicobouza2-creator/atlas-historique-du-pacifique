@@ -1,0 +1,13 @@
+yalta1945|Yalta conference 1945|3c12542
+pontaerien1948|Berlin airlift|3c36389
+coree1951|Korean war 1950 infantry|3b19774
+berlin1961|Berlin wall 1961|96383
+cuba1962|Cuba missile 1962|3a30441
+vienne1961|Kennedy Khrushchev Vienna|3c21340
+vietnam1962|Vietnam war helicopter soldiers|03202
+bikini1946|Bikini atomic test 1946|02944
+champs1944|de Gaulle Paris 1944|1a55001
+votefemmes1945|French women vote 1945|3b38129
+pompidou1970|Pompidou|05412
+giscard1978|Giscard|06232
+veil|Simone Veil|04563
