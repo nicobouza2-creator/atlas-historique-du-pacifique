@@ -11,8 +11,9 @@ from reportlab.lib.pagesizes import A4
 ATLAS = '/home/claude/repo/'; OUT = '/home/claude/dossiers/pdf/'; os.makedirs(OUT, exist_ok=True)
 D = json.load(open('/home/claude/dossiers/data.json')); IMG = D['IMG']
 W, H = A4; M = 17 * mm; FW = W - 2 * M
-PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GN', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC', 'colonies': 'CO'}
-def NOMT(vol): return 'Atlas d’histoire — Collège' if vol == 'colonies' else 'Atlas historique du Pacifique'
+PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GN', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC', 'colonies': 'CO', 'guerres': 'GM', 'monde45': 'M45', 'republique': 'RF'}
+COLLEGE_T = {'colonies', 'guerres', 'monde45', 'republique'}   # volets de l’atlas du collège (même liste que gen_build.COLLEGE)
+def NOMT(vol): return 'Atlas d’histoire — Collège' if vol in COLLEGE_T else 'Atlas historique du Pacifique'
 def code(vol, ci): return PREFIX.get(vol, 'X') + '-%02d' % (ci + 1)
 def imgpath(i): return ATLAS + IMG[i]['f']
 

@@ -11,15 +11,15 @@ from docx.oxml import OxmlElement
 from PIL import Image
 
 REPO = '/home/claude/repo/'; DOS = '/home/claude/dossiers/'; OUT = DOS + 'docx/'; os.makedirs(OUT, exist_ok=True)
-COLLEGE = {'colonies'}   # volets de l’atlas du collège (mêmes règles que pdf/gen_build.py)
+COLLEGE = {'colonies', 'guerres', 'monde45', 'republique'}   # volets de l’atlas du collège (mêmes règles que pdf/gen_build.py)
 def NOM(vol): return 'ATLAS D’HISTOIRE — COLLÈGE' if vol in COLLEGE else 'ATLAS HISTORIQUE DU PACIFIQUE'
 def NIV(vol): return ('Parcours guidé', 'Parcours autonome') if vol in COLLEGE else ('École primaire', 'Collège')
 def CAH(vol): return ('Parcours guidé', 'Parcours autonome') if vol in COLLEGE else ('Niveau école primaire', 'Niveau collège')
-HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes', 'colonies'}   # volets d’histoire : « historiques », méthode du témoin
+HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes', 'colonies', 'guerres', 'monde45', 'republique'}   # volets d’histoire : « historiques », méthode du témoin
 METH = {True: ['Qui l’a fait ? (un témoin, un savant, un voyageur, l’atlas…)', 'Quand ? (au moment des faits, ou bien plus tard ?)', 'Qu’est-ce que c’est ? (photo, carte, texte, tableau, objet…)', 'Pour quoi faire ? (raconter, expliquer, convaincre, garder une trace…)'],
         False: ['Qui l’a fait ? (un témoin, un savant, un organisme officiel, l’atlas…)', 'Quand ? (au moment des faits, ou bien plus tard ?)', 'Qu’est-ce que c’est ? (photo, carte, texte, tableau, graphique…)', 'Pour quoi faire ? (raconter, expliquer, informer, convaincre…)']}
 D = json.load(open(DOS + 'data.json')); IMG = D['IMG']; X = json.load(open(DOS + 'extras.json'))
-PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GNC', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC', 'colonies': 'CO'}
+PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GNC', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC', 'colonies': 'CO', 'guerres': 'GM', 'monde45': 'M45', 'republique': 'RF'}
 def NOMT(vol): return 'Atlas d’histoire — Collège' if vol in COLLEGE else 'Atlas historique du Pacifique'
 INK, BROWN, RED, MUTED = RGBColor(0x1b, 0x24, 0x30), RGBColor(0x6b, 0x41, 0x00), RGBColor(0xb3, 0x26, 0x1e), RGBColor(0x5b, 0x64, 0x70)
 FONT = 'Arial'; KFONT = {'carnet': ('Segoe Print', False, 11), 'lettre': ('Georgia', True, 12), 'tapuscrit': ('Courier New', False, 11), 'officiel': ('Courier New', False, 11)}

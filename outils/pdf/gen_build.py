@@ -138,11 +138,11 @@ def build(vol, ci):
         total = doc.page
     return total
 
-COLLEGE = {'colonies'}   # volets de l’atlas du collège : autre nom d’atlas, deux parcours au lieu de deux niveaux
+COLLEGE = {'colonies', 'guerres', 'monde45', 'republique'}   # volets de l’atlas du collège : autre nom d’atlas, deux parcours au lieu de deux niveaux
 def NOM(vol): return 'ATLAS D’HISTOIRE — COLLÈGE' if vol in COLLEGE else 'ATLAS HISTORIQUE DU PACIFIQUE'
 def NIV(vol): return ('Parcours guidé', 'Parcours autonome') if vol in COLLEGE else ('École primaire', 'Collège')
 def CAH(vol): return ('Parcours guidé', 'Parcours autonome') if vol in COLLEGE else ('Niveau école primaire', 'Niveau collège')
-HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes', 'colonies'}   # volets d’histoire : en-tête « historiques », méthode du témoin
+HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes', 'colonies', 'guerres', 'monde45', 'republique'}   # volets d’histoire : en-tête « historiques », méthode du témoin
 METH = {True: 'Qui l’a fait ? (un témoin, un savant, un voyageur, l’atlas…)\nQuand ? (au moment des faits, ou bien plus tard ?)\nQu’est-ce que c’est ? (photo, carte, texte, tableau, objet…)\nPour quoi faire ? (raconter, expliquer, convaincre, garder une trace…)',
         False: 'Qui l’a fait ? (un témoin, un savant, un organisme officiel, l’atlas…)\nQuand ? (au moment des faits, ou bien plus tard ?)\nQu’est-ce que c’est ? (photo, carte, texte, tableau, graphique…)\nPour quoi faire ? (raconter, expliquer, informer, convaincre…)'}
 

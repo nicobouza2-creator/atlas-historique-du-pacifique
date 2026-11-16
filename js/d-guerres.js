@@ -14,7 +14,7 @@ window.FACILE.guerres=[
  '🏭 C’est une *guerre totale* : les usines fabriquent des armes, les *femmes* remplacent les hommes partis au front, l’État contrôle tout.',
  '😢 Les *civils* souffrent aussi : occupation, faim, bombardements. En 1915-1916, les *Arméniens* de l’Empire ottoman sont victimes d’un *génocide*.',
  '🌍 Les *colonies* envoient des soldats et des travailleurs : tirailleurs d’Afrique, soldats de l’Inde, travailleurs d’Indochine.',
- '🏝️ Plus de *2 000 Calédoniens* d’origine européenne et plus de *1 000 tirailleurs kanak* partent en Europe. Le *bataillon mixte du Pacifique* combat en France.',
+ '🏝️ Un peu plus de *2 000 Calédoniens* partent en Europe : un millier de mobilisés d’origine européenne et près d’un millier de *tirailleurs kanak*. Le *bataillon mixte du Pacifique* combat en France.',
  '🔥 En *1917*, dans le nord de la Grande Terre, des Kanak se *révoltent* contre le recrutement et la colonisation. La révolte est durement réprimée.'],
 ['📜 En *1919*, le traité de *Versailles* déclare l’Allemagne responsable de la guerre : elle perd des territoires et doit payer. Beaucoup d’Allemands se sentent *humiliés*.',
  '🚩 En Russie, les bolcheviks ont pris le pouvoir : c’est l’*URSS*. *Staline* impose un *parti unique* et la *terreur*.',
@@ -71,10 +71,10 @@ window.QCM.guerres=[
 ];
 
 window.GAL.guerres=[
- ['lenine1920','masquegaz'],
+ ['ferdinand1914','lenine1920','masquegaz'],
  ['tranchee1918','armistice1918'],
  ['armistice1918','petrograd1917'],
  ['pearlharbor','lexington1942','degaulle1943'],
  ['us1942','patch1942','enterprise'],
- ['patch1942','noumea1942','troupesnc1942','us1942']
+ ['ffl','patch1942','noumea1942','troupesnc1942','us1942']
 ];
