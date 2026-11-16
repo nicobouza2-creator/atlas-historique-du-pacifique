@@ -1,0 +1,36 @@
+ferdinand1914|Franz Ferdinand|17181
+petrograd1917|Petrograd 1917 revolution|3a19214
+lenine1920|Lenin speaking|3b02309
+tranchee1918|French soldiers trench Verdun|3a42263
+armistice1918|armistice 1918 Paris crowd|00493
+verdun1916|French soldiers trench Verdun|1s50790
+masquegaz|gas masks soldiers 1915|19116
+munitionnettes|munition workers women|19710
+emprunt1918|Free French troops|3f03866
+armeniens1915|Armenian refugees 1915|26184
+versailles1919|Versailles treaty signing 1919|1s04278
+staline|Stalin portrait|3c16229
+crise1930|breadline|3b37875
+nuremberg1935|Hitler Nuremberg rally|3a15028
+nuremberg1934|Hitler Nuremberg rally|3g14088
+munich1938|Munich 1938 Chamberlain|3a14562
+varsovie1939|Warsaw 1939 ruins|3c05057
+paris1940|German troops Paris 1940|3c05516
+londres1941|London blitz 1940 St. Paul's|3b34059
+stalingrad1942|Stalingrad|3c22640
+camp|concentration camp 1945|3c07559
+normandie1944|Normandy invasion 1944 landing|3c11201
+proces1946|Nuremberg trial defendants|72872
+pekin1937|Japanese troops China 1937|3c37075
+pearlharbor|Pearl Harbor attack 1941|3a18762
+lexington1942|Coral Sea Lexington|3c22774
+guadalcanal1943|Guadalcanal marines 1942|8b13106
+patch1942|New Caledonia|8e00160
+troupesnc1942|New Caledonia|8e00161
+hiroshima1945|Hiroshima 1945 ruins|3c34192
+missouri1945|Japanese surrender Missouri|19034
+petain1941|Petain|3c30661
+degaulle1943|General de Gaulle|8d32425
+ffl|Free French troops|00728
+maquis1944|French resistance maquis|09230
+liberation1944|liberation Paris 1944 crowd|3c01121

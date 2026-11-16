@@ -23,6 +23,7 @@ def main(repo, out):
         if f.startswith(('v-', 'enq-')):
             s = open(src, encoding='utf-8').read()
             ids |= set(re.findall(r"\bSh\('([A-Za-z0-9_]+)'", s)) | set(re.findall(r"\bI\('([A-Za-z0-9_]+)'", s))
+            ids |= {k for k in re.findall(r'\bid: "([A-Za-z0-9_]+)"', s) if '"%s":' % k in reg}   # photos écrites sans Sh() (volets repris de l'artefact)
         if f.startswith('d-'):                                       # galerie : toute clé entre apostrophes connue de img.js
             s = open(src, encoding='utf-8').read(); s = s[s.index('window.GAL.'):] if 'window.GAL.' in s else ''
             ids |= {k for k in re.findall(r"'([A-Za-z0-9_]+)'", s) if '"%s":' % k in reg}
