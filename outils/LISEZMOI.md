@@ -42,3 +42,6 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 - Chargé après les `enq-<volet>.js` : `A(volet, n° de chapitre, titre de la page, question)` ajoute une question « école primaire » à une page retrouvée par son titre (16/11/2026 : 70 questions à trous, à relier ou à remettre en ordre, pour qu'aucune enquête ne se limite aux QCM et aux vrai/faux).
 - `window.__q2miss` doit rester vide (titre de page introuvable). `export.py` lit les enquêtes dans la page : les PDF et les Word reprennent ces questions. `valider_enquetes.js`, lui, ne lit que les `enq-<volet>.js`.
 - Texte à trous : les trous se remplissent dans l'ordre à l'écran ; ne jamais écrire deux trous interchangeables.
+
+## Vocabulaire
+- `approx.py [--write] <fichiers js>` : remplace « ≈ » par « vers » (date), « environ » (durée, quantité) ou « de… à… environ » (période). Sans `--write`, affiche seulement ce qui changerait. Passé le 16/11/2026 sur les volets, `facile.js` et `img.js` ; pas encore sur `enq-*.js` (à faire avec la régénération des dossiers).
