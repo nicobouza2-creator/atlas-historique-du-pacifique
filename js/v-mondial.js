@@ -155,7 +155,7 @@ var CH=[
  ],
  pulses:[Pu(13,106.85,-6.2,'#ff5d5d',true)],
  ph:[
-  Ph(0,'De plus en plus de citadins','Selon l’ONU (2025), près de la moitié des humains vivent dans des villes, et beaucoup d’autres dans des petites villes. En 1950, c’était un humain sur cinq. Avec la façon de compter de chaque pays, plus de la moitié des humains sont des citadins depuis 2007 : 58 % en 2025.','dense'),
+  Ph(0,'De plus en plus de citadins','Selon l’ONU (2025), près de la moitié des humains vivent dans des villes, et beaucoup d’autres dans des petites villes. En 1950, c’était un humain sur cinq.','dense'),
   Ph(10,'Les géants d’Asie','Les plus grandes agglomérations sont Jakarta (environ 42 millions d’habitants), Dacca et Tokyo. Neuf des dix plus grandes sont en Asie ; Le Caire est la seule hors d’Asie.','dense'),
   Ph(24,'33 mégapoles','On compte 33 villes de plus de 10 millions d’habitants : les mégapoles. Beaucoup sont au bord de la mer ou d’un grand fleuve.','dense'),
   Ph(32,'Métropoles mondiales','New York, Londres, Paris, Tokyo ou Shanghai commandent l’économie du monde : sièges d’entreprises, bourses, universités, grands aéroports.','eur'),
@@ -361,6 +361,6 @@ var CH=[
 A.add({id:'mondial',title:'Le monde et la mondialisation',tag:'12 chapitres · repères, milieux, population, flux, inégalités, climat',col:'mis',proj:'plan',
  sub:'Le monde en 12 cartes : se repérer, reliefs et climats, où vivent les humains, villes géantes, routes maritimes, câbles, voyages et migrations, mondialisation d’un objet, inégalités, climat qui change, et la place de la Nouvelle-Calédonie.',
  frise:null,
- info:'<p><b>Géographie, cycle 3 et collège</b> : repères (continents, océans, lignes imaginaires), grands ensembles de relief et fleuves, climats et milieux, répartition de la population, métropoles, mondialisation (flux, interfaces, firmes transnationales), inégalités de développement, changement climatique, changement d’échelle.</p><p><b>Collège</b> : 6e, thème 4 « Le monde habité » (chapitre 4) ; 5e, thème 1 (chapitres 4 et 10) et thème 3 (chapitre 11) ; 4e, thèmes 1 à 3 (chapitres 5 à 8).</p><p><b>Croquis</b> : exportez la carte muette ou vierge en PDF pour faire compléter un planisphère.</p><p><b>Sources</b> : ONU (World Urbanization Prospects 2025), DNV/Menon et classements portuaires 2024-2025, OPT, IEOM (partenaires commerciaux), traité Falepili (Australie-Tuvalu, 2023). Zones et routes tracées à grands traits ; chiffres arrondis.</p>',
+ info:'<p><b>Géographie, cycle 3 et collège</b> : repères (continents, océans, lignes imaginaires), grands ensembles de relief et fleuves, climats et milieux, répartition de la population, métropoles, mondialisation (flux, interfaces, firmes transnationales), inégalités de développement, changement climatique, changement d’échelle.</p><p><b>Croquis</b> : exportez la carte muette ou vierge en PDF pour faire compléter un planisphère.</p><p><b>Sources</b> : ONU (World Urbanization Prospects 2025), DNV/Menon et classements portuaires 2024-2025, OPT, IEOM (partenaires commerciaux), traité Falepili (Australie-Tuvalu, 2023). Zones et routes tracées à grands traits ; chiffres arrondis.</p>',
  chapters:CH});
 })();
