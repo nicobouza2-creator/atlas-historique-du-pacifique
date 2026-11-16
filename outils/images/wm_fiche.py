@@ -11,4 +11,4 @@ for n in sys.argv[1:]:
         print('OK ', n, '|', ';'.join(lic)[:110], '|', g('author') or g('photographer'), '|', g('date'))
     except Exception as e:
         print('NON', n, '|', getattr(e, 'code', e))
-    time.sleep(2.5)
+    time.sleep(7)

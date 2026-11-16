@@ -16,7 +16,7 @@ def main(repo):
     ordre = ['geo.js', 'pays.js', 'img.js', 'engine.js', 'ui.js', 'facile.js', 'activites.js', 'enquete.js']
     ordre += ['enq-%s.js' % v for v in VOLETS if os.path.exists(os.path.join(repo, 'js', 'enq-%s.js' % v))] + ['galerie.js']
     ordre += ['d-%s.js' % v for v in VOLETS if os.path.exists(os.path.join(repo, 'js', 'd-%s.js' % v))]   # mode facile, quiz, galerie
-    ordre += ['v-%s.js' % v for v in VOLETS] + ['college.js']
+    ordre += ['v-%s.js' % v for v in VOLETS] + ['college.js', 'passerelle.js']   # passerelle.js : onglets vers l'autre atlas
     assert all(f in ordre for f in GARDE)
     pre = '<script>window.ATLAS_COLLEGE=true;window.ENQ_LV={p:"Parcours guidé",c:"Parcours autonome"};window.ENQ_NODOS={%s};</script>\n' % ','.join('%s:1' % v for v in SANS_DOSSIER)
     s = s[:debut] + pre + ''.join('<script src="js/%s"></script>\n' % f for f in ordre) + s[fin:]

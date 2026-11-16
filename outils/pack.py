@@ -23,7 +23,7 @@ def main(repo, out, only=None):   # only = ensemble de volets à empaqueter (art
         d = os.path.join(repo, ext); vols = {}
         if not os.path.isdir(d): continue
         for f in sorted(os.listdir(d)):
-            m = re.fullmatch(r'([a-z]+)-(\d\d)\.' + fext, f)
+            m = re.fullmatch(r'([a-z0-9]+)-(\d\d)\.' + fext, f)
             if m and (only is None or m.group(1) in only): vols.setdefault(m.group(1), []).append((int(m.group(2)), f))
         index[ext] = {}
         for v, items in sorted(vols.items()):
