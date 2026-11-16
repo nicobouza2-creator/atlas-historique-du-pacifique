@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Approvisionnement en images libres de l'atlas, depuis l'espace de travail cloud (sans l'API Wikimedia, qui répond 429 ici).
+"""Approvisionnement en images libres (atlas, Mondix, fiches…) depuis l'espace de travail cloud, sans l'API Wikimedia (429 ici).
+Copie de référence : doc projet claude/outils-images-appro.py ; dépôt atlas-historique-du-pacifique, outils/images/appro.py.
+Toutes les commandes marchent hors de l'atlas ; seule « add » écrit dans un dépôt d'atlas (APPRO_REPO).
 
 Sources qui répondent depuis le cloud (vérifié le 17/11/2026) :
-  wm     Wikimedia Commons, par les PAGES HTML (recherche, catégories, page du fichier) + fichiers sur upload.wikimedia.org
+  wm     Wikimedia Commons, par les PAGES HTML (recherche, catégories, page du fichier) + images sur thumb.wikimedia.org
+         (serveur de vignettes : ~1 requête/s tenue, tailles standard 120/250/330/500/960/1280/1920 seulement)
   ov     Openverse (Flickr CC + autres) ; quota ~200 requêtes/jour pour l'IP
   aic    Art Institute of Chicago (œuvres du domaine public, CC0)
   cma    Cleveland Museum of Art (CC0)
@@ -29,7 +32,7 @@ Règles : domaine public, CC0, CC BY, CC BY-SA seulement ; pas d'image généré
 import sys, os, re, json, time, html, hashlib, urllib.parse, urllib.request, io
 
 UA = 'AtlasHG/1.0 (atlas scolaire; github nicobouza2-creator/atlas-historique-du-pacifique)'
-REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+REPO = os.environ.get('APPRO_REPO') or os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))  # dépôt de l'atlas (commande add seulement)
 
 
 # ---------- réseau : débit limité par site, partagé entre processus, adaptatif, avec cache disque ----------
