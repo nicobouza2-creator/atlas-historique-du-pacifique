@@ -211,7 +211,7 @@ var CH=[
   Ph(8,'La guerre','En quelques jours, des fermes, des postes de gendarmerie et le village de Boulouparis sont attaqués. La révolte gagne Bourail, puis Poya. L’armée répond durement, avec l’aide de guerriers de Canala.','ame'),
   Ph(19,'1er septembre 1878','Ataï est tué. La guerre dure jusqu’au début de 1879. Elle fait environ 200 morts chez les Européens et sans doute plus de 1 000 chez les Kanak. Des clans entiers sont exilés à l’île des Pins et aux Belep. Leurs terres sont confisquées.','ame'),
   Ph(31,'1887 : l’indigénat','Un règlement spécial s’applique aux Kanak : interdiction de quitter la réserve sans autorisation, impôt, travail obligatoire pour l’administration et les colons.','kan'),
-  Ph(40,'1917 : une nouvelle révolte','En pleine Première Guerre mondiale, alors que l’armée recrute des tirailleurs, une révolte éclate entre Koné et Hienghène. Elle est écrasée en 1918.','ame'),
+  Ph(40,'1917 : une nouvelle révolte','En pleine Première Guerre mondiale, alors que l’armée recrute des tirailleurs, une révolte éclate dans le Nord, de Koné et Voh jusqu’à Hienghène, Touho et Poindimié. Elle est écrasée au début de 1918.','ame'),
   Ph(50,'Un peuple qui a failli disparaître','Maladies, guerres, misère : vers 1920, il ne reste qu’environ 27 000 Kanak. Puis la population remonte.','kan')
  ],
  photos:[Sh('casse',2,8,'tr',2,'contain'),Sh('atai',20,27,'tr',2,'contain')],
