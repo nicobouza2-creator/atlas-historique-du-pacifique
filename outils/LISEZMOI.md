@@ -44,4 +44,4 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 - Texte à trous : les trous se remplissent dans l'ordre à l'écran ; ne jamais écrire deux trous interchangeables.
 
 ## Vocabulaire
-- `approx.py [--write] <fichiers js>` : remplace « ≈ » par « vers » (date), « environ » (durée, quantité) ou « de… à… environ » (période). Sans `--write`, affiche seulement ce qui changerait. Passé le 16/11/2026 sur les volets, `facile.js` et `img.js` ; pas encore sur `enq-*.js` (à faire avec la régénération des dossiers).
+- `approx.py [--write] <fichiers js>` : remplace « ≈ » par « vers » (date), « environ » (durée, quantité) ou « de… à… environ » (période). Sans `--write`, affiche seulement ce qui changerait. Passé le 16/11/2026 sur les volets, `facile.js`, `img.js` et `enq-*.js` ; à relire après coup : une quantité de 3 ou 4 chiffres est prise pour une date (« vers 500 familles »), et un calcul (« ÷ 18 600 ≈ 14 ») doit s'écrire « = environ 14 ».
