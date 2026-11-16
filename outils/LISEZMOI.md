@@ -46,3 +46,11 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 
 ## Vocabulaire
 - `approx.py [--write] <fichiers js>` : remplace « ≈ » par « vers » (date), « environ » (durée, quantité) ou « de… à… environ » (période). Sans `--write`, affiche seulement ce qui changerait. Passé le 16/11/2026 sur les volets, `facile.js`, `img.js` et `enq-*.js` ; à relire après coup : une quantité de 3 ou 4 chiffres est prise pour une date (« vers 500 familles »), et un calcul (« ÷ 18 600 ≈ 14 ») doit s'écrire « = environ 14 ».
+
+## Atlas du collège (`college.html`)
+- Même moteur, autres volets : `python3 outils/college.py` fabrique `college.html` à partir de `index.html` (listes `VOLETS` et `SANS_DOSSIER` en tête du script). Ne pas modifier `college.html` à la main.
+- `js/pays.js` : contours de 199 pays actuels (Natural Earth 1:50 m, domaine public), `window.PAYS[code ISO3]`, élargis vers la mer. Fabrication : `node geo/pays_topo.js <node_modules> pays.geojson` (npm : `world-atlas@2 topojson-client topojson-simplify i18n-iso-countries`), puis `python3 geo/pays.py pays.geojson ../js/pays.js` (`shapely`). Frontières actuelles : schéma pour le passé.
+- `js/v-colonies.js`, `js/enq-colonies.js` : volet « Conquêtes et sociétés coloniales » (4e). Chaque chapitre porte `fs` (éléments de la fiche séance). `js/college.js` : Espace collège (programmes adaptés 6e-3e, fiche séance à la trame du livret d'accueil HG-EMC, séquence et évaluation, méthode, suite) ; `window.__college(onglet, chapitre)` pour les tests.
+- `js/enquete.js` : `window.ENQ_LV` renomme les deux niveaux (« Parcours guidé », « Parcours autonome ») ; `window.ENQ_NODOS[volet]` retire les boutons de dossier quand le PDF n'existe pas encore.
+- Tests : `PAGE=college.html D3=… python3 tests/run.py '#colonies' tests/regression.js` ; planche : `PAGE=college.html … tests/planche.py sortie.jpg colonies:2:-1`.
+- Artefact claude.ai (séparé de celui de l'atlas du Pacifique, limité à 512 fichiers) : `TERSER=… python3 outils/artefact_college.py <dépôt> <sortie>` ne garde que les scripts chargés, les images utilisées et les bateaux `img/b-*.png` (le moteur les charge tous au démarrage).
