@@ -243,7 +243,7 @@ class Doc:
             for d in dd: s.doc(d, len(dd) > 1)
         s.h('Pièce n° %d · %s' % (n_ex, ex['t'])); s.extra()
         if n_map: s.h('Pièce n° %d · Carte de l’atlas' % n_map); s.doc({'k': 'map'}, True)
-        s.br(); s.h('Pièce n° %d · Pli cacheté : la note de synthèse des archives' % n_last)
+        s.br(); s.h('Pièce n° %d · Pli cacheté : la note de synthèse de l’atlas' % n_last)
         s.p('À n’ouvrir qu’après avoir étudié toutes les autres pièces.', 10, italic=True, color=MUTED)
         s.boxed('Note de synthèse · ' + ch['short'], ['%s : %s' % (clean(x['era']), clean(x['txt'])) for x in ch['ph']], 'F6F1E4', src='Récit de l’atlas historique du Pacifique.', badge='À OUVRIR EN DERNIER')
         if ch['mots']: s.table('Lexique de l’enquêteur', ['Mot', 'Ce que ça veut dire'], ch['mots'], widths=(5, 12.2))

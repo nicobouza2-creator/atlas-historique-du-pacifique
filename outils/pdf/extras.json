@@ -176,7 +176,7 @@
   "qc": {
    "k": "libre",
    "q": "Pourquoi les silex brûlés permettent-ils de dater le crâne ?",
-   "m": "Ils ont chauffé dans un feu : on mesure en laboratoire depuis quand. Comme ils sont dans la même couche que les os, ils donnent l'âge du crâne (≈ 300 000 ans)."
+   "m": "Ils ont chauffé dans un feu : on mesure en laboratoire depuis quand. Comme ils sont dans la même couche que les os, ils donnent l'âge du crâne (environ 300 000 ans)."
   }
  },
  "pacifique-1": {
@@ -256,7 +256,7 @@
   }
  },
  "pacifique-5": {
-  "t": "Fiche du muséum : le sylviornis",
+  "t": "Fiche de l’atlas : le sylviornis",
   "src": "Fiche de l’atlas, d’après les paléontologues.",
   "kind": "fiche",
   "txt": "Le sylviornis vivait sur la Grande Terre et à l'île des Pins. C'était un grand oiseau qui ne volait pas, à peu près aussi lourd qu'un gros chien.\nOn a retrouvé ses os dans des grottes et sur des sites archéologiques. On pense qu'il a disparu dans les siècles qui ont suivi l'arrivée des humains : chasse, œufs mangés par les animaux apportés, forêts transformées.",
@@ -1451,7 +1451,7 @@
    ],
    [
     "Exemple 1 : Nouvelle-Calédonie",
-    "264 596 habitants ÷ environ 18 600 km² ≈ 14 hab./km²"
+    "264 596 habitants ÷ environ 18 600 km² = environ 14 hab./km²"
    ],
    [
     "Exemple 2 : commune imaginaire",

@@ -89,7 +89,7 @@ def story(vol, ci, book):
     if n_map:
         sto += [CondPageBreak(128 * mm), Anchor('p%d' % n_map, book), PieceTag(n_map, 'Carte de l’atlas'), Spacer(1, 3 * mm)] + doc_flow({'k': 'map'}, vol, ci, ch, True)
     synth = '\n'.join('%s : %s' % (clean(p['era']), clean(p['txt'])) for p in ch['ph'])
-    sto += [PageBreak(), Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse des archives'), Spacer(1, 2 * mm),
+    sto += [PageBreak(), Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse de l’atlas'), Spacer(1, 2 * mm),
             Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm),
             Sheet('archive', 'Note de synthèse · ' + ch['short'], synth, 'Récit de l’atlas historique du Pacifique.', 'À OUVRIR EN DERNIER')]
     if ch['mots']: sto += [Spacer(1, 5 * mm), KeepTogether(ledger('Lexique de l’enquêteur', ['Mot', 'Ce que ça veut dire'], ch['mots'], '', FW))]

@@ -68,7 +68,7 @@ P('Partir vers le Sud ?',X('Témoignage d’une lycéenne de Koné','Personnage 
  'Exode rural : des jeunes quittent tribus et villages pour les études et le travail à Nouméa.'),
 P('La carte de la population',M('Carte de l’atlas : où vivent les Calédoniens'),
  [Q('Où vivent surtout les habitants ?',['Près des côtes','Au sommet des montagnes','Au milieu de la chaîne']),V('L’intérieur montagneux est presque vide.',1)],
- [Q('Entre 2019 et 2025, quelle province est la seule à avoir perdu des habitants ?',['La province Sud','La province Nord','Les îles Loyauté']),W('La province Nord compte environ 50 900 habitants pour environ 9 600 km². Calcule sa densité.','Environ 50 900 ÷ 9 600 ≈ 5 habitants par km².')],
+ [Q('Entre 2019 et 2025, quelle province est la seule à avoir perdu des habitants ?',['La province Sud','La province Nord','Les îles Loyauté']),W('La province Nord compte environ 50 900 habitants pour environ 9 600 km². Calcule sa densité.','50 900 ÷ 9 600 = environ 5 habitants par km².')],
  'Les habitants vivent près des côtes ; entre 2019 et 2025, seule la province Sud a perdu des habitants.')],
 f:{p:'La population est mal répartie : environ deux habitants sur trois vivent dans le [Grand Nouméa]. La province [Sud] est la plus peuplée. L’intérieur [montagneux] est presque vide. Beaucoup de jeunes sont partis vers Nouméa : c’est l’[exode rural].',w:['Nord','tourisme','désert'],
  c:['Les emplois, les études, les services et le port sont concentrés autour de Nouméa : les habitants s’y regroupent, surtout près des côtes, alors que l’intérieur montagneux et la brousse sont peu peuplés.','Parce qu’une loi interdit de s’installer dans le Nord.','Parce que la population est la même partout.'],
