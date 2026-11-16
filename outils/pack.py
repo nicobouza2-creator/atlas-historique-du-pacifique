@@ -2,7 +2,7 @@
 """Prépare les dossiers PDF et Word pour l'artefact claude.ai, qui limite le nombre de fichiers
 (512) et refuse l'extension .docx.
 
-  python3 pack.py <dépôt> [<sortie>]   ->  <sortie>/paquets/pdf-<volet>.txt, docx-<volet>.txt, index.json
+  python3 pack.py <dépôt> [<sortie>]   ->  <sortie>/paquets/pdf-<volet>.txt, docx-<volet>.txt, seq-<volet>.txt, index.json, seq-index.json
 
 (<sortie> vaut <dépôt> par défaut.) Chaque <format>-<volet>.txt = les fichiers <volet>-01, -02…
 encodés en base64 et mis bout à bout. index.json = {"pdf": {volet: [[début, longueur], …]}, "docx": {…}}.
@@ -17,10 +17,11 @@ import base64, json, os, re, sys
 def main(repo, out):
     dest = os.path.join(out, 'paquets'); os.makedirs(dest, exist_ok=True)
     index = {}
-    for ext in ('pdf', 'docx'):
+    for ext, fext in (('pdf', 'pdf'), ('docx', 'docx'), ('seq', 'pdf')):   # seq/ = fiches séquences (PDF)
         d = os.path.join(repo, ext); vols = {}
+        if not os.path.isdir(d): continue
         for f in sorted(os.listdir(d)):
-            m = re.fullmatch(r'([a-z]+)-(\d\d)\.' + ext, f)
+            m = re.fullmatch(r'([a-z]+)-(\d\d)\.' + fext, f)
             if m: vols.setdefault(m.group(1), []).append((int(m.group(2)), f))
         index[ext] = {}
         for v, items in sorted(vols.items()):
@@ -33,6 +34,8 @@ def main(repo, out):
             open(os.path.join(dest, f'{ext}-{v}.txt'), 'w', encoding='ascii', newline='').write(''.join(parts))
             index[ext][v] = spans
             print(f'{ext}-{v}: {len(items)} dossiers, {pos} caractères')
+    seq = index.pop('seq', None)   # index à part : les fiches séquences ne touchent pas à index.json
+    if seq is not None: open(os.path.join(dest, 'seq-index.json'), 'w', encoding='ascii', newline='').write(json.dumps(seq, separators=(',', ':')))
     open(os.path.join(dest, 'index.json'), 'w', encoding='ascii', newline='').write(json.dumps(index, separators=(',', ':')))
 
 if __name__ == '__main__':

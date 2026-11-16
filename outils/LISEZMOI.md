@@ -31,3 +31,8 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 ## Images (`images/`)
 - `wm.py search|info|get` : recherche et téléchargement sur Wikimedia Commons (vérifier la licence sur la page du fichier ; attendre entre deux requêtes).
 - `schemas.py` : les quatre schémas du volet nickel (`img/profil.jpg`, `chaine.jpg`, `indonesie.jpg`, `coupe.jpg`).
+
+## Fiches séquences et « J'entoure, je colorie »
+- `js/sequence.js` : fiche séquence de chaque chapitre (trame des fiches séance DENC), construite à l'ouverture à partir du chapitre et de son enquête ; modifiable, impression, export Word (.doc), export `.json` pour Fiche-sequence-NC (`SEQ.ficheNC(F)` → `{app:'fiche-sequence-nc',fiches,seances}`). Bouton dans le tiroir « Fiche prof ». `window.__seq({lv:'p'|'c'})` rend le HTML de la fiche du chapitre affiché.
+- `js/entoure.js` : exercices à entourer et code couleur (43 chapitres d'histoire, `EXOS.data['<volet>-<ci>']`), bouton dans « Activités » ; la fiche élève imprimable est ajoutée en annexe de la fiche séquence (avec la carte de fin de chapitre).
+- PDF standard pour l'artefact claude.ai (où l'impression est bloquée) : `seq/<volet>-<nn>.pdf` (non suivi par git) ; `pack.py` en fait `paquets/seq-<volet>.txt` et `paquets/seq-index.json`.
