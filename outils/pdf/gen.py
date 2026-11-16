@@ -2,7 +2,7 @@
 import json, sys, os, io, re
 from gen_base import *
 X = {}
-for _m in ('extras', 'extras2', 'extras3', 'extras4', 'extras5'):   # extras5 = Vivre ensemble (EMC)
+for _m in ('extras', 'extras2', 'extras3', 'extras4', 'extras5', 'extras6'):   # extras5 = Vivre ensemble (EMC)
     try: X.update(__import__(_m).X)
     except ImportError: pass
 from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, NextPageTemplate, PageBreak, KeepTogether, CondPageBreak
@@ -11,7 +11,8 @@ from reportlab.lib.pagesizes import A4
 ATLAS = '/home/claude/repo/'; OUT = '/home/claude/dossiers/pdf/'; os.makedirs(OUT, exist_ok=True)
 D = json.load(open('/home/claude/dossiers/data.json')); IMG = D['IMG']
 W, H = A4; M = 17 * mm; FW = W - 2 * M
-PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GN', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC'}
+PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GN', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC', 'colonies': 'CO'}
+def NOMT(vol): return 'Atlas d’histoire — Collège' if vol == 'colonies' else 'Atlas historique du Pacifique'
 def code(vol, ci): return PREFIX.get(vol, 'X') + '-%02d' % (ci + 1)
 def imgpath(i): return ATLAS + IMG[i]['f']
 
@@ -36,7 +37,7 @@ def doc_flow(d, vol, ci, ch, two):
         im = IMG[d['id']]; return [Photo(imgpath(d['id']), d.get('cap') or im['c'], im['r'], mh, rng(d['id']).choice([-1.2, 0.8, 1.1, -0.7]))]
     if k == 'map':
         return [Photo('/home/claude/dossiers/cartes/%s-%d.jpg' % (vol, ci), d.get('cap') or 'Carte de l’atlas : « %s », à la fin de l’animation' % ch['short'],
-                      'Atlas historique du Pacifique · fonds de carte Natural Earth (domaine public)', 80 * mm if two else 125 * mm)]
+                      NOMT(vol) + ' · fonds de carte Natural Earth (domaine public)', 80 * mm if two else 125 * mm)]
     if k == 'txt':
         src = d.get('src', '').lower()
         badge = 'PERSONNAGE FICTIF' if 'fictif' in src else ('RECONSTITUTION PÉDAGOGIQUE' if 'reconstitution' in src else '')

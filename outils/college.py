@@ -6,7 +6,7 @@ Ne jamais modifier college.html à la main : modifier index.html ou ce script, p
 import re, sys, os
 
 VOLETS = ['colonies']          # volets du collège, dans l'ordre de l'accueil (js/v-<id>.js, js/enq-<id>.js)
-SANS_DOSSIER = ['colonies']   # volets dont les dossiers PDF/Word ne sont pas encore fabriqués
+SANS_DOSSIER = []   # volets dont les dossiers PDF/Word ne sont pas encore fabriqués
 GARDE = ['geo.js', 'img.js', 'engine.js', 'ui.js', 'facile.js', 'activites.js', 'enquete.js', 'galerie.js']
 
 def main(repo):

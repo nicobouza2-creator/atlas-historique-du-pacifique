@@ -14,28 +14,32 @@ On ne publie dans l'artefact que paquets/, jamais les dossiers pdf/ et docx/.
 """
 import base64, json, os, re, sys
 
-def main(repo, out):
+TROUS = {'colonies'}   # volets dont certains chapitres n'ont pas encore d'enquête : trous permis (null dans l'index)
+
+def main(repo, out, only=None):   # only = ensemble de volets à empaqueter (artefact du collège)
     dest = os.path.join(out, 'paquets'); os.makedirs(dest, exist_ok=True)
     index = {}
-    for ext, fext in (('pdf', 'pdf'), ('docx', 'docx'), ('seq', 'pdf')):   # seq/ = fiches séquences (PDF)
+    for ext, fext in (('pdf', 'pdf'), ('docx', 'docx'), ('seq', 'pdf'), ('fiches', 'pdf')):   # seq/ = fiches séquences (PDF) ; fiches/ = Espace collège
         d = os.path.join(repo, ext); vols = {}
         if not os.path.isdir(d): continue
         for f in sorted(os.listdir(d)):
             m = re.fullmatch(r'([a-z]+)-(\d\d)\.' + fext, f)
-            if m: vols.setdefault(m.group(1), []).append((int(m.group(2)), f))
+            if m and (only is None or m.group(1) in only): vols.setdefault(m.group(1), []).append((int(m.group(2)), f))
         index[ext] = {}
         for v, items in sorted(vols.items()):
             items.sort(); nums = [n for n, _ in items]
-            if nums != list(range(1, len(nums) + 1)): sys.exit(f'{ext}/{v} : numérotation trouée {nums}')
-            pos, spans, parts = 0, [], []
-            for _, f in items:
+            if nums != list(range(1, len(nums) + 1)) and v not in TROUS: sys.exit(f'{ext}/{v} : numérotation trouée {nums}')
+            pos, spans, parts = 0, [None] * max(nums), []
+            for n, f in items:
                 b = base64.b64encode(open(os.path.join(d, f), 'rb').read()).decode('ascii')
-                spans.append([pos, len(b)]); parts.append(b); pos += len(b)
+                spans[n - 1] = [pos, len(b)]; parts.append(b); pos += len(b)
             open(os.path.join(dest, f'{ext}-{v}.txt'), 'w', encoding='ascii', newline='').write(''.join(parts))
             index[ext][v] = spans
             print(f'{ext}-{v}: {len(items)} dossiers, {pos} caractères')
+    fiches = index.pop('fiches', None)   # index à part, comme les fiches séquences
+    if fiches: open(os.path.join(dest, 'fiches-index.json'), 'w', encoding='ascii', newline='').write(json.dumps(fiches, separators=(',', ':')))
     seq = index.pop('seq', None)   # index à part : les fiches séquences ne touchent pas à index.json
-    if seq is not None: open(os.path.join(dest, 'seq-index.json'), 'w', encoding='ascii', newline='').write(json.dumps(seq, separators=(',', ':')))
+    if seq: open(os.path.join(dest, 'seq-index.json'), 'w', encoding='ascii', newline='').write(json.dumps(seq, separators=(',', ':')))
     open(os.path.join(dest, 'index.json'), 'w', encoding='ascii', newline='').write(json.dumps(index, separators=(',', ':')))
 
 if __name__ == '__main__':

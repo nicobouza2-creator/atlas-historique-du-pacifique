@@ -11,11 +11,16 @@ from docx.oxml import OxmlElement
 from PIL import Image
 
 REPO = '/home/claude/repo/'; DOS = '/home/claude/dossiers/'; OUT = DOS + 'docx/'; os.makedirs(OUT, exist_ok=True)
-HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes'}   # volets d’histoire : « historiques », méthode du témoin
+COLLEGE = {'colonies'}   # volets de l’atlas du collège (mêmes règles que pdf/gen_build.py)
+def NOM(vol): return 'ATLAS D’HISTOIRE — COLLÈGE' if vol in COLLEGE else 'ATLAS HISTORIQUE DU PACIFIQUE'
+def NIV(vol): return ('Parcours guidé', 'Parcours autonome') if vol in COLLEGE else ('École primaire', 'Collège')
+def CAH(vol): return ('Parcours guidé', 'Parcours autonome') if vol in COLLEGE else ('Niveau école primaire', 'Niveau collège')
+HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes', 'colonies'}   # volets d’histoire : « historiques », méthode du témoin
 METH = {True: ['Qui l’a fait ? (un témoin, un savant, un voyageur, l’atlas…)', 'Quand ? (au moment des faits, ou bien plus tard ?)', 'Qu’est-ce que c’est ? (photo, carte, texte, tableau, objet…)', 'Pour quoi faire ? (raconter, expliquer, convaincre, garder une trace…)'],
         False: ['Qui l’a fait ? (un témoin, un savant, un organisme officiel, l’atlas…)', 'Quand ? (au moment des faits, ou bien plus tard ?)', 'Qu’est-ce que c’est ? (photo, carte, texte, tableau, graphique…)', 'Pour quoi faire ? (raconter, expliquer, informer, convaincre…)']}
 D = json.load(open(DOS + 'data.json')); IMG = D['IMG']; X = json.load(open(DOS + 'extras.json'))
-PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GNC', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC'}
+PREFIX = {'pacifique': 'P', 'caledonie': 'NC', 'monde': 'PT', 'decouvertes': 'GD', 'geonc': 'GNC', 'nickel': 'NI', 'mondial': 'MO', 'emc': 'EMC', 'colonies': 'CO'}
+def NOMT(vol): return 'Atlas d’histoire — Collège' if vol in COLLEGE else 'Atlas historique du Pacifique'
 INK, BROWN, RED, MUTED = RGBColor(0x1b, 0x24, 0x30), RGBColor(0x6b, 0x41, 0x00), RGBColor(0xb3, 0x26, 0x1e), RGBColor(0x5b, 0x64, 0x70)
 FONT = 'Arial'; KFONT = {'carnet': ('Segoe Print', False, 11), 'lettre': ('Georgia', True, 12), 'tapuscrit': ('Courier New', False, 11), 'officiel': ('Courier New', False, 11)}
 EMO = re.compile('[\U0001F000-\U0001FAFF⌀-➿⬀-⯿️‍]')
@@ -73,10 +78,10 @@ class Doc:
             rf = h.element.rPr.rFonts; [rf.set(qn('w:' + a), FONT) for a in ('ascii', 'hAnsi', 'eastAsia', 'cs')]
             h.paragraph_format.space_before = Pt(10); h.paragraph_format.space_after = Pt(4); h.paragraph_format.keep_with_next = True
         sec.different_first_page_header_footer = True
-        f = sec.footer.paragraphs[0]; r = f.add_run('Dossier d’enquête %s · %s · Atlas historique du Pacifique        page ' % (s.code, clean(s.ch['short'])))
+        f = sec.footer.paragraphs[0]; r = f.add_run('Dossier d’enquête %s · %s · %s        page ' % (s.code, clean(s.ch['short']), NOMT(s.vol)))
         r2 = f.add_run(); field(r2, 'PAGE'); f.add_run(' / '); r3 = f.add_run(); field(r3, 'NUMPAGES')
         for x in f.runs: x.font.size = Pt(8.5); x.font.color.rgb = MUTED
-        d.core_properties.title = 'Dossier d’enquête %s · %s' % (s.code, clean(s.ch['short'])); d.core_properties.author = 'Atlas historique du Pacifique'
+        d.core_properties.title = 'Dossier d’enquête %s · %s' % (s.code, clean(s.ch['short'])); d.core_properties.author = NOMT(s.vol)
     # ---------- briques ----------
     def p(s, text='', size=None, bold=False, italic=False, color=None, align=None, font=None, after=None, indent=None):
         p = s._pb(s.d.add_paragraph())
@@ -149,7 +154,7 @@ class Doc:
             im = IMG[d['id']]; s.picture(REPO + im['f'], d.get('cap') or im['c'], im['r'], 7.5 if two else 11)
         elif k == 'map':
             s.picture(DOS + 'cartes/%s-%d.jpg' % (s.vol, s.ci), d.get('cap') or 'Carte de l’atlas : « %s », à la fin de l’animation' % s.ch['short'],
-                      'Atlas historique du Pacifique · fonds de carte Natural Earth (domaine public)', 8.5 if two else 12.5, 17)
+                      NOMT(s.vol) + ' · fonds de carte Natural Earth (domaine public)', 8.5 if two else 12.5, 17)
         elif k == 'txt':
             s.boxed(d['t'], [x for x in str(d['txt']).split('\n') if x.strip()], 'F6F1E4', src=d.get('src', ''))
             if d.get('tp'): s.sticky('Note de l’enquêteur : la même chose, en plus court', d['tp'])
@@ -211,7 +216,7 @@ class Doc:
         has_map = any(d['k'] == 'map' for pg in pgs for d in ds(pg['d'])); n_ex = len(pgs) + 1
         n_map = None if has_map else n_ex + 1; n_last = (n_map or n_ex) + 1
         # couverture
-        s.p('ATLAS HISTORIQUE DU PACIFIQUE · BUREAU DES ENQUÊTES' + (' HISTORIQUES' if s.vol in HIST else ''), 9.5, bold=True, color=MUTED, align=WD_ALIGN_PARAGRAPH.CENTER)
+        s.p(NOM(s.vol) + ' · BUREAU DES ENQUÊTES' + (' HISTORIQUES' if s.vol in HIST else ''), 9.5, bold=True, color=MUTED, align=WD_ALIGN_PARAGRAPH.CENTER)
         s.p('DOSSIER D’ENQUÊTE', 30, bold=True, align=WD_ALIGN_PARAGRAPH.CENTER, after=2)
         s.p('Affaire n° %s  ·  %s' % (key, ch['dates']), 13, font='Courier New', align=WD_ALIGN_PARAGRAPH.CENTER, after=10)
         s.p(ch['short'], 21, bold=True, color=BROWN, align=WD_ALIGN_PARAGRAPH.CENTER, after=6)
@@ -220,8 +225,8 @@ class Doc:
         if pid: s.picture(REPO + IMG[pid]['f'], 'Pièce à conviction ?', '', 8.5)
         s.p('À ÉLUCIDER', 20, bold=True, color=RED, align=WD_ALIGN_PARAGRAPH.CENTER, after=12)
         s.p('Enquêteur / enquêtrice : ________________________     Classe : ___________', 12, after=8)
-        s.p('Date : ______________      Niveau :   %s École primaire     %s Collège' % (BOX, BOX), 12, after=10)
-        s.p('Contenu : %d pièces · cahier de l’enquêteur (primaire et collège) · corrigé pour l’enseignant' % n_last, 10.5, font='Courier New', color=MUTED, align=WD_ALIGN_PARAGRAPH.RIGHT)
+        s.p('Date : ______________      Niveau :   %s %s     %s %s' % (BOX, NIV(s.vol)[0], BOX, NIV(s.vol)[1]), 12, after=10)
+        s.p('Contenu : %d pièces · cahier de l’enquêteur (%s) · corrigé pour l’enseignant' % (n_last, 'parcours guidé et autonome' if s.vol in COLLEGE else 'primaire et collège'), 10.5, font='Courier New', color=MUTED, align=WD_ALIGN_PARAGRAPH.RIGHT)
         s.br()
         # ordre de mission
         s.boxed('ORDRE DE MISSION N° ' + key, ['Objet : enquête sur « %s » (%s).' % (ch['short'], ch['dates']), 'Enquêteur, enquêtrice,',
@@ -235,7 +240,7 @@ class Doc:
                 'DBE9F6', title_color=INK)
         toc = [('Pièce n° %d' % (i + 1), pg['t']) for i, pg in enumerate(pgs)] + [('Pièce n° %d' % n_ex, ex['t'])]
         if n_map: toc.append(('Pièce n° %d' % n_map, 'Carte de l’atlas'))
-        toc += [('Pièce n° %d' % n_last, 'Pli cacheté : note de synthèse et lexique'), ('Cahier', 'Niveau école primaire'), ('Cahier', 'Niveau collège'), ('Enseignant', 'Corrigé (à ne pas distribuer)')]
+        toc += [('Pièce n° %d' % n_last, 'Pli cacheté : note de synthèse et lexique'), ('Cahier', CAH(s.vol)[0]), ('Cahier', CAH(s.vol)[1]), ('Enseignant', 'Corrigé (à ne pas distribuer)')]
         s.h('Sommaire du dossier'); s.table('', ['', 'Contenu'], toc, widths=(3.4, 13.8)); s.br()
         # pièces
         for i, pg in enumerate(pgs):
@@ -245,12 +250,12 @@ class Doc:
         if n_map: s.h('Pièce n° %d · Carte de l’atlas' % n_map); s.doc({'k': 'map'}, True)
         s.br(); s.h('Pièce n° %d · Pli cacheté : la note de synthèse de l’atlas' % n_last)
         s.p('À n’ouvrir qu’après avoir étudié toutes les autres pièces.', 10, italic=True, color=MUTED)
-        s.boxed('Note de synthèse · ' + ch['short'], ['%s : %s' % (clean(x['era']), clean(x['txt'])) for x in ch['ph']], 'F6F1E4', src='Récit de l’atlas historique du Pacifique.', badge='À OUVRIR EN DERNIER')
+        s.boxed('Note de synthèse · ' + ch['short'], ['%s : %s' % (clean(x['era']), clean(x['txt'])) for x in ch['ph']], 'F6F1E4', src=('Récit de l’atlas d’histoire du collège.' if s.vol in COLLEGE else 'Récit de l’atlas historique du Pacifique.'), badge='À OUVRIR EN DERNIER')
         if ch['mots']: s.table('Lexique de l’enquêteur', ['Mot', 'Ce que ça veut dire'], ch['mots'], widths=(5, 12.2))
         # cahiers
         corr = {'p': [], 'c': []}
         for lv in 'pc':
-            s.br(); s.h('Cahier de l’enquêteur · ' + ('niveau école primaire' if lv == 'p' else 'niveau collège'), 1)
+            s.br(); s.h('Cahier de l’enquêteur · ' + CAH(s.vol)[lv != 'p'].lower(), 1)
             s.p('Nom : ______________________________      Dossier ' + key, after=8); n = 0
             for i, pg in enumerate(pgs):
                 s.h('Pièce n° %d · %s' % (i + 1, pg['t']), 3)
@@ -274,7 +279,7 @@ class Doc:
         # corrigé
         s.br(); s.h('Corrigé · pour l’enseignant', 1)
         q = s.p(); s.run(q, 'Réponse à la question de l’enquête : ', bold=True); s.run(q, e['f']['r'])
-        for lv, lab in (('p', 'Cahier niveau école primaire'), ('c', 'Cahier niveau collège')):
+        for lv, lab in (('p', 'Cahier ' + CAH(s.vol)[0].lower()), ('c', 'Cahier ' + CAH(s.vol)[1].lower())):
             s.h(lab)
             for n, a in corr[lv]: q = s.p(after=3); s.run(q, '%d. ' % n, 11, bold=True); s.run(q, a, 11)
         s.h('Indices attendus')

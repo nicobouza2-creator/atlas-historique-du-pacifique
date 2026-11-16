@@ -157,7 +157,7 @@ function b64(t){var s=atob(t.trim()),u=new Uint8Array(s.length);for(var i=0;i<s.
 var MIME={pdf:'application/pdf',docx:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'};
 function dossier(S,b,ext){
   ext=ext||'pdf';
-  var code=({pacifique:'P',caledonie:'NC',monde:'PT',decouvertes:'GD',geonc:'GN',nickel:'NI',mondial:'MO',emc:'EMC'}[S.vol]||'X')+'-'+pad2(S.ci+1),url=ext+'/'+S.vol+'-'+pad2(S.ci+1)+'.'+ext,name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.'+ext;
+  var code=({pacifique:'P',caledonie:'NC',monde:'PT',decouvertes:'GD',geonc:'GN',nickel:'NI',mondial:'MO',emc:'EMC',colonies:'CO'}[S.vol]||'X')+'-'+pad2(S.ci+1),url=ext+'/'+S.vol+'-'+pad2(S.ci+1)+'.'+ext,name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.'+ext;
   var old=b.textContent;b.disabled=true;b.textContent='⏳ Préparation du dossier…';
   function done(t){b.disabled=false;b.textContent=t||old;if(t)setTimeout(function(){b.textContent=old;},4000);}
   getPack(S,ext).catch(function(){return fetch(url).then(function(r){if(!r.ok)throw new Error('absent');return r.blob();});}).then(function(blob){
@@ -174,7 +174,7 @@ function dosBtn(S,cls){
   var w=el('span','enq-dos'),b=btn('📄 Dossier PDF à imprimer',cls||'',function(){dossier(S,b);});b.title='Pièces du dossier, cahiers primaire et collège, corrigé';
   var bw=btn('📝 Dossier Word (modifiable)',cls||'',function(){dossier(S,bw,'docx');});bw.title='Le même dossier au format Word (.docx), pour modifier les textes et les questions';
   var a=el('a','enq-doslink','📱 Ouvrir le PDF (téléphone, tablette) ↗');a.href=GH+'pdf/'+S.vol+'-'+pad2(S.ci+1)+'.pdf';a.target='_blank';a.rel='noopener';
-  w.appendChild(b);w.appendChild(bw);w.appendChild(a);return w;
+  w.appendChild(b);w.appendChild(bw);if(!window.ATLAS_COLLEGE)w.appendChild(a);return w;   /* lien GitHub : seulement pour les dossiers déjà sur main */
 }
 function zoom(src,cap){
   var z=el('div','enq-zoom'),im=document.createElement('img');im.src=src;im.alt=cap||'';z.appendChild(im);if(cap)z.appendChild(el('p','',cap));

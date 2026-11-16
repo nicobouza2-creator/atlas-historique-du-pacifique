@@ -262,12 +262,23 @@ async function save(blob,fn){
   if(window.claude){msg('Enregistrement impossible dans cette vue : ouvrez l’atlas sur un ordinateur.');return;}
   try{var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},4000);msg('Téléchargé : '+fn);}catch(e){msg('Téléchargement impossible dans cette vue.');}
 }
+/* PDF tout faits (outils/fiches_college.py) : paquets/fiches-<volet>.txt dans l'artefact, fiches/<volet>-<nn>.pdf ailleurs */
+function pdf(){
+  var V=vol(),n=state.tab==='seq'?V.chapters.length:state.ci,fn='fiche-'+V.id+'-'+(state.tab==='seq'?'sequence':('0'+(n+1)).slice(-2))+'.pdf';
+  msg('Préparation du PDF…');
+  fetch('paquets/fiches-index.json').then(function(r){if(!r.ok)throw 0;return r.json();}).then(function(ix){
+    var p=(ix[V.id]||[])[n];if(!p)throw 0;
+    return fetch('paquets/fiches-'+V.id+'.txt',{headers:{Range:'bytes='+p[0]+'-'+(p[0]+p[1]-1)}}).then(function(r){if(!r.ok)throw 0;return r.text().then(function(t){
+      var s=atob((r.status===206?t:t.slice(p[0],p[0]+p[1])).trim()),u=new Uint8Array(s.length);for(var i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return new Blob([u],{type:'application/pdf'});});});
+  }).catch(function(){return fetch('fiches/'+V.id+'-'+('0'+(n+1)).slice(-2)+'.pdf').then(function(r){if(!r.ok)throw 0;return r.blob();});})
+  .then(function(bl){save(bl,fn);}).catch(function(){msg('PDF introuvable : utilisez « Word ».');});
+}
 function slug(s){return String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase().slice(0,50);}
 function render(){
   var V=vol(),t=TABS.filter(function(x){return x[0]===state.tab;})[0]||TABS[0];
   var bar='<b>🎓 Espace collège</b>'+TABS.map(function(x){return '<button type="button" data-tab="'+x[0]+'" aria-pressed="'+(x[0]===t[0])+'">'+x[1]+'</button>';}).join('');
   if(t[0]==='fiche')bar+='<select data-ci aria-label="Séance">'+V.chapters.map(function(c,i){return '<option value="'+i+'"'+(i===state.ci?' selected':'')+'>'+(i+1)+'. '+esc(c.short)+'</option>';}).join('')+'</select>';
-  bar+='<button type="button" data-b="word">⬇ Word</button>'+(window.claude?'':'<button type="button" data-b="print">🖨 Imprimer</button>')+'<button type="button" data-b="x" aria-label="Fermer">✕ Fermer</button><span class="msg" aria-live="polite"></span>';
+  bar+=((t[0]==='fiche'||t[0]==='seq')?'<button type="button" data-b="pdf" title="Version d’origine, sans vos modifications">⬇ PDF</button>':'')+'<button type="button" data-b="word" title="Avec vos modifications">⬇ Word</button>'+(window.claude?'':'<button type="button" data-b="print">🖨 Imprimer</button>')+'<button type="button" data-b="x" aria-label="Fermer">✕ Fermer</button><span class="msg" aria-live="polite"></span>';
   ov.querySelector('.col-bar').innerHTML=bar;
   var sh=ov.querySelector('.col-sheet');sh.innerHTML=t[2]();sh.contentEditable=(t[0]==='fiche'||t[0]==='seq')?'true':'false';ov.querySelector('.col-scroll').scrollTop=0;
 }
@@ -284,6 +295,7 @@ function open(tab,ci){
       else if(b.dataset.go){var V=api.vols(),i;for(i=0;i<V.length;i++)if(V[i].id===b.dataset.go){close();if(api.leaveHome)api.leaveHome();api.volet(i,0);return;}}
       else if(b.dataset.b==='x')close();
       else if(b.dataset.b==='word'){var h1=ov.querySelector('.col-sheet h1');save(new Blob([wordDoc(ov.querySelector('.col-sheet').innerHTML,h1?h1.textContent:'Espace collège')],{type:'application/msword'}),slug(h1?h1.textContent:'espace-college')+'.doc');}
+      else if(b.dataset.b==='pdf')pdf();
       else if(b.dataset.b==='print'){document.body.classList.add('col-print');msg('Si rien ne s’ouvre (appli Claude), utilisez « Word ».');try{window.print();}catch(e2){}}
     });
     ov.addEventListener('change',function(e){if(e.target.matches('[data-ci]')){state.ci=+e.target.value;render();}});

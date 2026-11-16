@@ -5,6 +5,7 @@
 (seulement les images utilisées par les volets et les enquêtes du collège). Lancer outils/college.py avant.
 terser : variable TERSER = chemin de l'exécutable, sinon « npx terser »."""
 import os, re, shutil, subprocess, sys
+import pack
 
 def main(repo, out):
     if os.path.exists(out): shutil.rmtree(out)
@@ -29,6 +30,8 @@ def main(repo, out):
         shutil.copy(os.path.join(repo, m.group(1)), os.path.join(out, m.group(1))); n += 1
     for f in sorted(os.listdir(os.path.join(repo, 'img'))):          # bateaux : le moteur les charge tous au démarrage
         if f.startswith('b-') and f.endswith('.png'): shutil.copy(os.path.join(repo, 'img', f), os.path.join(out, 'img', f)); n += 1
+    vols = set(re.findall(r'<script src="js/v-([a-z]+)\.js"></script>', html))
+    pack.main(repo, out, vols)                                       # paquets/ : dossiers PDF et Word, fiches de l'Espace collège
     tot = sum(os.path.getsize(os.path.join(d, f)) for d, _, fs in os.walk(out) for f in fs)
     print(len(scripts), 'scripts,', n, 'images,', tot // 1024, 'Ko')
 
