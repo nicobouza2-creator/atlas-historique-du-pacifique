@@ -131,7 +131,7 @@ NCG['chaine']=[[round(x,3),round(y,3)] for x,y in LineString(sm).simplify(0.01).
 # 9. Unions de communes actuelles (BDADMIN-NC) pour des zones historiques approximatives
 def communes(noms): return rings(unary_union([shape(f['geometry']).buffer(0) for f in CO['features'] if f['properties']['nom'] in noms]).buffer(0.02),0.004)
 NCG['r1878']=communes({'LA FOA','BOULOUPARIS','FARINO','SARRAMEA','MOINDOU','BOURAIL','POYA'})
-NCG['r1917']=communes({'KONE','HIENGHENE'})
+NCG['r1917']=communes({'KONE','HIENGHENE','VOH','TOUHO','POINDIMIE'})  # lieux de la carte du manuel CDP-NC p.105 (Tiamou, Néami, Poindah, Tiendanite, Ouaième, Tiouandé, Bopope, Pouépaï) placés sur la couche tribus du Géorep
 src='/* Données géographiques officielles de la Nouvelle-Calédonie, simplifiées pour l’atlas.\n   Source : Gouvernement de la Nouvelle-Calédonie, Géorep (DTSI-SGT, DITTT, DIMENC), données ouvertes, 2025-2026.\n   Aires coutumières : donnée de travail des officiers publics coutumiers, non officialisée (limites indicatives).\n   Fabriqué par outils/geo/ncgeo.py. */\nwindow.NCG='+json.dumps(NCG,ensure_ascii=False,separators=(',',':'))+';\n'
 open('/home/claude/atlas-historique-du-pacifique/js/nc-geo.js','w',encoding='utf-8').write(src)
 print('taille',len(src.encode())//1024,'Ko')
