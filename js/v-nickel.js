@@ -43,14 +43,14 @@ var CH=[
  ph:[
   Ph(0,'Une roche venue de l’océan','Il y a plus de 30 millions d’années, un morceau du fond de l’océan, très lourd et riche en métaux, a glissé par-dessus la Grande Terre. Cette roche s’appelle la péridotite.','mis'),
   Ph(7,'Un tiers de l’île','Aujourd’hui, ces roches couvrent environ un tiers de la Grande Terre : le grand massif du Sud et une série de massifs le long de la côte Ouest, comme le Koniambo.','pol'),
-  Ph(18,'La pluie fabrique le minerai','Pendant des millions d’années, la pluie tropicale a lentement attaqué la roche. Le nickel s’est concentré sous la terre rouge (la latérite), dans une couche plus verte : la saprolite, avec la garniérite.','pol'),
+  Ph(18,'La pluie fabrique le minerai','Pendant des millions d’années, la pluie tropicale a lentement attaqué la roche. Le nickel s’est concentré sous la terre rouge (la latérite), dans une couche plus verte, où l’on trouve la garniérite.','pol'),
   Ph(32,'Sur les sommets','Les gisements sont souvent en haut des massifs, sur des plateaux. C’est pour cela que les mines sont en montagne, loin de la mer.','pol'),
   Ph(44,'Une immense réserve','La Nouvelle-Calédonie posséderait de 20 à 30 % des ressources mondiales de nickel (ce que contient le sol) ; la part exploitable aujourd’hui est plus faible, environ 5 % des réserves mondiales. Sur ces sols pauvres pour l’agriculture poussent des plantes uniques au monde.','kan')
  ],
  photos:[Sh('tecto',1,7,'bl',-2,'contain'),Sh('cuirasse',8,16,'tr',2),Sh('profil',18,30,'tr',2,'contain'),Sh('rochenickel',32,40,'bl',-2),Sh('garnierite',44,52,'tr',2)],
  legend:[['pol','Massifs de péridotite (roches à nickel)'],['kan','Autres terrains'],['mis','Poussée de la plaque océanique',1]],
  mots:[['Péridotite','Roche sombre venue du manteau terrestre ; elle contient un peu de nickel.'],['Latérite','Terre rouge, riche en fer, formée par la pluie tropicale.'],['Garniérite','Minerai vert, riche en nickel.'],['Gisement','Endroit où un minerai est assez abondant pour être exploité.']],
- q:[['Comment s’appelle la roche qui contient le nickel ?','La péridotite.'],['Quelle part de la Grande Terre couvre-t-elle ?','Environ un tiers.'],['Où le nickel se concentre-t-il dans le sol ?','Sous la latérite, dans la saprolite (avec la garniérite).'],['Pourquoi les mines sont-elles en montagne ?','Parce que les gisements sont en haut des massifs.']],
+ q:[['Comment s’appelle la roche qui contient le nickel ?','La péridotite.'],['Quelle part de la Grande Terre couvre-t-elle ?','Environ un tiers.'],['Où le nickel se concentre-t-il dans le sol ?','Sous la latérite, dans une couche plus verte, avec la garniérite.'],['Pourquoi les mines sont-elles en montagne ?','Parce que les gisements sont en haut des massifs.']],
  wiki:['Péridotite','Garniérite','Latérite','Massif du Sud (Nouvelle-Calédonie)']},
 
 /* 3 --------------------------------------------------------------- */
@@ -112,12 +112,12 @@ var CH=[
   Ph(8,'Sur la côte Ouest','Tiébaghi, Poum, Ouaco, le Koniambo et Népoui-Kopéto : les massifs miniers dominent les plaines de l’Ouest. Le Koniambo est juste au-dessus de Pouembout.','pol'),
   Ph(20,'Sur la côte Est','Poro, Kouaoua, Nakéty et Thio : sur la côte Est, les mines sont proches de la mer, au-dessus de vallées étroites.','pol'),
   Ph(32,'Le Grand Sud','Au sud, le plateau de Goro alimente l’usine du Sud. Son minerai est pauvre en nickel, mais très abondant.','pol'),
-  Ph(43,'Qui exploite ?','La SLN (la plus ancienne, depuis 1880), le groupe SMSP (contrôlé par la province Nord), KNS, Prony Resources et de « petits mineurs » qui vendent le minerai brut à l’étranger.','kan'),
+  Ph(43,'Qui exploite ?','La SLN (la plus ancienne, depuis 1880), la SMSP (Société minière du Sud Pacifique, contrôlée par la province Nord), KNS (Koniambo Nickel), Prony Resources et de « petits mineurs » qui vendent le minerai brut à l’étranger.','kan'),
   Ph(52,'Des mines à l’arrêt','Depuis les violences de mai 2024, sept sites de la SLN sur la côte Est, dont trois à Thio, sont inaccessibles. La SLN espère en rouvrir quatre en 2026 et ceux de Thio en 2027.','ame')
  ],
  photos:[Sh('laterit',8,16,'tr',2),Sh('panoramavoh',20,28,'bl',-2),Sh('goromine',32,40,'tr',2),Sh('casque',43,51,'bl',-2),Sh('thiocentre',52,60,'tr',2)],
  legend:[['pol','Massifs de péridotite (roches à nickel)'],['ere','Mine de nickel','mine'],['eur','Ville','ville'],['ame','Site bloqué depuis 2024']],
- mots:[['Mine à ciel ouvert','Mine creusée en surface, en gradins, et non sous terre.'],['Exploitant','Entreprise qui a le droit d’extraire le minerai.'],['Petit mineur','Entreprise qui extrait du minerai pour le vendre brut, sans usine.'],['Titre minier','Autorisation officielle d’exploiter une zone.']],
+ mots:[['Mine à ciel ouvert','Mine creusée en surface, en gradins, et non sous terre.'],['Exploitant','Entreprise qui a le droit d’extraire le minerai.'],['Petit mineur','Entreprise qui extrait du minerai pour le vendre brut, sans usine.']],
  q:[['Citer trois mines de la côte Ouest.','Par exemple Tiébaghi, Poum, Ouaco, le Koniambo, Népoui-Kopéto.'],['Citer deux mines de la côte Est.','Par exemple Thio, Kouaoua, Nakéty, Poro.'],['Quelle est la plus ancienne société minière ?','La SLN (Société Le Nickel), créée en 1880.'],['Quelle mine est la plus proche de Pouembout ?','Le Koniambo.']],
  wiki:['Société Le Nickel','Société minière du Sud Pacifique','Koniambo Nickel','Mine à ciel ouvert']},
 
@@ -185,12 +185,12 @@ var CH=[
   Ph(5,'Doniambo (1910)','À Nouméa, l’usine de la SLN fond le minerai dans de grands fours électriques. Elle produit du ferronickel, un mélange de fer et de nickel. Il lui faut énormément d’électricité.','lap'),
   Ph(12,'Le barrage de Yaté (1959)','Ce barrage du Grand Sud a été construit pour fournir l’électricité de Doniambo. Son lac artificiel couvre environ 40 km².','mis'),
   Ph(18,'L’usine du Sud (2010)','Près de Goro, l’usine dissout le minerai pauvre avec de l’acide. Depuis 2021, elle s’appelle Prony Resources ; elle vend surtout un produit de nickel destiné aux batteries. Elle cherche un repreneur.','lap'),
-  Ph(30,'L’usine du Nord (2013)','À Vavouto, entre Voh et Koné, KNS coule son premier métal en avril 2013, avec le minerai du Koniambo. Faute de repreneur, l’usine est à l’arrêt depuis 2024.','lap'),
+  Ph(30,'L’usine du Nord (2013)','À Vavouto, entre Voh et Koné, la société KNS (Koniambo Nickel) coule son premier métal en avril 2013, avec le minerai du Koniambo. Faute de repreneur, l’usine est à l’arrêt depuis 2024.','lap'),
   Ph(45,'Une usine de l’autre côté du monde','En 2008, la SMSP ouvre avec un partenaire coréen l’usine SNNC, à Gwangyang, en Corée du Sud. Le minerai calédonien y voyage en minéralier.','mis')
  ],
  photos:[Sh('doniambo2',5,12,'tr',2),Sh('yate',12,18,'bl',-2),Sh('yatechantier',13,18,'tr',2,'contain'),Sh('prony',19,29,'tr',2),Sh('panoramavoh',31,42,'tr',2),Sh('ferronickel',53,60,'bl',-2)],
  legend:[['lap','Usine métallurgique','usine'],['mis','Barrage hydroélectrique','barrage'],['mis','Port','port'],['kan','Électricité vers Doniambo',1],['mis','Minerai vers la Corée du Sud',1]],
- mots:[['Métallurgie','Industrie qui transforme le minerai en métal.'],['Ferronickel','Alliage de fer et de nickel produit dans des fours.'],['Hydrométallurgie','Méthode qui sépare le métal avec de l’acide et de l’eau.'],['Barrage hydroélectrique','Mur qui retient l’eau d’une rivière pour produire de l’électricité.']],
+ mots:[['Métallurgie','Industrie qui transforme le minerai en métal.'],['Ferronickel','Alliage de fer et de nickel produit dans des fours.'],['Barrage hydroélectrique','Mur qui retient l’eau d’une rivière pour produire de l’électricité.']],
  q:[['Où se trouvent les trois usines ?','À Doniambo (Nouméa), près de Goro (Grand Sud) et à Vavouto (entre Voh et Koné).'],['À quoi sert le barrage de Yaté ?','À produire l’électricité de l’usine de Doniambo.'],['Pourquoi l’usine du Nord est-elle à l’arrêt ?','Son actionnaire Glencore s’est retiré en 2024 et aucun repreneur n’a encore été choisi.'],['Où se trouve l’usine SNNC ?','À Gwangyang, en Corée du Sud.']],
  wiki:['Usine de Doniambo','Barrage de Yaté','Prony Resources','Koniambo Nickel']},
 
@@ -219,7 +219,7 @@ var CH=[
  ph:[
   Ph(0,'Un pays déséquilibré','Pendant longtemps, les emplois, les écoles et les entreprises se concentrent autour de Nouméa, dans le Sud. Le Nord reste surtout rural.','mis'),
   Ph(6,'Le rééquilibrage','En 1988, les accords de Matignon créent trois provinces. La province Nord veut développer son territoire grâce au nickel.','afr'),
-  Ph(12,'L’échange des massifs (1998)','Avec l’accord de Bercy, la SMSP (province Nord) obtient le riche massif du Koniambo ; la SLN reçoit en échange celui de Poum. C’est le « préalable minier » avant l’accord de Nouméa.','afr'),
+  Ph(12,'L’échange des massifs (1998)','Avec l’accord de Bercy, la SMSP (province Nord) obtient le riche massif du Koniambo ; la SLN reçoit en échange celui de Poum. C’était la condition posée avant de signer l’accord de Nouméa : le « préalable minier ».','afr'),
   Ph(20,'VKP grandit','Avec la construction de l’usine (2006 – 2013), Voh, Koné et Pouembout se transforment : nouveaux quartiers, commerces, services, routes. On parle de la zone VKP.','kan'),
   Ph(33,'2024 : l’usine s’arrête','Après le retrait de Glencore, l’usine est mise en sommeil puis arrêtée le 31 août 2024 : c’est le dernier jour de travail pour environ 1 200 salariés. Des repreneurs étudient le dossier.','ame'),
   Ph(45,'Habiter un territoire minier','La mine et l’usine apportent des emplois, mais quand tout dépend d’une seule activité, une crise touche toute la région. C’est une grande question pour l’avenir de VKP.','kan')
@@ -246,7 +246,7 @@ var CH=[
   L(15,138.5,36.5,'Japon',{nomark:true,big:true,dx:10,al:'left',zmax:6}),
   L(16,127.8,37,'Corée du Sud',{nomark:true,dy:-12,zmax:6}),
   L(24,10,44,'Europe',{nomark:true,big:true,zmax:6}),
-  L(31,121.5,-2.5,'Indonésie',{nomark:true,big:true,sub:'≈ 60 % du nickel mondial (2024)',dy:26,zmax:8}),
+  L(31,121.5,-2.5,'Indonésie',{nomark:true,big:true,sub:'environ 60 % du nickel mondial (2024)',dy:26,zmax:8}),
   L(32,122.2,-2.8,'Morowali',{mark:'usine',dx:10,al:'left',zmin:2,zmax:8}),
   L(34,122,12.5,'Philippines',{nomark:true,sub:'autre grand producteur de minerai',zmax:8})
  ],
@@ -254,7 +254,7 @@ var CH=[
  ph:[
   Ph(0,'Où part le nickel ?','Presque tout le nickel calédonien est vendu à l’étranger, surtout en Asie. En valeur, environ 9 exportations du pays sur 10 sont des produits du nickel.','zh'),
   Ph(7,'Le minerai brut','Les minéraliers emportent du minerai non transformé vers la Corée du Sud, la Chine et le Japon, où des usines le transforment.','zh'),
-  Ph(19,'Les produits des usines','Le ferronickel de Doniambo et le produit de nickel de l’usine du Sud partent vers des aciéries et des usines de batteries, en Asie et en Europe.','lap'),
+  Ph(19,'Les produits des usines','Le ferronickel de Doniambo et le produit de nickel de l’usine du Sud partent vers des usines d’acier et de batteries, en Asie et en Europe.','lap'),
   Ph(28,'Un concurrent géant','En quelques années, l’Indonésie est devenue le premier producteur mondial : environ 31 % du nickel du monde en 2020, environ 60 % en 2024. Son nickel coûte moins cher à produire.','ame'),
   Ph(42,'À quoi sert le nickel ?','Surtout à fabriquer l’acier inoxydable : casseroles, éviers, couverts, bâtiments. Il sert aussi aux batteries des voitures électriques et à des pièces de monnaie.','kan'),
   Ph(52,'Un marché mondial','Le prix du nickel change selon l’offre et la demande dans le monde. Quand il baisse, les mines et les usines calédoniennes perdent de l’argent.','eur')
@@ -262,7 +262,7 @@ var CH=[
  photos:[Sh('vraquier2',8,16,'bl',-2),Sh('indonesie',28,39,'tr',2,'contain'),Sh('morowali',31,39,'bl',-2),Sh('inox',42,48,'tr',2),Sh('batterie',47,52,'bl',-2),Sh('piece',52,58,'tr',2)],
  legend:[['zh','Minerai vers la Chine',1],['gbr','Minerai vers le Japon',1],['aus','Minerai vers la Corée du Sud',1],['lap','Produits des usines vers l’Europe',1],['ame','Grands concurrents (Indonésie, Philippines)']],
  mots:[['Exportation','Vente de marchandises à un autre pays.'],['Concurrence','Rivalité entre pays ou entreprises qui vendent le même produit.'],['Acier inoxydable','Acier qui ne rouille pas, grâce au nickel et au chrome.'],['Matière première','Produit tiré de la nature, avant transformation.']],
- q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine, qui achète surtout les produits des usines (ferronickel, NHC).'],['Quel pays est le premier producteur mondial de nickel ?','L’Indonésie (environ 60 % en 2024).'],['À quoi sert surtout le nickel ?','À fabriquer de l’acier inoxydable.'],['Pourquoi une baisse du prix du nickel est-elle grave pour le pays ?','Parce que la plupart des exportations sont du nickel : mines et usines perdent de l’argent.']],
+ q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine, qui achète surtout les produits des usines (ferronickel et produit de nickel pour les batteries).'],['Quel pays est le premier producteur mondial de nickel ?','L’Indonésie (environ 60 % en 2024).'],['À quoi sert surtout le nickel ?','À fabriquer de l’acier inoxydable.'],['Pourquoi une baisse du prix du nickel est-elle grave pour le pays ?','Parce que la plupart des exportations sont du nickel : mines et usines perdent de l’argent.']],
  wiki:['Nickel','Acier inoxydable','Morowali','Accumulateur lithium-ion']},
 
 /* 9 --------------------------------------------------------------- */
@@ -284,7 +284,7 @@ var CH=[
  pulses:[],
  ph:[
   Ph(0,'Des montagnes ouvertes','Une mine enlève la végétation et la terre. Sur les pentes nues, la pluie emporte la terre rouge vers les rivières et le lagon : c’est l’érosion.','pol'),
-  Ph(7,'Les rivières envasées','Pendant longtemps, on poussait les déblais (les stériles) dans la pente. Autour de Thio et ailleurs, des rivières se sont remplies de boue rouge. Aujourd’hui, les stériles doivent être stockés et protégés.','ere'),
+  Ph(7,'Les rivières pleines de boue','Pendant longtemps, on poussait les déblais (les stériles) dans la pente. Autour de Thio et ailleurs, des rivières se sont remplies de boue rouge. Aujourd’hui, les stériles doivent être stockés et protégés.','ere'),
   Ph(18,'Le Grand Sud','Près de l’usine du Sud, des fuites d’acide ont pollué le creek de la Baie Nord en 2009 et en 2014. Les rivières, comme la Kwé, sont surveillées par un observatoire de l’environnement.','ame'),
   Ph(27,'Un trésor vivant','Sur les sols miniers pousse le maquis minier. Environ trois plantes sur quatre de Nouvelle-Calédonie ne poussent nulle part ailleurs : on les dit endémiques.','xet'),
   Ph(36,'Replanter','Après l’exploitation, on remodèle le terrain et on replante des espèces locales, cultivées en pépinière. C’est la revégétalisation : c’est long et difficile.','xet'),
@@ -316,7 +316,7 @@ var CH=[
   Ph(0,'Le nickel fait vivre le pays','La mine et la métallurgie font travailler des milliers de personnes, directement ou par la sous-traitance : transport, entretien, commerces.','kan'),
   Ph(9,'Une crise grave','Prix bas, électricité chère, concurrence de l’Indonésie, puis violences de mai 2024 : les usines perdent beaucoup d’argent. L’État français prête de l’argent pour les maintenir.','ame'),
   Ph(20,'Où en est-on fin 2026 ?','Doniambo produit, avec l’aide de l’État. L’usine du Sud tourne mais cherche toujours un repreneur. L’usine du Nord est à l’arrêt ; un groupe chinois a fait une offre de rachat en 2026.','eur'),
-  Ph(32,'Et demain ?','Les pistes discutées : rouvrir les mines bloquées, baisser le prix de l’électricité, recycler les scories, trouver de nouveaux clients (Europe, États-Unis). La situation change vite.','kan'),
+  Ph(32,'Et demain ?','Les pistes discutées : rouvrir les mines bloquées, baisser le prix de l’électricité, recycler les déchets des fours (les scories), trouver de nouveaux clients (Europe, États-Unis). La situation change vite.','kan'),
   Ph(44,'À toi, géographe','Sur une carte muette de la Nouvelle-Calédonie, place les mines, les usines, les ports et les flux. Tu verras comment le nickel organise tout le territoire.','kan')
  ],
  photos:[Sh('noumeaport',9,17,'tr',2),Sh('doniambo',10,17,'bl',-2),Sh('chaudiere',32,40,'tr',2,'contain'),Sh('chartenoumea',44,52,'tr',2,'contain')],

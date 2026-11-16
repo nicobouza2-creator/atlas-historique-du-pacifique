@@ -21,13 +21,13 @@ var CH=[
  routes:[],
  labels:[
   L(1.5,20,2,'Afrique',{big:true,nomark:true}),
-  L(11,-8.9,31.9,'Jebel Irhoud (Maroc)',{sub:'≈ 300 000 ans',mark:'site',dx:10,dy:-6,al:'left'}),
-  L(14,35.9,5.4,'Omo (Éthiopie)',{sub:'≈ 230 000 ans',mark:'site',dx:-10,dy:-6,al:'right'})
+  L(11,-8.9,31.9,'Jebel Irhoud (Maroc)',{sub:'environ 300 000 ans',mark:'site',dx:10,dy:-6,al:'left'}),
+  L(14,35.9,5.4,'Omo (Éthiopie)',{sub:'environ 230 000 ans',mark:'site',dx:-10,dy:-6,al:'right'})
  ],
  pulses:[Pu(11,-8.9,31.9,'#ffd166'),Pu(14,35.9,5.4,'#ffd166')],
  ph:[
   Ph(0,'Notre planète','Tout commence en Afrique. C’est le berceau de l’humanité.','#a8bdd0'),
-  Ph(4,'Il y a ≈ 300 000 ans','Les plus vieux Homo sapiens connus ont été trouvés au Maroc et en Éthiopie.','afr'),
+  Ph(4,'Il y a environ 300 000 ans','Les plus vieux Homo sapiens connus ont été trouvés au Maroc et en Éthiopie.','afr'),
   Ph(17,'Pendant très longtemps…','Nos ancêtres vivent en Afrique. Un jour, un petit groupe part vers l’est.','afr')
  ],
  photos:[Sh('irhoud',10,20,'bl',-2),Sh('omo',14,24,'br',2)],
@@ -54,13 +54,13 @@ var CH=[
  ],
  pulses:[Pu(23,136,-20,'#f59e0b'),Pu(23,141,-5,'#f59e0b')],
  ph:[
-  Ph(0,'Il y a ≈ 70 000 ans','Un petit groupe quitte l’Afrique. Il avance le long des côtes : Arabie, Inde, puis Asie du Sud-Est.','afr'),
+  Ph(0,'Il y a environ 70 000 ans','Un petit groupe quitte l’Afrique. Il avance le long des côtes : Arabie, Inde, puis Asie du Sud-Est.','afr'),
   Ph(12,'Pendant la glaciation','La glace retient l’eau : la mer est 120 m plus basse. L’Asie du Sud-Est devient un grand continent (Sunda). L’Australie et la Nouvelle-Guinée sont réunies (Sahul).','sand'),
   Ph(21,'Il y a plus de 50 000 ans','Il reste quelques bras de mer à traverser, sans doute sur des radeaux. Les premiers humains arrivent à Sahul.','afr'),
   Ph(32,'Puis la mer remonte','La glace fond et la mer monte. Les terres se découpent en îles. Les habitants de Sahul y restent très longtemps.','sand')
  ],
  photos:[Sh('babel',6,15,'tr',2),Sh('mungo',27,37,'bl',-2)],
- legend:[['afr','Sortie d’Afrique (≈ 70 000 ans)'],['sand','Terres exondées (mer ≈ −120 m)']]},
+ legend:[['afr','Sortie d’Afrique (il y a environ 70 000 ans)'],['sand','Terres à sec quand la mer était 120 m plus bas']]},
 
 /* 3 --------------------------------------------------------------- */
 {short:'Les Austronésiens',col:'aus',dur:36,
@@ -73,19 +73,19 @@ var CH=[
   r('#2dd4bf',6,26,3.6,[[121.3,24],[122.4,20.5],[123.8,17.5],[125.6,13.8],[126.6,11],[127.2,7.5],[127.8,4.5],[130.5,1.8],[134,-0.2],[138.5,-1.0],[143,-2.6],[147,-4.0],[149.7,-4.9]],{boat:true})
  ],
  labels:[
-  L(4,121.3,24,'Taïwan',{sub:'départ ≈ 2200 av. J.-C.',dx:-9,dy:-6,al:'right'}),
+  L(4,121.3,24,'Taïwan',{sub:'départ vers 2200 av. J.-C.',dx:-9,dy:-6,al:'right'}),
   L(12,122,13,'Philippines',{dx:-9,dy:0,al:'right',end:30}),
-  L(25,150.5,-5.2,'Archipel Bismarck',{sub:'≈ 1350 av. J.-C.',dx:-9,dy:-24,al:'right',gold:true}),
+  L(25,150.5,-5.2,'Archipel Bismarck',{sub:'vers 1350 av. J.-C.',dx:-9,dy:-24,al:'right',gold:true}),
   L(22,141,-5.5,'Nouvelle-Guinée',{dx:-6,dy:14,al:'center'})
  ],
  pulses:[Pu(4,121.3,24,'#2dd4bf'),Pu(25,150.5,-5.2,'#2dd4bf')],
  ph:[
-  Ph(0,'≈ 2200 av. J.-C.','Des paysans-marins quittent Taïwan, où leurs ancêtres, venus de Chine, vivaient depuis plus d’un millier d’années. Ils parlent des langues « austronésiennes ».','aus'),
+  Ph(0,'Vers 2200 av. J.-C.','Des paysans-marins quittent Taïwan, où leurs ancêtres, venus de Chine, vivaient depuis plus d’un millier d’années. Ils parlent des langues « austronésiennes ».','aus'),
   Ph(10,'En pirogue à balancier','Dans les pirogues : taro, igname, banane, cochons, chiens et poules.','aus'),
-  Ph(24,'≈ 1400 – 1300 av. J.-C.','Ils arrivent près de la Nouvelle-Guinée. Des Papous y vivent déjà depuis très longtemps. Les groupes se rencontrent et se mélangent.','aus')
+  Ph(24,'Vers 1400 – 1300 av. J.-C.','Ils arrivent près de la Nouvelle-Guinée. Des Papous y vivent déjà depuis très longtemps. Les groupes se rencontrent et se mélangent.','aus')
  ],
  photos:[Sh('carteaustro',1,11,'bl',-2,'contain'),Sh('pirogue',11,19,'tr',2),Sh('taro',19,24,'bl',-2),Sh('igname',24,29,'tl',2),Sh('banane',29,36,'tl',-2)],
- legend:[['aus','Austronésiens (départ de Taïwan ≈ 2200 av. J.-C.)']]},
+ legend:[['aus','Austronésiens (départ de Taïwan vers 2200 av. J.-C.)']]},
 
 /* 4 --------------------------------------------------------------- */
 {short:'Les Lapita',col:'lap',dur:44,
@@ -102,21 +102,21 @@ var CH=[
   r('#b794f6',27,33,3.0,[[-175.5,-21.0],[-174.8,-17.5],[-172.2,-14.2]],{boat:true})
  ],
  labels:[
-  L(3,150,-5.5,'Bismarck',{sub:'≈ 1350 av. J.-C.',dx:-9,dy:-24,al:'right',end:14}),
-  L(14,168,-16,'Vanuatu',{sub:'≈ 1100–1000 av. J.-C.',dx:10,dy:-8,al:'left'}),
-  L(19,165.8,-21.5,'Nouvelle-Calédonie',{sub:'≈ 1100 av. J.-C.',dx:-9,dy:20,al:'right',gold:true}),
-  L(23,178,-17.8,'Fidji',{sub:'≈ 1000 av. J.-C.',dx:0,dy:-16,al:'center'}),
-  L(27,-175.2,-21.2,'Tonga',{sub:'≈ 900 av. J.-C.',dx:0,dy:18,al:'center'}),
-  L(32,-171.7,-13.8,'Samoa',{sub:'≈ 800 av. J.-C.',dx:0,dy:-16,al:'center'})
+  L(3,150,-5.5,'Bismarck',{sub:'vers 1350 av. J.-C.',dx:-9,dy:-24,al:'right',end:14}),
+  L(14,168,-16,'Vanuatu',{sub:'vers 1100–1000 av. J.-C.',dx:10,dy:-8,al:'left'}),
+  L(19,165.8,-21.5,'Nouvelle-Calédonie',{sub:'vers 1100 av. J.-C.',dx:-9,dy:20,al:'right',gold:true}),
+  L(23,178,-17.8,'Fidji',{sub:'vers 1000 av. J.-C.',dx:0,dy:-16,al:'center'}),
+  L(27,-175.2,-21.2,'Tonga',{sub:'vers 900 av. J.-C.',dx:0,dy:18,al:'center'}),
+  L(32,-171.7,-13.8,'Samoa',{sub:'vers 800 av. J.-C.',dx:0,dy:-16,al:'center'})
  ],
  pulses:[Pu(14,168.8,-17.5,'#b794f6'),Pu(19,165.5,-21,'#ffd166',true),Pu(23,178,-17.8,'#b794f6'),Pu(27,-175.2,-21.2,'#b794f6'),Pu(32,-171.7,-13.8,'#b794f6')],
  ph:[
-  Ph(0,'≈ 1350 av. J.-C.','Les Lapita fabriquent des poteries décorées de petits points. Ils partent de l’archipel Bismarck.','lap'),
-  Ph(12,'≈ 1100 – 1000 av. J.-C.','En quelques générations, ils traversent la haute mer jusqu’à la Nouvelle-Calédonie et au Vanuatu. Personne n’y vivait.','lap'),
-  Ph(23,'≈ 1000 à 800 av. J.-C.','Ils vont aussi à Fidji, Tonga et Samoa. Leurs descendants créeront la culture polynésienne.','lap')
+  Ph(0,'Vers 1350 av. J.-C.','Les Lapita fabriquent des poteries décorées de petits points. Ils partent de l’archipel Bismarck.','lap'),
+  Ph(12,'Vers 1100 – 1000 av. J.-C.','En quelques générations, ils traversent la haute mer jusqu’à la Nouvelle-Calédonie et au Vanuatu. Personne n’y vivait.','lap'),
+  Ph(23,'De 1000 à 800 av. J.-C. environ','Ils vont aussi à Fidji, Tonga et Samoa. Leurs descendants créeront la culture polynésienne.','lap')
  ],
  photos:[Sh('lapitapot',6,16,'tr',2),Sh('lapitatesson',24,34,'bl',-2),Sh('croixsud',36,44,'tr',2)],
- legend:[['lap','Lapita (≈ 1600 à 800 av. J.-C.)'],['aus','Austronésiens']]},
+ legend:[['lap','Lapita (de 1350 à 800 av. J.-C. environ)'],['aus','Austronésiens']]},
 
 /* 5 --------------------------------------------------------------- */
 {short:'Les Polynésiens',col:'pol',dur:42,
@@ -137,21 +137,21 @@ var CH=[
  labels:[
   L(1,-171.7,-13.8,'Samoa',{dx:0,dy:-14,al:'center',end:10}),
   L(1,-175.2,-21.2,'Tonga',{dx:0,dy:16,al:'center',end:10}),
-  L(12,-149.5,-17.5,'Tahiti',{sub:'≈ 1000–1100',dx:0,dy:18,al:'center'}),
-  L(19.5,-155.5,19.6,'Hawaï',{sub:'≈ 1000–1250',dx:12,dy:0,al:'left'}),
+  L(12,-149.5,-17.5,'Tahiti',{sub:'vers 1000–1100',dx:0,dy:18,al:'center'}),
+  L(19.5,-155.5,19.6,'Hawaï',{sub:'vers 1000–1250',dx:12,dy:0,al:'left'}),
   L(20.5,-109.4,-27.1,'Rapa Nui',{dx:0,dy:-16,al:'center'}),
-  L(21.5,173.5,-40.5,'Aotearoa',{sub:'≈ 1250–1300',dx:12,dy:4,al:'left'}),
+  L(21.5,173.5,-40.5,'Aotearoa',{sub:'vers 1250–1300',dx:12,dy:4,al:'left'}),
   L(31,-135,-4,'Le triangle polynésien',{nomark:true,big:true,dx:0,dy:0,al:'center'})
  ],
  pulses:[Pu(12,-149.5,-17.5,'#ff6b57'),Pu(19.5,-155.5,19.6,'#ff6b57'),Pu(20.5,-109.4,-27.1,'#ff6b57'),Pu(21.5,173.5,-40.5,'#ff6b57')],
  ph:[
-  Ph(0,'≈ 800 av. J.-C. à 800 apr. J.-C.','À Tonga et Samoa, les descendants des Lapita créent la culture polynésienne. Ils restent là très longtemps.','pol'),
-  Ph(9,'≈ 1000 à 1100 apr. J.-C.','Puis ils repartent vers l’est, sur de grandes pirogues doubles. Ils se guident avec les étoiles, les vagues et les oiseaux.','pol'),
-  Ph(19,'≈ 1000 à 1300 apr. J.-C.','Ils atteignent Hawaï, Rapa Nui et Aotearoa (Nouvelle-Zélande) : parmi les dernières terres peuplées au monde.','pol',true),
+  Ph(0,'De 800 av. J.-C. à 800 apr. J.-C. environ','À Tonga et Samoa, les descendants des Lapita créent la culture polynésienne. Ils restent là très longtemps.','pol'),
+  Ph(9,'De 1000 à 1100 apr. J.-C. environ','Puis ils repartent vers l’est, sur de grandes pirogues doubles. Ils se guident avec les étoiles, les vagues et les oiseaux.','pol'),
+  Ph(19,'De 1000 à 1300 apr. J.-C. environ','Ils atteignent Hawaï, Rapa Nui et Aotearoa (Nouvelle-Zélande) : parmi les dernières terres peuplées au monde.','pol',true),
   Ph(29,'Le triangle polynésien','Hawaï, Rapa Nui et Aotearoa forment un immense triangle : des milliers de kilomètres d’océan.','pol')
  ],
  photos:[Sh('croixsud',3,13,'tr',2),Sh('pirogue',13,22,'bl',-2),Sh('hokulea',23,32,'tr',2),Sh('moai',32,42,'bl',-2)],
- legend:[['pol','Polynésiens (≈ 800 à 1250)'],['lap','Lapita']]},
+ legend:[['pol','Polynésiens (de l’an 1000 à 1300 environ)'],['lap','Lapita']]},
 
 /* 6 --------------------------------------------------------------- */
 {short:'Nouvelle-Calédonie : les premiers arrivants',col:'kan',dur:46,lagoon:6,
@@ -168,7 +168,7 @@ var CH=[
  labels:[
   L(1,168.3,-17.7,'Vanuatu',{dx:10,dy:-4,al:'left',end:26}),
   L(3,165.4,-21.5,'Nouvelle-Calédonie',{big:true,nomark:true,gold:true,dx:-6,dy:-24,al:'center',zmax:15,end:12}),
-  L(17,164.85,-21.04,'Foué (Koné)',{sub:'poterie Lapita ≈ 1000 av. J.-C.',mark:'site',dx:-10,dy:-4,al:'right',zmin:14}),
+  L(17,164.85,-21.04,'Foué (Koné)',{sub:'poterie Lapita vers 1000 av. J.-C.',mark:'site',dx:-10,dy:-4,al:'right',zmin:14}),
   L(22,164.9,-21.13,'Pouembout',{mark:'star',dx:10,dy:12,al:'left',zmin:14}),
   L(20,167.5,-22.65,'Île des Pins',{dx:0,dy:16,al:'center',zmin:9}),
   L(24,167.2,-20.9,'Lifou',{dx:0,dy:-12,al:'center',zmin:9,end:46}),
@@ -176,13 +176,13 @@ var CH=[
  ],
  pulses:[Pu(14,164.3,-19.85,'#b794f6'),Pu(20,164.8,-21.0,'#ffd166',true)],
  ph:[
-  Ph(0,'≈ 1100 av. J.-C.','Des pirogues Lapita, venues du nord par le Vanuatu, arrivent en Nouvelle-Calédonie. Personne n’y avait jamais vécu.','lap'),
+  Ph(0,'Vers 1100 av. J.-C.','Des pirogues Lapita, venues du nord par le Vanuatu, arrivent en Nouvelle-Calédonie. Personne n’y avait jamais vécu.','lap'),
   Ph(10,'Au bord du lagon','Ils s’installent près des plages. Ils pêchent, ramassent des coquillages et plantent taro, igname et banane.','lap'),
   Ph(22,'Foué, près de Koné','Les archéologues y ont trouvé des tessons de poterie Lapita et des tombes très anciennes. C’est tout près de Pouembout !','kan'),
   Ph(34,'Un pays qui se construit','Avec ceux qui arriveront ensuite, ils sont à l’origine de la société kanak.','kan')
  ],
  photos:[Sh('lapitapot',4,13,'tr',2),Sh('lagon',13,21,'bl',-2),Sh('lapitatesson',22,30,'tr',2),Sh('herminette',31,39,'bl',-2),Sh('petro',39,46,'tr',2)],
- legend:[['lap','Lapita (≈ 1100 av. J.-C.)'],['jade','Lagon']]},
+ legend:[['lap','Lapita (vers 1100 av. J.-C.)'],['jade','Lagon']]},
 
 /* 7 --------------------------------------------------------------- */
 {short:'Nouvelles vagues et société kanak',col:'pap',dur:42,lagoon:0,
@@ -202,9 +202,9 @@ var CH=[
  ],
  pulses:[],
  ph:[
-  Ph(0,'≈ 500 av. J.-C. et après','L’ADN ancien du Vanuatu montre l’arrivée de nouveaux groupes, venus du nord. Ils se mélangent aux Lapita. Les poteries changent.','pap',true),
+  Ph(0,'Vers 500 av. J.-C. et après','L’ADN ancien du Vanuatu montre l’arrivée de nouveaux groupes, venus du nord. Ils se mélangent aux Lapita. Les poteries changent.','pap',true),
   Ph(14,'Et en Nouvelle-Calédonie ?','Elle reçoit sans doute aussi de nouveaux groupes venus de Mélanésie. Les chercheurs cherchent encore les dates et les routes : ces flèches sont des hypothèses.','pap',true),
-  Ph(26,'Les siècles passent','La société kanak prend forme : clans, chefferies, grandes cases, tarodières irriguées dans les vallées.','kan'),
+  Ph(26,'Les siècles passent','La société kanak prend forme : clans, chefferies, grandes cases, tarodières arrosées par des canaux dans les vallées.','kan'),
   Ph(36,'Une société qui s’organise','Chaque clan a sa terre, ses ancêtres et ses alliés. On voyage en pirogue et on échange entre vallées et îles.','kan')
  ],
  photos:[Sh('tribu',22,29,'tr',2),Sh('grandecase',29,35,'bl',-2),Sh('fleche',35,42,'tr',2)],
@@ -237,7 +237,7 @@ var CH=[
  pulses:[Pu(10,167.15,-21.12,'#86efac')],
  ph:[
   Ph(0,'Des îles reliées par la mer','Les Kanak ne vivent pas isolés. Grande Terre, Loyauté, île des Pins et Vanuatu sont reliés par les pirogues, les alliances et les échanges.','xet'),
-  Ph(7,'Les Xetiwan','À Lifou, « Xetiwan » veut dire « dont on ignore l’origine ». Selon l’ethnologue Jean Guiart, ces clans viendraient d’Anatom (Vanuatu), peut-être de souche polynésienne.','xet',true),
+  Ph(7,'Les Xetiwan','À Lifou, « Xetiwan » veut dire « dont on ignore l’origine ». Selon le chercheur Jean Guiart, ces clans viendraient d’Anatom (Vanuatu), peut-être de souche polynésienne.','xet',true),
   Ph(20,'Des clans qui voyagent','Selon cette tradition, des chefferies de Maré et de l’île des Pins viendraient de clans de Lifou. Une légende de l’île des Pins parle aussi d’une femme venue d’Anatom.','xet',true),
   Ph(38,'Le cycle du jade','Du jade de Grande Terre voyage vers les îles. On échange aussi des ignames, des coquillages… et des alliances.','jade')
  ],
@@ -262,20 +262,20 @@ var CH=[
   L(2,-176.2,-13.3,'Wallis (Uvea)',{dx:0,dy:-14,al:'center'}),
   L(2,-175.2,-21.2,'Tonga',{dx:0,dy:16,al:'center'}),
   L(2,-171.8,-13.9,'Samoa',{dx:0,dy:16,al:'center'}),
-  L(18,166.5,-20.55,'Ouvéa',{sub:'≈ 1750',dx:-10,dy:-12,al:'right',zmin:10}),
+  L(18,166.5,-20.55,'Ouvéa',{sub:'vers 1750',dx:-10,dy:-12,al:'right',zmin:10}),
   L(18,167.24,-20.95,'Lifou',{dx:0,dy:-12,al:'center',zmin:10}),
   L(18,168.0,-21.55,'Maré',{dx:12,dy:8,al:'left',zmin:10})
  ],
  pulses:[Pu(15,166.8,-20.5,'#ff6b57'),Pu(25,167.2,-21.3,'#ff6b57'),Pu(30,168.15,-21.7,'#ff6b57'),Pu(41,167.95,-21.35,'#7cb7ff')],
  ph:[
   Ph(0,'Les cousins de l’Ouest polynésien','Entre le XVIe et le début du XIXe siècle, selon les traditions orales, des pirogues de Wallis, Futuna, Tonga et Samoa abordent les îles Loyauté.','pol',true),
-  Ph(6,'≈ 1750 : les Wallisiens à Ouvéa','Des pirogues de Wallis (Uvea) arrivent à Ouvéa. On y parle encore leur langue, le fagauvea.','pol',true),
+  Ph(6,'Vers 1750 : les Wallisiens à Ouvéa','Des pirogues de Wallis (Uvea) arrivent à Ouvéa. On y parle encore leur langue, le fagauvea.','pol',true),
   Ph(16,'Des Tongiens à Lifou et à Maré','À Lifou, des « gens de Tonga » s’installent dans la baie de Mu. À Maré, sept Tongiens arrivent vers 1836.','pol',true),
   Ph(32,'1841 : des enseignants samoans','La London Missionary Society envoie des enseignants polynésiens. Les Samoans Tataïo et Taniela s’installent à Maré en 1841. Fao arrive à Lifou en 1842.','mis'),
   Ph(44,'Des liens déjà là','Grâce à ces liens anciens, les nouveaux venus sont bien accueillis. La religion protestante se répand vite aux Loyauté.','mis')
  ],
  photos:[Sh('pirogue',3,12,'tr',2),Sh('fayaoue',44,52,'tr',2)],
- legend:[['pol','Wallisiens et Tongiens (traditions)',true],['mis','Enseignants samoans (LMS, 1841–42)']]},
+ legend:[['pol','Wallisiens et Tongiens (traditions)',true],['mis','Enseignants samoans (mission protestante, 1841–42)']]},
 
 /* 10 -------------------------------------------------------------- */
 {short:'Explorateurs, santaliers et missionnaires',col:'eur',dur:58,
@@ -299,13 +299,13 @@ var CH=[
  ph:[
   Ph(0,'4 – 5 septembre 1774','Le capitaine britannique James Cook aperçoit la Grande Terre le 4 septembre et débarque le lendemain à Balade. Il l’appelle « Nouvelle-Calédonie », car elle lui rappelle l’Écosse.','eur'),
   Ph(12,'Cook longe la côte','Il passe devant l’île des Pins, nommée ainsi à cause de ses grands pins colonnaires. Puis il repart vers la Nouvelle-Zélande.','eur'),
-  Ph(21,'≈ 1840 : baleiniers et santaliers','Des bateaux viennent chasser la baleine et chercher du santal pour la Chine. Ils échangent des haches, des fusils et des tissus.','eur'),
+  Ph(21,'Vers 1840 : baleiniers et santaliers','Des bateaux viennent chasser la baleine et chercher du santal pour la Chine. Ils échangent des haches, des fusils et des tissus.','eur'),
   Ph(30,'1840 – 1842 : missionnaires protestants','La London Missionary Society envoie des enseignants polynésiens à Maré et à Lifou. Des missionnaires européens suivront.','mis'),
   Ph(38,'1843 : missionnaires catholiques','Mgr Douarre et les Maristes s’installent à Balade. D’autres missions suivent.','cat'),
   Ph(48,'1853 – 1864','Le 24 septembre 1853, la France prend possession de la Grande Terre, à Balade. Les îles Loyauté sont rattachées en 1864.','eur')
  ],
  photos:[Sh('cook',1,8,'tl',-2),Sh('hodges',8,16,'tr',2),Sh('baleinier',20,27,'tr',2),Sh('pins1840',27,34,'bl',-2),Sh('douarre',36,42,'bl',-2),Sh('balade1843',42,48,'tr',2),Sh('lifou1864',50,58,'bl',-2)],
- legend:[['eur','Explorateurs et commerçants'],['mis','Protestants (LMS)'],['cat','Catholiques (Maristes)']]}
+ legend:[['eur','Explorateurs et commerçants'],['mis','Protestants (mission de Londres)'],['cat','Catholiques (Maristes)']]}
 ];
 /* compléments : dates, frise, fiche (mots-clés, questions, liens) */
 var X=[
@@ -317,23 +317,23 @@ var X=[
  mots:[['Glaciation','Période très froide : une partie de l’eau de la Terre est gelée et la mer baisse.'],['Sunda et Sahul','Deux grands continents de l’époque glaciaire : l’Asie du Sud-Est réunie, et l’Australie reliée à la Nouvelle-Guinée.']],
  q:[['Pourquoi pouvait-on presque aller à pied jusqu’en Australie ?','La mer était environ 120 m plus basse : beaucoup d’îles étaient reliées entre elles.'],['Depuis combien de temps des humains vivent-ils en Australie ?','Depuis plus de 50 000 ans.']],
  wiki:['Sahul','Sundaland']},
-{when:[-2200,-1350],dates:'≈ 2200 à 1350 av. J.-C.',
+{when:[-2200,-1350],dates:'de 2200 à 1350 av. J.-C. environ',
  mots:[['Austronésiens','Peuples de marins et de paysans partis de Taïwan. Leurs langues se ressemblent, de Madagascar à l’île de Pâques.'],['Pirogue à balancier','Pirogue équilibrée par un flotteur placé sur le côté.']],
  q:[['D’où partent les Austronésiens ?','De Taïwan, vers 2200 av. J.-C.'],['Qu’emportent-ils dans leurs pirogues ?','Des plantes (taro, igname, banane) et des animaux (cochons, chiens, poules).']],
  wiki:['Langues austronésiennes','Pirogue à balancier']},
-{when:[-1350,-800],dates:'≈ 1350 à 800 av. J.-C.',
+{when:[-1350,-800],dates:'de 1350 à 800 av. J.-C. environ',
  mots:[['Lapita','Nom d’un site proche de Koné, en Nouvelle-Calédonie, donné à ces potiers-navigateurs.'],['Archéologue','Chercheur qui étudie les traces laissées par les humains du passé.']],
  q:[['À quoi reconnaît-on une poterie Lapita ?','À ses décors faits de petits points imprimés.'],['Qui vivait en Nouvelle-Calédonie avant les Lapita ?','Personne : ce sont les premiers habitants.']],
  wiki:['Lapita']},
-{when:[-800,1300],dates:'≈ 800 av. J.-C. à 1300 apr. J.-C.',
+{when:[-800,1300],dates:'de 800 av. J.-C. à 1300 apr. J.-C. environ',
  mots:[['Triangle polynésien','Immense partie du Pacifique entre Hawaï, Rapa Nui (île de Pâques) et Aotearoa (Nouvelle-Zélande).'],['Navigation aux étoiles','Se diriger en mer en observant les étoiles, les vagues et les oiseaux.']],
  q:[['Quels sont les trois sommets du triangle polynésien ?','Hawaï, Rapa Nui (île de Pâques) et Aotearoa (Nouvelle-Zélande).'],['Comment les Polynésiens se repéraient-ils en mer ?','Avec les étoiles, les vagues et les oiseaux.']],
  wiki:['Triangle polynésien','Peuplement de l\'Océanie']},
-{when:[-1100,-900],dates:'≈ 1100 av. J.-C.',
+{when:[-1100,-900],dates:'vers 1100 av. J.-C.',
  mots:[['Lagon','Étendue de mer peu profonde entre la côte et le récif.'],['Tesson','Morceau de poterie cassée.']],
  q:[['D’où viennent les premiers habitants de la Nouvelle-Calédonie ?','Du nord, par le Vanuatu : ce sont des Lapita arrivés en pirogue vers 1100 av. J.-C.'],['Quelle trace des Lapita trouve-t-on près de Koné ?','Des tessons de poterie décorée et des tombes anciennes, à Foué.']],
  wiki:['Histoire de la Nouvelle-Calédonie','Lapita']},
-{when:[-500,1000],dates:'≈ 500 av. J.-C. à l’an 1000',
+{when:[-500,1000],dates:'de 500 av. J.-C. à l’an 1000 environ',
  mots:[['Clan','Groupe de familles qui ont le même ancêtre.'],['Chefferie','Ensemble de clans réunis autour d’un chef.'],['Tarodière','Champ en terrasses, arrosé par des canaux, où l’on cultive le taro.']],
  q:[['Que nous apprend l’ADN ancien trouvé au Vanuatu ?','Que de nouveaux groupes sont arrivés après les Lapita et se sont mélangés à eux.'],['Cite deux éléments de la société kanak.','Les clans, les chefferies, les grandes cases, les tarodières…']],
  wiki:['Kanak','Grande case']},

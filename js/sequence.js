@@ -174,7 +174,7 @@ SEQ.build=function(opt){
   S.push({titre:'Découvrir : la carte animée',sup:'Carte animée du chapitre · frise',
    objop:(geo?'Décrire et localiser':'Situer dans le temps et dans l’espace')+' : '+q(ch.short)+(ch.dates?' ('+ch.dates+')':'')+' ; formuler une hypothèse'+(E?' sur la question '+q(E.q):'')+'.',
    objlang:'Raconter les étapes avec les connecteurs de temps (d’abord, puis, ensuite, enfin)'+(mots.length?' ; employer : '+mots.slice(0,3).join(', '):'')+'.',
-   materiel:['Atlas au TBI : volet '+q(V.title)+', chapitre '+(ci+1)+' '+q(ch.short)+' (≈ '+Math.round(ch.dur)+' s d’animation)','Frise de la classe, planisphère ou carte murale','Cahier, fond de carte'],
+   materiel:['Atlas au TBI : volet '+q(V.title)+', chapitre '+(ci+1)+' '+q(ch.short)+' (environ '+Math.round(ch.dur)+' s d’animation)','Frise de la classe, planisphère ou carte murale','Cahier, fond de carte'],
    crit:'L’élève situe le chapitre sur la frise'+(lieux.length?', montre sur la carte : '+lieux.slice(0,3).join(', '):'')+' et raconte au moins deux étapes dans l’ordre.',
    phases:ph([
     ['A',8,(E?'Pose la question de l’enquête : '+q(E.q)+' ':'Présente le sujet. ')+'Recueille les idées sans valider'+(E?', puis propose les trois hypothèses de l’atlas : '+E.h.map(q).join(' ; ')+'.':'.'),'Donnent leurs idées, choisissent une hypothèse et la notent.','Collectif puis individuel','Hypothèse choisie par étiquette ; reformulation par un pair.'],

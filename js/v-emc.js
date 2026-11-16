@@ -42,7 +42,7 @@ var CH=[
   L(20,45.15,-12.8,'Mayotte',{dx:-8,al:'right',zmax:2}),L(20.5,69.3,-49.3,'Terres australes',{dy:14,zmax:2}),L(21,140,-66.7,'Terre Adélie',{dy:-12,zmax:2}),
   L(21.5,-149.4,-17.6,'Polynésie française',{dx:8,dy:12,al:'left',zmax:2}),L(22,-176.2,-13.3,'Wallis-et-Futuna',{dx:8,dy:-10,al:'left',zmax:2}),L(22.5,-109.2,10.3,'Clipperton',{dy:-12,zmax:2}),
   L(23,165.6,-21.3,'Nouvelle-Calédonie',{gold:true,dx:-10,dy:14,al:'right',zmax:2}),
-  L(26,84,13,'≈ 16 700 km',{nomark:true,sub:'de Paris à Nouméa',zmax:2,end:32}),
+  L(26,84,13,'environ 16 700 km',{nomark:true,sub:'de Paris à Nouméa',zmax:2,end:32}),
   L(33,166.44,-22.27,'Nouméa',{mark:'ville',sub:'haut-commissariat',dx:-10,al:'right',zmin:6}),
   L(34,164.9,-21.13,'Pouembout',{mark:'star',dx:10,al:'left',zmin:6}),
   L(46,4.35,50.85,'Bruxelles',{dy:-12,zmin:2.5}),L(46.5,7.75,48.58,'Strasbourg',{sub:'Parlement européen',dx:10,al:'left',zmin:2.5}),
