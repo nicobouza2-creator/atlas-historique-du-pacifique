@@ -14,7 +14,7 @@ def main(repo, out):
     open(os.path.join(out, 'index.html'), 'w', encoding='utf-8').write(html)
     scripts = re.findall(r'<script src="js/([^"]+)"></script>', html)
     terser = os.environ.get('TERSER', 'npx terser').split()
-    pre = '/* Atlas d’histoire — Collège · CC BY-NC-ND 4.0 · usage en classe, pas d’usage commercial */'
+    pre = '/* Atlas d’histoire — Collège · © 2026 Nicolas BOUZA · idée, conception et réalisation : Nicolas BOUZA, avec l’assistance de Claude (Anthropic) · CC BY-NC-ND 4.0 · usage en classe, pas d’usage commercial */'
     ids = set()
     reg = open(os.path.join(repo, 'js', 'img.js'), encoding='utf-8').read()
     for f in scripts:

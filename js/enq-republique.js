@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Enquêtes du volet « La République depuis 1944 » (atlas du collège, même index que v-republique.js).
    P(titre, document(s), parcours guidé, parcours autonome, à retenir). Q : la 1re réponse est la bonne.
    Textes officiels cités exactement (ordonnance de 1944, préambule de 1946, loi du 7 mai 1946, Constitution de 1958, accord de Nouméa) ;

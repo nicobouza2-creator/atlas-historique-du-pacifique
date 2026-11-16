@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Enquêtes — questions « école primaire » ajoutées le 16/11/2026 pour varier les types (33 enquêtes n'avaient que des QCM
    et des vrai/faux ; 4 pages n'avaient qu'une question). Types : texte à trous (T ; les trous se remplissent dans l'ordre, donc jamais deux trous interchangeables), relier (R), remise en ordre (O).
    A(volet, n° de chapitre à partir de 0, titre de la page, question) : la page est retrouvée par son titre.

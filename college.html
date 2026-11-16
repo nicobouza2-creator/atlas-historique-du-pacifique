@@ -1,9 +1,28 @@
 <!DOCTYPE html>
+<!--
+  Atlas d’histoire — Collège
+  © 2026 Nicolas BOUZA — idée, conception et réalisation : Nicolas BOUZA, avec l’assistance de Claude (Anthropic).
+  Licence CC BY-NC-ND 4.0 (https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr) : usage en classe libre en citant l’auteur,
+  pas d’usage commercial, pas de version modifiée diffusée. Dépôt d’origine : https://github.com/nicobouza2-creator/atlas-historique-du-pacifique
+-->
 <html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Atlas d’histoire — Collège</title>
+<meta name="author" content="Nicolas BOUZA">
+<meta name="creator" content="Nicolas BOUZA">
+<meta name="copyright" content="© 2026 Nicolas BOUZA — réalisé avec l’assistance de Claude (Anthropic) — CC BY-NC-ND 4.0">
+<meta name="description" content="Cartes animées pour le programme d’histoire du collège adapté à la Nouvelle-Calédonie. Idée, conception et réalisation : Nicolas BOUZA, avec l’assistance de Claude (Anthropic).">
+<meta name="dcterms.creator" content="Nicolas BOUZA">
+<meta name="dcterms.rightsHolder" content="Nicolas BOUZA">
+<meta name="dcterms.rights" content="© 2026 Nicolas BOUZA — CC BY-NC-ND 4.0">
+<meta name="dcterms.license" content="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+<meta property="og:title" content="Atlas d’histoire — Collège — Nicolas BOUZA">
+<meta property="og:description" content="Cartes animées pour le programme d’histoire du collège adapté à la Nouvelle-Calédonie. Par Nicolas BOUZA, avec l’assistance de Claude (Anthropic).">
+<link rel="author" href="https://github.com/nicobouza2-creator">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": ["WebApplication", "LearningResource"], "name": "Atlas d’histoire — Collège", "description": "Cartes animées pour le programme d’histoire du collège adapté à la Nouvelle-Calédonie.", "inLanguage": "fr", "dateCreated": "2026", "copyrightYear": 2026, "author": {"@type": "Person", "name": "Nicolas BOUZA", "jobTitle": "Enseignant", "address": {"@type": "PostalAddress", "addressRegion": "Nouvelle-Calédonie"}}, "creator": {"@type": "Person", "name": "Nicolas BOUZA"}, "copyrightHolder": {"@type": "Person", "name": "Nicolas BOUZA"}, "contributor": {"@type": "SoftwareApplication", "name": "Claude", "creator": {"@type": "Organization", "name": "Anthropic"}, "description": "Assistance à la réalisation"}, "creditText": "Idée, conception et réalisation : Nicolas BOUZA, avec l’assistance de Claude (Anthropic)", "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/", "isAccessibleForFree": true, "url": "https://nicobouza2-creator.github.io/atlas-historique-du-pacifique/college.html", "codeRepository": "https://github.com/nicobouza2-creator/atlas-historique-du-pacifique"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Bricolage+Grotesque:wght@600;700&display=swap" rel="stylesheet">
@@ -276,6 +295,12 @@ body.started .tab[aria-current=true] .tab-t::after{content:' · en cours'}
 .zoom button{width:44px;min-height:44px}
 @media(max-width:700px){.zoom button{width:40px;min-height:40px}}
 .enq-doslink{display:inline-block;padding:10px 2px}
+.aut-home{max-width:none!important;margin:8px 0 0!important;font-size:14px!important;color:var(--gold)!important}.aut-home b{font-weight:600}
+@media(max-width:700px){.sig{left:8px!important;right:auto!important}}
+.sig{position:absolute;right:10px;bottom:7px;z-index:5;pointer-events:none;font:600 11px/1.2 var(--font-body);color:rgba(244,240,230,.6);text-shadow:0 1px 2px rgba(0,0,0,.7);white-space:nowrap}
+.aut-box{margin:12px 0 0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:13px;line-height:1.5;color:var(--ink);-webkit-user-select:text;user-select:text}
+.aut-line{font-size:12px;line-height:1.4;color:#55606d;border-top:1px solid #ccd5df;padding-top:5px;margin:10px 0}
+@media print{.sig{color:#555;text-shadow:none}}
 </style>
 </head>
 <body>
@@ -306,6 +331,7 @@ body.started .tab[aria-current=true] .tab-t::after{content:' · en cours'}
         <canvas id="c" role="img" aria-label="Carte animée : les tracés, zones colorées et noms de lieux apparaissent au fil du récit affiché à côté."></canvas>
         <div class="photos" id="photos"></div>
         <div class="tb" id="tb" hidden></div>
+        <div class="sig" aria-hidden="true">© Nicolas BOUZA · Atlas d’histoire — Collège</div>
         <div class="zoom">
           <button type="button" id="zin" aria-label="Zoomer">+</button>
           <button type="button" id="zout" aria-label="Dézoomer">−</button>
@@ -353,6 +379,7 @@ body.started .tab[aria-current=true] .tab-t::after{content:' · en cours'}
       <div>
         <h1 id="homeT">Atlas d’histoire — Collège</h1>
         <p>Des cartes animées pour le programme d’histoire du collège adapté à la Nouvelle-Calédonie. Choisis un volet, ou ouvre l’Espace collège : programmes, fiches séance, suite du chantier.</p>
+        <p class="aut-home">Idée, conception et réalisation : <b>Nicolas BOUZA</b>, avec l’assistance de Claude (Anthropic) · © 2026 · CC BY-NC-ND 4.0</p>
       </div>
       <button type="button" id="homeX" aria-label="Fermer et revenir à la carte">✕</button>
     </header>
@@ -393,7 +420,8 @@ body.started .tab[aria-current=true] .tab-t::after{content:' · en cours'}
         <div class="in vinfo" id="vinfo"></div>
       </details>
       <p class="note">Tracés schématiques : les flèches, pirogues et navires montrent des directions, pas des trajets exacts. Les dates anciennes sont approximatives ; le badge « Hypothèse » et les pointillés signalent ce qui est encore discuté par les chercheurs. Photos et documents réels (aucune image générée), crédits sous chaque image ; clique dessus pour l’agrandir. Fonds de carte Natural Earth (domaine public) ; côtes de la Nouvelle-Calédonie © contributeurs OpenStreetMap (ODbL) ; massifs de péridotites, provinces, aires coutumières, tribus, ZEE, lagons inscrits à l’UNESCO et sites miniers : Gouvernement de la Nouvelle-Calédonie (Géorep, DIMENC), données ouvertes. Les limites des aires coutumières sont indicatives (donnée de travail non officialisée).</p>
-      <p class="note">Textes, cartes animées, enquêtes et dossiers : licence <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a> (usage en classe libre, en citant l’atlas ; pas d’usage commercial ni de version modifiée diffusée). Les photos et documents gardent la licence de leur auteur, indiquée sous chacun.</p>
+      <p class="note">Textes, cartes animées, enquêtes et dossiers : licence <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" target="_blank" rel="noopener">CC BY-NC-ND 4.0</a> (usage en classe libre, en citant l’auteur, Nicolas BOUZA ; pas d’usage commercial ni de version modifiée diffusée). Les photos et documents gardent la licence de leur auteur, indiquée sous chacun.</p>
+      <div class="aut-box"><b>Auteur</b><br>Idée, conception et réalisation : Nicolas BOUZA, avec l’assistance de Claude (Anthropic). © 2026 Nicolas BOUZA, licence CC BY-NC-ND 4.0.<br>Pour citer : Nicolas BOUZA (2026), Atlas d’histoire — Collège, réalisé avec l’assistance de Claude (Anthropic).</div>
     </section>
 
     <section data-sec="set" data-title="Réglages" hidden>
@@ -452,6 +480,7 @@ body.started .tab[aria-current=true] .tab-t::after{content:' · en cours'}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script>window.ATLAS_COLLEGE=true;window.ENQ_LV={p:"Parcours guidé",c:"Parcours autonome"};window.ENQ_NODOS={};</script>
+<script src="js/auteur.js"></script>
 <script src="js/geo.js"></script>
 <script src="js/pays.js"></script>
 <script src="js/img.js"></script>
@@ -482,9 +511,10 @@ body.started .tab[aria-current=true] .tab-t::after{content:' · en cours'}
   function editable(t){return t&&t.closest&&t.closest('input,textarea,select,[contenteditable="true"]');}
   document.addEventListener('contextmenu',function(e){if(!editable(e.target))e.preventDefault();});
   document.addEventListener('dragstart',function(e){if(e.target&&/^(IMG|CANVAS|A)$/.test(e.target.tagName))e.preventDefault();});
-  document.addEventListener('copy',function(e){if(editable(e.target))return;var s=String(window.getSelection&&window.getSelection()||'');if(s.length>200){e.preventDefault();try{e.clipboardData.setData('text/plain',s.slice(0,200)+'… (Atlas d’histoire — Collège, CC BY-NC-ND 4.0)');}catch(x){}}});
+  document.addEventListener('copy',function(e){if(editable(e.target))return;var s=String(window.getSelection&&window.getSelection()||'');if(s.length>=40){e.preventDefault();try{e.clipboardData.setData('text/plain',(s.length>200?s.slice(0,200)+'…':s)+'\n— Atlas d’histoire — Collège, © 2026 Nicolas BOUZA (réalisé avec l’assistance de Claude, Anthropic), CC BY-NC-ND 4.0');}catch(x){}}});
   document.addEventListener('keydown',function(e){var k=(e.key||'').toLowerCase();if((e.ctrlKey||e.metaKey)&&(k==='s'||k==='u'||(e.shiftKey&&(k==='i'||k==='j'||k==='c'))))e.preventDefault();});
 })();
 window.ATLAS.start();</script>
+<noscript><p style="padding:20px">Atlas d’histoire — Collège — © 2026 Nicolas BOUZA, réalisé avec l’assistance de Claude (Anthropic). Activez JavaScript pour afficher l’atlas.</p></noscript>
 </body>
 </html>

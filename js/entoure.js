@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* « J'entoure, je colorie » — commun aux deux atlas.
    EXOS.data[clé] = {e:{q,it:[[image,étiquette,1 si à entourer]]}, c:{q,pal:[[couleur,nom]],it:[[image,étiquette,n° de couleur]]}}
    image : emoji, ou « i:nom » (image de l'atlas, résolue par EXOS.pic). À l'écran : on touche pour entourer ou colorier.

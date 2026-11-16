@@ -1,5 +1,7 @@
 # Outils de l'atlas
 
+© 2026 Nicolas BOUZA — idée, conception et réalisation, avec l'assistance de Claude (Anthropic) — CC BY-NC-ND 4.0.
+
 Rien ici n'est chargé par l'atlas : ce sont les scripts qui fabriquent les dossiers d'enquête, les paquets de l'artefact et les tests.
 Python 3 (`reportlab`, `python-docx`, `pymupdf`, `pillow`, `playwright` + Chrome) et Node.
 Chemins codés en dur : dépôt `/home/claude/repo/` (lien vers le clone), dossier de travail `/home/claude/dossiers/`.
@@ -12,6 +14,7 @@ Chemins codés en dur : dépôt `/home/claude/repo/` (lien vers le clone), dossi
 0. Pour savoir quels dossiers refaire après une modification : exporter l'ancienne version (`git worktree add /home/claude/base <commit>`, `export.py /home/claude/base`, déplacer `data.json` et `cartes/` dans `/home/claude/dossiers-old/`), exporter la nouvelle, puis `compare_dossiers.py`. Les cartes des dossiers n'ont pas de légende : seuls les noms et les dates posés sur la carte comptent.
 5. `check_parity.py` : compare le corrigé de chaque .docx avec celui du PDF du dépôt. Faux positif connu : `mondial-11`.
 6. Copier les PDF et .docx dans `pdf/` et `docx/` du dépôt.
+7. `signer.py <dépôt>` : mention d'auteur (© 2026 Nicolas BOUZA, avec l'assistance de Claude) en pied de page, dans la marge et dans les propriétés de chaque PDF (`pdf/`, `fiches/`, `seq/`) et Word (`docx/`). Sans effet sur un fichier déjà signé ; `--verifier` liste les fichiers non signés. `pack.py` l'appelle de lui-même.
 
 Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul l'ordre des mauvaises réponses de la question de la « pièce en plus » peut changer. Les anciennes versions du générateur ne servent plus.
 
@@ -37,7 +40,7 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 ## Fiches séquences et « J'entoure, je colorie »
 - `js/sequence.js` : fiche séquence de chaque chapitre (trame des fiches séance DENC), construite à l'ouverture à partir du chapitre et de son enquête ; modifiable, impression, export Word (.doc), export `.json` pour Fiche-sequence-NC (`SEQ.ficheNC(F)` → `{app:'fiche-sequence-nc',fiches,seances}`). Bouton dans le tiroir « Fiche prof ». `window.__seq({lv:'p'|'c'})` rend le HTML de la fiche du chapitre affiché.
 - `js/entoure.js` : exercices à entourer et code couleur (43 chapitres d'histoire, `EXOS.data['<volet>-<ci>']`), bouton dans « Activités » ; la fiche élève imprimable est ajoutée en annexe de la fiche séquence (avec la carte de fin de chapitre).
-- PDF standard pour l'artefact claude.ai (où l'impression est bloquée) : `seq/<volet>-<nn>.pdf` (non suivi par git) ; `pack.py` en fait `paquets/seq-<volet>.txt` et `paquets/seq-index.json`.
+- PDF standard pour l'artefact claude.ai (où l'impression est bloquée) : `seq/<volet>-<nn>.pdf` (non suivi par git), écrits par `D3=<d3.min.js> python3 outils/seq_pdf.py <dépôt> [volet…]` puis signés par `signer.py` ; `pack.py` en fait `paquets/seq-<volet>.txt` et `paquets/seq-index.json`.
 
 ## Questions ajoutées aux enquêtes (`js/enq-q2.js`)
 - Chargé après les `enq-<volet>.js` : `A(volet, n° de chapitre, titre de la page, question)` ajoute une question « école primaire » à une page retrouvée par son titre (16/11/2026 : 70 questions à trous, à relier ou à remettre en ordre, pour qu'aucune enquête ne se limite aux QCM et aux vrai/faux).

@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Enquêtes des six chapitres du volet « Conquêtes et sociétés coloniales » (atlas du collège, même index que v-colonies.js).
    P(titre, document(s), parcours guidé, parcours autonome, indice). Q : la 1re réponse est la bonne.
    Règles tirées du livret d’accueil HG-EMC (vice-rectorat, 2026) : peu de documents, un questionnement resserré,

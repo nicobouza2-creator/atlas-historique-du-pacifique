@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Atlas du collège — données « élèves » du volet « La République depuis 1944 ».
    Même format que d-colonies.js. À charger après facile.js et galerie.js, avant v-republique.js.
    FACILE.republique[chapitre][étape], QCM.republique[chapitre][question] (deux mauvaises réponses), GAL.republique[chapitre]. */

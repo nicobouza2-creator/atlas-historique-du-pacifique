@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Atlas animé — moteur. Les chapitres sont dans v-monde.js, v-pacifique.js, v-decouvertes.js.
    Chaque fichier appelle ATLAS.add({id,title,tag,sub,col,proj,frise,info,chapters:[…]}). */
 (function(){
@@ -1383,10 +1385,15 @@ function composePage(ci,o){
   }
   c.fillStyle='#5b6b7a';c.font='400 21px '+FONT;c.textAlign='left';
   c.fillText('Atlas historique du Pacifique · tracés schématiques, dates approximatives pour les périodes anciennes · fond de carte Natural Earth, côtes de la NC © OpenStreetMap',M,PH-M+12);
-  c.font='400 17px '+FONT;c.fillStyle='#8a97a3';c.fillText('© Atlas historique du Pacifique · usage en classe, pas d’usage commercial (CC BY-NC-ND 4.0)',M,PH-M+38);
+  c.font='400 17px '+FONT;c.fillStyle='#8a97a3';c.fillText((window.ATLAS_AUTEUR?ATLAS_AUTEUR.ligne:'© 2026 Nicolas BOUZA · CC BY-NC-ND 4.0')+' · usage en classe, pas d’usage commercial',M,PH-M+38);
   return pg;
 }
 function jpegBytes(cv){return new Promise(function(res,rej){cv.toBlob(function(b){if(!b){rej(new Error('image'));return;}var fr2=new FileReader();fr2.onload=function(){res(new Uint8Array(fr2.result));};fr2.onerror=rej;fr2.readAsArrayBuffer(b);},'image/jpeg',0.9);});}
+/* mention d'auteur : en bas des cartes PNG (filigrane) et dans les propriétés de chaque PDF exporté (/Info) */
+function signCanvas(cv){var a=window.ATLAS_AUTEUR,t=a?'© 2026 Nicolas BOUZA · '+a.titre+' · CC BY-NC-ND 4.0':'© 2026 Nicolas BOUZA · CC BY-NC-ND 4.0',x=cv.getContext('2d'),fs=Math.max(12,Math.round(cv.width/95));
+  x.save();x.font='600 '+fs+'px '+FONT;var w=x.measureText(t).width;x.fillStyle='rgba(255,255,255,.78)';x.fillRect(cv.width-w-fs*1.6,cv.height-fs*2,w+fs*1.2,fs*1.6);
+  x.fillStyle='#12202e';x.textBaseline='middle';x.fillText(t,cv.width-w-fs,cv.height-fs*1.2);x.restore();return cv;}
+function pstr(s){var h='<FEFF';for(var i=0;i<s.length;i++)h+=('000'+s.charCodeAt(i).toString(16)).slice(-4);return h+'>';}
 function buildPdf(pages){
   var parts=[],off=0,xref=[],enc=new TextEncoder(),i;
   function add(x){var u=typeof x==='string'?enc.encode(x):x;parts.push(u);off+=u.length;}
@@ -1401,9 +1408,12 @@ function buildPdf(pages){
     xref[a+1]=off;add((a+1)+' 0 obj\n<< /Type /XObject /Subtype /Image /Width '+p.w+' /Height '+p.h+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+p.jpg.length+' >>\nstream\n');add(p.jpg);add('\nendstream\nendobj\n');
     obj(a+2,'<< /Length '+cs.length+' >>\nstream\n'+cs+'\nendstream');
   });
-  var total=3+pages.length*3,xo=off,t='xref\n0 '+total+'\n0000000000 65535 f \n';
+  var a=window.ATLAS_AUTEUR||{},inf=3+pages.length*3;
+  obj(inf,'<< /Title '+pstr((a.titre||'Atlas')+' — cartes')+' /Author '+pstr('Nicolas BOUZA')+' /Subject '+pstr((a.long||'Nicolas BOUZA')+' — © 2026 Nicolas BOUZA — CC BY-NC-ND 4.0')+
+    ' /Keywords '+pstr('Nicolas BOUZA; atlas; histoire; Nouvelle-Calédonie; CC BY-NC-ND 4.0')+' /Creator '+pstr((a.titre||'Atlas')+' — Nicolas BOUZA, avec l’assistance de Claude (Anthropic)')+' /Producer '+pstr('Atlas — Nicolas BOUZA')+' >>');
+  var total=inf+1,xo=off,t='xref\n0 '+total+'\n0000000000 65535 f \n';
   for(i=1;i<total;i++)t+=('0000000000'+xref[i]).slice(-10)+' 00000 n \n';
-  add(t+'trailer\n<< /Size '+total+' /Root 1 0 R >>\nstartxref\n'+xo+'\n%%EOF\n');
+  add(t+'trailer\n<< /Size '+total+' /Root 1 0 R /Info '+inf+' 0 R >>\nstartxref\n'+xo+'\n%%EOF\n');
   return new Blob(parts,{type:'application/pdf'});
 }
 var DL=null,elExp=$('expMsg'),elPrev=$('prev-ov'),exporting=false;
@@ -1438,7 +1448,7 @@ function doExport(kind){
   function done(){exporting=false;}
   try{
     if(kind==='png'){
-      var m=mapCanvas(ci,{labels:opt.labels,current:true});
+      var m=signCanvas(mapCanvas(ci,{labels:opt.labels,current:true}));
       m.toBlob(function(b){save(base+'.png',b,m).then(done,done);},'image/png');return;
     }
     if(kind==='volet'){

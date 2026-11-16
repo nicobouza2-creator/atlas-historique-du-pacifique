@@ -13,7 +13,7 @@ def main(repo, out):
     shutil.copy(os.path.join(repo, 'index.html'), out)
     shutil.copytree(os.path.join(repo, 'img'), os.path.join(out, 'img'))
     terser = os.environ.get('TERSER', 'npx terser').split()
-    pre = '/* Atlas historique du Pacifique · CC BY-NC-ND 4.0 · usage en classe, pas d’usage commercial */'
+    pre = '/* Atlas historique du Pacifique · © 2026 Nicolas BOUZA · idée, conception et réalisation : Nicolas BOUZA, avec l’assistance de Claude (Anthropic) · CC BY-NC-ND 4.0 · usage en classe, pas d’usage commercial */'
     for f in sorted(os.listdir(os.path.join(repo, 'js'))):
         if not f.endswith('.js'): continue
         src, dst = os.path.join(repo, 'js', f), os.path.join(out, 'js', f)

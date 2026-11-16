@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* « Tout en même temps » : une seule carte avec tous les événements des volets d'histoire (+ quelques repères du programme),
    un curseur du temps, une frise par grande région et des « moments clés ». Ouverture : carte du menu d'entrée, #simultane, SIMUL.open().
    Données : [début, fin, lon, lat, titre, texte, volet, chapitre, région, important]
@@ -482,7 +484,7 @@ function exportPdf(){
     c.fillText(t,M+col*cw+22,y);y+=28;});
   c.fillStyle='#5b6b7a';c.font='400 18px "Lexend","Segoe UI",sans-serif';
   c.fillText('Atlas historique du Pacifique · « Tout en même temps » · dates approximatives pour les périodes anciennes · fond de carte Natural Earth',M,PH-48);
-  c.font='400 15px "Lexend","Segoe UI",sans-serif';c.fillStyle='#8a97a3';c.fillText('© Atlas historique du Pacifique · usage en classe, pas d’usage commercial (CC BY-NC-ND 4.0)',M,PH-24);
+  c.font='400 15px "Lexend","Segoe UI",sans-serif';c.fillStyle='#8a97a3';c.fillText((window.ATLAS_AUTEUR?ATLAS_AUTEUR.ligne:'© 2026 Nicolas BOUZA · CC BY-NC-ND 4.0')+' · usage en classe, pas d’usage commercial',M,PH-24);
   A.pdf('Tout-en-meme-temps-'+String(S.all?'tout':yr(S.T)).replace(/[^0-9a-zA-Z]+/g,'-')+'.pdf',[pg]);
 }
 

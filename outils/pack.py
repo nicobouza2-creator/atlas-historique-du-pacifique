@@ -17,6 +17,7 @@ import base64, json, os, re, sys
 TROUS = set()   # volets dont certains chapitres n'ont pas encore d'enquête : trous permis (null dans l'index)
 
 def main(repo, out, only=None):   # only = ensemble de volets à empaqueter (artefact du collège)
+    import signer; signer.main(repo)   # mention d'auteur (Nicolas BOUZA) dans chaque PDF et Word avant empaquetage
     dest = os.path.join(out, 'paquets'); os.makedirs(dest, exist_ok=True)
     index = {}
     for ext, fext in (('pdf', 'pdf'), ('docx', 'docx'), ('seq', 'pdf'), ('fiches', 'pdf')):   # seq/ = fiches séquences (PDF) ; fiches/ = Espace collège

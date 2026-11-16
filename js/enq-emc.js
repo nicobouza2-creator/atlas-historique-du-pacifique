@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Enquêtes du volet « Vivre ensemble (EMC) » (un objet par chapitre, même index que v-emc.js).
    P(titre, document(s), questions primaire, questions collège, indice). Q : la 1re réponse est la bonne.
    Textes de lois anciens cités exactement (domaine public) ; les autres textes sont rédigés pour l'atlas et signalés comme tels. */

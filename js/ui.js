@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Atlas — interface simplifiée : tiroir (Lecture, Activités, Fiche prof, Réglages), flèches des chapitres,
    focus rendu à la page après un clic (pour que Espace, flèches et F marchent toujours). */
 (function(){
