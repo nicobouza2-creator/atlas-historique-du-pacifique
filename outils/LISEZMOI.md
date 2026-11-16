@@ -36,3 +36,8 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 - `js/sequence.js` : fiche séquence de chaque chapitre (trame des fiches séance DENC), construite à l'ouverture à partir du chapitre et de son enquête ; modifiable, impression, export Word (.doc), export `.json` pour Fiche-sequence-NC (`SEQ.ficheNC(F)` → `{app:'fiche-sequence-nc',fiches,seances}`). Bouton dans le tiroir « Fiche prof ». `window.__seq({lv:'p'|'c'})` rend le HTML de la fiche du chapitre affiché.
 - `js/entoure.js` : exercices à entourer et code couleur (43 chapitres d'histoire, `EXOS.data['<volet>-<ci>']`), bouton dans « Activités » ; la fiche élève imprimable est ajoutée en annexe de la fiche séquence (avec la carte de fin de chapitre).
 - PDF standard pour l'artefact claude.ai (où l'impression est bloquée) : `seq/<volet>-<nn>.pdf` (non suivi par git) ; `pack.py` en fait `paquets/seq-<volet>.txt` et `paquets/seq-index.json`.
+
+## Questions ajoutées aux enquêtes (`js/enq-q2.js`)
+- Chargé après les `enq-<volet>.js` : `A(volet, n° de chapitre, titre de la page, question)` ajoute une question « école primaire » à une page retrouvée par son titre (16/11/2026 : 70 questions à trous, à relier ou à remettre en ordre, pour qu'aucune enquête ne se limite aux QCM et aux vrai/faux).
+- `window.__q2miss` doit rester vide (titre de page introuvable). `export.py` lit les enquêtes dans la page : les PDF et les Word reprennent ces questions. `valider_enquetes.js`, lui, ne lit que les `enq-<volet>.js`.
+- Texte à trous : les trous se remplissent dans l'ordre à l'écran ; ne jamais écrire deux trous interchangeables.
