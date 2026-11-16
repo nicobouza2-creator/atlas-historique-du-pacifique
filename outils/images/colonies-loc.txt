@@ -1,0 +1,30 @@
+filature1835|cotton mill England|3a28862
+vapeur1884|ocean steamship 1880|00917
+suez1869|Suez canal opening|3b42029
+charbon|coaling ship|4a05541
+capcaire|white man's burden|25696
+alger1899|Algiers harbor photochrom|05509
+constantine1899|Constantine Algeria photochrom|05571
+tunis1899|Tunis photochrom street|06029
+brazza|Brazza|3a39941
+gallieni|Gallieni|17433
+lyautey|Lyautey|26038
+senegalais1914|Senegalese troops|24160
+railrhodes|Uganda railway|3a40987
+pontouganda|Uganda railway|3b39464
+kimberley|Kimberley diamond mine|3b31372
+menelik|Menelik|3a12832
+durbar1903|Delhi durbar|3b34115
+victoria1887|Victoria Empress India|46665
+bombay1907|Bombay Victoria terminus|1s26593
+singapour1901|Singapore harbor|1s37166
+manille1901|Manila 1898 American flag|3c37903
+ecole1899|School begins Puck 1899|28668
+hawaii1898|Hawaii annexation 1898|3a26428
+liliuokalani|Liliuokalani|53150
+apia1889|Samoa 1899|3b24484
+ceylanthe|Ceylon tea pickers|1s38040
+expo1900|Paris Exposition 1900 colonial|3c05475
+annam1889|Annam|3c09492
+dahomey1900|Dahomey|3c18352
+saigon1915|Cochin-China|1s40274

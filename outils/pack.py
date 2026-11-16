@@ -14,7 +14,7 @@ On ne publie dans l'artefact que paquets/, jamais les dossiers pdf/ et docx/.
 """
 import base64, json, os, re, sys
 
-TROUS = {'colonies'}   # volets dont certains chapitres n'ont pas encore d'enquête : trous permis (null dans l'index)
+TROUS = set()   # volets dont certains chapitres n'ont pas encore d'enquête : trous permis (null dans l'index)
 
 def main(repo, out, only=None):   # only = ensemble de volets à empaqueter (artefact du collège)
     dest = os.path.join(out, 'paquets'); os.makedirs(dest, exist_ok=True)

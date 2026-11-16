@@ -5,7 +5,7 @@ Même moteur, mêmes modules ; seuls changent le titre, l'accueil et la liste de
 Ne jamais modifier college.html à la main : modifier index.html ou ce script, puis relancer."""
 import re, sys, os
 
-VOLETS = ['colonies']          # volets du collège, dans l'ordre de l'accueil (js/v-<id>.js, js/enq-<id>.js)
+VOLETS = ['colonies', 'guerres', 'monde45', 'republique']          # volets du collège, dans l'ordre de l'accueil (js/v-<id>.js, js/enq-<id>.js, js/d-<id>.js)
 SANS_DOSSIER = []   # volets dont les dossiers PDF/Word ne sont pas encore fabriqués
 GARDE = ['geo.js', 'img.js', 'engine.js', 'ui.js', 'facile.js', 'activites.js', 'enquete.js', 'galerie.js']
 
@@ -14,7 +14,9 @@ def main(repo):
     tags = re.findall(r'<script src="js/[^"]+"></script>\n', s)
     debut, fin = s.index(tags[0]), s.index(tags[-1]) + len(tags[-1])
     ordre = ['geo.js', 'pays.js', 'img.js', 'engine.js', 'ui.js', 'facile.js', 'activites.js', 'enquete.js']
-    ordre += ['enq-%s.js' % v for v in VOLETS] + ['galerie.js'] + ['v-%s.js' % v for v in VOLETS] + ['college.js']
+    ordre += ['enq-%s.js' % v for v in VOLETS if os.path.exists(os.path.join(repo, 'js', 'enq-%s.js' % v))] + ['galerie.js']
+    ordre += ['d-%s.js' % v for v in VOLETS if os.path.exists(os.path.join(repo, 'js', 'd-%s.js' % v))]   # mode facile, quiz, galerie
+    ordre += ['v-%s.js' % v for v in VOLETS] + ['college.js']
     assert all(f in ordre for f in GARDE)
     pre = '<script>window.ATLAS_COLLEGE=true;window.ENQ_LV={p:"Parcours guidé",c:"Parcours autonome"};window.ENQ_NODOS={%s};</script>\n' % ','.join('%s:1' % v for v in SANS_DOSSIER)
     s = s[:debut] + pre + ''.join('<script src="js/%s"></script>\n' % f for f in ordre) + s[fin:]
