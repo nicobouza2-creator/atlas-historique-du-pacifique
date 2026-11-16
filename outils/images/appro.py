@@ -21,7 +21,8 @@ Commandes (toutes écrivent/complètent un fichier de candidats JSON, puis on re
   appro.py ov|aic|cma|wel|loc "requête" CAND.json [n]
   appro.py lic CAND.json [id…]                    licence/auteur/date des candidats Commons retenus (page du fichier)
   appro.py sheet CAND.json planche.jpg [début]    planche contact (25 vignettes, id + licence sous chaque vignette)
-  appro.py get CAND.json id sortie.jpg [720]      image finale (côté max 720 px, JPEG q80, ~60-90 Ko)
+  appro.py get CAND.json id sortie.jpg [720]      image finale (côté max 720 px ; .jpg q80 ~60-90 Ko, .webp q78 ~35-50 Ko ;
+                                                  transparence posée sur fond blanc)
   appro.py add cle sortie.jpg "légende" "crédit" volet chapitre [volet chapitre…]
                                                   ajoute l'image à js/img.js et à la galerie du chapitre (js/galerie.js)
 Réseau : chaque site a sa file d'attente (pages Commons 4 s, vignettes thumb.wikimedia.org 1,2 s, élargie après un refus) ; une URL déjà obtenue
@@ -244,7 +245,7 @@ def sheet(cand, out, start=0, per=25):
     for i, c in enumerate(L):
         x, y = (i % cols) * W, (i // cols) * H
         try:
-            im = Image.open(io.BytesIO(vignette(c))).convert('RGB')
+            im = blanc(Image.open(io.BytesIO(vignette(c))))
             im.thumbnail((W - 8, H - 46)); img.paste(im, (x + (W - im.width) // 2, y + 4))
         except Exception as e:
             d.text((x + 8, y + 60), 'vignette KO ' + str(e)[:24], fill='red', font=font)
@@ -265,8 +266,19 @@ def get(c, out, side=720):
             print('  échec', u[:90], e, file=sys.stderr)
     else:
         raise SystemExit('aucune URL ne répond')
-    im = im.convert('RGB'); im.thumbnail((side, side)); im.save(out, quality=80, optimize=True, progressive=True)
+    im = blanc(im); im.thumbnail((side, side))
+    if out.lower().endswith('.webp'): im.save(out, 'WEBP', quality=78, method=6)
+    elif out.lower().endswith('.png'): im.save(out, optimize=True)
+    else: im.save(out, 'JPEG', quality=80, optimize=True, progressive=True)
     print(out, im.size)
+
+
+def blanc(im):
+    """RGB sur fond blanc : un PNG/GIF transparent converti tel quel sort sur fond NOIR."""
+    from PIL import Image
+    if im.mode in ('RGBA', 'LA', 'P') or 'transparency' in im.info:
+        im = im.convert('RGBA'); fond = Image.new('RGB', im.size, 'white'); fond.paste(im, mask=im.split()[3]); return fond
+    return im.convert('RGB')
 
 
 def add(key, path, cap, cred, places):
