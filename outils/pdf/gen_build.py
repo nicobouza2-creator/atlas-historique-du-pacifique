@@ -4,7 +4,7 @@ from gen import *
 
 def footer(c, doc, label):
     c.setFont('Atk', 8.3); c.setFillColor(MUTED)
-    c.drawString(M, 9 * mm, 'Dossier d’enquête %s · %s · Atlas historique du Pacifique' % (doc.code, clean(doc.ch['short'])))
+    c.drawString(M, 9 * mm, 'Dossier d’enquête %s · %s · %s' % (doc.code, clean(doc.ch['short']), NOMT(doc.vol)))
     c.drawRightString(W - M, 9 * mm, 'page %d / %s' % (c.getPageNumber(), doc.total or '…'))
     if label:
         c.setFillColor(colors.HexColor('#eef0f2')); c.rect(0, H - 12 * mm, W, 12 * mm, fill=1, stroke=0)
@@ -17,8 +17,8 @@ def bg_paper(c, doc):
     c.setFont('Type', 9.5); c.setFillColor(MUTED); c.drawString(M, H - 10 * mm, 'PIÈCES DU DOSSIER %s' % doc.code)
     c.setFont('Stamp', 9); c.setFillColor(RED); c.drawRightString(W - M, H - 10 * mm, 'CONFIDENTIEL')
     footer(c, doc, '')
-def bg_P(c, doc): footer(c, doc, 'CAHIER DE L’ENQUÊTEUR · NIVEAU ÉCOLE PRIMAIRE')
-def bg_C(c, doc): footer(c, doc, 'CAHIER DE L’ENQUÊTEUR · NIVEAU COLLÈGE')
+def bg_P(c, doc): footer(c, doc, 'CAHIER DE L’ENQUÊTEUR · ' + CAH(doc.vol)[0].upper())
+def bg_C(c, doc): footer(c, doc, 'CAHIER DE L’ENQUÊTEUR · ' + CAH(doc.vol)[1].upper())
 def bg_K(c, doc): footer(c, doc, 'CORRIGÉ · POUR L’ENSEIGNANT (à ne pas distribuer)')
 
 def draw_cover(c, doc):
@@ -34,7 +34,7 @@ def draw_cover(c, doc):
     c.setLineWidth(0.5); c.rect(lx + 2.5 * mm, ly + 2.5 * mm, lw - 5 * mm, lh - 5 * mm, fill=0, stroke=1)
     c.setStrokeColor(colors.HexColor('#8d949c')); c.setLineWidth(2.2); c.roundRect(lx + 12 * mm, ly + lh - 14 * mm, 7 * mm, 28 * mm, 3.5 * mm, stroke=1, fill=0)
     c.roundRect(lx + 13.6 * mm, ly + lh - 9 * mm, 3.8 * mm, 19 * mm, 1.9 * mm, stroke=1, fill=0)
-    c.setFillColor(MUTED); c.setFont('AtkB', 9.5); c.drawCentredString(W / 2, ly + lh - 11 * mm, 'ATLAS HISTORIQUE DU PACIFIQUE · BUREAU DES ENQUÊTES' + (' HISTORIQUES' if doc.vol in HIST else ''))
+    c.setFillColor(MUTED); c.setFont('AtkB', 9.5); c.drawCentredString(W / 2, ly + lh - 11 * mm, NOM(doc.vol) + ' · BUREAU DES ENQUÊTES' + (' HISTORIQUES' if doc.vol in HIST else ''))
     c.setFillColor(INK); c.setFont('Stamp', 31); c.drawCentredString(W / 2, ly + lh - 28 * mm, 'DOSSIER D’ENQUÊTE')
     c.setFont('Type', 13.5); c.drawCentredString(W / 2, ly + lh - 38 * mm, 'Affaire n° %s  ·  %s' % (doc.code, clean(ch['dates'], 'Type')))
     p = Paragraph(esc(ch['short']), S('ct', 'AtkB', 21, 25, BROWN, alignment=TA_CENTER)); ph = p.wrap(lw - 24 * mm, 40 * mm)[1]
@@ -45,7 +45,7 @@ def draw_cover(c, doc):
     c.drawString(lx + 10 * mm, y, 'Enquêteur / enquêtrice : ____________________________'); c.drawString(lx + lw - 58 * mm, y, 'Classe : ___________')
     y -= 10 * mm; c.drawString(lx + 10 * mm, y, 'Date : ______________'); c.drawString(lx + 70 * mm, y, 'Niveau :')
     c.setFont('DJ', 13); c.drawString(lx + 88 * mm, y, '☐'); c.drawString(lx + 128 * mm, y, '☐')
-    c.setFont('Atk', 11.5); c.drawString(lx + 94 * mm, y, 'École primaire'); c.drawString(lx + 134 * mm, y, 'Collège')
+    c.setFont('Atk', 11.5); c.drawString(lx + 94 * mm, y, NIV(doc.vol)[0]); c.drawString(lx + 134 * mm, y, NIV(doc.vol)[1])
     pid = next((d['id'] for pg in e['pg'] for d in (pg['d'] if isinstance(pg['d'], list) else [pg['d']]) if d['k'] == 'img'), None)
     if pid:
         from PIL import Image as PI
@@ -59,7 +59,7 @@ def draw_cover(c, doc):
     stamp(c, W - 50 * mm, 92 * mm, 'À ÉLUCIDER', 26, -14)
     c.setFont('Type', 10.5); c.setFillColor(INK)
     c.drawRightString(W - 18 * mm, 30 * mm, 'Contenu : %d pièces · cahier de l’enquêteur' % doc.npieces)
-    c.drawRightString(W - 18 * mm, 24 * mm, '(primaire et collège) · corrigé pour l’enseignant')
+    c.drawRightString(W - 18 * mm, 24 * mm, ('(parcours guidé et autonome)' if doc.vol in COLLEGE else '(primaire et collège)') + ' · corrigé pour l’enseignant')
 
 def story(vol, ci, book):
     ch = D['vols'][vol]['chapters'][ci]; e = D['vols'][vol]['enq'][ci]; ex = X['%s-%d' % (vol, ci)]; key = code(vol, ci)
@@ -77,7 +77,7 @@ def story(vol, ci, book):
             METH[vol in HIST] + '\nPeut-on lui faire confiance ? (est-ce un point de vue ? faut-il le comparer à une autre pièce ?)')]
     toc = [['Pièce n° %d' % (i + 1), t, 'p%d' % (i + 1)] for i, (t, d) in enumerate(pieces)] + [['Pièce n° %d' % n_ex, ex['t'], 'p%d' % n_ex]]
     if n_map: toc.append(['Pièce n° %d' % n_map, 'Carte de l’atlas', 'p%d' % n_map])
-    toc += [['Pièce n° %d' % n_last, 'Pli cacheté : note de synthèse et lexique', 'p%d' % n_last], ['Cahier', 'Niveau école primaire', 'cP'], ['Cahier', 'Niveau collège', 'cC'], ['Enseignant', 'Corrigé (à ne pas distribuer)', 'K']]
+    toc += [['Pièce n° %d' % n_last, 'Pli cacheté : note de synthèse et lexique', 'p%d' % n_last], ['Cahier', CAH(vol)[0], 'cP'], ['Cahier', CAH(vol)[1], 'cC'], ['Enseignant', 'Corrigé (à ne pas distribuer)', 'K']]
     rows = [[Paragraph('<b>%s</b>' % a, ST['card']), Paragraph(esc(b), ST['card']), Paragraph('page %s' % book.get(k, '…'), ST['card'])] for a, b, k in toc]
     t = Table(rows, colWidths=[30 * mm, FW - 52 * mm, 22 * mm]); t.setStyle(TableStyle([('LINEBELOW', (0, 0), (-1, -1), 0.4, colors.HexColor('#d8ccb0'))]))
     sto += [CondPageBreak(70 * mm), Paragraph('Sommaire du dossier', ST['h2']), t, PageBreak()]
@@ -91,12 +91,12 @@ def story(vol, ci, book):
     synth = '\n'.join('%s : %s' % (clean(p['era']), clean(p['txt'])) for p in ch['ph'])
     sto += [PageBreak(), Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse de l’atlas'), Spacer(1, 2 * mm),
             Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm),
-            Sheet('archive', 'Note de synthèse · ' + ch['short'], synth, 'Récit de l’atlas historique du Pacifique.', 'À OUVRIR EN DERNIER')]
+            Sheet('archive', 'Note de synthèse · ' + ch['short'], synth, ('Récit de l’atlas d’histoire du collège.' if vol in COLLEGE else 'Récit de l’atlas historique du Pacifique.'), 'À OUVRIR EN DERNIER')]
     if ch['mots']: sto += [Spacer(1, 5 * mm), KeepTogether(ledger('Lexique de l’enquêteur', ['Mot', 'Ce que ça veut dire'], ch['mots'], '', FW))]
     corr = {'p': [], 'c': []}
     for lv, tpl, anc in [('p', 'cahP', 'cP'), ('c', 'cahC', 'cC')]:
         sto += [NextPageTemplate(tpl), PageBreak(), Anchor(anc, book), Spacer(1, 4 * mm),
-                Paragraph('Cahier de l’enquêteur · ' + ('niveau école primaire' if lv == 'p' else 'niveau collège'), ST['h1']),
+                Paragraph('Cahier de l’enquêteur · ' + CAH(vol)[lv != 'p'].lower(), ST['h1']),
                 Paragraph('Nom : ______________________________ &nbsp;&nbsp; Dossier ' + key, ST['body']), Spacer(1, 3 * mm)]
         n = 0
         for i, pg in enumerate(pgs):
@@ -116,7 +116,7 @@ def story(vol, ci, book):
             sto += [Lines(3), Paragraph('Mon hypothèse de départ était juste : &nbsp; %s oui &nbsp;&nbsp; %s non &nbsp;&nbsp; %s en partie' % (BOX, BOX, BOX), ST['body'])]
     sto += [NextPageTemplate('corr'), PageBreak(), Anchor('K', book), Spacer(1, 4 * mm), Paragraph('Corrigé · pour l’enseignant', ST['h1']),
             Paragraph('<b>Réponse à la question de l’enquête :</b> ' + esc(e['f']['r']), ST['body'])]
-    for lv, lab in [('p', 'Cahier niveau école primaire'), ('c', 'Cahier niveau collège')]:
+    for lv, lab in [('p', 'Cahier ' + CAH(vol)[0].lower()), ('c', 'Cahier ' + CAH(vol)[1].lower())]:
         sto.append(Paragraph(lab, ST['h2']))
         sto += [Paragraph('<b>%d.</b> %s' % (n, esc(a)), S('ca', 'Atk', 10.5, 14, spaceAfter=3)) for n, a in corr[lv]]
     sto += [Paragraph('Indices attendus', ST['h2'])] + [Paragraph('<b>Pièce %d :</b> %s' % (i + 1, esc(pg['i'])), S('ci', 'Atk', 10.5, 14, spaceAfter=3)) for i, pg in enumerate(pgs)]
@@ -128,7 +128,7 @@ def build(vol, ci):
     for _ in range(2):
         buf = io.BytesIO() if total is None else OUT + '%s-%02d.pdf' % (vol, ci + 1)
         doc = BaseDocTemplate(buf, pagesize=A4, leftMargin=M, rightMargin=M, topMargin=18 * mm, bottomMargin=16 * mm,
-                              title='Dossier d’enquête %s · %s' % (code(vol, ci), D['vols'][vol]['chapters'][ci]['short']), author='Atlas historique du Pacifique')
+                              title='Dossier d’enquête %s · %s' % (code(vol, ci), D['vols'][vol]['chapters'][ci]['short']), author=NOMT(vol))
         doc.vol = vol; doc.code = code(vol, ci); doc.ch = D['vols'][vol]['chapters'][ci]; doc.E = D['vols'][vol]['enq'][ci]; doc.total = total
         fr = Frame(M, 16 * mm, FW, H - 34 * mm, id='f', leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0)
         doc.addPageTemplates([PageTemplate('cover', [fr], onPage=draw_cover), PageTemplate('paper', [fr], onPage=bg_paper),
@@ -138,7 +138,11 @@ def build(vol, ci):
         total = doc.page
     return total
 
-HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes'}   # volets d’histoire : en-tête « historiques », méthode du témoin
+COLLEGE = {'colonies', 'guerres', 'monde45', 'republique'}   # volets de l’atlas du collège : autre nom d’atlas, deux parcours au lieu de deux niveaux
+def NOM(vol): return 'ATLAS D’HISTOIRE — COLLÈGE' if vol in COLLEGE else 'ATLAS HISTORIQUE DU PACIFIQUE'
+def NIV(vol): return ('Parcours guidé', 'Parcours autonome') if vol in COLLEGE else ('École primaire', 'Collège')
+def CAH(vol): return ('Parcours guidé', 'Parcours autonome') if vol in COLLEGE else ('Niveau école primaire', 'Niveau collège')
+HIST = {'pacifique', 'caledonie', 'monde', 'decouvertes', 'colonies', 'guerres', 'monde45', 'republique'}   # volets d’histoire : en-tête « historiques », méthode du témoin
 METH = {True: 'Qui l’a fait ? (un témoin, un savant, un voyageur, l’atlas…)\nQuand ? (au moment des faits, ou bien plus tard ?)\nQu’est-ce que c’est ? (photo, carte, texte, tableau, objet…)\nPour quoi faire ? (raconter, expliquer, convaincre, garder une trace…)',
         False: 'Qui l’a fait ? (un témoin, un savant, un organisme officiel, l’atlas…)\nQuand ? (au moment des faits, ou bien plus tard ?)\nQu’est-ce que c’est ? (photo, carte, texte, tableau, graphique…)\nPour quoi faire ? (raconter, expliquer, informer, convaincre…)'}
 

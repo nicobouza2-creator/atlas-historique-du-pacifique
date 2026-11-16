@@ -2,6 +2,7 @@
 Sert le dépôt, remplace d3 (CDN) par la copie locale, exécute le JS (async function body) et affiche le résultat + erreurs."""
 import sys, json, threading, http.server, functools, socketserver, os
 from playwright.sync_api import sync_playwright
+PAGE = os.environ.get('PAGE', 'index.html')   # PAGE=college.html pour l'atlas du collège
 REPO = os.environ.get('REPO') or os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))   # REPO=<dist> pour tester la version publiée
 # d3 7.8.5 servi en local (le CDN n'est pas joignable partout) : chemin dans la variable D3, sinon le CDN est laissé passer
 D3 = open(os.environ['D3'], 'rb').read() if os.environ.get('D3') else None
@@ -24,7 +25,7 @@ with sync_playwright() as p:
     pg.route('**/fonts.gstatic.com/**', lambda r: r.abort())
     pg.on('pageerror', lambda e: errs.append('PAGEERROR ' + str(e)))
     pg.on('console', lambda m: errs.append('CONSOLE ' + m.text) if m.type == 'error' and 'favicon' not in m.text else None)
-    pg.goto(f'http://127.0.0.1:{port}/index.html{hsh}')
+    pg.goto(f'http://127.0.0.1:{port}/{PAGE}{hsh}')
     pg.wait_for_timeout(1500)
     try:
         res = pg.evaluate('async()=>{' + js + '}')

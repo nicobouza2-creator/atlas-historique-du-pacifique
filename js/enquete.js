@@ -157,7 +157,7 @@ function b64(t){var s=atob(t.trim()),u=new Uint8Array(s.length);for(var i=0;i<s.
 var MIME={pdf:'application/pdf',docx:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'};
 function dossier(S,b,ext){
   ext=ext||'pdf';
-  var code=({pacifique:'P',caledonie:'NC',monde:'PT',decouvertes:'GD',geonc:'GN',nickel:'NI',mondial:'MO',emc:'EMC'}[S.vol]||'X')+'-'+pad2(S.ci+1),url=ext+'/'+S.vol+'-'+pad2(S.ci+1)+'.'+ext,name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.'+ext;
+  var code=({pacifique:'P',caledonie:'NC',monde:'PT',decouvertes:'GD',geonc:'GN',nickel:'NI',mondial:'MO',emc:'EMC',colonies:'CO',guerres:'GM',monde45:'M45',republique:'RF'}[S.vol]||'X')+'-'+pad2(S.ci+1),url=ext+'/'+S.vol+'-'+pad2(S.ci+1)+'.'+ext,name='Dossier-enquete-'+code+'-'+slugify(S.ch.short)+'.'+ext;
   var old=b.textContent;b.disabled=true;b.textContent='⏳ Préparation du dossier…';
   function done(t){b.disabled=false;b.textContent=t||old;if(t)setTimeout(function(){b.textContent=old;},4000);}
   getPack(S,ext).catch(function(){return fetch(url).then(function(r){if(!r.ok)throw new Error('absent');return r.blob();});}).then(function(blob){
@@ -170,10 +170,11 @@ function dossier(S,b,ext){
 /* lien direct (dépôt GitHub) : marche partout, y compris dans l'appli Claude sur téléphone, où l'enregistrement direct n'existe pas */
 var GH='https://raw.githubusercontent.com/nicobouza2-creator/atlas-historique-du-pacifique/main/';
 function dosBtn(S,cls){
+  if((window.ENQ_NODOS||{})[S.vol])return el('span','enq-dos');   /* volet sans dossier imprimable pour l'instant */
   var w=el('span','enq-dos'),b=btn('📄 Dossier PDF à imprimer',cls||'',function(){dossier(S,b);});b.title='Pièces du dossier, cahiers primaire et collège, corrigé';
   var bw=btn('📝 Dossier Word (modifiable)',cls||'',function(){dossier(S,bw,'docx');});bw.title='Le même dossier au format Word (.docx), pour modifier les textes et les questions';
   var a=el('a','enq-doslink','📱 Ouvrir le PDF (téléphone, tablette) ↗');a.href=GH+'pdf/'+S.vol+'-'+pad2(S.ci+1)+'.pdf';a.target='_blank';a.rel='noopener';
-  w.appendChild(b);w.appendChild(bw);w.appendChild(a);return w;
+  w.appendChild(b);w.appendChild(bw);if(!window.ATLAS_COLLEGE)w.appendChild(a);return w;   /* lien GitHub : seulement pour les dossiers déjà sur main */
 }
 function zoom(src,cap){
   var z=el('div','enq-zoom'),im=document.createElement('img');im.src=src;im.alt=cap||'';z.appendChild(im);if(cap)z.appendChild(el('p','',cap));
@@ -323,7 +324,7 @@ QR.libre=function(q,n,done){
 };
 
 /* ---------- Déroulé de l'enquête ---------- */
-var cur=null,LV={p:'École primaire',c:'Collège'};
+var cur=null,LV=window.ENQ_LV||{p:'École primaire',c:'Collège'};   /* atlas du collège : deux niveaux de guidage (college.html) */
 function close(){if(!cur)return;var c=cur;cur=null;hush();if(c.back)c.back.remove();c.ov.remove();}
 document.addEventListener('keydown',function(e){
   if(e.key!=='Escape'||!cur)return;var z=document.querySelector('.enq-zoom');e.stopPropagation();
@@ -511,7 +512,7 @@ function result(S,R){
   var k=progKey(S,S.lvl),old=load(k,null);if(!old||S.stars/S.tot>=old.s/old.t)save(k,{s:S.stars,t:S.tot});
   var row=el('div','enq-row');row.style.justifyContent='center';
   row.appendChild(btn('↺ Recommencer','',function(){S.hyp=-1;accueil(S);}));
-  row.appendChild(btn('Faire le niveau '+(S.lvl==='p'?'collège':'primaire'),'',function(){S.lvl=S.lvl==='p'?'c':'p';S.hyp=-1;accueil(S);}));
+  row.appendChild(btn(window.ENQ_LV?'Refaire en « '+LV[S.lvl==='p'?'c':'p']+' »':'Faire le niveau '+(S.lvl==='p'?'collège':'primaire'),'',function(){S.lvl=S.lvl==='p'?'c':'p';S.hyp=-1;accueil(S);}));
   var list=ENQ[S.vol],nx=-1;for(var i=S.ci+1;i<list.length;i++)if(list[i]){nx=i;break;}
   row.appendChild(dosBtn(S));
   if(nx>=0)row.appendChild(btn('Enquête suivante : '+api.chs()[nx].short+' ▶','go',function(){start(nx);}));
