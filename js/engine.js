@@ -781,7 +781,7 @@ function buildTabs(){
 }
 /* menu d'entrée : choix du volet (au premier chargement sans #volet, et via le bouton du titre) */
 var started=false,homeWas=false;
-function openHome(){var h=$('home');if(!h)return;homeWas=playing;pause();hush();h.hidden=false;document.body.classList.add('home-on');var b=tabEls[VI]||tabEls[0];if(b)try{b.focus({preventScroll:true});}catch(e){}}
+function openHome(){var h=$('home');if(!h)return;if(started)document.body.classList.add('started');homeWas=playing;pause();hush();h.hidden=false;document.body.classList.add('home-on');var b=tabEls[VI]||tabEls[0];if(b)try{b.focus({preventScroll:true});}catch(e){}}
 function closeHome(pick){var h=$('home');if(!h||h.hidden)return;h.hidden=true;document.body.classList.remove('home-on');document.body.classList.add('started');if(pick)return;if(!started){started=true;if(REDUCE)showStill();else play();}else if(homeWas)play();}
 /* mouvement réduit : pas de lecture automatique, on montre la carte de fin du chapitre (Lecture la rejoue) */
 function showStill(){pause();cur.t=CH[cur.ci].dur;render();updateUI();}
