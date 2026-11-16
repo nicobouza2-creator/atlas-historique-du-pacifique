@@ -9,6 +9,7 @@ Chemins codés en dur : dépôt `/home/claude/repo/` (lien vers le clone), dossi
 2. Pièces en plus : `pdf/extras.json` (tous les volets sauf EMC, relus dans les PDF par `extract_extras.py`) et `pdf/extras5.py` (EMC, écrit à la main). Copier les deux dans `dossiers/` avec `pdf/*.py`, et fusionner `extras5.X` dans `dossiers/extras.json` pour `gen_docx.py`.
 3. `pdf/gen_build.py [volet [index]]` (lancé depuis `dossiers/`) : écrit `dossiers/pdf/<volet>-<nn>.pdf` (ReportLab ; mise en page dans `gen_base.py` et `gen.py`). Les volets d'histoire ont l'en-tête « Bureau des enquêtes historiques ».
 4. `gen_docx.py [volet [index]]` : écrit `dossiers/docx/<volet>-<nn>.docx` (même graine de mélange que les PDF).
+0. Pour savoir quels dossiers refaire après une modification : exporter l'ancienne version (`git worktree add /home/claude/base <commit>`, `export.py /home/claude/base`, déplacer `data.json` et `cartes/` dans `/home/claude/dossiers-old/`), exporter la nouvelle, puis `compare_dossiers.py`. Les cartes des dossiers n'ont pas de légende : seuls les noms et les dates posés sur la carte comptent.
 5. `check_parity.py` : compare le corrigé de chaque .docx avec celui du PDF du dépôt. Faux positif connu : `mondial-11`.
 6. Copier les PDF et .docx dans `pdf/` et `docx/` du dépôt.
 
