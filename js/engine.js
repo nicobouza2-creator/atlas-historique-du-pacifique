@@ -169,7 +169,7 @@ function Rg(ring,col,t0,a,fade,grow){var z={k:'reg',col:col,a:a==null?0.55:a,t0:
 /* ---------- Volets ---------- */
 var VOLS=[],VI=-1,VOL=null,CH=[];
 var cur={ci:0,t:0},playing=false,last=0,free=null,tool='none',stepHold=false,VIS=ALL,hover=null;
-var opt={proj:'auto',speed:1,auto:false,step:false,labels:true,photos:true,names:false,lines:false,scale:true,coord:false,big:false,voice:false,easy:false,frise:true};
+var opt={proj:'auto',speed:1,auto:false,step:false,labels:true,photos:true,names:false,lines:false,scale:true,coord:false,big:false,voice:false,easy:false,frise:true,sprites:true};
 try{var sv=JSON.parse(localStorage.getItem('atlas-hg-opts')||'null');if(sv)Object.keys(opt).forEach(function(k){if(typeof sv[k]===typeof opt[k])opt[k]=sv[k];});}catch(e){}
 function saveOpt(){try{localStorage.setItem('atlas-hg-opts',JSON.stringify(opt));}catch(e){}}
 
@@ -286,8 +286,62 @@ function drawShip(x,y,dir,s,col){
   ctx.restore();
 }
 var SPR={},SPR_NAMES={radeau:'Radeau de bambou',balancier:'Pirogue à balancier',polynesien:'Pirogue double polynésienne',kanak:'Pirogue double kanak',drakkar:'Drakkar viking',jonque:'Jonque chinoise',boutre:'Boutre de l’océan Indien',goelette:'Goélette de commerce',caravelle:'Caravelle portugaise',nao:'Caraque (nao)',nef:'Nef française de Cartier',galion:'Galion espagnol',flute:'Flûte hollandaise',fregate:'Frégate française',endeavour:'L’Endeavour de Cook',troismats:'Trois-mâts du XIXe siècle',vapeur:'Navire à vapeur',liberty:'Navire de transport (1942)',mineralier:'Minéralier (transport du minerai)',conteneurs:'Porte-conteneurs'};
-function sprSrc(k){return (window.BOATS&&window.BOATS[k])||('img/b-'+k+'.png');}
-Object.keys(SPR_NAMES).forEach(function(k){var im=new Image();im.onload=function(){SPR[k]=im;schedule();};im.onerror=function(){};im.src=sprSrc(k);});
+/* Les 20 bateaux d'origine ont un fichier img/b-<clé>.png. Les autres sprites viennent de js/sprites.js (window.BOATS), chargé après le démarrage :
+   bateaux récents, s- = ce qui se déplace sur terre ou dans les airs, l- = lieux, m- = monuments, <clé>-f2 = 2e image d'une animation. */
+var SPR_OLD={},SPR_REQ={};Object.keys(SPR_NAMES).forEach(function(k){SPR_OLD[k]=1;});
+var SPR_PLUS={'baleinier':'Baleinier','cablier':'Navire câblier (pose les câbles)','chaland':'Chaland de minerai','cuirasse':'Cuirassé','migrants':'Bateau de migrants','porteavions':'Porte-avions','sousmarin':'Sous-marin','ferry':'Navire rapide vers les îles','paquebot':'Paquebot','cargo':'Cargo','marchand18':'Navire marchand du XVIIIe siècle','galere':'Galère marchande de Venise','barge':'Barge de débarquement','thonier':'Thonier','s-erectus':'Homo erectus','s-sapiens':'Homo sapiens','s-neandertal':'Néandertaliens','s-beringie':'Chasseurs de l’âge de glace','s-paysans':'Premiers paysans','s-caravane':'Caravane de chameaux','s-refugies':'Familles sur les routes','s-immigres':'Travailleurs immigrés','s-poilu':'Soldat français (1915)','s-allemand14':'Soldat allemand (1914)','s-tirailleur':'Tirailleur','s-bataillon-pacifique':'Soldat du Bataillon du Pacifique','s-gi':'Soldat américain','s-japonais':'Soldat japonais','s-soldat-chinois':'Soldat chinois (1950)','s-char1917':'Char Renault FT (1917)','s-char1940':'Char de 1940','s-char-sovietique':'Char soviétique','s-char-moderne':'Char d’aujourd’hui','s-missile':'Camion lance-missile','s-train':'Train à vapeur','s-tgv':'TGV (1981)','s-camion-minier':'Camion de mine','s-pickup':'Pick-up','s-avion':'Avion de ligne','s-biplan':'Avion biplan','s-bombardier':'Bombardier américain','s-chasseur-jp':'Avion de chasse japonais','s-dakota':'Avion de transport (1948)','s-cyclone':'Cyclone','l-aeroport':'Aéroport','l-aerodrome':'Aérodrome militaire (1942)','l-atoll':'Atoll','l-bagne':'Pénitencier (bagne)','l-banquise':'Glace','l-barrage':'Barrage','l-base-us':'Base américaine','l-bataille':'Bataille, combats','l-cafeiere':'Plantation de café','l-campement':'Campement','l-canal':'Canal','l-centrale-nucleaire':'Centrale nucléaire','l-champignon':'Explosion atomique','l-cocoteraie':'Cocoteraie','l-comptoir':'Comptoir de commerce','l-cyclone':'Cyclone','l-debarquement':'Débarquement','l-desert':'Désert','l-epave':'Épave','l-ferme-crevettes':'Ferme de crevettes','l-foret':'Forêt','l-fort':'Fort','l-fouille-lapita':'Fouille archéologique','l-fusee':'Fusée','l-grand-ensemble':'Grand ensemble','l-grande-case':'Grande case','l-grotte':'Grotte','l-hypermarche':'Hypermarché','l-mairie':'Mairie','l-mangrove':'Mangrove','l-mine':'Mine','l-mission':'Mission','l-monument':'Monument','l-montagne':'Montagne','l-mur-berlin':'Mur de Berlin','l-onu':'Siège de l’ONU','l-parlement-europeen':'Parlement européen','l-pearl-harbor':'Pearl Harbor (1941)','l-plage':'Plage','l-plantation':'Plantation','l-port-conteneurs':'Port à conteneurs','l-recif':'Récif de corail','l-rethondes':'Wagon de l’armistice','l-station':'Station d’élevage','l-tranchee':'Tranchée','l-tribu':'Tribu','l-urne':'Vote','l-usine':'Usine','l-usine-armement':'Usine d’armement','l-village-iroquoien':'Village iroquoien','l-village-neolithique':'Village des premiers paysans','l-ville':'Grande ville','l-volcan':'Volcan','l-wharf':'Wharf (quai de chargement)','m-arc-triomphe':'Arc de triomphe','m-assemblee':'Assemblée nationale','m-bastille':'Colonne de la Bastille','m-belem':'Tour de Belém','m-big-ben':'Big Ben','m-brandebourg':'Porte de Brandebourg','m-burj-khalifa':'Burj Khalifa','m-cathedrale-noumea':'Cathédrale de Nouméa','m-chichen-itza':'Chichén Itzá','m-christ-rio':'Christ de Rio','m-cite-interdite':'Cité interdite','m-coeur-voh':'Cœur de Voh','m-colisee':'Colisée','m-elysee':'Palais de l’Élysée','m-hiroshima':'Dôme d’Hiroshima','m-kremlin':'Place Rouge','m-liberte':'Statue de la Liberté','m-maison-blanche':'Maison-Blanche','m-moai':'Moaï','m-mont-saint-michel':'Mont-Saint-Michel','m-muraille':'Grande Muraille','m-notre-dame':'Notre-Dame de Paris','m-opera-sydney':'Opéra de Sydney','m-pagode-nankin':'Tour de porcelaine de Nankin','m-pearl-harbor':'Mémorial de Pearl Harbor','m-phare-amedee':'Phare Amédée','m-pyramides':'Pyramides','m-sainte-sophie':'Sainte-Sophie','m-senat':'Sénat','m-stonehenge':'Stonehenge','m-taj-mahal':'Taj Mahal','m-tiki':'Tiki','m-tjibaou':'Centre culturel Tjibaou','m-tour-eiffel':'Tour Eiffel','m-tour-tokyo':'Tour de Tokyo','m-venise':'Venise','m-versailles':'Château de Versailles'};
+Object.keys(SPR_PLUS).forEach(function(k){SPR_NAMES[k]=SPR_PLUS[k];});
+function sprSrc(k){var B=window.BOATS;return (B&&B[k])||(SPR_OLD[k]?'img/b-'+k+'.png':null);}
+function sprGet(k){var im=SPR[k];if(im)return im;if(SPR_REQ[k])return null;var src=sprSrc(k);if(!src)return null;SPR_REQ[k]=1;im=new Image();im.onload=function(){SPR[k]=im;schedule();};im.onerror=function(){};im.src=src;return null;}
+/* 'a|b' : le premier sprite qui existe (a peut être un sprite pas encore dessiné, b le remplace en attendant) ; rend la clé prête à dessiner, sinon null */
+function sprAny(s){if(!s)return null;var a=s.indexOf('|')<0?[s]:s.split('|'),i;for(i=0;i<a.length;i++){if(SPR[a[i]])return a[i];if(sprSrc(a[i])){sprGet(a[i]);return null;}}return null;}
+function sprLoad(){if(window.BOATS&&window.BOATS['s-avion'])return;var e=document.createElement('script');e.src='js/sprites.js';e.async=true;document.head.appendChild(e);}
+function sprKind(k){return k==='s-cyclone'?'tour':/^s-(avion|biplan|bombardier|chasseur|dakota)/.test(k)?'air':/^s-(train|tgv|camion|char|missile|pickup)/.test(k)?'roue':/^s-/.test(k)?'pas':/^[lm]-/.test(k)?'lieu':'mer';}
+/* sprite au bout d'un trajet : il regarde dans le sens de la marche et bouge un peu (roulis d'un bateau, pas d'un marcheur, vol d'un avion) */
+function drawSpr(key,x,y,dir,ang,sc,tt){
+  var im=SPR[key],kind=sprKind(key),ph=EXPORT?0:tt*6.2832,f2=EXPORT?null:sprGet(key+'-f2'),ref=im,bw,bh,dy=0,rot=0,i,u;
+  if(f2&&Math.floor(tt*3.4)%2)im=f2;
+  if(kind==='mer'){bw=46*sc;bh=bw*ref.height/ref.width;}
+  else{var q=Math.sqrt(clamp(ref.width/ref.height,0.5,2.8)),s0=(kind==='tour'?44:kind==='pas'?38:34)*sc;bw=s0*q;bh=s0/q;}
+  ctx.save();ctx.translate(x,y);
+  if(kind==='tour'){ctx.rotate(EXPORT?0:tt*1.5);ctx.globalAlpha=0.92;ctx.drawImage(im,-bw/2,-bh/2,bw,bh);ctx.restore();return;}
+  if(kind==='air'){ctx.fillStyle='rgba(8,20,36,.22)';ctx.beginPath();ctx.ellipse(0,3*sc,bw*0.3,bh*0.14,0,0,6.2832);ctx.fill();}
+  if(kind==='mer'&&!EXPORT){ctx.strokeStyle='#fff';ctx.lineWidth=1.3*sc;ctx.lineCap='round';
+    for(i=0;i<3;i++){u=((tt*0.55+i/3)%1+1)%1;ctx.globalAlpha=(1-u)*0.5;ctx.beginPath();ctx.arc(-dir*(bw*0.42+u*bw*0.42),bh*0.2,2.6*sc*(0.6+u),0.25,2.9);ctx.stroke();}ctx.globalAlpha=1;}
+  if(kind==='roue'&&!EXPORT){ctx.fillStyle='#e6dccb';for(i=0;i<3;i++){u=((tt*0.9+i/3)%1+1)%1;ctx.globalAlpha=(1-u)*0.42;ctx.beginPath();ctx.arc(-dir*(bw*0.52+u*10*sc),-2*sc-u*5*sc,(1.8+u*3)*sc,0,6.2832);ctx.fill();}ctx.globalAlpha=1;}
+  ctx.scale(dir,1);
+  if(kind==='mer'){dy=Math.sin(ph*0.45)*1.1*sc;rot=Math.sin(ph*0.45+1)*0.04;ctx.translate(0,dy);ctx.rotate(rot);ctx.drawImage(im,-bw/2,-bh*0.74,bw,bh);}
+  else if(kind==='air'){var d=dir>0?ang:-(Math.atan2(Math.sin(ang-Math.PI),Math.cos(ang-Math.PI)));d=Math.atan2(Math.sin(d),Math.cos(d));ctx.translate(0,-11*sc+Math.sin(ph*0.35)*1.4*sc);ctx.rotate(clamp(d,-0.55,0.55));ctx.drawImage(im,-bw/2,-bh/2,bw,bh);}
+  else if(kind==='roue'){ctx.translate(0,Math.sin(ph*2.6)*0.45*sc);ctx.drawImage(im,-bw/2,-bh*0.94,bw,bh);}
+  else{dy=-Math.abs(Math.sin(ph*0.85))*2.2*sc;rot=Math.sin(ph*0.85)*0.03;ctx.translate(0,dy);ctx.rotate(rot);ctx.drawImage(im,-bw/2,-bh*0.94,bw,bh);}
+  ctx.restore();
+}
+/* petite image posée sur un lieu (étiquette avec ic:'clé') : taille liée à celle du texte, surface égale d'un sprite à l'autre */
+function icDim(Lb,fs){
+  if(!Lb.ic||!opt.sprites||NUMS||BARE)return null;
+  var k=sprAny(Lb.ic);if(!k)return null;
+  var im=SPR[k],q=Math.sqrt(clamp(im.width/im.height,0.55,1.8)),h0=fs*2.35*clamp(0.92+0.06*Math.sqrt(Math.max(1,camNow.z||1)),0.92,1.45)*((Lb.gold||Lb.big)?1.15:1);
+  return {k:k,im:im,w:h0*q,h:h0/q};
+}
+var PUFF={'l-usine':[0.46,0.02],'l-volcan':[0.36,0],'l-centrale-nucleaire':[0.4,0.08]};
+function drawIcon(I,q,Lb){
+  var tt=cur.t,s=1,rot=0,u,c1=1.70158,i;
+  if(!EXPORT){u=clamp((tt-Lb.t)/0.55,0,1);s=u>=1?1:1+(c1+1)*Math.pow(u-1,3)+c1*Math.pow(u-1,2);if(I.k==='l-bataille')rot=Math.sin(tt*5+Lb.lon)*0.07;}
+  if(s<=0.02)return;
+  var w=I.w*s,h=I.h*s,by=q[1]+I.h*0.2,a0=ctx.globalAlpha;
+  ctx.save();
+  if(I.k==='s-cyclone'){ctx.translate(q[0],q[1]);ctx.rotate(EXPORT?0:tt*1.5);ctx.drawImage(I.im,-w/2,-h/2,w,h);}
+  else{ctx.translate(q[0],by);if(rot)ctx.rotate(rot);ctx.drawImage(I.im,-w/2,-h,w,h);}
+  ctx.restore();
+  var pf=PUFF[I.k];
+  if(pf&&!EXPORT&&s>=1){var r=I.h*0.1,px=q[0]+(pf[0]-0.5)*I.w,py=by-I.h*(1-pf[1]);ctx.save();ctx.fillStyle='#ece7de';
+    for(i=0;i<3;i++){u=((tt*0.42+i/3)%1+1)%1;ctx.globalAlpha=a0*(1-u)*0.55;ctx.beginPath();ctx.arc(px+Math.sin((u+i)*5)*r*0.6,py-u*r*3.4,r*(0.55+u),0,6.2832);ctx.fill();}ctx.restore();}
+}
+/* js/sprmap.js : quel sprite sur quel trajet (r : n° de trajet, ou '*' pour tous les trajets sans bateau) et sur quel lieu
+   (l : tout le volet, lc : un chapitre ; '' = pas d'image dans ce chapitre) */
+function sprMap(v){var M=(window.SPRMAP||{})[v.id];if(!M)return;(v.chapters||[]).forEach(function(c,ci){var R=M.r&&M.r[ci],LC=(M.lc&&M.lc[ci])||{},LV=M.l||{};
+  if(R)(c.routes||[]).forEach(function(rt,i){var k=R[i]||(!(rt.boat||rt.ship)&&R['*']);if(k)rt.sp=k;});
+  (c.labels||[]).forEach(function(l){if(l.ic)return;var k=LC[l.text]!==undefined?LC[l.text]:LV[l.text];if(k)l.ic=k;});});}
 function sprKey(rt){return rt.sp||(rt.ship?'nao':'balancier');}
 function projPts(pts,n,frac){
   var sp=[],prev=null,flat=projKind!=='globe',i;
@@ -327,12 +381,12 @@ function drawRoute(rt,tt,K){
     for(i=M-2;i>=0;i--){if(!sp[i])break;if(Math.hypot(tip[0]-sp[i][0],tip[1]-sp[i][1])>=4){prev=sp[i];break;}}
     if(prev){
       var ang=Math.atan2(tip[1]-prev[1],tip[0]-prev[0]);
-      if(rt.boat||rt.ship){
+      var sea=rt.boat||rt.ship,sk=(sea||(rt.sp&&p<1&&opt.sprites))?sprAny(sprKey(rt)):null;   /* sprite : bateau, ou trajet à pied, en train, en avion… (js/sprmap.js) */
+      if(sea||sk){
         var cs=Math.cos(ang),dir=rt._dir||(cs>=0?1:-1);if(cs>0.3)dir=1;else if(cs<-0.3)dir=-1;if(!EXPORT)rt._dir=dir;
         var sc=clamp(0.85*K*(0.8+0.12*Math.sqrt(Math.max(1,camNow.z))),0.8,2);
-        var im=SPR[sprKey(rt)];
         if(p<1){
-          if(im){var bw=46*sc,bh=bw*im.height/im.width;ctx.save();ctx.translate(tip[0],tip[1]);ctx.scale(dir,1);ctx.drawImage(im,-bw/2,-bh*0.74,bw,bh);ctx.restore();}
+          if(sk)drawSpr(sk,tip[0],tip[1],dir,ang,sc,tt);
           else if(rt.ship)drawShip(tip[0],tip[1],dir,sc,RC);else drawBoat(tip[0],tip[1],dir,sc,RC);
         }
         else{ctx.save();ctx.fillStyle=RC;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(tip[0],tip[1],4*K,0,6.2832);ctx.fill();ctx.stroke();ctx.restore();}
@@ -499,6 +553,7 @@ function drawOneLabel(Lb,a,fs,o){
   ctx.globalAlpha=a;
   var mk=Lb.mark||(Lb.nomark?'none':'dot');
   ctx.fillStyle=gold?TH.gold:TH.ink;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.5;
+  if(P.ic){drawIcon(P.ic,q,Lb);mk='none';}
   if(mk==='dot'){ctx.beginPath();ctx.arc(q[0],q[1],gold?5:3.2,0,6.2832);ctx.fill();ctx.stroke();}
   else if(mk==='site'){ctx.save();ctx.translate(q[0],q[1]);ctx.rotate(Math.PI/4);ctx.fillStyle=GOLD;ctx.fillRect(-4.5,-4.5,9,9);ctx.strokeRect(-4.5,-4.5,9,9);ctx.restore();}
   else if(mk==='star'){ctx.save();ctx.translate(q[0],q[1]);ctx.fillStyle='#ff9ecb';ctx.beginPath();for(var k=0;k<10;k++){var rr=k%2?3:7,an=-Math.PI/2+k*Math.PI/5;ctx.lineTo(rr*Math.cos(an),rr*Math.sin(an));}ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();}
@@ -537,9 +592,13 @@ function lpos(Lb,fs,o){
   var size=Lb.big?fs*1.3:fs,key=fs+'|'+size;
   if(Lb._wk!==key){ctx.font='600 '+size+'px '+FONT;var w0=ctx.measureText(Lb.text).width;if(Lb.sub){ctx.font='400 '+(fs*0.84)+'px '+FONT;w0=Math.max(w0,ctx.measureText(Lb.sub).width);}Lb._w=w0;Lb._wk=key;}
   var dx=o?o.dx:(Lb.dx||0),dy=o?o.dy:(Lb.dy||0),al=o?o.al:(Lb.al||'center');
+  var I=icDim(Lb,fs);   /* petite image sur le lieu : le texte s'écarte pour la laisser voir */
+  if(I){if(al==='left')dx=Math.max(dx,I.w*0.5+4);else if(al==='right')dx=Math.min(dx,-(I.w*0.5+4));else if(dy<0)dy=Math.min(dy,-(I.h*0.8+size*0.6+(Lb.sub?fs*1.15:0)));else dy=Math.max(dy,I.h*0.2+size*0.6+2);}
   var w=Lb._w,x2=q[0]+dx,y2=q[1]+dy,bx0=al==='left'?x2:al==='right'?x2-w:x2-w/2,sh=0;
   if(bx0<4)sh=4-bx0;else if(bx0+w>W-4)sh=W-4-bx0-w;
-  return {q:q,x:x2+sh,y:y2,al:al,size:size,b:[bx0+sh,y2-size*0.6,bx0+sh+w,y2+size*0.6+(Lb.sub?fs*1.05:0)]};
+  var b=[bx0+sh,y2-size*0.6,bx0+sh+w,y2+size*0.6+(Lb.sub?fs*1.05:0)];
+  if(I)b=[Math.min(b[0],q[0]-I.w/2),Math.min(b[1],q[1]-I.h*0.8),Math.max(b[2],q[0]+I.w/2),Math.max(b[3],q[1]+I.h*0.2)];
+  return {q:q,x:x2+sh,y:y2,al:al,size:size,b:b,ic:I};
 }
 function labelBox(Lb,fs,o){var P=lpos(Lb,fs,o);return P?P.b:null;}
 /* écran : quand deux noms se chevauchent, le plus important (or, gros) puis le plus récent reste net, l'autre s'estompe en douceur */
@@ -937,9 +996,12 @@ function buildFiche(){
     elFiche.appendChild(el('h4','','Questions pour la classe'));
     ch.q.forEach(function(q){var d=el('details'),s=el('summary','',q[0]);d.appendChild(s);d.appendChild(el('p','',q[1]));elFiche.appendChild(d);});
   }
-  var bk={},bl=[];(ch.routes||[]).forEach(function(rt){if(rt.boat||rt.ship){var k=sprKey(rt);if(!bk[k]&&SPR_NAMES[k]){bk[k]=1;bl.push(k);}}});
+  var bk={},bl=[],seul=true;
+  function bAdd(s,mer){(s||'').split('|').some(function(k){if(bk[k])return true;if(SPR_NAMES[k]&&sprSrc(k)){bk[k]=1;bl.push(k);if(!mer)seul=false;return true;}return false;});}
+  (ch.routes||[]).forEach(function(rt){if(rt.boat||rt.ship)bAdd(sprKey(rt),true);else if(rt.sp&&opt.sprites)bAdd(rt.sp,sprKind(rt.sp.split('|')[0])==='mer');});
+  if(opt.sprites)(ch.labels||[]).forEach(function(l){if(l.ic)bAdd(l.ic,false);});
   if(bl.length){
-    elFiche.appendChild(el('h4','','Bateaux du chapitre'));var bx=el('div','boats');
+    elFiche.appendChild(el('h4','',seul?'Bateaux du chapitre':'Les petites images de la carte'));var bx=el('div','boats');
     bl.forEach(function(k){var f=el('figure'),im=document.createElement('img');im.src=sprSrc(k);im.alt='';im.loading='lazy';f.appendChild(im);f.appendChild(el('figcaption','',SPR_NAMES[k]));bx.appendChild(f);});
     elFiche.appendChild(bx);
   }
@@ -1233,7 +1295,7 @@ function syncOptUI(){
   document.body.classList.toggle('big-text',opt.big);document.body.classList.toggle('easy',opt.easy);document.body.classList.toggle('no-frise',!opt.frise);
 }
 [].forEach.call(document.querySelectorAll('[data-opt]'),function(i){i.addEventListener('change',function(){
-  opt[i.getAttribute('data-opt')]=i.checked;if(i.getAttribute('data-opt')==='easy'){phIdx=-1;buildFiche();}if(!opt.coord)hover=null;if(!opt.step)stepHold=false;if(!opt.voice)hush();else if(i.getAttribute('data-opt')==='voice'){var ph1=CH[cur.ci].ph[phaseIdx(cur.t)];speak(sayT(ph1));}saveOpt();syncOptUI();render();updateUI();});});
+  opt[i.getAttribute('data-opt')]=i.checked;if(i.getAttribute('data-opt')==='easy'){phIdx=-1;buildFiche();}if(i.getAttribute('data-opt')==='sprites')buildFiche();if(!opt.coord)hover=null;if(!opt.step)stepHold=false;if(!opt.voice)hush();else if(i.getAttribute('data-opt')==='voice'){var ph1=CH[cur.ci].ph[phaseIdx(cur.t)];speak(sayT(ph1));}saveOpt();syncOptUI();render();updateUI();});});
 [].forEach.call(document.querySelectorAll('[data-proj]'),function(b){b.addEventListener('click',function(){opt.proj=b.getAttribute('data-proj');setFree(null);saveOpt();syncOptUI();render();});});
 [].forEach.call(document.querySelectorAll('[data-speed]'),function(b){b.addEventListener('click',function(){opt.speed=parseFloat(b.getAttribute('data-speed'));saveOpt();syncOptUI();});});
 document.addEventListener('keydown',function(e){
@@ -1481,9 +1543,10 @@ window.__pdf=function(kind){var pages=[],i=0;function nx(){if(i>=CH.length)retur
 var A=window.ATLAS={CO:CO,r:r,L:L,Pu:Pu,Ph:Ph,Sh:Sh,Lz:Lz,Rg:Rg,
   K:{AFRICA:[[-5.9,35.8],[3,37],[10,37.3],[11,33],[20,32.5],[30,31.3],[32.5,30],[34,27],[37,21],[39,16],[43.1,12.6],[51.5,12.2],[51,10],[48,5],[41,-2],[40.5,-10],[36,-19],[35.5,-24.5],[32.8,-28],[28,-33.5],[20,-35],[17.8,-32],[12,-17],[13.5,-9],[9,-1],[9.5,4],[4,6],[-4,5],[-8,4.3],[-13,8],[-17,14.7],[-17,21],[-13,27.5],[-9.8,31.5]],
      TRI:[[-155.5,19.6],[-109.4,-27.1],[173.5,-40.5],[-155.5,19.6]]},
-  add:function(v){var F=(window.FACILE||{})[v.id],Q=(window.QCM||{})[v.id],G=(window.GAL||{})[v.id];(v.chapters||[]).forEach(function(c,ci){if(G&&G[ci])c.gal=(c.gal||[]).concat(G[ci]);if(F&&F[ci])(c.ph||[]).forEach(function(p,k){if(F[ci][k])p.fa=F[ci][k];});if(Q&&Q[ci])c.qcm=Q[ci];});(v.chapters||[]).forEach(function(c){(c.routes||[]).forEach(function(rt,i){var k=c.sps&&c.sps[i];if(k){rt.sp=k;if(!rt.ship)rt.boat=true;}else if((rt.boat||rt.ship)&&!rt.sp&&c.sp)rt.sp=c.sp;});});VOLS.push(v);},
+  add:function(v){var F=(window.FACILE||{})[v.id],Q=(window.QCM||{})[v.id],G=(window.GAL||{})[v.id];(v.chapters||[]).forEach(function(c,ci){if(G&&G[ci])c.gal=(c.gal||[]).concat(G[ci]);if(F&&F[ci])(c.ph||[]).forEach(function(p,k){if(F[ci][k])p.fa=F[ci][k];});if(Q&&Q[ci])c.qcm=Q[ci];});(v.chapters||[]).forEach(function(c){(c.routes||[]).forEach(function(rt,i){var k=c.sps&&c.sps[i];if(k){rt.sp=k;if(!rt.ship)rt.boat=true;}else if((rt.boat||rt.ship)&&!rt.sp&&c.sp)rt.sp=c.sp;});});sprMap(v);VOLS.push(v);},
+  redraw:function(){schedule();try{if(VOL)buildFiche();}catch(e){}},
   start:function(){
-    syncOptUI();buildTabs();
+    sprLoad();syncOptUI();buildTabs();
     var i=voletFromHash(),deep=i>=0;
     if(i<0){try{var id=localStorage.getItem('atlas-hg-volet');VOLS.forEach(function(v,k){if(v.id===id)i=k;});if(i>=0)document.body.classList.add('started');}catch(e){}}
     if(i<0)i=0;

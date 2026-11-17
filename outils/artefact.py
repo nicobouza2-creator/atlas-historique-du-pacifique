@@ -19,6 +19,7 @@ def main(repo, out):
         src, dst = os.path.join(repo, 'js', f), os.path.join(out, 'js', f)
         subprocess.run(terser + [src, '-c', 'passes=1', '-m', '--comments', 'false', '-f', 'preamble=' + json.dumps(pre, ensure_ascii=False), '-o', dst], check=True)
         print(f, os.path.getsize(src) // 1024, '->', os.path.getsize(dst) // 1024, 'Ko')
+    shutil.copy(os.path.join(repo, 'js', 'sprites.js'), os.path.join(out, 'js', 'sprites.js'))   # sprites de carte : chargés par le moteur après le démarrage, déjà compacts
     tmp = os.path.join(out, 'chargeur.js'); open(tmp, 'w', encoding='utf-8').write(charge)
     mini = subprocess.run(terser + [tmp, '-c', 'passes=1', '-m', '--comments', 'false'], check=True, capture_output=True, text=True).stdout
     os.remove(tmp); open(os.path.join(out, 'js', 'img.js'), 'a', encoding='utf-8').write('\n' + mini)
