@@ -17,7 +17,7 @@ with sync_playwright() as p:
         vi=ids.index(v)
         for ci in range(len(D['vols'][v]['enq'])):
             pg.evaluate(f'ATLAS.api.volet({vi},{ci})'); pg.wait_for_timeout(300)
-            url=pg.evaluate(f'ATLAS.api.snap({ci},{{dark:false}})')
+            url=pg.evaluate(f'ATLAS.api.snapDoc({ci})')   # carte-document : titre, carte, légende, zooms
             open(OUT+f'cartes/{v}-{ci}.jpg','wb').write(base64.b64decode(url.split(',',1)[1]))
     b.close()
 srv.terminate(); print('ok', {v:len(D['vols'][v]['enq']) for v in vols})

@@ -95,7 +95,8 @@ h1{font:700 clamp(21px,3.4vw,30px)/1.1 var(--font-display);margin:0;text-wrap:ba
 @media (min-width:1600px) and (min-height:900px){.caption p{font-size:18px}.caption .era{font-size:22px}}
 .stage.flat{--ar:1.5}
 canvas{display:block;width:100%;height:100%}
-.stage.t-explore canvas{touch-action:none;cursor:grab}
+.stage canvas{touch-action:pan-y}
+.stage.t-explore canvas,.stage.zoomed canvas{touch-action:none;cursor:grab}
 .stage.t-measure canvas,.stage.t-quiz canvas{cursor:crosshair}
 .photos{position:absolute;inset:0;pointer-events:none}
 .pol{position:absolute;margin:0;width:27%;background:#f6f1e4;color:#1b2430;padding:5px 5px 4px;border-radius:3px;box-shadow:0 6px 18px rgba(0,0,0,.55);opacity:0;transform:translateY(8px) rotate(var(--rot,0deg)) scale(.96);transition:opacity .5s,transform .5s;pointer-events:none;cursor:zoom-in}
@@ -436,6 +437,7 @@ body.started .tab[aria-current=true] .tab-t::after{content:' · en cours'}
         <label class="opt"><input type="checkbox" data-opt="photos"> Photos et documents</label>
         <label class="opt"><input type="checkbox" data-opt="sprites"> Petites images (bateaux, lieux, monuments)</label>
         <label class="opt"><input type="checkbox" data-opt="names"> Océans et continents</label>
+        <label class="opt"><input type="checkbox" data-opt="communes"> Communes de Nouvelle-Calédonie (en zoomant)</label>
         <label class="opt"><input type="checkbox" data-opt="lines"> Équateur, tropiques…</label>
         <label class="opt"><input type="checkbox" data-opt="scale"> Échelle</label>
         <label class="opt"><input type="checkbox" data-opt="coord"> Coordonnées</label>

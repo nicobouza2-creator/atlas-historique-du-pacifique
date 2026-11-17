@@ -13,7 +13,7 @@ def main(repo):
     s = open(os.path.join(repo, 'index.html'), encoding='utf-8').read()
     tags = re.findall(r'<script src="js/[^"]+"></script>\n', s)
     debut, fin = s.index(tags[0]), s.index(tags[-1]) + len(tags[-1])
-    ordre = ['auteur.js', 'geo.js', 'pays.js',   # auteur.js : mention d'auteur (Nicolas BOUZA), après window.ATLAS_COLLEGE
+    ordre = ['auteur.js', 'geo.js', 'nc-geo.js', 'pays.js',   # auteur.js : mention d'auteur (Nicolas BOUZA), après window.ATLAS_COLLEGE
               'img.js', 'engine.js', 'ui.js', 'sprmap.js', 'facile.js', 'activites.js', 'enquete.js']   # sprmap.js : sprites des trajets et des lieux
     ordre += ['enq-%s.js' % v for v in VOLETS if os.path.exists(os.path.join(repo, 'js', 'enq-%s.js' % v))] + ['galerie.js']
     ordre += ['d-%s.js' % v for v in VOLETS if os.path.exists(os.path.join(repo, 'js', 'd-%s.js' % v))]   # mode facile, quiz, galerie
