@@ -131,7 +131,7 @@ var CH=[
   Ph(33,'Les aires coutumières','Le pays kanak compte huit aires coutumières, chacune avec son conseil coutumier. Le Sénat coutumier (deux membres par aire) donne son avis sur tout ce qui touche à l’identité kanak.','ere'),
   Ph(43,'Les communes et l’État','Il y a 33 communes, chacune avec son maire. L’État, représenté par le haut-commissaire, garde la défense, la justice, l’ordre public et la monnaie.','eur'),
   Ph(50,'Des signes identitaires','Depuis 2010, la Nouvelle-Calédonie a un hymne (« Soyons unis, devenons frères ») et une devise (« Terre de parole, terre de partage »). Devant de nombreux bâtiments publics, deux drapeaux flottent côte à côte.','kan'),
-  Ph(56,'Et demain ?','En 2018, 2020 et 2021, trois consultations ont eu lieu sur l’indépendance : le « non » l’a emporté trois fois (les indépendantistes n’ont pas participé à la troisième). L’avenir des institutions reste en discussion.','kan')
+  Ph(56,'Et demain ?','En 2018, 2020 et 2021, trois consultations ont eu lieu sur l’indépendance : le « non » l’a emporté trois fois (les indépendantistes n’ont pas participé à la troisième). Après les violences de 2024, les élections provinciales, plusieurs fois reportées, ont eu lieu le 28 juin 2026. L’avenir des institutions reste en discussion.','kan')
  ],
  photos:[Sh('noumea',21,27,'tr',2),Sh('casekanak',34,41,'bl',-2),Sh('konemairie',43,49,'tr',2),Sh('drapeauxnc',50,56,'tr',2,'contain')],
  legend:[['neo','Province Nord'],['fra','Province Sud'],['kan','Province des îles Loyauté'],['eur','Chef-lieu','ville']],

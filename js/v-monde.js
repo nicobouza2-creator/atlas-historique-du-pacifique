@@ -393,9 +393,9 @@ var CH=[
  ],
  pulses:[Pu(23.5,-55.5,51.6,'#ffd166'),Pu(34,47,-19,'#2dd4bf'),Pu(41,165.5,-21,'#ffd166',true)],
  ph:[
-  Ph(0,'Vers 2500 av. J.-C. : le Grand Nord','Il reste des terres vides, difficiles à atteindre. Des chasseurs venus de Sibérie s’installent dans l’Arctique, jusqu’au Groenland. Les ancêtres des Inuits arriveront bien plus tard, vers l’an 1000.','late'),
+  Ph(0,'Vers 2500 av. J.-C. : le Grand Nord','Il reste des terres vides, difficiles à atteindre. Des chasseurs venus de Sibérie s’installent dans l’Arctique, jusqu’au Groenland. Les ancêtres des Inuits arriveront bien plus tard : en Alaska vers l’an 1000, au Groenland vers 1200–1300.','late'),
   Ph(12,'874 – 1000 : les Vikings','Des marins de Norvège peuplent l’Islande, encore presque vide, puis le sud du Groenland. Vers l’an 1000, ils campent en Amérique : 500 ans avant Christophe Colomb.','eur'),
-  Ph(25,'Il y a 1 000 à 1 500 ans : Madagascar','La grande île est peuplée très tard, par des Austronésiens venus de Bornéo, à 6 000 km de là. Des Africains les rejoignent depuis la côte voisine.','aus',true),
+  Ph(25,'Il y a 1 000 à 1 500 ans : Madagascar','La grande île est peuplée très tard, par des Austronésiens venus de Bornéo, à plus de 6 000 km de là. Des Africains les rejoignent depuis la côte voisine.','aus',true),
   Ph(38,'De 1100 av. J.-C. à 1300 environ : le Pacifique','Les Lapita, puis les Polynésiens, peuplent les îles une à une. Aotearoa (la Nouvelle-Zélande) est la dernière grande terre habitée, vers 1250–1300.','pol'),
   Ph(52,'Des îles vides jusqu’aux Grandes Découvertes','Madère, les Açores, La Réunion ou Maurice n’avaient aucun habitant avant l’arrivée des Européens. L’Antarctique n’a toujours pas d’habitants permanents.','vide')
  ],

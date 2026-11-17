@@ -355,7 +355,7 @@ var CH=[
   Ph(45,'Mars – avril 1521 : les Philippines','À Cebu, Magellan s’allie à un roi et se mêle d’une guerre locale. Le 27 avril 1521, il est tué sur l’île de Mactan par les guerriers du chef Lapu-Lapu.','ame'),
   Ph(53,'Novembre 1521 : les Moluques','Les survivants errent des mois, puis atteignent enfin les îles aux épices. Ils remplissent les cales de clous de girofle.','epi'),
   Ph(61,'Le retour d’Elcano','Le Basque Juan Sebastián Elcano ramène le dernier navire, la Victoria, par l’océan Indien et le cap de Bonne-Espérance, en évitant les ports portugais.','kan'),
-  Ph(73,'6 septembre 1522 : le premier tour du monde','Trois ans après le départ, 18 hommes rentrent en Espagne, sur 240. Ils ont prouvé par l’expérience que la Terre est ronde et que tous les océans communiquent.','kan')
+  Ph(73,'6 septembre 1522 : le premier tour du monde','Trois ans après le départ, 18 hommes rentrent en Espagne, sur 240. Ils ont montré qu’on peut faire le tour de la Terre en bateau et que tous les océans communiquent. (Les savants savaient déjà que la Terre est ronde.)','kan')
  ],
  photos:[Sh('magellan',1,8,'tr',2,'contain'),Sh('detroit',24,31,'bl',-2),Sh('victoria',62,70,'tr',2,'contain'),Sh('elcano',73,80,'tl',-2,'contain')],
  legend:[['esp','Magellan (1519–1521)'],['esp','Après la mort de Magellan',true],['kan','Retour d’Elcano (1522)']],

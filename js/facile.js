@@ -141,7 +141,7 @@ decouvertes:[
  '⚔️ Aux *Philippines*, Magellan est *tué* pendant une bataille.',
  '🌶️ Les survivants arrivent enfin aux îles aux épices. Ils remplissent les bateaux de *clous de girofle*.',
  '⛵ *Elcano* ramène le dernier bateau, la *Victoria*, en Espagne.',
- '🌍 C’est le *premier tour du monde*. Seulement *18 hommes* rentrent. La Terre est bien ronde.'],
+ '🌍 C’est le *premier tour du monde*. Seulement *18 hommes* rentrent. On peut faire le *tour de la Terre* en bateau.'],
 ['🇫🇷 Le roi *François Ier* envoie *Jacques Cartier* chercher un passage vers l’Asie… et de l’*or*.',
  '⛵ Avec de bons vents, Cartier traverse l’Atlantique en *20 jours*.',
  '🤝 Il rencontre des *Amérindiens* : les Micmacs et les *Iroquoiens*, avec leur chef Donnacona.',

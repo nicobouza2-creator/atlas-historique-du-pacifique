@@ -177,7 +177,7 @@ var CH=[
   Ph(0,'1855 : des terres dites « vacantes »','L’État français se déclare propriétaire de toutes les terres qu’il juge inoccupées. Pour les Kanak, aucune terre n’est vide : chaque lieu appartient à un clan.','kan'),
   Ph(10,'Les colons libres','Des familles viennent de France, d’Australie, de La Réunion, puis d’Alsace-Lorraine après 1871. Elles s’installent surtout sur la côte ouest, où l’on élève du bétail sur de grandes « stations ».','eur'),
   Ph(24,'1868 – 1876 : les réserves','L’administration regroupe les Kanak dans des « réserves » aux limites fixées. Le bétail des colons détruit les champs d’ignames et de taros.','kan'),
-  Ph(34,'1895 – 1903 : le gouverneur Feillet','Il arrête les convois de forçats et fait venir environ 500 familles de France pour planter du café. Pour leur donner des terres, il réduit encore les réserves : c’est le « grand cantonnement ».','eur'),
+  Ph(34,'1894 – 1902 : le gouverneur Feillet','Il arrête les convois de forçats et fait venir environ 500 familles de France pour planter du café. Pour leur donner des terres, il réduit encore les réserves : c’est le « grand cantonnement ».','eur'),
   Ph(47,'Un pays coupé en deux','Vers 1900, les réserves ne couvrent plus qu’un dixième environ de la Grande Terre, surtout en montagne et sur la côte est. Les îles Loyauté restent entièrement kanak.','kan')
  ],
  photos:[Sh('tribu',1,9,'tr',2),Sh('cafecanala',40,47,'tr',2),Sh('stlouis',24,31,'tr',2)],
@@ -255,7 +255,7 @@ var CH=[
   Ph(0,'1864 : un minerai vert','L’ingénieur Jules Garnier découvre un minerai de nickel, qu’on appellera « garniérite ». Vers 1875, c’est la ruée : des mines s’ouvrent dans les montagnes.','jade'),
   Ph(9,'1880 : la Société Le Nickel','La SLN exploite les mines de Thio, « capitale du nickel ». Le minerai descend de la montagne, puis part en bateau. En 1910, une usine ouvre à Doniambo, à Nouméa.','jade'),
   Ph(18,'On manque de bras','Les colons sont peu nombreux et les Kanak sont enfermés dans les réserves. Les sociétés minières font venir des travailleurs « sous contrat », engagés pour plusieurs années, mal payés et durement traités.','epi'),
-  Ph(27,'Du Japon, du Tonkin, de Java','Des Vietnamiens du Tonkin dès 1891, des Japonais dès 1892, des Javanais dès 1896, et des Néo-Hébridais (Vanuatu). Beaucoup repartent ; d’autres restent et fondent une famille ici.','zh'),
+  Ph(27,'Du Japon, du Tonkin, de Java','Des Vietnamiens du Tonkin dès 1891 (d’abord des prisonniers, puis des engagés), des Japonais dès 1892, des Javanais dès 1896, et des Néo-Hébridais (Vanuatu). Beaucoup repartent ; d’autres restent et fondent une famille ici.','zh'),
   Ph(48,'Un pays de plusieurs peuples','Kanak, descendants de colons et de bagnards, familles d’origine asiatique ou océanienne : la population calédonienne se construit avec toutes ces arrivées.','kan')
  ],
  photos:[Sh('garnierite',1,8,'tr',2),Sh('thio',10,17,'tr',2),Sh('doniambo',12,18,'bl',-2),Sh('minejaponais',38,46,'tr',2)],
@@ -287,7 +287,7 @@ var CH=[
  ],
  pulses:[Pu(33,166.4,-22.3,'#7cb7ff',true)],
  ph:[
-  Ph(0,'1914 – 1918','Environ 2 000 Calédoniens partent se battre en France, à 17 000 km. Parmi eux, plus d’un millier (1 134) de tirailleurs kanak, qui n’étaient pourtant pas citoyens. Plus de 500 soldats ne reviendront pas.','fra'),
+  Ph(0,'1914 – 1918','Environ 2 000 Calédoniens partent se battre en France, à 17 000 km. Parmi eux, plus d’un millier (1 134) de tirailleurs kanak, qui n’étaient pourtant pas citoyens. Près de 600 soldats ne reviendront pas.','fra'),
   Ph(16,'1940 : la France libre','En septembre 1940, la Nouvelle-Calédonie choisit le camp du général de Gaulle. Le Bataillon du Pacifique se bat à Bir Hakeim, dans le désert de Libye, en 1942.','fra'),
   Ph(23,'12 mars 1942 : les Américains','Après l’attaque japonaise de Pearl Harbor, la guerre arrive dans le Pacifique. Environ 17 000 soldats américains débarquent à Nouméa en une seule journée. Le pays devient une immense base arrière pour la bataille de Guadalcanal.','mis'),
   Ph(43,'Un pays transformé','Plus d’un million de soldats passent par la Nouvelle-Calédonie. Ils construisent des routes, des hôpitaux et des aérodromes, comme Tontouta ou la Plaine des Gaïacs, près de Pouembout.','mis'),
@@ -330,7 +330,7 @@ var CH=[
   Ph(10,'1969 – 1972 : le « boom » du nickel','Le nickel se vend très cher. Des milliers de personnes arrivent de France, de Wallis-et-Futuna et de Tahiti pour travailler. Nouméa grandit très vite.','pol'),
   Ph(22,'1984 – 1988 : les « Événements »','Une partie des habitants, surtout kanak, veut l’indépendance ; une autre veut rester dans la France. Le pays connaît des années de violences, jusqu’au drame d’Ouvéa, en 1988.','ame'),
   Ph(31,'1988 et 1998 : les accords','Jean-Marie Tjibaou et Jacques Lafleur se serrent la main : ce sont les accords de Matignon. Trois provinces sont créées. En 1998, l’accord de Nouméa reconnaît l’identité kanak et organise le partage des pouvoirs.','kan'),
-  Ph(43,'2018 – 2021 : trois référendums','Trois fois, les électeurs votent pour ou contre l’indépendance. Le « non » l’emporte à chaque fois ; les indépendantistes n’ont pas participé au troisième vote. Après les graves violences de mai 2024, les discussions sur l’avenir du pays continuent.','eur'),
+  Ph(43,'2018 – 2021 : trois référendums','Trois fois, les électeurs votent pour ou contre l’indépendance. Le « non » l’emporte à chaque fois ; les indépendantistes n’ont pas participé au troisième vote. Après les graves violences de mai 2024, l’accord de Bougival (2025) est rejeté par les indépendantistes. Les élections provinciales ont enfin lieu le 28 juin 2026 ; les discussions sur l’avenir du pays continuent.','eur'),
   Ph(54,'Aujourd’hui','La Nouvelle-Calédonie compte 264 596 habitants (recensement de 2025). Environ deux sur trois vivent dans le Grand Nouméa. Pour la première fois depuis 1946, la population a baissé entre deux recensements.','kan')
  ],
  photos:[Sh('noumea',56,64,'tr',2)],

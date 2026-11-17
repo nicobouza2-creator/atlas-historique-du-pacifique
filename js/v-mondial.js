@@ -347,7 +347,7 @@ var CH=[
   L(20,2.3,48.9,'France',{nomark:true,big:true,sub:'premier fournisseur'}),L(21,151,-34,'Australie',{nomark:true,dx:-8,al:'right'}),L(22,103.8,1.3,'Singapour',{nomark:true,dx:-8,al:'right'})],
  pulses:[],
  ph:[
-  Ph(0,'Vendre au monde','La Nouvelle-Calédonie vend surtout des produits du nickel, en grande partie en Asie : la Chine est son premier client, devant le Japon et la Corée du Sud.','zh'),
+  Ph(0,'Vendre au monde','La Nouvelle-Calédonie vend surtout des produits du nickel, en grande partie en Asie : la Chine est son premier client ; la Corée du Sud, le Japon et Taïwan en achètent aussi.','zh'),
   Ph(14,'Acheter au monde','Elle achète beaucoup : nourriture, carburant, voitures, machines, médicaments. La France est son premier fournisseur, puis la Chine, l’Australie, Singapour…','fra'),
   Ph(26,'Toujours reliée','Le port de Nouméa reçoit les conteneurs, La Tontouta les avions, Gondwana-1 et 2 les données d’internet : sans ces portes d’entrée, le pays serait isolé.','mis'),
   Ph(36,'Un petit pays dans un grand monde','Le prix mondial du nickel, la concurrence de l’Indonésie, le prix du pétrole ou une crise en Asie ont des effets directs ici : c’est cela, la mondialisation.','eur'),

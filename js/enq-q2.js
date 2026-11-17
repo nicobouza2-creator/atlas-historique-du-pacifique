@@ -19,7 +19,7 @@ function A(v,ci,titre,q){
 A('pacifique',2,'Des mots qui se ressemblent',R('Relie chaque langue à sa façon de dire « deux ».',[['malais','dua'],['malgache','roa'],['hawaïen','lua']]));
 A('pacifique',2,'Ce qu’il y a dans les pirogues',T('Dans leurs pirogues, les Austronésiens emportent des plantes, comme le [taro] et l’[igname], et des animaux, comme le [cochon].',['blé','cheval']));
 A('pacifique',5,'L’arrivée',T('Vers 1100 av. J.-C., des pirogues [lapita] venues du [Vanuatu] arrivent sur une terre [vide].',['Japon','peuplée']));
-A('pacifique',5,'Les fouilles de Foué',R('Relie ce que les archéologues ont trouvé à ce que cela nous apprend.',[['des morceaux de poterie','ils fabriquaient des pots décorés'],['des arêtes de poissons','ils pêchaient'],['des tombes','ils enterraient leurs morts']]));
+A('pacifique',5,'Les fouilles de Foué',R('Relie ce que les archéologues ont trouvé à ce que cela nous apprend.',[['des morceaux de poterie','ils fabriquaient des pots décorés'],['des arêtes de poissons','ils pêchaient'],['des os de tortues','ils chassaient les tortues']]));
 A('pacifique',6,'Au sommet du toit',R('Relie chaque mot à ce qu’il désigne.',[['la grande case','la case du chef'],['la flèche faîtière','la sculpture au sommet du toit'],['la tarodière','le champ de taro irrigué']]));
 A('pacifique',6,'Cultiver les vallées',T('On cultive le [taro] dans des tarodières irriguées, et aussi l’[igname].',['riz','blé']));
 A('pacifique',8,'Trois siècles de liens',T('Vers [1750], des Wallisiens arrivent à Ouvéa. En 1841, Tataïo et Taniela, venus de [Samoa], arrivent à [Maré].',['1492','Tahiti','Nouméa']));
@@ -29,7 +29,7 @@ A('caledonie',0,'Le pilou, une grande fête d’échanges',T('Le pilou est une g
 A('caledonie',1,'Des visiteurs de plus en plus nombreux',R('Relie chaque visiteur à sa date.',[['Cook à Balade','1774'],['d’Entrecasteaux','1793'],['la mission de Balade','1843']]));
 A('caledonie',3,'Le bagne en dates',O('Remets dans l’ordre.',['Les premiers forçats débarquent à Nouméa','Les déportés de la Commune arrivent','Pouembout devient un centre pénitentiaire','Les convois de condamnés s’arrêtent']));
 A('caledonie',3,'Les déportés de la Commune',T('En 1872, plus de 4 000 déportés de la [Commune] de Paris arrivent. Parmi eux, il y a Louise [Michel].',['Révolution','Bonaparte']));
-A('caledonie',4,'Les colons libres',R('Relie chaque groupe de colons à son époque.',[['colons de La Réunion','années 1860'],['Alsaciens et Lorrains','après la guerre de 1870-1871'],['colons du gouverneur Feillet','1895 – 1903']]));
+A('caledonie',4,'Les colons libres',R('Relie chaque groupe de colons à son époque.',[['colons de La Réunion','années 1860'],['Alsaciens et Lorrains','après la guerre de 1870-1871'],['colons du gouverneur Feillet','1894 – 1902']]));
 A('caledonie',4,'Les réserves',T('Vers 1900, les réserves ne couvrent plus qu’un [dixième] environ de la [Grande Terre].',['moitié','lagon']));
 A('caledonie',5,'La guerre de 1878',T('La révolte éclate en [1878] autour de [La Foa]. Le grand chef [Ataï] est tué.',['1917','Nouméa','Cook']));
 A('caledonie',7,'1914–1918 : partir à 17 000 km',T('Environ [2 000] Calédoniens partent se battre en France, à [17 000] km. Plus de [500] ne reviendront pas.',['100','50']));

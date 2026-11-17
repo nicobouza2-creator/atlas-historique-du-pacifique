@@ -180,7 +180,7 @@ var CH=[
  ph:[
   Ph(0,'Vers 1100 av. J.-C.','Des pirogues Lapita, venues du nord par le Vanuatu, arrivent en Nouvelle-Calédonie. Personne n’y avait jamais vécu.','lap'),
   Ph(10,'Au bord du lagon','Ils s’installent près des plages. Ils pêchent, ramassent des coquillages et plantent taro, igname et banane.','lap'),
-  Ph(22,'Foué, près de Koné','Les archéologues y ont trouvé des tessons de poterie Lapita et des tombes très anciennes. C’est tout près de Pouembout !','kan'),
+  Ph(22,'Foué, près de Koné','Les archéologues y ont trouvé des tessons de poterie Lapita vieux d’environ 3 000 ans. Ce site, fouillé en 1952, a donné son nom aux Lapita. C’est tout près de Pouembout !','kan'),
   Ph(34,'Un pays qui se construit','Avec ceux qui arriveront ensuite, ils sont à l’origine de la société kanak.','kan')
  ],
  photos:[Sh('lapitapot',4,13,'tr',2),Sh('lagon',13,21,'bl',-2),Sh('lapitatesson',22,30,'tr',2),Sh('herminette',31,39,'bl',-2),Sh('petro',39,46,'tr',2)],
@@ -333,7 +333,7 @@ var X=[
  wiki:['Triangle polynésien','Peuplement de l\'Océanie']},
 {when:[-1100,-900],dates:'vers 1100 av. J.-C.',
  mots:[['Lagon','Étendue de mer peu profonde entre la côte et le récif.'],['Tesson','Morceau de poterie cassée.']],
- q:[['D’où viennent les premiers habitants de la Nouvelle-Calédonie ?','Du nord, par le Vanuatu : ce sont des Lapita arrivés en pirogue vers 1100 av. J.-C.'],['Quelle trace des Lapita trouve-t-on près de Koné ?','Des tessons de poterie décorée et des tombes anciennes, à Foué.']],
+ q:[['D’où viennent les premiers habitants de la Nouvelle-Calédonie ?','Du nord, par le Vanuatu : ce sont des Lapita arrivés en pirogue vers 1100 av. J.-C.'],['Quelle trace des Lapita trouve-t-on près de Koné ?','Des tessons de poterie décorée, à Foué : ce site a donné son nom aux Lapita.']],
  wiki:['Histoire de la Nouvelle-Calédonie','Lapita']},
 {when:[-500,1000],dates:'de 500 av. J.-C. à l’an 1000 environ',
  mots:[['Clan','Groupe de familles qui ont le même ancêtre.'],['Chefferie','Ensemble de clans réunis autour d’un chef.'],['Tarodière','Champ en terrasses, arrosé par des canaux, où l’on cultive le taro.']],
