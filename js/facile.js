@@ -256,7 +256,7 @@ nickel:[
  '🏢 Plusieurs *entreprises* exploitent les mines. La plus ancienne est la *SLN*.',
  '🚧 Depuis *2024*, des mines de la côte Est sont *bloquées*.'],
 ['⛏️ À la mine, de grosses *pelles* creusent la montagne. On garde la partie *riche*.',
- '➡️ Au Koniambo, un *convoyeur* (un long tapis roulant) descend le minerai jusqu’à l’usine.',
+ '➡️ Au Koniambo, un *convoyeur* (un long tapis roulant) descendait le minerai jusqu’à l’usine.',
  '🚢 Un *chenal* a été creusé pour que les *bateaux* entrent dans le lagon.',
  '🌉 À *Kouaoua*, on construit une *piste* et des *ponts* pour transporter le minerai.',
  '🚢 Des *minéraliers* apportent le minerai à l’*usine de Doniambo*.',
@@ -286,7 +286,7 @@ nickel:[
  '🌱 Après la mine, on *replante* des plantes locales. C’est long et difficile.',
  '🐠 Les *lagons* sont protégés par l’*UNESCO* depuis *2008*.'],
 ['👷 Le nickel donne du *travail* à des milliers de personnes.',
- '📉 Le nickel est en *crise* : prix bas, électricité chère, *Indonésie*, violences de *2024*.',
+ '📉 Le nickel est en *crise* : prix longtemps bas, électricité chère, *Indonésie*, violences de *2024*.',
  '🏭 En 2026, *Doniambo* et l’*usine du Sud* tournent ; l’*usine du Nord* est arrêtée.',
  '💡 Pour demain : rouvrir des mines, payer l’électricité *moins cher*, trouver de *nouveaux clients*.',
  '✏️ À toi : place les *mines*, les *usines* et les *ports* sur une carte muette.']
