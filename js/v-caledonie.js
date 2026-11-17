@@ -52,7 +52,8 @@ var CH=[
  legend:[['afr','Hoot Ma Whaap'],['aus','Paicî-Cèmuhi'],['lap','Ajië Aro'],['pol','Xârâcùù'],['neo','Drubea-Kapumë'],['xet','Iaai'],['mis','Drehu'],['pap','Nengone']],
  mots:[['Aire coutumière','Grande région kanak qui regroupe des clans et des langues proches.'],['Coutume','Ensemble des règles, des gestes et des paroles qui organisent la vie kanak.'],['Clan','Groupe de familles qui ont le même ancêtre.']],
  q:[['Combien y a-t-il d’aires coutumières ?','Huit : cinq sur la Grande Terre et trois aux îles Loyauté.'],['Dans quelle aire se trouve Pouembout ?','Dans l’aire Paicî-Cèmuhi.'],['Combien de langues kanak parle-t-on ?','28.']],
- wiki:['Aire coutumière','Langues kanak','Kanak']},
+ wiki:['Aire coutumière','Langues kanak','Kanak'],
+ src:[['Les huit aires coutumières et leurs langues — Université Laval, L’aménagement linguistique dans le monde','https://axl.cefan.ulaval.ca/pacifique/ncal1geo.htm'],['Histoire de la Nouvelle-Calédonie — Université Laval, L’aménagement linguistique dans le monde','https://axl.cefan.ulaval.ca/pacifique/ncal3hist.htm'],['Chronologie de l’histoire kanak — Présence kanak','https://presencekanak.com/wp-content/uploads/2024/05/jso-chronologie-dates-knc.pdf']]},
 
 /* 2 --------------------------------------------------------------- */
 {short:'Premiers contacts',col:'eur',dur:50,when:[1774,1853],dates:'1774 – 1853',
@@ -86,7 +87,8 @@ var CH=[
  legend:[['eur','Cook (1774)'],['fra','d’Entrecasteaux (1792)'],['epi','Santaliers (dès 1841)'],['mis','Protestants (1841)'],['cat','Catholiques (1843)']],
  mots:[['Santal','Arbre au bois parfumé, vendu très cher en Chine.'],['Missionnaire','Personne envoyée pour faire connaître sa religion.'],['Épidémie','Maladie qui touche beaucoup de personnes en même temps.']],
  q:[['Qui est le premier Européen à aborder en Nouvelle-Calédonie ?','James Cook, à Balade, en septembre 1774.'],['Que viennent chercher les santaliers ?','Du bois de santal, pour le vendre en Chine.'],['Où s’installent les premiers missionnaires ?','Les protestants à Maré et Lifou (1841–1842), les catholiques à Balade (1843).']],
- wiki:['Histoire de la Nouvelle-Calédonie','Bois de santal','Guillaume Douarre']},
+ wiki:['Histoire de la Nouvelle-Calédonie','Bois de santal','Guillaume Douarre'],
+ src:[['Nouvelle-Calédonie : les premiers contacts avec les Européens — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/nouvelle-caledonie/3-les-premiers-contacts-avec-les-europeens/'],['Histoire de la Nouvelle-Calédonie — Université Laval, L’aménagement linguistique dans le monde','https://axl.cefan.ulaval.ca/pacifique/ncal3hist.htm'],['Chronologie de l’histoire kanak — Présence kanak','https://presencekanak.com/wp-content/uploads/2024/05/jso-chronologie-dates-knc.pdf'],['New Caledonia, history — Encyclopædia Britannica','https://www.britannica.com/place/New-Caledonia-French-unique-collectivity-Pacific-Ocean/History']]},
 
 /* 3 --------------------------------------------------------------- */
 {short:'1853 : la prise de possession',col:'fra',dur:48,when:[1853,1864],dates:'1853 – 1864',
@@ -115,7 +117,8 @@ var CH=[
  legend:[['fra','Marine française (1853–1854)'],['fra','Territoire sous autorité française']],
  mots:[['Prise de possession','Acte par lequel un pays déclare qu’une terre lui appartient.'],['Colonie','Territoire dominé et exploité par un pays étranger.'],['Rade','Grand bassin naturel où les navires sont à l’abri.']],
  q:[['Que se passe-t-il le 24 septembre 1853 ?','La France prend possession de la Grande Terre, à Balade.'],['Quel était le premier nom de Nouméa ?','Port-de-France.'],['Pourquoi la France veut-elle cette colonie ?','Pour avoir une base navale dans le Pacifique et un lieu où envoyer ses condamnés.']],
- wiki:['Histoire de la Nouvelle-Calédonie','Auguste Febvrier Despointes','Nouméa']},
+ wiki:['Histoire de la Nouvelle-Calédonie','Auguste Febvrier Despointes','Nouméa'],
+ src:[['24 septembre 1853 : la Nouvelle-Calédonie devient française — Hérodote.net','https://www.herodote.net/la_Nouvelle_Caledonie_devient_francaise-evenement-18530924-521.php'],['Histoire de la Nouvelle-Calédonie — Université Laval, L’aménagement linguistique dans le monde','https://axl.cefan.ulaval.ca/pacifique/ncal3hist.htm'],['Chronologie de l’histoire kanak — Présence kanak','https://presencekanak.com/wp-content/uploads/2024/05/jso-chronologie-dates-knc.pdf']]},
 
 /* 4 --------------------------------------------------------------- */
 {short:'Le bagne',col:'eur',dur:68,when:[1864,1931],dates:'1864 – 1931',
@@ -149,7 +152,8 @@ var CH=[
  legend:[['eur','Convois de forçats (1864–1897)'],['kan','◆ Centres pénitentiaires']],
  mots:[['Bagne','Lieu où l’on envoyait les condamnés aux travaux forcés.'],['Transporté','Condamné de droit commun envoyé au bagne.'],['Déporté','Condamné politique envoyé loin de son pays.'],['Concession','Terre donnée à un ancien forçat ou à un colon pour qu’il la cultive.']],
  q:[['Quand arrivent les premiers forçats ?','Le 9 mai 1864, à bord de L’Iphigénie.'],['Qui sont les « déportés » de 1872 ?','Des condamnés politiques : les insurgés de la Commune de Paris, comme Louise Michel, et des Kabyles d’Algérie.'],['Quel lien entre le bagne et Pouembout ?','Pouembout a été créé en 1883 comme centre agricole pénitentiaire, avec des concessions pour d’anciens forçats.'],['Combien de condamnés ont été envoyés en Nouvelle-Calédonie ?','Environ 30 000, entre 1864 et 1897.']],
- wiki:['Bagne de Nouvelle-Calédonie','Île Nou','Louise Michel','Fort Teremba','Algériens du Pacifique']},
+ wiki:['Bagne de Nouvelle-Calédonie','Île Nou','Louise Michel','Fort Teremba','Algériens du Pacifique'],
+ src:[['Pouembout, un centre de colonisation pénale créé en 1883 — Les Nouvelles Calédoniennes','https://www.lnc.nc/article/nouvelle-caledonie/serie/serie-celestin-flotat-un-des-pionniers-de-pouembout'],['Transportés, déportés, relégués : la colonisation pénale — DENC, histoire module 2, chapitre 15','https://denc.gouv.nc/sites/default/files/documents/histoire_module2_chapitre15.pdf'],['Histoire de la Nouvelle-Calédonie — Université Laval, L’aménagement linguistique dans le monde','https://axl.cefan.ulaval.ca/pacifique/ncal3hist.htm']]},
 
 /* 5 --------------------------------------------------------------- */
 {short:'Colons libres et cantonnement',col:'kan',dur:58,when:[1855,1903],dates:'1855 – 1903',
@@ -184,7 +188,8 @@ var CH=[
  legend:[['kan','Terres kanak ; vers 1900, les réserves (schéma autour des tribus d’aujourd’hui)'],['eur','Terres prises par la colonisation et par l’État (schéma)']],
  mots:[['Colon','Personne venue s’installer dans une colonie pour y vivre et cultiver.'],['Réserve','Terre laissée aux Kanak par l’administration coloniale ; ils ne pouvaient pas en sortir librement.'],['Cantonnement','Regroupement forcé des Kanak dans les réserves.'],['Station','Grande propriété d’élevage de bétail.']],
  q:[['Où s’installent surtout les colons ?','Sur la côte ouest, dans les plaines, et autour de Nouméa.'],['Qu’est-ce que le cantonnement ?','Le regroupement forcé des Kanak dans des réserves, pour donner leurs terres aux colons.'],['Quelle part de la Grande Terre reste aux Kanak vers 1900 ?','Environ un dixième.']],
- wiki:['Histoire de la Nouvelle-Calédonie','Paul Feillet','Tribu kanak']},
+ wiki:['Histoire de la Nouvelle-Calédonie','Paul Feillet','Tribu kanak'],
+ src:[['Nouvelle-Calédonie : la colonisation — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/nouvelle-caledonie/4-la-colonisation/'],['La colonisation libre en Nouvelle-Calédonie (1853-1926) — DENC, histoire module 2, chapitre 14','https://denc.gouv.nc/sites/default/files/documents/histoire_module2_chapitre14.pdf'],['Chronologie de l’histoire kanak — Présence kanak','https://presencekanak.com/wp-content/uploads/2024/05/jso-chronologie-dates-knc.pdf']]},
 
 /* 6 --------------------------------------------------------------- */
 {short:'Les Kanak face à la colonisation',col:'ame',dur:56,when:[1878,1921],dates:'1878 – 1921',
@@ -223,7 +228,8 @@ var CH=[
  legend:[['ame','Régions révoltées (1878, 1917), tracé approximatif'],['eur','Guerriers de Canala, alliés de l’armée'],['ame','Exil',true]],
  mots:[['Insurrection','Révolte armée d’un peuple.'],['Indigénat','Règles spéciales, très dures, imposées aux Kanak de 1887 à 1946.'],['Exil','Obligation de vivre loin de sa terre.']],
  q:[['Pourquoi les Kanak se révoltent-ils en 1878 ?','On leur prend leurs terres, le bétail détruit leurs cultures, leurs lieux sacrés ne sont pas respectés.'],['Qui est Ataï ?','Un grand chef kanak de la région de La Foa, qui dirige la révolte de 1878.'],['Qu’est-ce que l’indigénat ?','Des règles spéciales imposées aux Kanak : rester dans la réserve, payer un impôt, travailler de force.']],
- wiki:['Grande révolte kanak de 1878','Ataï','Régime de l\'indigénat','Révolte kanak de 1917']},
+ wiki:['Grande révolte kanak de 1878','Ataï','Régime de l\'indigénat','Révolte kanak de 1917'],
+ src:[['25 juin 1878 : début de la révolte kanak — Hérodote.net','https://www.herodote.net/25_juin_1878-evenement-18780625.php'],['Nouvelle-Calédonie : la colonisation — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/nouvelle-caledonie/4-la-colonisation/'],['Chronologie de l’histoire kanak — Présence kanak','https://presencekanak.com/wp-content/uploads/2024/05/jso-chronologie-dates-knc.pdf'],['Exposition Da Men Bwat 1917 (dossier de presse) — Musée de Nouvelle-Calédonie','https://museenouvellecaledonie.gouv.nc/sites/default/files/documents/Dossier%20Presse%20Exposition%20DA%20MEN%20BWAT%202017.pdf']]},
 
 /* 7 --------------------------------------------------------------- */
 {short:'Le nickel et les travailleurs venus d’ailleurs',col:'jade',dur:60,when:[1864,1949],dates:'1864 – 1949',
@@ -262,7 +268,8 @@ var CH=[
  legend:[['jade','Grands massifs miniers'],['zh','Japon'],['ame','Tonkin (Vietnam)'],['ned','Java'],['lap','Nouvelles-Hébrides (Vanuatu)']],
  mots:[['Nickel','Métal gris qui ne rouille pas ; il sert à fabriquer l’acier inoxydable.'],['Minerai','Roche qui contient un métal.'],['Travailleur sous contrat','Personne engagée loin de chez elle pour plusieurs années, sans pouvoir quitter son patron.']],
  q:[['Qui découvre le nickel calédonien, et quand ?','Jules Garnier, en 1864.'],['Pourquoi fait-on venir des travailleurs d’Asie ?','Parce que les mines manquent de main-d’œuvre.'],['De quels pays viennent-ils ?','Du Japon, du Tonkin (Vietnam), de Java (Indonésie) et des Nouvelles-Hébrides (Vanuatu).']],
- wiki:['Jules Garnier','Société Le Nickel','Chân Đăng','Thio']},
+ wiki:['Jules Garnier','Société Le Nickel','Chân Đăng','Thio'],
+ src:[['L’économie calédonienne et le nickel — Rapport d’information du Sénat','https://www.senat.fr/rap/r05-007/r05-0073.html'],['Générations SLN : histoire de la Société Le Nickel, de Thio à Doniambo — SLN (Eramet)','https://sln.eramet.com/wp-content/uploads/sites/5/2020/10/Generations_SLN.pdf'],['L’immigration en Nouvelle-Calédonie (panneaux d’exposition, Maison Higginson) — Ville de Nouméa','https://www.noumea.nc/sites/default/files/lieux/maison-higginson/1-panneaux-noumea-bd.pdf']]},
 
 /* 8 --------------------------------------------------------------- */
 {short:'Deux guerres mondiales',col:'mis',dur:58,when:[1914,1946],dates:'1914 – 1946',
@@ -297,10 +304,11 @@ var CH=[
  legend:[['fra','Soldats calédoniens vers la France (1915–1918)'],['mis','Armée américaine (1942–1946)']],
  mots:[['Tirailleur','Soldat recruté dans les colonies.'],['Base arrière','Lieu, loin des combats, où l’armée se repose, se soigne et prépare ses attaques.'],['Aérodrome','Terrain aménagé pour les avions.']],
  q:[['Combien de Calédoniens partent à la guerre de 1914–1918 ?','Environ 2 000, dont plus d’un millier (1 134) de tirailleurs kanak.'],['Que se passe-t-il le 12 mars 1942 ?','Les soldats américains débarquent à Nouméa.'],['Quel aérodrome américain se trouvait près de Pouembout ?','La Plaine des Gaïacs.']],
- wiki:['Bataillon du Pacifique','Histoire de la Nouvelle-Calédonie','Bataille de Bir Hakeim']},
+ wiki:['Bataillon du Pacifique','Histoire de la Nouvelle-Calédonie','Bataille de Bir Hakeim'],
+ src:[['La Nouvelle-Calédonie dans les deux guerres mondiales — Chemins de mémoire (ministère des Armées)','https://www.cheminsdememoire.gouv.fr/en/new-caledonia-two-world-wars'],['1939-1945 : la Nouvelle-Calédonie dans le second conflit mondial — Musée de la Ville de Nouméa','https://www.noumea.nc/sites/default/files/lieux/musee-ville/1939-1945-nouvelle-caledonie-second-conflit-mondial.pdf'],['US Army, Pearl Harbor et la Nouvelle-Calédonie — ministère des Armées (communiqué de presse, 2024)','https://www.terre.defense.gouv.fr/sites/default/files/ccf/20240715_NP_CCF_BOC_NDR_us-army-pearl-harbor.pdf']]},
 
 /* 9 --------------------------------------------------------------- */
-{short:'De 1946 à aujourd’hui',col:'kan',dur:66,when:[1946,2026],dates:'1946 – 2025',
+{short:'De 1946 à aujourd’hui',col:'kan',dur:66,when:[1946,2026],dates:'1946 – 2026',
  cam:[nc(0),cam(10,-176,-17,2),cam(20,-176,-17,2),nc(25),nc(66)],
  zones:[
   ext(Rg(GT,'kan',1,0.5,1),{t2:28,t3:31}),ext(Lz(LOY,'kan',1,0.5,1),{t2:28,t3:31}),
@@ -330,14 +338,15 @@ var CH=[
   Ph(10,'1969 – 1972 : le « boom » du nickel','Le nickel se vend très cher. Des milliers de personnes arrivent de France, de Wallis-et-Futuna et de Tahiti pour travailler. Nouméa grandit très vite.','pol'),
   Ph(22,'1984 – 1988 : les « Événements »','Une partie des habitants, surtout kanak, veut l’indépendance ; une autre veut rester dans la France. Le pays connaît des années de violences, jusqu’au drame d’Ouvéa, en 1988.','ame'),
   Ph(31,'1988 et 1998 : les accords','Jean-Marie Tjibaou et Jacques Lafleur se serrent la main : ce sont les accords de Matignon. Trois provinces sont créées. En 1998, l’accord de Nouméa reconnaît l’identité kanak et organise le partage des pouvoirs.','kan'),
-  Ph(43,'2018 – 2021 : trois référendums','Trois fois, les électeurs votent pour ou contre l’indépendance. Le « non » l’emporte à chaque fois ; les indépendantistes n’ont pas participé au troisième vote. Après les graves violences de mai 2024, l’accord de Bougival (2025) est rejeté par les indépendantistes. Les élections provinciales ont enfin lieu le 28 juin 2026 ; les discussions sur l’avenir du pays continuent.','eur'),
+  Ph(43,'2018 – 2021 : trois référendums','Trois fois, les électeurs votent pour ou contre l’indépendance. Le « non » l’emporte à chaque fois ; les indépendantistes n’ont pas participé au troisième vote. Après les graves violences de mai 2024, l’accord de Bougival (2025) est rejeté par le FLNKS, principal mouvement indépendantiste. Les élections provinciales ont enfin lieu le 28 juin 2026 : aucun camp n’a la majorité au Congrès. Les discussions continuent.','eur'),
   Ph(54,'Aujourd’hui','La Nouvelle-Calédonie compte 264 596 habitants (recensement de 2025). Environ deux sur trois vivent dans le Grand Nouméa. Pour la première fois depuis 1946, la population a baissé entre deux recensements.','kan')
  ],
  photos:[Sh('noumea',56,64,'tr',2)],
  legend:[['afr','Province Nord'],['mis','Province Sud'],['xet','Province des îles Loyauté'],['pol','Arrivées du Pacifique (1950–1975)'],['kan','Départs vers Nouméa']],
  mots:[['Citoyen','Personne qui a les mêmes droits et les mêmes devoirs que les autres habitants de son pays, dont le droit de vote.'],['Province','L’une des trois grandes collectivités du pays : Nord, Sud, îles Loyauté.'],['Référendum','Vote où tous les électeurs répondent par oui ou par non à une question.'],['Recensement','Comptage de tous les habitants.']],
  q:[['Que change l’année 1946 pour les Kanak ?','L’indigénat est supprimé : ils deviennent citoyens.'],['Quelles sont les trois provinces ?','La province Nord, la province Sud et la province des îles Loyauté.'],['Combien d’habitants compte la Nouvelle-Calédonie en 2025 ?','264 596, dont environ deux sur trois dans le Grand Nouméa.']],
- wiki:['Accords de Matignon (1988)','Accord de Nouméa','Démographie de la Nouvelle-Calédonie','Provinces de la Nouvelle-Calédonie']}
+ wiki:['Accords de Matignon (1988)','Accord de Nouméa','Démographie de la Nouvelle-Calédonie','Provinces de la Nouvelle-Calédonie'],
+ src:[['La Nouvelle-Calédonie, des accords de Matignon au référendum de 2018 — Public Sénat','https://www.publicsenat.fr/actualites/politique/la-nouvelle-caledonie-des-accords-de-matignon-au-referendum-de-2018-83828'],['De Matignon à Bougival : repères chronologiques — Outremers360','https://outremers360.com/bassin-atlantique-appli/la-nouvelle-caledonie-des-accords-de-matignon-a-celui-de-bougival'],['La Nouvelle-Calédonie compte 264 596 habitants en 2025 (recensement ISEE) — Outremers360','https://outremers360.com/bassin-pacifique-appli/demographie-la-nouvelle-caledonie-compte-264-596-habitants-en-2025-cest-6-800-en-moins-en-six-ans'],['Accord complémentaire à Bougival (« Élysée-Oudinot »), janvier 2026 — Les Nouvelles Calédoniennes','https://www.lnc.nc/article/nouvelle-caledonie/politique/un-accord-signe-a-paris-pour-completer-bougival'],['Élections provinciales du 28 juin 2026 : contexte et résultats — Al Jazeera','https://www.aljazeera.com/news/2026/6/28/polls-open-in-new-caledonias-first-provincial-elections-since-2019']]}
 ];
 
 A.add({id:'caledonie',title:'Histoire de la Nouvelle-Calédonie',tag:'9 chapitres · peuplement, bagne, colonisation, nickel',col:'kan',proj:'globe',

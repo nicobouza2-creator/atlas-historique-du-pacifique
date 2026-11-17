@@ -93,6 +93,9 @@ def story(vol, ci, book):
             Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm),
             Sheet('archive', 'Note de synthèse · ' + ch['short'], synth, ('Récit de l’atlas d’histoire du collège.' if vol in COLLEGE else 'Récit de l’atlas historique du Pacifique.'), 'À OUVRIR EN DERNIER')]
     if ch['mots']: sto += [Spacer(1, 5 * mm), KeepTogether(ledger('Lexique de l’enquêteur', ['Mot', 'Ce que ça veut dire'], ch['mots'], '', FW))]
+    if ch.get('src'):   # d’où viennent les informations du chapitre
+        sto += [Spacer(1, 5 * mm), KeepTogether([Paragraph('D’où viennent ces informations ?', ST['h2'])] +
+                [Paragraph('• %s<br/><font name="AtkI" size="8" color="#5b6470">%s</font>' % (esc(a), esc(b)), S('srcl', 'Atk', 10, 13, spaceAfter=3)) for a, b in ch['src']])]
     corr = {'p': [], 'c': []}
     for lv, tpl, anc in [('p', 'cahP', 'cP'), ('c', 'cahC', 'cC')]:
         sto += [NextPageTemplate(tpl), PageBreak(), Anchor(anc, book), Spacer(1, 4 * mm),

@@ -47,13 +47,14 @@ var CH=[
   Ph(7,'Un tiers de l’île','Aujourd’hui, ces roches couvrent environ un tiers de la Grande Terre : le grand massif du Sud et une série de massifs le long de la côte Ouest, comme le Koniambo.','pol'),
   Ph(18,'La pluie fabrique le minerai','Pendant des millions d’années, la pluie tropicale a lentement attaqué la roche. Le nickel s’est concentré sous la terre rouge (la latérite), dans une couche plus verte, où l’on trouve la garniérite.','pol'),
   Ph(32,'Sur les sommets','Les gisements sont souvent en haut des massifs, sur des plateaux. C’est pour cela que les mines sont en montagne, loin de la mer.','pol'),
-  Ph(44,'Une immense réserve','La Nouvelle-Calédonie posséderait de 20 à 30 % des ressources mondiales de nickel (ce que contient le sol) ; la part exploitable aujourd’hui est plus faible, environ 5 % des réserves mondiales. Sur ces sols pauvres pour l’agriculture poussent des plantes uniques au monde.','kan')
+  Ph(44,'Une immense réserve','La Nouvelle-Calédonie posséderait environ un quart des ressources mondiales de nickel (ce que contient le sol, selon une estimation de l’USGS) ; la part exploitable aujourd’hui est bien plus faible : environ 5 % des réserves mondiales. Sur ces sols pauvres pour l’agriculture poussent des plantes uniques au monde.','kan')
  ],
  photos:[Sh('tecto',1,7,'bl',-2,'contain'),Sh('cuirasse',8,16,'tr',2),Sh('profil',18,30,'tr',2,'contain'),Sh('rochenickel',32,40,'bl',-2),Sh('garnierite',44,52,'tr',2)],
  legend:[['pol','Massifs de péridotite (roches à nickel)'],['kan','Autres terrains'],['mis','Poussée de la plaque océanique',1]],
  mots:[['Péridotite','Roche sombre venue du manteau terrestre ; elle contient un peu de nickel.'],['Latérite','Terre rouge, riche en fer, formée par la pluie tropicale.'],['Garniérite','Minerai vert, riche en nickel.'],['Gisement','Endroit où un minerai est assez abondant pour être exploité.']],
  q:[['Comment s’appelle la roche qui contient le nickel ?','La péridotite.'],['Quelle part de la Grande Terre couvre-t-elle ?','Environ un tiers.'],['Où le nickel se concentre-t-il dans le sol ?','Sous la latérite, dans une couche plus verte, avec la garniérite.'],['Pourquoi les mines sont-elles en montagne ?','Parce que les gisements sont en haut des massifs.']],
- wiki:['Péridotite','Garniérite','Latérite','Massif du Sud (Nouvelle-Calédonie)']},
+ wiki:['Péridotite','Garniérite','Latérite','Massif du Sud (Nouvelle-Calédonie)'],
+ src:[['Des géologues sur le Caillou — Espace des sciences (Sciences Ouest)','https://espace-sciences.org/sciences-ouest/335/actualite/des-geologues-sur-le-caillou'],['Mineral Commodity Summaries 2026 : nickel — USGS (2026)','https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-nickel.pdf'],['Nouvelle-Calédonie, fiche minérale — USGS National Minerals Information Center (2024)','https://www.usgs.gov/centers/national-minerals-information-center/new-caledonia'],['Les latérites à nickel dans le monde — GSA Today, Société géologique d’Amérique (2019)','https://rock.geosociety.org/gsatoday/science/G364A/article.htm'],['L’industrie minérale de la Nouvelle-Calédonie, annuaire 2016 — USGS (2021)','https://pubs.usgs.gov/myb/vol3/2016/myb3-2016-new-caledonia.pdf']]},
 
 /* 3 --------------------------------------------------------------- */
 {short:'Les premiers métaux (1864 – 1914)',col:'ere',dur:58,when:[1864,1914],dates:'1864 – 1914',
@@ -80,14 +81,15 @@ var CH=[
   Ph(6,'Or et cuivre dans le Nord','Dans les années 1870, on exploite de l’or à Fern Hill, près d’Ouégoa, et du cuivre dans la vallée du Diahot. Le petit port de Pam expédie le minerai.','kan'),
   Ph(13,'Chrome et cobalt','Le massif de Tiébaghi a fourni environ 85 % du chrome calédonien. Vers 1900, la Nouvelle-Calédonie est aussi le premier producteur mondial de cobalt.','pol'),
   Ph(22,'Thio, capitale du nickel','À partir de 1875, les mines de Thio fournissent le nickel. Un petit train descend le minerai jusqu’au wharf de Thio-Mission, où on le charge sur des bateaux.','jade'),
-  Ph(35,'1910 : une usine à Nouméa','Les bateaux contournent le sud de l’île jusqu’à Nouméa. En 1910, les premiers fourneaux de Doniambo transforment une partie du minerai sur place.','eur'),
+  Ph(35,'1910 : une usine à Nouméa','Les bateaux contournent le sud de l’île jusqu’à Nouméa. En 1910, une société privée ouvre l’usine de Doniambo : ses fourneaux transforment une partie du minerai sur place. La SLN la reprendra en 1931.','eur'),
   Ph(48,'Des mines partout','De nombreuses petites mines s’ouvrent sur la Grande Terre. Le travail est très dur ; on fait venir des travailleurs d’Asie et d’Océanie (voir le volet Histoire, chapitre 7).','kan')
  ],
  photos:[Sh('fernhill',7,13,'tr',2),Sh('pilon',13,19,'bl',-2,'contain'),Sh('thio1900',22,28,'tr',2,'contain'),Sh('thiotrain',28,34,'bl',-2,'contain'),Sh('tremie',36,43,'tr',2),Sh('lemire',48,56,'tr',2,'contain')],
  legend:[['ere','Mine (or, cuivre, chrome, nickel)','mine'],['mis','Wharf, port','port'],['lap','Usine','usine'],['eur','Ville','ville'],['mis','Trajet des bateaux',1]],
  mots:[['Wharf','Quai avancé dans la mer, où l’on charge les bateaux.'],['Chrome','Métal qui sert à rendre l’acier brillant et dur.'],['Cobalt','Métal qui sert aux alliages et aux colorants bleus.'],['Ruée','Arrivée rapide de beaucoup de gens qui espèrent s’enrichir.']],
  q:[['Quel métal exploite-t-on à Fern Hill ?','De l’or.'],['Quel métal sort surtout de Tiébaghi ?','Du chrome (et du cobalt).'],['Comment le minerai de Thio arrive-t-il au bateau ?','Par un petit train jusqu’au wharf de Thio-Mission.'],['En quelle année ouvre l’usine de Doniambo ?','En 1910.']],
- wiki:['Thio','Tiébaghi','Mine de Fern Hill','Usine de Doniambo']},
+ wiki:['Thio','Tiébaghi','Mine de Fern Hill','Usine de Doniambo'],
+ src:[['SLN, 130 ans d’histoire — SLN / Eramet','https://sln.eramet.com/wp-content/uploads/sites/5/2020/10/SLN-130-ans.pdf'],['Hauts Fourneaux de Nouméa — Entreprises coloniales','https://www.entreprises-coloniales.fr/pacifique/Hauts_Fourneaux_Noumea.pdf'],['Fernhill Gold Mines — Entreprises coloniales','https://www.entreprises-coloniales.fr/pacifique/Fernhill_Gold_Mines.pdf'],['Quand le pays était le roi du cobalt — Les Nouvelles Calédoniennes','https://www.lnc.nc/article/nouvelle-caledonie/mines/quand-le-pays-etait-le-roi-du-cobalt-dans-le-monde'],['Naissance de l’industrie du nickel en Nouvelle-Calédonie, 1875-1914 — Présence kanak (2024)','https://presencekanak.com/wp-content/uploads/2024/09/naissance-de-lindustrie-du-nickel-en-nouvelle-caledonie-et-au-dela-a-linterface-des-trajectoires-industrielles-imperiales-et-coloniales-1875-1914.pdf']]},
 
 /* 4 --------------------------------------------------------------- */
 {short:'Où sont les mines aujourd’hui ?',col:'pol',dur:60,when:[1990,2026],dates:'aujourd’hui',
@@ -111,17 +113,18 @@ var CH=[
  pulses:[Pu(53,166.16,-21.66,'#fb7185',true),Pu(53,165.79,-21.44,'#fb7185',true)],
  ph:[
   Ph(0,'Des mines sur toute l’île','Aujourd’hui, des mines de nickel sont ouvertes du nord au sud de la Grande Terre, presque toujours sur les massifs de péridotite.','pol'),
-  Ph(8,'Sur la côte Ouest','Tiébaghi, Poum, Ouaco, le Koniambo et Népoui-Kopéto : les massifs miniers dominent les plaines de l’Ouest. Le Koniambo est juste au-dessus de Pouembout.','pol'),
+  Ph(8,'Sur la côte Ouest','Tiébaghi, Poum, Ouaco, le Koniambo et Népoui-Kopéto : les massifs miniers dominent les plaines de l’Ouest. Le Koniambo n’est pas loin de Pouembout.','pol'),
   Ph(20,'Sur la côte Est','Poro, Kouaoua, Nakéty et Thio : sur la côte Est, les mines sont proches de la mer, au-dessus de vallées étroites.','pol'),
   Ph(32,'Le Grand Sud','Au sud, le plateau de Goro alimente l’usine du Sud. Son minerai est pauvre en nickel, mais très abondant.','pol'),
   Ph(43,'Qui exploite ?','La SLN (la plus ancienne, depuis 1880), la SMSP (Société minière du Sud Pacifique, contrôlée par la province Nord), KNS (Koniambo Nickel), Prony Resources et de « petits mineurs » qui vendent le minerai brut à l’étranger.','kan'),
-  Ph(52,'Des mines à l’arrêt','Depuis les violences de mai 2024, sept sites de la SLN sur la côte Est, dont trois à Thio, sont inaccessibles. La SLN espère en rouvrir quatre en 2026 et ceux de Thio en 2027.','ame')
+  Ph(52,'Des mines à l’arrêt','Depuis les violences de mai 2024, sept sites de la SLN sur la côte Est, dont trois à Thio, sont inaccessibles. Au printemps 2026, la SLN espérait en rouvrir quatre en 2026 et ceux de Thio en 2027.','ame')
  ],
  photos:[Sh('laterit',8,16,'tr',2),Sh('panoramavoh',20,28,'bl',-2),Sh('goromine',32,40,'tr',2),Sh('casque',43,51,'bl',-2),Sh('thiocentre',52,60,'tr',2)],
  legend:[['pol','Massifs de péridotite (roches à nickel)'],['ere','Mine de nickel','mine'],['eur','Ville','ville'],['ame','Site bloqué depuis 2024']],
  mots:[['Mine à ciel ouvert','Mine creusée en surface, en gradins, et non sous terre.'],['Exploitant','Entreprise qui a le droit d’extraire le minerai.'],['Petit mineur','Entreprise qui extrait du minerai pour le vendre brut, sans usine.']],
- q:[['Citer trois mines de la côte Ouest.','Par exemple Tiébaghi, Poum, Ouaco, le Koniambo, Népoui-Kopéto.'],['Citer deux mines de la côte Est.','Par exemple Thio, Kouaoua, Nakéty, Poro.'],['Quelle est la plus ancienne société minière ?','La SLN (Société Le Nickel), créée en 1880.'],['Quelle mine est la plus proche de Pouembout ?','Le Koniambo.']],
- wiki:['Société Le Nickel','Société minière du Sud Pacifique','Koniambo Nickel','Mine à ciel ouvert']},
+ q:[['Citer trois mines de la côte Ouest.','Par exemple Tiébaghi, Poum, Ouaco, le Koniambo, Népoui-Kopéto.'],['Citer deux mines de la côte Est.','Par exemple Thio, Kouaoua, Nakéty, Poro.'],['Quelle est la plus ancienne société minière ?','La SLN (Société Le Nickel), créée en 1880.'],['Quelle mine alimente l’usine du Nord, près de Pouembout ?','Le Koniambo.']],
+ wiki:['Société Le Nickel','Société minière du Sud Pacifique','Koniambo Nickel','Mine à ciel ouvert'],
+ src:[['Nouvelle-Calédonie, fiche minérale — USGS National Minerals Information Center (2024)','https://www.usgs.gov/centers/national-minerals-information-center/new-caledonia'],['La SLN vise un retour à la rentabilité d’ici 2029-2030 — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/nickel-la-sln-vise-un-retour-a-la-rentabilite-d-ici-2029-2030'],['La SLN annonce une reprise de l’activité au centre minier de Kouaoua — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/nickel-la-sln-annonce-une-reprise-de-l-activite-au-centre-minier-de-kouaoua'],['Le groupe chinois Lygend a soumis une offre de rachat pour KNS — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/le-groupe-metallurgique-chinois-lygend-a-soumis-une-offre-de-rachat-pour-kns'],['L’association SMSP, Falconbridge et la province Nord (accord de Bercy) — Sénat (2005)','https://www.senat.fr/rap/r05-007/r05-00711.html']]},
 
 /* 5 --------------------------------------------------------------- */
 {short:'De la montagne à la mer',col:'mis',dur:60,dates:'aujourd’hui',
@@ -150,7 +153,7 @@ var CH=[
  pulses:[],
  ph:[
   Ph(0,'1. Extraire','À la mine, des pelles géantes creusent la montagne en gradins. On trie : seule la partie riche part à l’usine ; le reste (les stériles) est stocké sur place.','pol'),
-  Ph(4,'2. Descendre','Au Koniambo, un convoyeur d’une dizaine de kilomètres descend le minerai jusqu’à l’usine de Vavouto. Ailleurs, des camions roulent sur des pistes de montagne.','ere'),
+  Ph(4,'2. Descendre','Au Koniambo, un convoyeur d’une dizaine de kilomètres descendait le minerai jusqu’à l’usine de Vavouto. Ailleurs, des camions roulent sur des pistes de montagne.','ere'),
   Ph(10,'3. Sortir du lagon','Un chenal de plus de 4 km a été creusé dans le lagon pour que les grands navires atteignent le port de Vavouto, puis sortent par une passe du récif.','mis'),
   Ph(18,'Sur la côte Est','À Kouaoua, le minerai descend vers le bord de mer, où il est stocké avant d’être chargé. En 2026, la SLN construit une piste et quatre ponts le long de la rivière pour reprendre le transport.','ere'),
   Ph(25,'4. Vers l’usine','Des minéraliers apportent le minerai jusqu’à Doniambo. Depuis la côte Est, ils contournent le sud de la Grande Terre ; depuis Népoui, ils restent dans le lagon de la côte Ouest.','mis'),
@@ -159,8 +162,9 @@ var CH=[
  photos:[Sh('excavatrice',0,4,'tr',2),Sh('kouaouaconv',4,10,'tr',2),Sh('vraquier',10,17,'bl',-2),Sh('thiowharf',36,44,'tr',2),Sh('chaine',45,56,'tr',2,'contain')],
  legend:[['ere','Convoyeur, piste, train'],['mis','Trajet des minéraliers',1],['ere','Mine','mine'],['mis','Port, wharf, bord de mer','port'],['lap','Usine','usine']],
  mots:[['Convoyeur','Long tapis roulant qui transporte le minerai.'],['Minéralier','Grand navire qui transporte du minerai en vrac.'],['Chenal','Passage creusé et balisé pour les bateaux.'],['Passe','Ouverture dans le récif qui permet de sortir du lagon.'],['Flux','Déplacement de marchandises ou de personnes d’un lieu à un autre.']],
- q:[['Comment le minerai du Koniambo arrive-t-il à l’usine ?','Par un convoyeur d’une dizaine de kilomètres.'],['Pourquoi a-t-on creusé un chenal à Vavouto ?','Pour que les grands navires puissent traverser le lagon jusqu’au port.'],['Quel trajet fait un minéralier entre Kouaoua et Nouméa ?','Il longe la côte Est puis contourne le sud de la Grande Terre.'],['Dans quel ordre se suivent les étapes ?','Mine, transport, bord de mer, bateau, usine.']],
- wiki:['Convoyeur','Vraquier','Kouaoua','Voh (Nouvelle-Calédonie)']},
+ q:[['Comment le minerai du Koniambo arrivait-il à l’usine ?','Par un convoyeur d’une dizaine de kilomètres.'],['Pourquoi a-t-on creusé un chenal à Vavouto ?','Pour que les grands navires puissent traverser le lagon jusqu’au port.'],['Quel trajet fait un minéralier entre Kouaoua et Nouméa ?','Il longe la côte Est puis contourne le sud de la Grande Terre.'],['Dans quel ordre se suivent les étapes ?','Mine, transport, bord de mer, bateau, usine.']],
+ wiki:['Convoyeur','Vraquier','Kouaoua','Voh (Nouvelle-Calédonie)'],
+ src:[['L’usine du Nord creuse son chenal — Les Nouvelles Calédoniennes','https://www.lnc.nc/article/mines/l-usine-du-nord-creuse-son-chenal'],['Plaquette de l’usine du Nord — SMSP (2017)','https://smsp.nc/wp-content/uploads/2017/06/plaquette_usine_du_nord_fr_042017.pdf'],['Point d’étape Kouaoua (communiqué) — SLN (2026)','https://sln.eramet.com/wp-content/uploads/sites/5/2026/06/20260617-Communique-de-presse-point-detape-Kouaoua.pdf'],['La SLN annonce une reprise de l’activité au centre minier de Kouaoua — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/nickel-la-sln-annonce-une-reprise-de-l-activite-au-centre-minier-de-kouaoua'],['Nouvelle-Calédonie, fiche minérale — USGS National Minerals Information Center (2024)','https://www.usgs.gov/centers/national-minerals-information-center/new-caledonia']]},
 
 /* 6 --------------------------------------------------------------- */
 {short:'Les trois usines',col:'lap',dur:62,when:[1910,2026],dates:'1910 – aujourd’hui',
@@ -172,7 +176,7 @@ var CH=[
  ],
  labels:[
   at('noumea',4,'Nouméa',{mark:'ville',dx:10,dy:10,al:'left',zmin:30}),
-  at('doniambo',6,'Doniambo',{mark:'usine',sub:'1910 · SLN · ferronickel',dx:-12,dy:-10,al:'right',zmin:12,gold:true}),
+  at('doniambo',6,'Doniambo',{mark:'usine',sub:'1910 · SLN depuis 1931 · ferronickel',dx:-12,dy:-10,al:'right',zmin:12,gold:true}),
   at('yate',13,'Barrage de Yaté',{mark:'barrage',sub:'1959',dx:10,dy:-8,al:'left',zmin:30}),
   at('goro',19,'Usine du Sud',{mark:'usine',sub:'2010 · Prony Resources',dx:10,al:'left',zmin:12,gold:true}),
   at('prony',21,'Port de Prony',{mark:'port',dx:-10,dy:10,al:'right',zmin:30}),
@@ -184,9 +188,9 @@ var CH=[
  pulses:[Pu(6,166.43,-22.25,'#b794f6',true)],
  ph:[
   Ph(0,'Transformer sur place','Transformer le minerai rapporte plus que le vendre brut. La Nouvelle-Calédonie a trois grandes usines : à Nouméa, dans le Grand Sud et dans le Nord.','lap'),
-  Ph(5,'Doniambo (1910)','À Nouméa, l’usine de la SLN fond le minerai dans de grands fours électriques. Elle produit du ferronickel, un mélange de fer et de nickel. Il lui faut énormément d’électricité.','lap'),
-  Ph(12,'Le barrage de Yaté (1959)','Ce barrage du Grand Sud a été construit pour fournir l’électricité de Doniambo. Son lac artificiel couvre environ 40 km².','mis'),
-  Ph(18,'L’usine du Sud (2010)','Près de Goro, l’usine dissout le minerai pauvre avec de l’acide. Depuis 2021, elle s’appelle Prony Resources ; elle vend surtout un produit de nickel destiné aux batteries. Elle cherche un repreneur.','lap'),
+  Ph(5,'Doniambo (1910)','Ouverte en 1910 et reprise par la SLN en 1931, l’usine de Nouméa fond le minerai dans de grands fours électriques. Elle produit du ferronickel, un mélange de fer et de nickel. Il lui faut énormément d’électricité.','lap'),
+  Ph(12,'Le barrage de Yaté (1959)','Ce barrage du Grand Sud a été construit de 1955 à 1959 pour fournir l’électricité de Doniambo. Son lac artificiel couvre environ 40 km².','mis'),
+  Ph(18,'L’usine du Sud (2010)','Près de Goro, l’usine dissout le minerai pauvre avec de l’acide. Depuis 2021, elle s’appelle Prony Resources ; elle vend surtout un produit de nickel destiné aux batteries. Aujourd’hui elle tourne au ralenti, car le soufre de l’acide coûte très cher, et elle cherche un repreneur.','lap'),
   Ph(30,'L’usine du Nord (2013)','À Vavouto, entre Voh et Koné, la société KNS (Koniambo Nickel) coule son premier métal en avril 2013, avec le minerai du Koniambo. Faute de repreneur, l’usine est à l’arrêt depuis 2024.','lap'),
   Ph(45,'Une usine de l’autre côté du monde','En 2008, la SMSP ouvre avec un partenaire coréen l’usine SNNC, à Gwangyang, en Corée du Sud. Le minerai calédonien y voyage en minéralier.','mis')
  ],
@@ -194,7 +198,8 @@ var CH=[
  legend:[['lap','Usine métallurgique','usine'],['mis','Barrage hydroélectrique','barrage'],['mis','Port','port'],['kan','Électricité vers Doniambo',1],['mis','Minerai vers la Corée du Sud',1]],
  mots:[['Métallurgie','Industrie qui transforme le minerai en métal.'],['Ferronickel','Alliage de fer et de nickel produit dans des fours.'],['Barrage hydroélectrique','Mur qui retient l’eau d’une rivière pour produire de l’électricité.']],
  q:[['Où se trouvent les trois usines ?','À Doniambo (Nouméa), près de Goro (Grand Sud) et à Vavouto (entre Voh et Koné).'],['À quoi sert le barrage de Yaté ?','À produire l’électricité de l’usine de Doniambo.'],['Pourquoi l’usine du Nord est-elle à l’arrêt ?','Son actionnaire Glencore s’est retiré en 2024 et aucun repreneur n’a encore été choisi.'],['Où se trouve l’usine SNNC ?','À Gwangyang, en Corée du Sud.']],
- wiki:['Usine de Doniambo','Barrage de Yaté','Prony Resources','Koniambo Nickel']},
+ wiki:['Usine de Doniambo','Barrage de Yaté','Prony Resources','Koniambo Nickel'],
+ src:[['SLN, 130 ans d’histoire — SLN / Eramet','https://sln.eramet.com/wp-content/uploads/sites/5/2020/10/SLN-130-ans.pdf'],['Hauts Fourneaux de Nouméa — Entreprises coloniales','https://www.entreprises-coloniales.fr/pacifique/Hauts_Fourneaux_Noumea.pdf'],['Plaquette de l’usine du Nord — SMSP (2017)','https://smsp.nc/wp-content/uploads/2017/06/plaquette_usine_du_nord_fr_042017.pdf'],['Prony Resources, fin du transfert de propriété — Trafigura (2021)','https://www.trafigura.com/press-releases/prony-resources-announces-completion-of-transfer-of-ownership-and-a-new-beginning-for-new-caledonia-s-usine-du-sud'],['Une usine de nickel coréenne en partenariat avec la Nouvelle-Calédonie — RNZ (2008)','https://www.rnz.co.nz/international/pacific-news/180116/south-korea-company-opens-nickel-plant-in-partnership-with-new-caledonia-company'],['Prony Resources : l’État accorde un nouveau prêt — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/prony-resources-l-etat-accorde-un-nouveau-pret-face-a-la-hausse-du-prix-du-soufre']]},
 
 /* 7 --------------------------------------------------------------- */
 {short:'Le Nord, VKP et le rééquilibrage',col:'afr',dur:58,when:[1988,2026],dates:'1988 – aujourd’hui',
@@ -223,14 +228,15 @@ var CH=[
   Ph(6,'Le rééquilibrage','En 1988, les accords de Matignon créent trois provinces. La province Nord veut développer son territoire grâce au nickel.','afr'),
   Ph(12,'L’échange des massifs (1998)','Avec l’accord de Bercy, la SMSP (province Nord) obtient le riche massif du Koniambo ; la SLN reçoit en échange celui de Poum. C’était la condition posée avant de signer l’accord de Nouméa : le « préalable minier ».','afr'),
   Ph(20,'VKP grandit','Avec la construction de l’usine (2006 – 2013), Voh, Koné et Pouembout se transforment : nouveaux quartiers, commerces, services, routes. On parle de la zone VKP.','kan'),
-  Ph(33,'2024 : l’usine s’arrête','Après le retrait de Glencore, l’usine est mise en sommeil puis arrêtée le 31 août 2024 : c’est le dernier jour de travail pour environ 1 200 salariés. Des repreneurs étudient le dossier.','ame'),
+  Ph(33,'2024 : l’usine s’arrête','Après le retrait de Glencore, l’usine est mise en sommeil puis arrêtée le 31 août 2024 : c’est le dernier jour de travail pour environ 1 200 salariés. En 2026, un groupe chinois a déposé une offre de rachat ; rien n’est encore signé.','ame'),
   Ph(45,'Habiter un territoire minier','La mine et l’usine apportent des emplois, mais quand tout dépend d’une seule activité, une crise touche toute la région. C’est une grande question pour l’avenir de VKP.','kan')
  ],
  photos:[Sh('vkpmap',20,27,'tr',2,'contain'),Sh('kone',27,33,'tr',2),Sh('konemairie',27,33,'bl',-2),Sh('pigeonnier',38,45,'tr',2),Sh('coeurvoh',46,54,'tr',2)],
  legend:[['afr','Province Nord'],['mis','Province Sud'],['xet','Province des îles Loyauté'],['kan','Zone VKP (Voh-Koné-Pouembout)'],['afr','Échange des massifs (1998)',1]],
  mots:[['Rééquilibrage','Politique qui veut mieux répartir les emplois et les services entre le Nord, les îles et le Sud.'],['Province','L’une des trois grandes collectivités du pays.'],['Préalable minier','Condition posée avant l’accord de Nouméa : donner au Nord un grand massif de nickel.'],['Mise en sommeil','Arrêt d’une usine en la gardant en état de redémarrer.']],
  q:[['Que veut dire VKP ?','Voh-Koné-Pouembout, la zone autour de l’usine du Nord.'],['Quels massifs ont été échangés en 1998 ?','Le Koniambo (pour la SMSP) contre Poum (pour la SLN).'],['Pourquoi a-t-on voulu une usine dans le Nord ?','Pour rééquilibrer le pays : créer des emplois et des services hors de Nouméa.'],['Que s’est-il passé en 2024 ?','L’usine du Nord a été arrêtée faute de repreneur.']],
- wiki:['Voh-Koné-Pouembout','Accords de Bercy','Province Nord (Nouvelle-Calédonie)','Koné']},
+ wiki:['Voh-Koné-Pouembout','Accords de Bercy','Province Nord (Nouvelle-Calédonie)','Koné'],
+ src:[['L’association SMSP, Falconbridge et la province Nord (accord de Bercy) — Sénat (2005)','https://www.senat.fr/rap/r05-007/r05-00711.html'],['VKP 2004-2016, le nouveau pôle urbain — province Nord','https://province-nord.nc/parutions/vkp-2004-2016-the-new-urban-center'],['Une coulée vers l’histoire (première coulée du 10 avril 2013) — Les Nouvelles Calédoniennes','https://www.lnc.nc/article/pays/mines/une-coulee-vers-l-histoire'],['Le groupe chinois Lygend a soumis une offre de rachat pour KNS — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/le-groupe-metallurgique-chinois-lygend-a-soumis-une-offre-de-rachat-pour-kns'],['KNS : Macron ferme la porte à la Chine — Radio Cocotier (2026)','https://radiococotier.nc/2026/09/09/kns-macron-ferme-la-porte-a-la-chine-mais-avec-quel-plan-b/'],['Le statut de la Nouvelle-Calédonie — Vie publique','https://www.vie-publique.fr/fiches/20236-le-statut-de-la-nouvelle-caledonie']]},
 
 /* 8 --------------------------------------------------------------- */
 {short:'Le nickel voyage dans le monde',col:'zh',dur:60,when:[2020,2026],dates:'aujourd’hui',
@@ -265,7 +271,8 @@ var CH=[
  legend:[['zh','Minerai vers la Chine',1],['gbr','Minerai vers le Japon',1],['aus','Minerai vers la Corée du Sud',1],['lap','Produits des usines vers l’Europe',1],['ame','Grands concurrents (Indonésie, Philippines)']],
  mots:[['Exportation','Vente de marchandises à un autre pays.'],['Concurrence','Rivalité entre pays ou entreprises qui vendent le même produit.'],['Acier inoxydable','Acier qui ne rouille pas, grâce au nickel et au chrome.'],['Matière première','Produit tiré de la nature, avant transformation.']],
  q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine, qui achète surtout les produits des usines (ferronickel et produit de nickel pour les batteries).'],['Quel pays est le premier producteur mondial de nickel ?','L’Indonésie (environ 60 % en 2024).'],['À quoi sert surtout le nickel ?','À fabriquer de l’acier inoxydable.'],['Pourquoi une baisse du prix du nickel est-elle grave pour le pays ?','Parce que la plupart des exportations sont du nickel : mines et usines perdent de l’argent.']],
- wiki:['Nickel','Acier inoxydable','Morowali','Accumulateur lithium-ion']},
+ wiki:['Nickel','Acier inoxydable','Morowali','Accumulateur lithium-ion'],
+ src:[['Synthèse annuelle Nouvelle-Calédonie 2025 — IEOM (2026)','https://www.ieom.fr/IMG/pdf/synthese_annuelle_nc_2025.pdf'],['Balance des paiements 2024, Nouvelle-Calédonie — IEOM (2025)','https://www.ieom.fr/IMG/pdf/ra_balance_paiements_nc_2024.pdf'],['Mineral Commodity Summaries 2026 : nickel — USGS (2026)','https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-nickel.pdf'],['Nouvelle-Calédonie, fiche minérale — USGS National Minerals Information Center (2024)','https://www.usgs.gov/centers/national-minerals-information-center/new-caledonia'],['Les exportations repartent au premier trimestre — Les Nouvelles Calédoniennes d’après l’Isee (2026)','https://www.lnc.nc/article/les-exportations-repartent-au-premier-trimestre-portees-par-l-usine-du-sud']]},
 
 /* 9 --------------------------------------------------------------- */
 {short:'Mines et environnement',col:'xet',dur:60,dates:'aujourd’hui',
@@ -296,7 +303,8 @@ var CH=[
  legend:[['aus','Lagons inscrits à l’UNESCO (2008)'],['pol','Massifs de péridotite (roches à nickel)'],['ere','Mine','mine'],['lap','Usine','usine'],['pol','Terre emportée par l’érosion']],
  mots:[['Érosion','Usure du sol par la pluie, le vent ou les rivières.'],['Stériles','Roches et terres sans assez de métal, retirées pour atteindre le minerai.'],['Endémique','Qui ne vit nulle part ailleurs dans le monde.'],['Revégétalisation','Replanter une végétation sur un terrain abîmé.'],['Patrimoine mondial','Lieux protégés pour toute l’humanité par l’UNESCO.']],
  q:[['Pourquoi les rivières près des mines deviennent-elles rouges ?','Parce que la pluie emporte la terre des pentes nues (érosion).'],['Que veut dire « endémique » ?','Qui ne vit nulle part ailleurs dans le monde.'],['Depuis quand les lagons sont-ils au patrimoine mondial ?','Depuis 2008.'],['Comment répare-t-on une ancienne mine ?','On remodèle le terrain et on replante des plantes locales.']],
- wiki:['Lagons de Nouvelle-Calédonie','Maquis minier','Endémisme','Parc provincial de la Rivière Bleue']},
+ wiki:['Lagons de Nouvelle-Calédonie','Maquis minier','Endémisme','Parc provincial de la Rivière Bleue'],
+ src:[['Conséquences du déversement d’acide du 7 mai 2014 — province Sud / DENV (2014)','https://province-sud.nc/sites/default/files/199870/2-%20Rapport%20province%20Sud%20-%20DENV%20sur%20les%20cons%C3%A9quences%20du%20d%C3%A9versement%20d%27acide%20-%2010%20juin%202014.pdf'],['Deux tiers des lézards et 40 % de la flore menacés — Les Nouvelles Calédoniennes (liste rouge Endemia, UICN)','https://www.lnc.nc/article/nouvelle-caledonie/environnement/sciences/deux-tiers-des-lezards-et-40-de-la-flore-menaces-de-disparition-en-nouvelle-caledonie'],['Lagons de Nouvelle-Calédonie : diversité récifale et écosystèmes associés — UNESCO (2008)','https://whc.unesco.org/ru/list/1115']]},
 
 /* 10 -------------------------------------------------------------- */
 {short:'Un pays qui vit du nickel',col:'kan',dur:56,when:[2024,2026],dates:'2024 – 2026',
@@ -305,7 +313,7 @@ var CH=[
  routes:[],
  labels:[
   at('doniambo',10,'Doniambo',{mark:'usine',sub:'produit, avec l’aide de l’État',dx:-12,dy:-8,al:'right'}),
-  at('goro',22,'Usine du Sud',{mark:'usine',sub:'tourne, cherche un repreneur',dx:10,al:'left',zmin:12}),
+  at('goro',22,'Usine du Sud',{mark:'usine',sub:'tourne au ralenti, cherche un repreneur',dx:10,al:'left',zmin:12}),
   at('vavouto',23,'Usine du Nord',{mark:'usine',sub:'à l’arrêt, offre de rachat en 2026',dx:-12,dy:8,al:'right',zmin:12}),
   at('thio',24,'Thio',{mark:'mine',sub:'reprise espérée en 2027',dx:10,dy:6,al:'left',zmin:12}),
   at('kouaoua',24.5,'Kouaoua',{mark:'mine',sub:'piste et ponts en travaux',dx:10,dy:-8,al:'left',zmin:12}),
@@ -316,8 +324,8 @@ var CH=[
  pulses:[Pu(22,166.95,-22.29,'#86efac',true),Pu(22,166.43,-22.25,'#86efac',true),Pu(23,164.73,-21.01,'#fb7185',true),Pu(24,166.16,-21.66,'#fb7185',true)],
  ph:[
   Ph(0,'Le nickel fait vivre le pays','La mine et la métallurgie font travailler des milliers de personnes, directement ou par la sous-traitance : transport, entretien, commerces.','kan'),
-  Ph(9,'Une crise grave','Prix bas, électricité chère, concurrence de l’Indonésie, puis violences de mai 2024 : les usines perdent beaucoup d’argent. L’État français prête de l’argent pour les maintenir.','ame'),
-  Ph(20,'Où en est-on fin 2026 ?','Doniambo produit, avec l’aide de l’État. L’usine du Sud tourne mais cherche toujours un repreneur. L’usine du Nord est à l’arrêt ; un groupe chinois a fait une offre de rachat en 2026.','eur'),
+  Ph(9,'Une crise grave','Prix du nickel longtemps bas (en hausse début 2026), électricité chère, concurrence de l’Indonésie, violences de mai 2024 : les usines perdent beaucoup d’argent. L’État français prête de l’argent pour les maintenir.','ame'),
+  Ph(20,'Où en est-on fin 2026 ?','Doniambo produit, avec l’aide de l’État. L’usine du Sud tourne au ralenti (le soufre est devenu très cher) et cherche toujours un repreneur. L’usine du Nord est à l’arrêt ; un groupe chinois a fait une offre de rachat en 2026, mais rien n’est signé.','eur'),
   Ph(32,'Et demain ?','Les pistes discutées : rouvrir les mines bloquées, baisser le prix de l’électricité, recycler les déchets des fours (les scories), trouver de nouveaux clients (Europe, États-Unis). La situation change vite.','kan'),
   Ph(44,'À toi, géographe','Sur une carte muette de la Nouvelle-Calédonie, place les mines, les usines, les ports et les flux. Tu verras comment le nickel organise tout le territoire.','kan')
  ],
@@ -325,7 +333,8 @@ var CH=[
  legend:[['xet','Site en activité'],['ame','Site à l’arrêt ou bloqué'],['lap','Usine','usine'],['ere','Mine','mine']],
  mots:[['Économie','Ensemble des activités qui produisent et échangent des richesses.'],['Sous-traitance','Travail confié par une grande entreprise à d’autres entreprises.'],['Repreneur','Entreprise qui rachète une usine pour la faire fonctionner.'],['Diversifier','Développer d’autres activités pour ne pas dépendre d’une seule.']],
  q:[['Pourquoi dit-on que le pays dépend du nickel ?','Parce que le nickel fournit la plupart des exportations et beaucoup d’emplois.'],['Citer deux causes de la crise du nickel.','Le prix bas, l’électricité chère, la concurrence indonésienne, les violences de 2024.'],['Quelle usine est à l’arrêt en 2026 ?','L’usine du Nord, à Vavouto.'],['Que veut dire « diversifier » l’économie ?','Développer d’autres activités pour ne pas dépendre d’une seule.']],
- wiki:['Économie de la Nouvelle-Calédonie','Nickel en Nouvelle-Calédonie','Société Le Nickel','Prony Resources']}
+ wiki:['Économie de la Nouvelle-Calédonie','Nickel en Nouvelle-Calédonie','Société Le Nickel','Prony Resources'],
+ src:[['La SLN vise un retour à la rentabilité d’ici 2029-2030 — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/nickel-la-sln-vise-un-retour-a-la-rentabilite-d-ici-2029-2030'],['L’État au chevet du minier Eramet — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/l-etat-au-chevet-du-minier-eramet-sans-aller-jusqu-a-la-nationalisation'],['Prony Resources : le processus de reprise menacé — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/prony-resources-le-processus-de-reprise-menace-apres-le-retrait-du-seul-candidat'],['Prony Resources : l’État accorde un nouveau prêt — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/prony-resources-l-etat-accorde-un-nouveau-pret-face-a-la-hausse-du-prix-du-soufre'],['Nickel calédonien : entre la France, l’UE et la Chine — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/nickel-caledonien-entre-la-france-l-ue-et-la-chine-l-enjeu-du-controle-de-la-ressource'],['KNS : Macron ferme la porte à la Chine — Radio Cocotier (2026)','https://radiococotier.nc/2026/09/09/kns-macron-ferme-la-porte-a-la-chine-mais-avec-quel-plan-b/']]}
 ];
 
 A.add({id:'nickel',title:'Le nickel',tag:'9 chapitres · massifs, mines, usines, flux, VKP',col:'jade',proj:'globe',

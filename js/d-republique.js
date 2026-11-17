@@ -41,7 +41,7 @@ window.FACILE.republique=[
  '🌺 En 1975, le festival *Mélanésia 2000* affirme la *culture kanak*. Des partis réclament l’*indépendance*.',
  '💔 De *1984 à 1988*, ce sont les « *Événements* » : des violences graves, jusqu’au drame d’*Ouvéa*.',
  '🤝 Le *26 juin 1988*, *Jean-Marie Tjibaou* et *Jacques Lafleur* se serrent la main : les *accords de Matignon* ramènent la paix.',
- '📋 De *2018 à 2021*, trois *référendums* : le « non » à l’indépendance l’emporte, mais les indépendantistes ne participent pas au troisième.']
+ '📋 De *2018 à 2021*, trois *référendums* : le « non » à l’indépendance l’emporte, mais les partis indépendantistes appellent à ne pas voter au troisième.']
 ];
 
 window.QCM.republique=[
