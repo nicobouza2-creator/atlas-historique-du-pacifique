@@ -9,7 +9,7 @@
 window.FACILE=window.FACILE||{};window.QCM=window.QCM||{};window.GAL=window.GAL||{};
 
 window.FACILE.colonies=[
-['🏰 Vers *1815*, l’Espagne et le Portugal ont perdu presque toute l’*Amérique*. Le *Royaume-Uni* domine les mers. La France n’a plus que quelques « vieilles colonies ».',
+['🏰 Après *1815*, l’Espagne et le Portugal perdent presque toute l’*Amérique*. Le *Royaume-Uni* domine les mers. La France n’a plus que quelques « vieilles colonies ».',
  '🏭 En Europe, les *usines* se multiplient. Il leur faut des *matières premières* (coton, caoutchouc, métaux) et des *clients*.',
  '🚢 Les navires à *vapeur* n’ont plus besoin du vent. En *1869*, le *canal de Suez* raccourcit beaucoup la route vers l’Inde.',
  '⚓ Un vapeur brûle du *charbon*. Chaque pays veut donc des *ports* partout : Aden, Singapour, Dakar, Saïgon, *Nouméa*.',
@@ -34,7 +34,7 @@ window.FACILE.colonies=[
  '🌐 D’autres pays ont des colonies : la *France*, l’Allemagne, la Belgique… et deux pays hors d’Europe : les *États-Unis* et le *Japon*.',
  '🗺️ En *1914*, l’Empire britannique rassemble près d’*un humain sur quatre*. Les disputes pour les colonies font monter les *tensions* avant la guerre.'],
 ['🌊 Vers *1840*, presque toutes les îles du Pacifique sont *libres*. Baleiniers, marchands de santal et *missionnaires* y passent déjà.',
- '🖋️ En 1840, le traité de *Waitangi* donne la *Nouvelle-Zélande* aux Britanniques. La France prend *Tahiti* (1842) puis la *Nouvelle-Calédonie*, le *24 septembre 1853*.',
+ '🖋️ En 1840, le traité de *Waitangi* place la *Nouvelle-Zélande* sous l’autorité de Londres. La France prend *Tahiti* (1842) puis la *Nouvelle-Calédonie*, le *24 septembre 1853*.',
  '🏝️ Les *Fidji* deviennent britanniques en 1874. L’*Allemagne* arrive en *Nouvelle-Guinée* en 1884. *Wallis-et-Futuna* passe sous protection française.',
  '🦅 En *1898*, les *États-Unis* prennent les *Philippines*, Guam et *Hawaï*. En 1899, les *Samoa* sont coupées en deux.',
  '🤝 En *1906*, Français et Britanniques gouvernent *ensemble* les *Nouvelles-Hébrides* (le Vanuatu) : c’est un *condominium*. Plus une île n’est libre.',
