@@ -16,9 +16,10 @@ monde:{
   'Rapa Nui':'m-moai','Antarctique':GL,'Sahara':'l-desert','Désert australien':'l-desert','Amazonie':'l-foret','Grand Nord':GL,'Himalaya':MONT}},
 pacifique:{
  r:{1:{'*':SAP},4:{'*':'polynesien'}},
- l:{'Jebel Irhoud (Maroc)':FO,'Omo (Éthiopie)':FO,'Foué (Koné)':FO,'Rapa Nui':'m-moai','Lössi, sud de Lifou':CASE,'Grande Terre':CASE}},
+ l:{'Jebel Irhoud (Maroc)':FO,'Omo (Éthiopie)':FO,'Foué (Koné)':FO,'Rapa Nui':'m-moai','Lössi, sud de Lifou':CASE,'Grande Terre':CASE},
+ lc:{2:{'Taïwan':'l-village-neolithique'},6:{'Nouvelle-Calédonie':CASE}}},
 decouvertes:{
- r:{0:{2:'galere',3:'s-caravane'}},
+ r:{0:{2:'galere',3:'s-caravane'},14:{0:'jonque',1:'jonque',2:'caravelle',3:'caravelle',4:'nao',5:'nao',6:'nao',7:'nao',8:'nef'}},
  l:{'Chine':'m-muraille','Constantinople':'m-sainte-sophie','Venise':'m-venise','Nankin':'m-pagode-nankin','Elmina':CPT,'Calicut':CPT,'Cochin':CPT,'Macao':CPT,'Batavia (Jakarta)':CPT,'La Navidad':'l-fort','Tempête':'s-cyclone|l-cyclone',
   'Stadaconé (Québec)':'l-village-iroquoien','Hochelaga (Montréal)':'l-village-iroquoien','Marquises':'m-tiki','Île de Pâques':'m-moai','Grande Barrière':'l-recif','Cercle polaire':GL,'71° sud':GL,'Détroit de Béring':GL,'Kamtchatka':'l-volcan','Vanikoro':'l-epave|l-recif'},
  lc:{12:{'Hawaï':'l-volcan'}}},
@@ -33,13 +34,14 @@ geonc:{
  l:{'Mont Panié':MONT,'Mont Humboldt':MONT,'Récif barrière':'l-recif','Côte Est':'l-foret','Côte Ouest':'l-station','Massif du Koniambo':MINE,'Trajectoire d’un cyclone (exemple)':'s-cyclone|l-cyclone','Côte Est : la plus arrosée':'l-foret',
   'stations d’élevage':'l-station','Hienghène':'l-tribu','Fayaoué (Ouvéa)':'l-tribu','Tadine (Maré)':'l-tribu','Port de Nouméa':PORT,'La Tontouta':'l-aeroport','Sydney':'m-opera-sydney',
   'mines de nickel':MINE,'élevage, cultures':'l-station','fermes de crevettes':'l-ferme-crevettes','pêche au thon au large':'thonier','conteneurs importés':PORT,'Lagons classés (2008)':'l-recif','Chesterfield':'l-recif','Entrecasteaux':'l-recif','Matthew':'l-volcan','Hunter':'l-volcan'},
- lc:{2:{'Nouméa':VILLE},3:{'Nouméa':VILLE,'Bourail':MAI},4:{'Lifou':'l-aeroport'},5:{'Ouvéa':'l-cocoteraie'}}},
+ lc:{1:{'Côte Ouest : plus sèche':'l-station'},2:{'Nouméa':VILLE,'Koné':MAI,'Wé (Lifou)':'l-tribu'},3:{'Nouméa':VILLE,'Bourail':MAI},4:{'Lifou':'l-aeroport'},5:{'Ouvéa':'l-cocoteraie'}}},
 nickel:{
  r:{1:{0:'s-train'},3:{0:'s-camion-minier',2:'s-camion-minier'}},
  l:{'Koniambo':MINE,'Thio':MINE,'Mine du Koniambo':MINE,'Mine de Kouaoua':MINE,'Fern Hill':MINE,'Pilou (Diahot)':MINE,'Doniambo':US,'Usine du Sud':US,'Usine du Nord (Vavouto)':US,'Usine du Nord':US,'Gwangyang (Corée du Sud)':US,'Morowali':US,
-  'Thio-Mission':WH,'Népoui':WH,'bord de mer':WH,'Port de Prony':WH,'Pam':WH,'Barrage de Yaté':'l-barrage','Parc de la Rivière Bleue':'l-foret','Lagons inscrits au patrimoine mondial (2008)':'l-recif'}},
+  'Thio-Mission':WH,'Népoui':WH,'bord de mer':WH,'Port de Prony':WH,'Pam':WH,'Barrage de Yaté':'l-barrage','Parc de la Rivière Bleue':'l-foret','Lagons inscrits au patrimoine mondial (2008)':'l-recif'},
+ lc:{0:{'Mont Humboldt':'l-montagne','Kopéto':MINE},5:{'Vavouto':US,'Nouméa':'l-ville'}}},
 mondial:{
- r:{6:{'*':'cablier'},7:{0:AV,1:AV,2:AV,3:AV,4:AV,5:AV,6:'s-refugies',7:AV,8:'s-refugies',9:'s-refugies',10:AV,11:AV},8:{3:AV,4:AV,5:AV,6:AV,7:AV,8:AV}},
+ r:{11:{0:'mineralier',1:'mineralier',2:'mineralier',3:'conteneurs',4:'conteneurs',5:'conteneurs',6:'conteneurs'},6:{'*':'cablier'},7:{0:AV,1:AV,2:AV,3:AV,4:AV,5:AV,6:'s-refugies',7:AV,8:'s-refugies',9:'s-refugies',10:AV,11:AV},8:{3:AV,4:AV,5:AV,6:AV,7:AV,8:AV}},
  l:{'Everest (8 849 m)':MONT,'Aconcagua (6 961 m)':MONT,'Mont Blanc':MONT,'Kilimandjaro (5 895 m)':MONT,'Mont Panié (1 629 m)':MONT,'forêt du Congo':'l-foret','Amazonie':'l-foret','Sahara':'l-desert','désert australien':'l-desert','Gobi':'l-desert','Atacama':'l-desert',
   'zone froide':GL,'intérieur de l’Australie':'l-desert','Grand Nord canadien':GL,'Groenland':GL,'Tokyo':'m-tour-tokyo','Paris':'m-tour-eiffel','Le Caire':'m-pyramides','Sydney':'m-opera-sydney',
   'Jakarta':VILLE,'Dacca':VILLE,'Canton':VILLE,'Manille':VILLE,'Calcutta':VILLE,'Séoul':VILLE,'São Paulo':VILLE,'Lagos':VILLE,'Mexico':VILLE,'New Delhi':VILLE,

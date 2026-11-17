@@ -153,8 +153,8 @@ class Doc:
         if k == 'img':
             im = IMG[d['id']]; s.picture(REPO + im['f'], d.get('cap') or im['c'], im['r'], 7.5 if two else 11)
         elif k == 'map':
-            s.picture(DOS + 'cartes/%s-%d.jpg' % (s.vol, s.ci), d.get('cap') or 'Carte de l’atlas : « %s », à la fin de l’animation' % s.ch['short'],
-                      NOMT(s.vol) + ' · fonds de carte Natural Earth (domaine public)', 8.5 if two else 12.5, 17)
+            s.picture(DOS + 'cartes/%s-%d.jpg' % (s.vol, s.ci), d.get('cap') or 'Carte de l’atlas : « %s »' % s.ch['short'],
+                      NOMT(s.vol) + ' · fonds de carte Natural Earth (domaine public), Géorep (gouvernement de la Nouvelle-Calédonie)', 11.5 if two else 21.5, 17)
         elif k == 'txt':
             s.boxed(d['t'], [x for x in str(d['txt']).split('\n') if x.strip()], 'F6F1E4', src=d.get('src', ''))
             if d.get('tp'): s.sticky('Note de l’enquêteur : la même chose, en plus court', d['tp'])
@@ -247,7 +247,7 @@ class Doc:
             s.h('Pièce n° %d · %s' % (i + 1, pg['t'])); dd = ds(pg['d'])
             for d in dd: s.doc(d, len(dd) > 1)
         s.h('Pièce n° %d · %s' % (n_ex, ex['t'])); s.extra()
-        if n_map: s.h('Pièce n° %d · Carte de l’atlas' % n_map); s.doc({'k': 'map'}, True)
+        if n_map: s.h('Pièce n° %d · Carte de l’atlas' % n_map); s.doc({'k': 'map'}, False)
         s.br(); s.h('Pièce n° %d · Pli cacheté : la note de synthèse de l’atlas' % n_last)
         s.p('À n’ouvrir qu’après avoir étudié toutes les autres pièces.', 10, italic=True, color=MUTED)
         s.boxed('Note de synthèse · ' + ch['short'], ['%s : %s' % (clean(x['era']), clean(x['txt'])) for x in ch['ph']], 'F6F1E4', src=('Récit de l’atlas d’histoire du collège.' if s.vol in COLLEGE else 'Récit de l’atlas historique du Pacifique.'), badge='À OUVRIR EN DERNIER')

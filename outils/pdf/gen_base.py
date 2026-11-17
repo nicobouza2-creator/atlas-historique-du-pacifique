@@ -92,6 +92,23 @@ class Photo(Flowable):
             c.saveState(); c.translate(tx + 8 * mm, fh - 1 * mm); c.rotate(a); c.rect(-9 * mm, -2.8 * mm, 18 * mm, 5.6 * mm, fill=1, stroke=0); c.restoreState()
         c.restoreState()
 
+class MapDoc(Flowable):
+    """Carte-document de l'atlas (titre, carte, légende, zooms) : pleine largeur, cadre fin, légende et crédit dessous."""
+    def __init__(self, path, cap, cred, maxh=222 * mm):
+        Flowable.__init__(self); self.path, self.cap, self.cred, self.maxh = path, cap, cred, maxh
+        im = PILImage.open(path); self.ar = im.width / im.height
+    def wrap(self, w, h):
+        self.pc = Paragraph(esc(self.cap) + '<br/><font name="AtkI" size="8.3" color="#5b6470">' + esc(self.cred) + '</font>', ST['cap'])
+        self.pch = self.pc.wrap(w, 40 * mm)[1]
+        iw = w - 4 * mm; ih = iw / self.ar
+        if ih > self.maxh: ih = self.maxh; iw = ih * self.ar
+        self.iw, self.ih, self.w = iw, ih, w; self.h = ih + self.pch + 8 * mm; return (w, self.h)
+    def draw(self):
+        c = self.canv; x = (self.w - self.iw) / 2; y = self.pch + 4 * mm
+        c.setFillColor(colors.white); c.setStrokeColor(colors.HexColor('#d9d4c7'))
+        c.rect(x - 2 * mm, y - 2 * mm, self.iw + 4 * mm, self.ih + 4 * mm, fill=1, stroke=1)
+        c.drawImage(self.path, x, y, self.iw, self.ih); self.pc.drawOn(c, 0, 0)
+
 class Sheet(Flowable):
     """Document papier : carnet, lettre, tapuscrit, fiche, officiel, archive."""
     def __init__(self, kind, title, text, src='', badge=''):
