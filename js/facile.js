@@ -46,7 +46,7 @@ monde:[
  '⛵ Les *Vikings* vont en Islande et au Groenland. Vers l’an 1000, ils arrivent en *Amérique*.',
  '🛶 Des Austronésiens venus de très loin peuplent *Madagascar*. Des Africains les rejoignent.',
  '🌺 Les Lapita, puis les Polynésiens, peuplent les *îles du Pacifique*. La Nouvelle-Zélande est la *dernière* grande terre habitée.',
- '🏝️ Certaines îles restent *vides* jusqu’à l’arrivée des Européens. Personne ne vit toute l’année en Antarctique.'],
+ '🏝️ Certaines îles restent *vides* jusqu’à l’arrivée des Européens. Personne n’habite en permanence en Antarctique.'],
 ['🌍 Nous sommes plus de *8 milliards* d’humains. Nous ne vivons pas partout pareil.',
  '🏙️ Beaucoup de gens vivent en *Asie* et en *Europe*. L’Inde et la Chine sont les pays les plus peuplés.',
  '📍 D’autres régions ont aussi beaucoup d’habitants : la vallée du Nil, l’est des États-Unis, l’île de Java.',
