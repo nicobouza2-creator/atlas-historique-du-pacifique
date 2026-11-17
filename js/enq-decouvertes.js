@@ -206,7 +206,7 @@ P('Une croix à Gaspé',X('Gaspé, 24 juillet 1534','Texte adapté, d’après l
 P('Deux voyages',TB('Les deux premiers voyages de Cartier',['Voyage','Navires','Ce qu’il explore'],[['1534','2 navires, 61 hommes','Terre-Neuve, golfe du Saint-Laurent, Gaspé'],['1535 – 1536','3 navires','fleuve Saint-Laurent, Stadaconé (Québec), Hochelaga (Montréal)']],'Tableau de l’atlas.'),
  [Q('Quel grand fleuve Cartier remonte-t-il en 1535 ?',['Le Saint-Laurent','Le Mississippi','L’Amazone']),R('Relie le nom iroquoien à la ville d’aujourd’hui.',[['Stadaconé','Québec'],['Hochelaga','Montréal']])],
  [Q('Qui guide Cartier sur le fleuve ?',['Les deux fils de Donnacona, emmenés en France l’année précédente','Un pilote portugais','Personne']),W('Pourquoi les deux jeunes Iroquoiens sont-ils précieux pour Cartier ?','Ils connaissent le pays et ont appris un peu de français en France : ils servent de guides et d’interprètes.')],
- 'En 1535, guidé par deux jeunes Iroquoiens, Cartier remonte le Saint-Laurent jusqu’à Québec et Montréal.'),
+ 'En 1535, guidé par deux jeunes Iroquoiens, Cartier remonte le Saint-Laurent jusqu’à Québec, puis atteint Montréal.'),
 P('Un hiver terrible',M(),
  [Q('Qui sauve les marins malades du scorbut ?',['Les Iroquoiens, avec une tisane de conifère','Un médecin anglais','Personne']),T('Le mot « Canada » vient de « [kanata] », qui veut dire le village.',['Kanak','canard'])],
  [W('Que montre l’épisode de la tisane sur les savoirs des Iroquoiens ?','Ils connaissent très bien leur environnement et ses remèdes : sans eux, bien plus de Français seraient morts.'),V('Cartier a trouvé de l’or et un passage vers l’Asie.',0,'Faux : il ne trouve ni l’un ni l’autre, mais il ouvre la voie à la Nouvelle-France.')],

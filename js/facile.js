@@ -146,7 +146,7 @@ decouvertes:[
  '⛵ Avec de bons vents, Cartier traverse l’Atlantique en *20 jours*.',
  '🤝 Il rencontre des *Amérindiens* : les Micmacs et les *Iroquoiens*, avec leur chef Donnacona.',
  '✝️ Cartier plante une *croix* au nom du roi. Le chef proteste. Cartier emmène ses 2 fils en France.',
- '🏞️ Les 2 jeunes guident Cartier sur un grand fleuve, le *Saint-Laurent*, jusqu’à Québec et Montréal.',
+ '🏞️ Les 2 jeunes guident Cartier sur un grand fleuve, le *Saint-Laurent*, jusqu’à Québec. Il continue sans eux jusqu’à Montréal.',
  '❄️ L’hiver est terrible. Les Iroquoiens *sauvent* les marins malades. « *Canada* » vient de leur langue.'],
 ['💰 Les Espagnols du *Pérou* rêvent d’îles pleines d’*or*. *Mendaña* part avec 2 bateaux.',
  '🏝️ Il arrive aux *îles Salomon*. Il ne trouve *pas d’or*. Il y a des combats avec les habitants.',
@@ -164,7 +164,7 @@ decouvertes:[
  '🔬 On veut *mesurer* et *décrire* : les plantes, les animaux, les peuples.',
  '🧭 Il passe le détroit de Magellan, puis des îles dangereuses : les Tuamotu.',
  '🌺 Il s’arrête à *Tahiti*. Son récit fait rêver l’Europe. Un Tahitien, *Ahutoru*, part avec lui.',
- '🪸 Au Vanuatu, des *récifs* l’obligent à faire demi-tour. Il ne voit *pas la Nouvelle-Calédonie*.',
+ '🪸 Après le Vanuatu, des *récifs* l’obligent à faire demi-tour. Il ne voit *pas la Nouvelle-Calédonie*.',
  '🐀 Les marins ont tellement faim qu’ils mangent les *rats*. Ils rentrent en France en 1769.',
  '👩 *Jeanne Barret*, déguisée en homme, est la *première femme* à faire le tour du monde.'],
 ['⛵ *James Cook*, un capitaine anglais, part sur l’*Endeavour*. Des *savants* sont à bord.',
@@ -185,7 +185,7 @@ decouvertes:[
  '⛵ En *34 ans*, des marins relient *tous les océans*. Les cartes changent.',
  '🔄 Pour la première fois, on fait le *tour de la Terre*. Les plantes, les animaux et les *maladies* voyagent.',
  '🌽 L’Europe découvre le *maïs*, la *pomme de terre*, la *tomate*. L’Amérique reçoit le cheval… et des *maladies* mortelles.',
- '⛓️ L’Espagne et le Portugal créent des *empires*. Des millions d’Africains sont déportés comme *esclaves*.',
+ '⛓️ L’Espagne et le Portugal créent des *empires*. Au fil des siècles, des millions d’Africains sont déportés comme *esclaves*.',
  '🤝 Ces terres étaient *déjà habitées*. On parle aujourd’hui de *rencontres* plutôt que de découvertes.']
 ],
 caledonie:[
