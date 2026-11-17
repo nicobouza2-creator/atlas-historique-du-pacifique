@@ -153,7 +153,7 @@ class Doc:
         if k == 'img':
             im = IMG[d['id']]; s.picture(REPO + im['f'], d.get('cap') or im['c'], im['r'], 7.5 if two else 11)
         elif k == 'map':
-            s.picture(DOS + 'cartes/%s-%d.jpg' % (s.vol, s.ci), d.get('cap') or 'Carte de l’atlas : « %s ». Les numéros rouges renvoient aux zooms.' % s.ch['short'],
+            s.picture(DOS + 'cartes/%s-%d.jpg' % (s.vol, s.ci), d.get('cap') or 'Carte de l’atlas : « %s »' % s.ch['short'],
                       NOMT(s.vol) + ' · fonds de carte Natural Earth (domaine public), Géorep (gouvernement de la Nouvelle-Calédonie)', 11.5 if two else 21.5, 17)
         elif k == 'txt':
             s.boxed(d['t'], [x for x in str(d['txt']).split('\n') if x.strip()], 'F6F1E4', src=d.get('src', ''))

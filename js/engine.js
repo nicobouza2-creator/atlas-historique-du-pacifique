@@ -1558,7 +1558,8 @@ function docCanvas(ci){
   var legH=rows.length?(58+Math.max(hL,hR)+10):0;
   var mw=flat?PW:1300,mh=main.height*(mw/main.width),mx=(PW-mw)/2;
   var one=parts.length===1,iw=one?1040:(PW-40)/2,ih=iw*400/600,nrow=Math.ceil(parts.length/2);
-  var yT=20+TL.length*54+16,yM=yT+10,yL=yM+mh+18,yI=yL+legH+(parts.length?16:0);
+  var hint=parts.some(function(P){return P.sp.q;});
+  var yT=20+TL.length*54+16,yM=yT+10,yL=yM+mh+18,yI=yL+legH+(parts.length?16:0)+(hint?42:0);
   var PH=Math.ceil(yI+nrow*(ih+78)+10);
   var pg=document.createElement('canvas');pg.width=PW;pg.height=PH;var c=pg.getContext('2d');
   c.fillStyle='#fff';c.fillRect(0,0,PW,PH);c.textBaseline='alphabetic';c.fillStyle=INK;
@@ -1581,6 +1582,7 @@ function docCanvas(ci){
       yy[k]+=14+x.ls.length*36;
     });
   }
+  if(hint){c.fillStyle='#5b6b7a';c.font='italic 400 24px '+FONT;c.fillText('Les numéros rouges de la grande carte montrent où se trouvent les zooms.',0,yI-16);}
   parts.forEach(function(P,i){
     var x0=one?(PW-iw)/2:(parts.length%2&&i===parts.length-1)?(PW-iw)/2:(i%2)*(iw+40),y0=yI+Math.floor(i/2)*(ih+78);
     badge(x0+24,y0+30,i+1,22);
