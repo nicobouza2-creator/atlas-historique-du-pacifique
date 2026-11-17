@@ -4,7 +4,7 @@
 <sortie> reçoit index.html (= college.html), js/ (seulement les scripts chargés, minifiés par terser) et img/
 (seulement les images utilisées par les volets et les enquêtes du collège). Lancer outils/college.py avant.
 terser : variable TERSER = chemin de l'exécutable, sinon « npx terser »."""
-import os, re, shutil, subprocess, sys
+import json, os, re, shutil, subprocess, sys
 import pack
 
 def main(repo, out):
@@ -19,7 +19,7 @@ def main(repo, out):
     reg = open(os.path.join(repo, 'js', 'img.js'), encoding='utf-8').read()
     for f in scripts:
         src = os.path.join(repo, 'js', f)
-        subprocess.run(terser + [src, '-c', 'passes=1', '-m', '--comments', 'false', '--preamble', pre, '-o', os.path.join(out, 'js', f)], check=True)
+        subprocess.run(terser + [src, '-c', 'passes=1', '-m', '--comments', 'false', '-f', 'preamble=' + json.dumps(pre, ensure_ascii=False), '-o', os.path.join(out, 'js', f)], check=True)
         if f.startswith(('v-', 'enq-')):
             s = open(src, encoding='utf-8').read()
             ids |= set(re.findall(r"\bSh\('([A-Za-z0-9_]+)'", s)) | set(re.findall(r"\bI\('([A-Za-z0-9_]+)'", s))

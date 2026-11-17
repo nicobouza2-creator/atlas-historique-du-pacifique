@@ -13,7 +13,8 @@ def main(repo):
     s = open(os.path.join(repo, 'index.html'), encoding='utf-8').read()
     tags = re.findall(r'<script src="js/[^"]+"></script>\n', s)
     debut, fin = s.index(tags[0]), s.index(tags[-1]) + len(tags[-1])
-    ordre = ['geo.js', 'pays.js', 'img.js', 'engine.js', 'ui.js', 'facile.js', 'activites.js', 'enquete.js']
+    ordre = ['auteur.js', 'geo.js', 'pays.js',   # auteur.js : mention d'auteur (Nicolas BOUZA), après window.ATLAS_COLLEGE
+              'img.js', 'engine.js', 'ui.js', 'facile.js', 'activites.js', 'enquete.js']
     ordre += ['enq-%s.js' % v for v in VOLETS if os.path.exists(os.path.join(repo, 'js', 'enq-%s.js' % v))] + ['galerie.js']
     ordre += ['d-%s.js' % v for v in VOLETS if os.path.exists(os.path.join(repo, 'js', 'd-%s.js' % v))]   # mode facile, quiz, galerie
     ordre += ['v-%s.js' % v for v in VOLETS] + ['college.js', 'passerelle.js']   # passerelle.js : onglets vers l'autre atlas
@@ -26,6 +27,10 @@ def main(repo):
     s = re.sub(r'(<h1 id="homeT">[^<]*</h1>\s*<p>)[^<]*(</p>)',
                r'\1Des cartes animées pour le programme d’histoire du collège adapté à la Nouvelle-Calédonie. Choisis un volet, ou ouvre l’Espace collège : programmes, fiches séance, suite du chantier.\2', s, count=1)
     s = s.replace('Atlas historique du Pacifique', 'Atlas d’histoire — Collège')
+    # mention d'auteur : description et adresse propres au collège (métadonnées, schema.org)
+    s = s.replace('Cartes animées d’histoire et de géographie pour l’école, centrées sur le Pacifique et la Nouvelle-Calédonie.',
+                  'Cartes animées pour le programme d’histoire du collège adapté à la Nouvelle-Calédonie.')
+    s = s.replace('"url": "https://nicobouza2-creator.github.io/atlas-historique-du-pacifique/"', '"url": "https://nicobouza2-creator.github.io/atlas-historique-du-pacifique/college.html"')
     open(os.path.join(repo, 'college.html'), 'w', encoding='utf-8').write(s)
     print('college.html :', len(ordre), 'scripts,', n, 'mentions du titre remplacées')
 
