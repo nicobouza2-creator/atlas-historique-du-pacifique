@@ -252,6 +252,9 @@ class Doc:
         s.p('À n’ouvrir qu’après avoir étudié toutes les autres pièces.', 10, italic=True, color=MUTED)
         s.boxed('Note de synthèse · ' + ch['short'], ['%s : %s' % (clean(x['era']), clean(x['txt'])) for x in ch['ph']], 'F6F1E4', src=('Récit de l’atlas d’histoire du collège.' if s.vol in COLLEGE else 'Récit de l’atlas historique du Pacifique.'), badge='À OUVRIR EN DERNIER')
         if ch['mots']: s.table('Lexique de l’enquêteur', ['Mot', 'Ce que ça veut dire'], ch['mots'], widths=(5, 12.2))
+        if ch.get('src'):   # d’où viennent les informations du chapitre
+            s.h('D’où viennent ces informations ?')
+            for a, b in ch['src']: q_ = s.p(after=3); s.run(q_, '• ' + a + '\n', 10.5); s.run(q_, b, 8.5, italic=True, color=MUTED)
         # cahiers
         corr = {'p': [], 'c': []}
         for lv in 'pc':

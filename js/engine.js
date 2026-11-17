@@ -1009,6 +1009,7 @@ function ficheText(ch){
   if(ch.q&&ch.q.length){s+='\nQUESTIONS\n';ch.q.forEach(function(q,i){s+=(i+1)+'. '+q[0]+'\n   → '+q[1]+'\n';});}
   var ph=chImgs(ch);
   if(ph.length){s+='\nDOCUMENTS\n';ph.forEach(function(id){s+='• '+IMG[id].c+' ('+IMG[id].r+')\n';});}
+  if(ch.src&&ch.src.length){s+='\nSOURCES\n';ch.src.forEach(function(x){s+='• '+x[0]+' : '+x[1]+'\n';});}
   if(ch.wiki&&ch.wiki.length){s+='\nPOUR ALLER PLUS LOIN\n';ch.wiki.forEach(function(w){s+='• '+w+' : '+wikiUrl(w)+'\n';});}
   return s;
 }
@@ -1046,6 +1047,10 @@ function buildFiche(){
       b.addEventListener('click',function(){openLight(gi,k);});gal.appendChild(b);
     });
     elFiche.appendChild(gal);
+  }
+  if(ch.src&&ch.src.length){
+    elFiche.appendChild(el('h4','','Sources'));var u3=el('ul');
+    ch.src.forEach(function(x){if(!/^https?:\/\//.test(x[1]||''))return;var li=el('li'),a=el('a','',x[0]);a.href=x[1];a.target='_blank';a.rel='noopener noreferrer';li.appendChild(a);u3.appendChild(li);});elFiche.appendChild(u3);
   }
   if(ch.wiki&&ch.wiki.length){
     elFiche.appendChild(el('h4','','Pour aller plus loin'));var u2=el('ul');

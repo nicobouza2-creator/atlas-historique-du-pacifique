@@ -10,7 +10,7 @@ with sync_playwright() as p:
     pg.goto('http://localhost:8765/' + __import__('os').environ.get('PAGE', 'index.html'))   # PAGE=college.html pour l'atlas du collège; pg.wait_for_timeout(2500)
     ids=pg.evaluate('ATLAS.api.vols().map(v=>v.id)'); vols=vols or ids
     D=pg.evaluate('''(vols)=>{var V={};ATLAS.api.vols().forEach(v=>{if(vols.indexOf(v.id)<0)return;
-      V[v.id]={title:v.title,chapters:v.chapters.map(c=>({short:c.short,dates:c.dates,ph:(c.ph||[]).map(x=>({era:x.era,txt:x.txt})),mots:c.mots||[]})),enq:ENQ[v.id]};});
+      V[v.id]={title:v.title,chapters:v.chapters.map(c=>({short:c.short,dates:c.dates,ph:(c.ph||[]).map(x=>({era:x.era,txt:x.txt})),mots:c.mots||[],src:c.src||[]})),enq:ENQ[v.id]};});
       return {vols:V,IMG:window.IMG};}''',vols)
     json.dump(D,open(OUT+'data.json','w'),ensure_ascii=False)
     for v in vols:
