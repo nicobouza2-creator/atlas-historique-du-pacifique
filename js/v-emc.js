@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Volet 8 — Vivre ensemble (EMC) : des cartes pour l'enseignement moral et civique (programme 2024 et repères calédoniens).
    République et outre-mer, communes et vote, institutions de la NC, droit de vote, esclavage et abolitions, droits humains,
    laïcité, solidarité. Certaines cartes portent sur la France seule. */

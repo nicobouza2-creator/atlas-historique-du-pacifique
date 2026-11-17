@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Volet 6 — Le nickel (globe, fort zoom). Relief, massifs, mines, usines, flux, environnement.
    Symboles de carte : mark 'mine' ▲, 'usine' ■, 'port' ⚓, 'barrage', 'ville' ; légende [col, texte, symbole]. */
 (function(){

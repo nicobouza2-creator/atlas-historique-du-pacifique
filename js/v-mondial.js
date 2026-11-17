@@ -1,3 +1,5 @@
+/* Atlas historique du Pacifique · Atlas d’histoire — Collège — © 2026 Nicolas BOUZA. Idée, conception et réalisation : Nicolas BOUZA,
+   avec l’assistance de Claude (Anthropic). Licence CC BY-NC-ND 4.0. https://github.com/nicobouza2-creator/atlas-historique-du-pacifique */
 /* Volet 7 — Le monde et la mondialisation (planisphère). Repères, reliefs, climats, population, villes, flux, inégalités, climat, NC dans le monde. */
 (function(){
 'use strict';
