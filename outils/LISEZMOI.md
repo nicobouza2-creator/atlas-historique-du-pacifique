@@ -68,3 +68,6 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 - Dossiers d'enquête du collège : même chaîne que l'atlas du Pacifique, avec `PAGE=college.html python3 outils/export.py <dépôt> colonies`, puis `gen_build.py colonies <index>` et `gen_docx.py colonies <index>`. Les pièces en plus sont dans `pdf/extras6.py` (à fusionner dans `dossiers/extras.json` pour le Word). `COLLEGE` (dans `pdf/gen_build.py` et `gen_docx.py`) donne aux volets du collège leur nom d'atlas et les deux parcours ; rien ne change pour les autres volets (vérifié sur `caledonie-01`).
 - `pack.py` : un volet de `TROUS` peut avoir des chapitres sans enquête (`null` dans l'index) ; `pack.main(dépôt, sortie, volets)` n'empaquette que les volets donnés.
 - Fiches de l'Espace collège en PDF (l'impression est bloquée dans un artefact) : `python3 outils/fiches_college.py <dépôt>` écrit `fiches/<volet>-<nn>.pdf` (une fiche séance par chapitre, puis la séquence) ; `pack.py` en fait `paquets/fiches-<volet>.txt` et `paquets/fiches-index.json`.
+
+## Capsules vidéo (`capsules/`)
+Capsule pilote « Le nickel, de la montagne au monde » : carte animée rendue par le moteur + sprites, photos, sous-titres, voix Piper, montage ffmpeg. Voir `capsules/LISEZMOI.md`.
