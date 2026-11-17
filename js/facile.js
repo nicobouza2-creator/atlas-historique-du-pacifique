@@ -421,7 +421,7 @@ emc:[
  '🌿 Il y a *huit aires coutumières*. Le *Sénat coutumier* donne son avis sur la *coutume*.',
  '🏠 Il y a *33 communes*, avec chacune son *maire*. L’*État* garde la justice, la défense et la monnaie.',
  '🎶 Un *hymne*, une *devise* (« Terre de parole, terre de partage ») et *deux drapeaux*.',
- '❓ Il y a eu *trois consultations* (2018, 2020, 2021). On discute encore de l’*avenir*.'],
+ '❓ Il y a eu *trois consultations* (2018, 2020, 2021). En 2026, aucun camp n’a la majorité au *Congrès*. On discute encore de l’*avenir*.'],
 ['🗳️ En *1848*, en France, tous les *hommes* peuvent voter. Pas les *femmes*.',
  '🇳🇿 En *1893*, la *Nouvelle-Zélande* est le premier pays où les *femmes* votent.',
  '✊ Les femmes *se battent* pour voter : au Royaume-Uni, ce sont les *suffragettes*.',
