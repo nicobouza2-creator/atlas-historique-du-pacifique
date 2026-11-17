@@ -37,8 +37,8 @@ def doc_flow(d, vol, ci, ch, two):
     if k == 'img':
         im = IMG[d['id']]; return [Photo(imgpath(d['id']), d.get('cap') or im['c'], im['r'], mh, rng(d['id']).choice([-1.2, 0.8, 1.1, -0.7]))]
     if k == 'map':
-        return [Photo('/home/claude/dossiers/cartes/%s-%d.jpg' % (vol, ci), d.get('cap') or 'Carte de l’atlas : « %s », à la fin de l’animation' % ch['short'],
-                      NOMT(vol) + ' · fonds de carte Natural Earth (domaine public)', 80 * mm if two else 125 * mm)]
+        return [MapDoc('/home/claude/dossiers/cartes/%s-%d.jpg' % (vol, ci), d.get('cap') or 'Carte de l’atlas : « %s ». Les numéros rouges renvoient aux zooms.' % ch['short'],
+                       NOMT(vol) + ' · fonds de carte Natural Earth (domaine public), Géorep (gouvernement de la Nouvelle-Calédonie)', 118 * mm if two else 222 * mm)]
     if k == 'txt':
         src = d.get('src', '').lower()
         badge = 'PERSONNAGE FICTIF' if 'fictif' in src else ('RECONSTITUTION PÉDAGOGIQUE' if 'reconstitution' in src else '')
