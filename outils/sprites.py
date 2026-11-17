@@ -21,7 +21,9 @@ OMBRES = {'s-erectus', 's-beringie', 's-paysans', 's-refugies', 's-camion-minier
           's-neandertal', 's-gi', 's-poilu', 's-tirailleur', 's-japonais', 's-allemand14', 's-bataillon-pacifique',
           's-char1917', 's-char1940', 's-char-sovietique', 's-train', 's-char-moderne', 's-immigres', 's-soldat-chinois', 's-pickup'}
 # dessins à refaire (faux, ou avec de fausses lettres) : gardés dans la bibliothèque, pas publiés
-EXCLUS = {'b-galere', 'l-debarquement', 'm-pearl-harbor'}
+EXCLUS = {'m-pearl-harbor',
+          # 2es images de marche redessinées par le mode « modifier » : autres personnages que la 1re image, inutilisables
+          's-sapiens-f2', 's-erectus-f2', 's-beringie-f2', 's-paysans-f2', 's-refugies-f2', 's-caravane-f2'}
 COTE = {'s': 200, 'b': 200, 'l': 132, 'm': 132}   # plus grand côté dans sprites.js
 
 def composantes(masque):
@@ -62,12 +64,28 @@ def nettoie(cle, im):
     bb = out.getchannel('A').point(lambda v: 255 if v > 8 else 0).getbbox()
     return out.crop(bb) if bb else out
 
+def coupe(im):
+    """Planche <clé>-x2 : deux poses côte à côte, séparées par un vide. Rend [gauche, droite] ou None si la coupe n'est pas nette."""
+    A = np.array(im.convert('RGBA'))[..., 3]; w = A.shape[1]; col = (A > 24).sum(axis=0)
+    vides = [x for x in range(int(w * 0.3), int(w * 0.7)) if col[x] == 0]
+    if not vides: return None
+    x = vides[len(vides) // 2]
+    return [im.crop((0, 0, x, im.height)), im.crop((x, 0, w, im.height))]
+
 def main(src, repo, propre=None):
-    B = {}; tot = 0
+    B = {}; tot = 0; fichiers = []
     for p in sorted(glob.glob(os.path.join(src, '*.png'))):
         nom = os.path.basename(p)[:-4]
         if nom[:2] not in ('b-', 's-', 'l-', 'm-') or nom in EXCLUS: continue
-        im = nettoie(nom, Image.open(p))
+        if nom.endswith('-x2'):   # planche de marche : remplace <clé> et <clé>-f2 (les deux poses viennent du même dessin, donc du même personnage)
+            deux = coupe(Image.open(p))
+            if not deux: print('planche non coupée (pas de vide au milieu) :', nom); continue
+            fichiers += [(nom[:-3], deux[0]), (nom[:-3] + '-f2', deux[1])]
+        else: fichiers.append((nom, Image.open(p)))
+    vus = {}
+    for nom, im in fichiers: vus[nom] = im   # une planche -x2 passe après le sprite simple (ordre alphabétique) et le remplace
+    for nom in sorted(vus):
+        im = nettoie(nom, vus[nom])
         if propre:
             os.makedirs(propre, exist_ok=True); im.save(os.path.join(propre, nom + '.png'), optimize=True)
         c = COTE[nom[0]]; im2 = im.copy(); im2.thumbnail((c, c), Image.LANCZOS)
