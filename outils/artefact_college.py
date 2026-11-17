@@ -27,6 +27,7 @@ def main(repo, out):
         if f.startswith('d-'):                                       # galerie : toute clé entre apostrophes connue de img.js
             s = open(src, encoding='utf-8').read(); s = s[s.index('window.GAL.'):] if 'window.GAL.' in s else ''
             ids |= {k for k in re.findall(r"'([A-Za-z0-9_]+)'", s) if '"%s":' % k in reg}
+    shutil.copy(os.path.join(repo, 'js', 'sprites.js'), os.path.join(out, 'js', 'sprites.js'))   # sprites de carte : chargés par le moteur après le démarrage
     n = 0
     for i in sorted(ids):
         m = re.search(r'"%s":\s*\{"f":\s*"(img/[^"]+)"' % re.escape(i), reg)
