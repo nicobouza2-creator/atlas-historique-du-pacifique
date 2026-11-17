@@ -1,6 +1,7 @@
 """Sprites de carte : nettoie les PNG détourés (220 px) de la bibliothèque et écrit js/sprites.js.
 
-  python3 outils/sprites.py <dossier des PNG> <dépôt> [dossier de sortie des PNG nettoyés]
+  python3 outils/sprites.py <dossier des PNG> <dépôt> [dossier de sortie des PNG nettoyés] [--ajoute]
+  --ajoute : garde les sprites déjà dans js/sprites.js et n'ajoute ou ne remplace que ceux du dossier (pour un nouveau lot)
 
 Les PNG viennent de la bibliothèque d'images (Resources/Bibliotheque-images/atlas-sprites/, générés en local) :
   b-<clé>.png  bateaux (clé du moteur = <clé>)      s-<clé>.png  ce qui se déplace sur terre ou dans les airs
@@ -21,9 +22,12 @@ OMBRES = {'s-erectus', 's-beringie', 's-paysans', 's-refugies', 's-camion-minier
           's-neandertal', 's-gi', 's-poilu', 's-tirailleur', 's-japonais', 's-allemand14', 's-bataillon-pacifique',
           's-char1917', 's-char1940', 's-char-sovietique', 's-train', 's-char-moderne', 's-immigres', 's-soldat-chinois', 's-pickup'}
 # dessins à refaire (faux, ou avec de fausses lettres) : gardés dans la bibliothèque, pas publiés
-EXCLUS = {'m-pearl-harbor',
+EXCLUS = {'m-pearl-harbor', 'b-galere', 'm-sainte-sophie',   # fausses lettres ; voile carrée au lieu de voiles latines ; minarets (après 1453)
           # 2es images de marche redessinées par le mode « modifier » : autres personnages que la 1re image, inutilisables
-          's-sapiens-f2', 's-erectus-f2', 's-beringie-f2', 's-paysans-f2', 's-refugies-f2', 's-caravane-f2'}
+          's-sapiens-f2', 's-erectus-f2', 's-beringie-f2', 's-paysans-f2', 's-refugies-f2', 's-caravane-f2',
+          # planches à deux poses (lot 7) : les deux poses ne montrent pas les mêmes personnages (nombre, couleurs, casque) : inutilisables
+          's-sapiens-x2', 's-erectus-x2', 's-beringie-x2', 's-paysans-x2', 's-refugies-x2', 's-caravane-x2', 's-immigres-x2', 's-poilu-x2',
+          's-tirailleur-x2', 's-bataillon-pacifique-x2', 's-japonais-x2', 's-allemand14-x2'}
 COTE = {'s': 200, 'b': 200, 'l': 132, 'm': 132}   # plus grand côté dans sprites.js
 
 def composantes(masque):
@@ -72,8 +76,11 @@ def coupe(im):
     x = vides[len(vides) // 2]
     return [im.crop((0, 0, x, im.height)), im.crop((x, 0, w, im.height))]
 
-def main(src, repo, propre=None):
+def main(src, repo, propre=None, ajoute=False):
     B = {}; tot = 0; fichiers = []
+    if ajoute:
+        import re
+        B = dict(re.findall(r"^'([^']+)':'(data:[^']+)'", open(os.path.join(repo, 'js', 'sprites.js'), encoding='utf-8').read(), re.M))
     for p in sorted(glob.glob(os.path.join(src, '*.png'))):
         nom = os.path.basename(p)[:-4]
         if nom[:2] not in ('b-', 's-', 'l-', 'm-') or nom in EXCLUS: continue
@@ -100,4 +107,5 @@ def main(src, repo, propre=None):
     print(len(B), 'sprites,', tot // 1024, 'Ko d’images,', len(js) // 1024, 'Ko de script')
 
 if __name__ == '__main__':
-    main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+    a = [x for x in sys.argv[1:] if x != '--ajoute']
+    main(a[0], a[1], a[2] if len(a) > 2 else None, '--ajoute' in sys.argv)
