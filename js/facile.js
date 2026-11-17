@@ -87,7 +87,7 @@ pacifique:[
 ['🛶 Des pirogues de *Wallis*, Futuna, Tonga et Samoa arrivent aux *îles Loyauté*.',
  '🗣️ Des *Wallisiens* s’installent à *Ouvéa*. On y parle encore leur langue.',
  '🛶 Des *Tongiens* s’installent à Lifou et à Maré.',
- '📖 Des *enseignants samoans* arrivent à Maré et à Lifou. Ils sont envoyés par des missionnaires protestants.',
+ '📖 Des *enseignants polynésiens* arrivent à Maré et à Lifou. Ils sont envoyés par des missionnaires protestants.',
  '🤝 Ils sont *bien accueillis*. La religion *protestante* se répand vite aux îles Loyauté.'],
 ['⛵ *James Cook* arrive sur la Grande Terre en *1774*. Il lui donne le nom de *Nouvelle-Calédonie*.',
  '🌲 Il passe devant l’*île des Pins*, qui doit son nom à ses grands *pins*.',

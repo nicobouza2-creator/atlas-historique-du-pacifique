@@ -66,18 +66,19 @@ var CH=[
  ],
  pulses:[Pu(12,164.9,-21.13,'#ffd166',true)],
  ph:[
-  Ph(0,'Où sommes-nous ?','La Nouvelle-Calédonie est un archipel du Pacifique Sud, en mer de Corail, à environ 1 200 km à l’est de l’Australie. Elle est juste au nord du tropique du Capricorne.','kan'),
+  Ph(0,'Où sommes-nous ?','La Nouvelle-Calédonie est un archipel du Pacifique Sud, en mer de Corail, à environ 1 500 km à l’est de l’Australie. Elle est juste au nord du tropique du Capricorne.','kan'),
   Ph(9,'La Grande Terre','L’île principale mesure environ 400 km de long et 50 km de large. Un lagon et un récif barrière l’entourent. Au nord-est : les îles Loyauté ; au sud : l’île des Pins.','xet'),
   Ph(14,'Une chaîne de montagnes','Une chaîne de montagnes traverse l’île du nord-ouest au sud-est. Les plus hauts sommets sont le mont Panié (1 629 m), au nord, et le mont Humboldt (1 618 m), au sud.','ere'),
   Ph(22,'Deux côtes différentes','Les alizés, des vents venus de l’est, apportent la pluie sur la côte Est : vallées étroites et forêts. La côte Ouest, plus sèche, a de larges plaines et des savanes.','mis'),
   Ph(31,'Chez nous, sur la côte Ouest','Pouembout, Koné et Voh sont dans une plaine de la côte Ouest, entre le lagon et la chaîne. Juste au-dessus se dresse le massif du Koniambo, une montagne riche en nickel.','kan'),
-  Ph(45,'Lire la carte','Repère le nord, le sud, l’est et l’ouest. Nouméa est au sud-est de Pouembout. Le mont Panié est au nord-est de Pouembout.','eur')
+  Ph(45,'Lire la carte','Repère le nord, le sud, l’est et l’ouest. Nouméa est au sud-est de Pouembout. Le mont Panié est au nord de Pouembout.','eur')
  ],
  photos:[Sh('satnc',1,8,'tr',2),Sh('humboldt',14,21,'tr',2),Sh('coupe',22,31,'bl',-2,'contain'),Sh('savane',32,40,'tr',2),Sh('hienghene',41,48,'bl',-2)],
  legend:[['kan','Grande Terre et îles'],['ere','Chaîne centrale'],['mis','Alizés (vents d’est)',1],['eur','Ville','ville']],
  mots:[['Archipel','Groupe d’îles proches les unes des autres.'],['Relief','Les formes du terrain : montagnes, plaines, vallées.'],['Lagon','Étendue d’eau de mer peu profonde entre la côte et le récif.'],['Alizés','Vents réguliers qui soufflent de l’est, dans la zone tropicale.']],
  q:[['Comment s’appelle l’île principale ?','La Grande Terre.'],['Quels sont les deux plus hauts sommets ?','Le mont Panié (1 629 m) et le mont Humboldt (1 618 m).'],['Quelle côte reçoit le plus de pluie, et pourquoi ?','La côte Est, parce que les alizés venus de l’est apportent les nuages.'],['Dans quelle direction se trouve Nouméa quand on est à Pouembout ?','Au sud-est.']],
- wiki:['Grande Terre (Nouvelle-Calédonie)','Géographie de la Nouvelle-Calédonie','Mont Panié','Alizé']},
+ wiki:['Grande Terre (Nouvelle-Calédonie)','Géographie de la Nouvelle-Calédonie','Mont Panié','Alizé'],
+ src:[['La Nouvelle-Calédonie, présentation générale (altitudes du Panié et du Humboldt) — IEOM','https://www.ieom.fr/IMG/pdf/17140_nc_generale-3.pdf'],['Fiche pays Nouvelle-Calédonie (distance à l’Australie, mont Panié) — Gouvernement de la Nouvelle-Calédonie','https://cooperation-regionale.gouv.nc/sites/default/files/atoms/files/fiche_pays_nc_francais_semi_hd.pdf'],['New Caledonia (distance au Queensland) — DFAT, gouvernement australien','https://dfat.gov.au/geo/new-caledonia'],['Le climat de la Nouvelle-Calédonie (côte Ouest plus sèche) — Météo-France Nouvelle-Calédonie','https://meteo.nc/fr/comprendre-la-meteo/le-climat'],['Géographie : la Grande Terre, 400 km sur 50 km — Nouvelle-Calédonie Tourisme','https://www.newcaledonia.travel/en/geography']]},
 
 
 /* 2 --------------------------------------------------------------- */
@@ -106,13 +107,14 @@ var CH=[
   Ph(12,'Les cyclones','Des cyclones peuvent arriver du nord : vents très violents, pluies énormes, inondations, coupures de routes. En mars 2021, le cyclone Niran a frappé le pays.','ame'),
   Ph(24,'Sécheresse et feux','En saison sèche, des feux de brousse brûlent chaque année forêts et savanes, le plus souvent à cause des humains. Ils abîment la biodiversité et les sols.','pol'),
   Ph(34,'D’autres risques','Tsunamis après un séisme au Vanuatu, glissements de terrain, inondations : on apprend les bons gestes. La montée de la mer menace aussi les côtes basses et les îlots.','mis'),
-  Ph(44,'Se protéger','Prévoir, alerter, construire solidement, protéger les forêts : on se met moins en danger : on réduit la vulnérabilité. À l’école aussi, on s’entraîne.','eur')
+  Ph(44,'Se protéger','Prévoir, alerter, construire solidement, protéger les forêts : on est moins en danger, on réduit la vulnérabilité. À l’école aussi, on s’entraîne.','eur')
  ],
  photos:[Sh('cyclonesat',4,11,'tr',2),Sh('niran',12,16,'tr',2),Sh('nirantrace',16.5,20,'tr',-2),Sh('niranapres',20.5,23.5,'tr',2),Sh('wildfirepins',24,32,'tr',2),Sh('tsunamipanneau',34,42,'bl',-2)],
  legend:[['ame','Trajectoire d’un cyclone (exemple)',1],['mis','Alizés',1],['kan','Tropique du Capricorne',1]],
  mots:[['Climat tropical','Climat chaud toute l’année, avec une saison des pluies.'],['Cyclone','Énorme tempête tropicale avec des vents de plus de 118 km/h.'],['Risque','Danger qui peut toucher des habitants et leurs biens.'],['Vulnérabilité','Fragilité d’un lieu ou d’une population face à un danger.']],
  q:[['Quelles sont les deux grandes saisons ?','La saison chaude et humide (novembre-avril) et la saison fraîche (mai-septembre), suivie de semaines très sèches jusqu’en octobre.'],['Pendant quelle saison arrivent les cyclones ?','Pendant la saison chaude.'],['Pourquoi les feux sont-ils dangereux pour la nature ?','Ils détruisent forêts, animaux et sols.'],['Que faire pour réduire un risque ?','Prévoir, alerter, construire solidement, protéger la nature, connaître les bons gestes.']],
- wiki:['Climat de la Nouvelle-Calédonie','Cyclone tropical','Cyclone Niran','Tsunami']},
+ wiki:['Climat de la Nouvelle-Calédonie','Cyclone tropical','Cyclone Niran','Tsunami'],
+ src:[['Dossier de presse : saison cyclonique 2021-2022 (Niran, 5-7 mars 2021) — Gouvernement de la Nouvelle-Calédonie (2021)','https://gouv.nc/sites/default/files/atoms/files/2021.12.02_dossier_de_presse_saison_cyclonique_2021-2022_0.pdf'],['Les incendies : notre environnement en danger ! — OEIL, Observatoire de l’environnement en Nouvelle-Calédonie (2019)','https://oeil.nc/sites/default/files/pdf/Plaquettes/ESSENTIELS/N%C2%B004/PLAQUETTE%20INCENDIE%20PAGE%20A%20PAGE.pdf'],['Le climat de la Nouvelle-Calédonie — Météo-France Nouvelle-Calédonie','https://meteo.nc/fr/comprendre-la-meteo/le-climat'],['Tableaux de l’économie calédonienne 2016 (climat, précipitations) — ISEE (2016)','https://www.isee.nc/phocadownload/non_theme/publications/tec/TECF-2016/tec2016.pdf'],['Nouvelle-Calédonie : cyclone tropical Niran, bilan des dégâts — OCHA ReliefWeb (2021)','https://reliefweb.int/report/new-caledonia-france/new-caledonia-tropical-cyclone-niran-update-gdacs-meteo-nc-franceinfo-nc']]},
 
 /* 3 --------------------------------------------------------------- */
 {short:'Où vivent les Calédoniens ?',col:'dense',dur:56,when:[2019,2025],dates:'recensement de 2025',
@@ -143,7 +145,8 @@ var CH=[
  legend:[['mis','Province Sud'],['afr','Province Nord'],['xet','Province des îles Loyauté'],['dense','Grand Nouméa'],['eur','Ville','ville']],
  mots:[['Recensement','Comptage officiel de tous les habitants.'],['Densité','Nombre moyen d’habitants par km².'],['Agglomération','Ville et communes voisines qui forment un seul ensemble urbain.'],['Exode rural','Départ des habitants des campagnes vers la ville.']],
  q:[['Combien d’habitants compte le pays en 2025 ?','264 596.'],['Quelle province est la plus peuplée ?','La province Sud (194 978 habitants).'],['Quelle part des habitants vit dans le Grand Nouméa ?','Environ deux sur trois.'],['Comment calcule-t-on une densité ?','On divise le nombre d’habitants par la surface en km².']],
- wiki:['Démographie de la Nouvelle-Calédonie','Grand Nouméa','Exode rural','Densité de population']},
+ wiki:['Démographie de la Nouvelle-Calédonie','Grand Nouméa','Exode rural','Densité de population'],
+ src:[['Décret n° 2025-966 du 18 septembre 2025 authentifiant les résultats du recensement de la population en Nouvelle-Calédonie en 2025 — Journal officiel (2025)','https://ladepeche.nc/wp-content/uploads/2025/09/joe_20250919_0218_0008.pdf'],['Bilan 2025 : population et densités par province, Grand Nouméa — DITTT, Gouvernement de la Nouvelle-Calédonie (2026)','https://dittt.gouv.nc/sites/default/files/documents/Bilan%202025%20V05082026.pdf'],['La Nouvelle-Calédonie compte 264 596 habitants en 2025 : évolution depuis 2019 par province — Outremers 360 (2025)','https://outremers360.com/bassin-pacifique-appli/demographie-la-nouvelle-caledonie-compte-264-596-habitants-en-2025-cest-6-800-en-moins-en-six-ans']]},
 
 /* 4 --------------------------------------------------------------- */
 {short:'Habiter : ville, brousse, tribu, îles',col:'kan',dur:58,dates:'aujourd’hui',
@@ -171,7 +174,8 @@ var CH=[
  legend:[['dense','Grand Nouméa (4 communes)'],['neo','Plaines d’élevage de la côte Ouest'],['pap','Tribu'],['eur','Ville ou village','ville']],
  mots:[['Habiter','Vivre dans un lieu : s’y loger, y travailler, s’y déplacer, s’y divertir.'],['Bourg','Gros village avec des services (mairie, école, commerces).'],['Tribu','Lieu de vie kanak organisé autour d’une chefferie.'],['Services','Écoles, hôpitaux, commerces, administrations utiles aux habitants.']],
  q:[['Citer un avantage et un inconvénient de la vie en ville.','Par exemple : beaucoup de services / des embouteillages.'],['Qu’y a-t-il dans un bourg de brousse ?','Une mairie, une école, quelques commerces.'],['Comment les marchandises arrivent-elles aux îles Loyauté ?','Par bateau ou par avion.'],['Où habites-tu, et quels services trouves-tu près de chez toi ?','Réponse personnelle.']],
- wiki:['Nouméa','Bourail','Tribu kanak','Lifou']},
+ wiki:['Nouméa','Bourail','Tribu kanak','Lifou'],
+ src:[['Les îles Loyauté (87 tribus, coprah, vanille, pêche, tourisme, transport de marchandises) — IEOM','https://www.ieom.fr/IMG/pdf/les_iles_loyaute_vf3.pdf'],['Langues et cultures kanak : la terre, l’espace et le temps (tribu, chefferie, grande case, igname) — DENC, Nouvelle-Calédonie','https://denc.gouv.nc/sites/default/files/documents/fiche_lck_terre_espace_temps_v2.pdf'],['Bilan 2025 : Nouméa et Grand Nouméa — DITTT, Gouvernement de la Nouvelle-Calédonie (2026)','https://dittt.gouv.nc/sites/default/files/documents/Bilan%202025%20V05082026.pdf']]},
 
 /* 5 --------------------------------------------------------------- */
 {short:'Se déplacer, être relié au monde',col:'fra',dur:60,dates:'aujourd’hui',
@@ -209,7 +213,8 @@ var CH=[
  legend:[['ere','Routes'],['mis','Liaisons vers les îles',1],['fra','Lignes aériennes internationales'],['lap','Câbles internet sous-marins',1],['mis','Aéroport','aero'],['mis','Port','port']],
  mots:[['Insularité','Situation d’un territoire entouré par la mer, qui dépend des transports.'],['Réseau','Ensemble de routes, de lignes ou de câbles reliés entre eux.'],['Câble sous-marin','Câble posé au fond de la mer qui transporte internet et le téléphone.']],
  q:[['Quelle route longe la côte Ouest ?','La RT1.'],['Par où arrivent presque toutes les marchandises ?','Par le port de Nouméa.'],['Comment internet arrive-t-il en Nouvelle-Calédonie ?','Par deux câbles sous-marins : Gondwana-1 (Sydney) et Gondwana-2 (Fidji).'],['Citer trois destinations desservies depuis La Tontouta.','Par exemple Sydney, Auckland, Nadi, Port-Vila, Wallis, Papeete, Singapour.']],
- wiki:['Aéroport international de Nouméa-La Tontouta','Aircalin','Port autonome de la Nouvelle-Calédonie','Câble sous-marin']},
+ wiki:['Aéroport international de Nouméa-La Tontouta','Aircalin','Port autonome de la Nouvelle-Calédonie','Câble sous-marin'],
+ src:[['Mise en service des câbles sous-marins Gondwana-2 et Picot-2 (25 août 2022) — OPT-NC','https://office.opt.nc/fr/media/fichier/mise-en-service-des-cables-sous-marins-gondwana-2-et-picot-2'],['Rapport annuel 2020 : le câble Gondwana relie Nouméa à Sydney depuis 2008 — IEOM','https://www.ieom.fr/IMG/rapport_annuel_ieom_nouvelle-caledonie_2020/index-145.html'],['Aircalin renforce ses vols régionaux pour l’été austral 2026-2027 (Sydney, Auckland, Bangkok, Singapour…) — Air Journal (2026)','https://www.air-journal.fr/2026-07-26-nouvelle-caledonie-aircalin-renforce-ses-vols-regionaux-pour-lete-austral-2026-2027-5276502.html'],['Aircalin confirme ses vols Paris–Nouméa via Bangkok — Outremers 360','https://outremers360.com/bassin-pacifique-appli/aircalin-confirme-son-programme-de-vols-entre-paris-et-noumea-via-bangkok-et-prepare-larrivee-de-son-premier-a350-900'],['Vols au départ de Nouméa : durées (Sydney, Auckland, Port-Vila, Paris) — Nouvelle-Calédonie Tourisme','https://www.newcaledonia.travel/travel-guide/flights/'],['Le port autonome de Nouméa reçoit 95 % des importations calédoniennes — Outremers 360','https://outremers360.com/bassin-pacifique-appli/nouvelle-caledonie-le-port-autonome-de-noumea-engage-une-transformation-denvergure-pour-sa-modernisation']]},
 
 /* 6 --------------------------------------------------------------- */
 {short:'Produire en Nouvelle-Calédonie',col:'neo',dur:58,dates:'aujourd’hui',
@@ -219,7 +224,7 @@ var CH=[
  labels:[
   L(3,166.7,-21.95,'mines de nickel',{nomark:true,dx:8,al:'left'}),
   L(9,165.3,-21.5,'élevage, cultures',{nomark:true,sub:'plaines de l’Ouest',al:'right',dx:-6}),
-  L(19,164.6,-21.75,'fermes de crevettes',{nomark:true,al:'right'}),
+  L(19,165.45,-21.75,'fermes de crevettes',{nomark:true,al:'right'}),
   L(20,163.2,-22.6,'pêche au thon au large',{nomark:true,al:'right'}),
   at('noumea',29,'Nouméa',{mark:'port',sub:'croisières',dx:-10,dy:8,al:'right'}),
   at('kuto',30,'Île des Pins',{mark:'port',dx:10,dy:6,al:'left'}),
@@ -232,7 +237,7 @@ var CH=[
   Ph(0,'Que produit le pays ?','Le nickel fournit l’essentiel des exportations (voir le volet « Le nickel »). Mais la plupart des Calédoniens travaillent dans d’autres activités : services, commerce, administration, agriculture, pêche, tourisme.','kan'),
   Ph(8,'Élevage et cultures','Sur les plaines de la côte Ouest, on élève des bovins dans de grandes stations. On cultive aussi fruits, légumes, igname, café et vanille.','neo'),
   Ph(18,'La mer nourrit','Des bateaux pêchent le thon au large. Sur la côte Ouest, des fermes élèvent la crevette bleue, vendue en partie au Japon et en France.','mis'),
-  Ph(28,'Le tourisme','Des visiteurs viennent surtout d’Australie, de Nouvelle-Zélande et de France. Des paquebots de croisière font escale à Nouméa, à l’île des Pins, à Lifou ou à Maré ; leur nombre dépend de la situation du pays.','xet'),
+  Ph(28,'Le tourisme','Des visiteurs viennent surtout de France, d’Australie et de Nouvelle-Zélande. Des paquebots de croisière font escale à Nouméa, à l’île des Pins, à Lifou ou à Maré ; leur nombre dépend de la situation du pays.','xet'),
   Ph(39,'Importer','Le pays importe une grande partie de sa nourriture, son carburant, ses voitures et ses objets. Les conteneurs arrivent au port de Nouméa depuis la France, la Chine, l’Australie, Singapour…','eur'),
   Ph(49,'Produire local','Pour dépendre moins des importations, on encourage l’agriculture locale, la pêche et les énergies renouvelables (soleil, vent, eau).','neo')
  ],
@@ -240,7 +245,8 @@ var CH=[
  legend:[['neo','Élevage et cultures (plaines de l’Ouest)'],['pol','Massifs miniers'],['mis','Importations par la mer',1],['mis','Port, escale de croisière','port']],
  mots:[['Secteur d’activité','Grand domaine de travail : agriculture, industrie, services.'],['Élevage','Activité qui consiste à nourrir et faire grandir des animaux.'],['Aquaculture','Élevage d’animaux aquatiques (crevettes, huîtres, poissons).'],['Importation','Achat de produits venus d’un autre pays.']],
  q:[['Où se trouve l’élevage bovin ?','Sur les plaines de la côte Ouest.'],['Quel animal élève-t-on dans les fermes aquacoles ?','La crevette bleue.'],['Qu’importe surtout le pays ?','Nourriture, carburant, voitures, objets du quotidien.'],['Pourquoi encourager la production locale ?','Pour dépendre moins des importations.']],
- wiki:['Économie de la Nouvelle-Calédonie','Litopenaeus stylirostris','Tourisme en Nouvelle-Calédonie','Énergie en Nouvelle-Calédonie']},
+ wiki:['Économie de la Nouvelle-Calédonie','Litopenaeus stylirostris','Tourisme en Nouvelle-Calédonie','Énergie en Nouvelle-Calédonie'],
+ src:[['La crevette bleue de Nouvelle-Calédonie (exportations : Japon 39 %, Hexagone 9 % ; fermes de la côte Ouest) — IEOM','https://www.ieom.fr/IMG/pdf/la_crevette_bleue_de_nouvelle-caledonie_vf.pdf'],['Synthèse annuelle 2025 : le nickel représente 90 % des exportations ; tourisme et croisière — IEOM (2026)','https://www.ieom.fr/IMG/pdf/synthese_annuelle_nc_2025.pdf'],['Tourisme : 58 000 visiteurs en 2025, origine des touristes et croisiéristes — Les Nouvelles Calédoniennes (2026)','https://www.lnc.nc/article/nouvelle-caledonie/tourisme/tourisme-58-000-visiteurs-sont-venus-en-nouvelle-caledonie-en-2025'],['Le port autonome de Nouméa reçoit 95 % des importations calédoniennes — Outremers 360','https://outremers360.com/bassin-pacifique-appli/nouvelle-caledonie-le-port-autonome-de-noumea-engage-une-transformation-denvergure-pour-sa-modernisation'],['Les îles Loyauté : coprah, vanille, pêche, tourisme — IEOM','https://www.ieom.fr/IMG/pdf/les_iles_loyaute_vf3.pdf']]},
 
 /* 7 --------------------------------------------------------------- */
 {short:'Un pays maritime',col:'aus',dur:58,when:[2008,2026],dates:'aujourd’hui',
@@ -268,7 +274,8 @@ var CH=[
  legend:[['aus','Zone économique exclusive'],['xet','Lagons inscrits à l’UNESCO (2008)']],
  mots:[['ZEE','Zone économique exclusive : espace marin où un pays exploite seul les ressources.'],['Mille marin','Unité de distance en mer : 1 852 m.'],['Aire marine protégée','Espace de mer où la nature est protégée par des règles.'],['Biodiversité','Diversité des êtres vivants.']],
  q:[['Quelle est la surface de la ZEE ?','Environ 1,4 million de km² (1 386 669 km² selon le gouvernement de la Nouvelle-Calédonie).'],['Jusqu’à quelle distance des côtes s’étend une ZEE ?','200 milles marins, soit environ 370 km.'],['Quand a été créé le parc naturel de la mer de Corail ?','En 2014.'],['Quel oiseau qui ne vole pas est le symbole du pays ?','Le cagou.']],
- wiki:['Parc naturel de la mer de Corail','Zone économique exclusive','Cagou huppé','Îles Chesterfield']}
+ wiki:['Parc naturel de la mer de Corail','Zone économique exclusive','Cagou huppé','Îles Chesterfield'],
+ src:[['Parc naturel de la mer de Corail : plaquette (créé le 23 avril 2014, 1 291 970 km², Chesterfield, Matthew et Hunter) — Gouvernement de la Nouvelle-Calédonie','https://mer-de-corail.gouv.nc/sites/default/files/atoms/files/plaquette_4_pages_vf_bonne_version.pdf'],['Communiqué du 18 octobre 2023 : 10 % du parc en protection forte (136 830 km²) — Gouvernement de la Nouvelle-Calédonie (2023)','https://gouv.nc/sites/default/files/atoms/files/2023.10.18_-_ip_10.pdf'],['Note sur l’économie maritime : la ZEE « couvre 1,4 million de km² » — IEOM','https://www.ieom.fr/IMG/pdf/ne185_-_note_economie_maritime_nc.pdf'],['Tableaux de l’économie calédonienne 2016 (ZEE d’environ 1,4 million de km²) — ISEE (2016)','https://www.isee.nc/phocadownload/non_theme/publications/tec/TECF-2016/tec2016.pdf'],['Le Parc naturel de la mer de Corail (voisins : Australie, Salomon, Fidji, Vanuatu) — SPREP','https://www.sprep.org/attachments/VirLib/New_Caledonia/parc-naturel-de-la-mer-de-corail.pdf']]}
 ];
 
 A.add({id:'geonc',title:'Géographie de la NC',tag:'7 chapitres · relief, climat, population, réseaux, mer',col:'xet',proj:'globe',
