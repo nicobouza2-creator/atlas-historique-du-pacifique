@@ -19,6 +19,7 @@ Chemins codés en dur : dépôt `/home/claude/repo/` (lien vers le clone), dossi
 Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul l'ordre des mauvaises réponses de la question de la « pièce en plus » peut changer. Les anciennes versions du générateur ne servent plus.
 
 ## Paquets pour l'artefact claude.ai (plafond de 512 fichiers, .docx refusé)
+`artefact.py <dépôt> <sortie>` ne garde que les scripts chargés par `index.html` et les volets de l'école. Images (`img_paquets.py`) : les 447 de `artefact_ecole_images.txt` sont publiées une à une ; les autres images utilisées par l'école partent dans `paquets/img-1.txt` (Calédonie, géo NC, nickel, Pacifique), `img-2.txt` (Découvertes, Peupler la Terre) et `img-3.txt` (mondialisation, EMC), lus à la demande par un chargeur ajouté à la fin de `js/img.js` de l'artefact (`IMG[clé].f` devient une adresse blob:). Total au 17/11/2026 : 499 fichiers + 9 paquets `seq-` = 508.
 `pack.py <dépôt>` écrit `paquets/pdf-<volet>.txt`, `paquets/docx-<volet>.txt` et `paquets/index.json`. Le dossier `paquets/` n'est pas suivi par git : il ne sert qu'à l'artefact, où l'on publie `paquets/` à la place de `pdf/` et `docx/`.
 
 ## Tests (`tests/`)
