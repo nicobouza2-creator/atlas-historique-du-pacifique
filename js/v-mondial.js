@@ -13,10 +13,10 @@ function bandZ(a,b,col,t0,al){return band(a,b).map(function(rg){return Rg(rg,col
 function line(t0,t1,lat,col){return r(col||'kan',t0,t1,1.6,[[-180,lat],[-60,lat],[60,lat],[180,lat]],{straight:true,dash:true,step:3});}
 var NC=[165.6,-21.3];
 function ship(col,t0,t1,pts,o){o=o||{};o.ship=true;o.sp=o.sp||'conteneurs';return r(col,t0,t1,3,pts,o);}
-var ASIE_EUROPE=[[121.8,31],[123,25],[118,18],[109,10],[104.2,1.3],[100,4.5],[95,6],[80,6],[60,13],[48,12],[43.4,12.6],[38,20],[33.5,27.5],[32.5,30.2],[32.3,31.4],[25,34],[12,37.2],[-5.6,36],[-10,40],[-6,47],[0,50],[4,52]];
-var PAC=[[121.8,31],[135,33],[160,38],[-170,40],[-140,38],[-118.3,33.7]];
-var ATL=[[4,52],[-5,50],[-30,45],[-60,41],[-74,40.5]];
-var PANAMA=[[-74,40.5],[-75,30],[-78,20],[-79.9,9.3],[-79.6,8.9],[-85,5],[-100,10],[-118.3,33.7]];
+var ASIE_EUROPE=[[121.8,31],[123,25],[118,18],[109,10],[104.2,1.3],[103,1.5],[101.5,2.6],[99.5,4.7],[95,6],[80,6],[60,13],[48,12],[43.4,12.6],[41.5,15.2],[38.8,20],[36.6,24.2],[34.4,27.4],[33.2,28.8],[32.5,30.2],[32.3,31.4],[26,33.8],[20,34.6],[14.5,35.3],[11.3,37.4],[6,38],[1,37.3],[-2,36.1],[-5.6,36],[-10,37],[-11,42],[-8,46],[-6.3,48.6],[-2,50],[1.5,51],[4,52]];
+var PAC=[[121.8,31],[126,29.2],[132,30.2],[137,32.4],[160,38],[-170,40],[-140,38],[-118.3,33.7]];
+var ATL=[[4,52],[1.5,51],[-2,50],[-6.3,48.6],[-30,45],[-60,41],[-74,40.5]];
+var PANAMA=[[-74,40.5],[-72,31],[-71,24],[-73.8,20],[-76,15],[-79.9,9.4],[-79.6,8.9],[-79.3,7.8],[-80.8,6.2],[-85,5.5],[-100,10],[-107,17],[-111,22],[-116,27.5],[-118.3,33.7]];
 
 var CH=[
 
@@ -47,7 +47,8 @@ var CH=[
  legend:[['pol','Équateur',1],['afr','Tropiques',1],['mis','Cercles polaires',1],['eur','Méridien de Greenwich',1]],
  mots:[['Continent','Très grande étendue de terre.'],['Hémisphère','Moitié de la Terre (Nord ou Sud, Est ou Ouest).'],['Latitude','Distance en degrés entre un lieu et l’équateur.'],['Longitude','Distance en degrés entre un lieu et le méridien de Greenwich.']],
  q:[['Combien y a-t-il de continents ?','Six : Afrique, Amérique, Antarctique, Asie, Europe, Océanie.'],['Quel est le plus grand océan ?','L’océan Pacifique.'],['Dans quel hémisphère est la Nouvelle-Calédonie ?','Dans l’hémisphère Sud.'],['Quelle ligne sépare les hémisphères Nord et Sud ?','L’équateur.']],
- wiki:['Continent','Océan','Latitude','Méridien de Greenwich']},
+ wiki:['Continent','Océan','Latitude','Méridien de Greenwich'],
+ src:[['Introduction to the Oceans — NOAA (JetStream)','https://www.noaa.gov/jetstream/ocean'],['New Caledonia — Encyclopaedia Britannica (situation, latitudes et longitudes)','https://www.britannica.com/place/New-Caledonia-French-unique-collectivity-Pacific-Ocean'],['Carte générale de la Nouvelle-Calédonie (distances) — IEOM','https://www.ieom.fr/IMG/pdf/17140_nc_generale-3.pdf']]},
 
 /* 2 --------------------------------------------------------------- */
 {short:'Les grands reliefs et fleuves',col:'ere',dur:52,dates:'repères',proj:'plan',
@@ -82,7 +83,8 @@ var CH=[
  legend:[['ere','Grandes chaînes de montagnes'],['mis','Grands fleuves']],
  mots:[['Chaîne de montagnes','Suite de montagnes reliées entre elles.'],['Altitude','Hauteur d’un lieu au-dessus du niveau de la mer.'],['Fleuve','Cours d’eau qui se jette dans la mer.'],['Delta','Embouchure d’un fleuve divisée en plusieurs bras.']],
  q:[['Quel est le plus haut sommet du monde ?','L’Everest (8 849 m), dans l’Himalaya.'],['Quelle est la plus longue chaîne de montagnes ?','La cordillère des Andes.'],['Quel fleuve transporte le plus d’eau ?','L’Amazone.'],['Pourquoi les humains s’installent-ils près des fleuves ?','Pour l’eau, l’agriculture et le transport.']],
- wiki:['Everest','Cordillère des Andes','Nil','Amazone (fleuve)']},
+ wiki:['Everest','Cordillère des Andes','Nil','Amazone (fleuve)'],
+ src:[['Mount Everest — Encyclopaedia Britannica (8 849 m)','https://www.britannica.com/place/Mount-Everest'],['Amazon River — Encyclopaedia Britannica (longueur, débit)','https://www.britannica.com/place/Amazon-River'],['Longest continental mountain range (Andes) — Guinness World Records','https://www.guinnessworldrecords.com/world-records/longest-continental-mountain-range'],['Nueva altura oficial del Aconcagua (6 960,8 m, IGN argentin, 2012) — RPP','https://rpp.pe/lima/actualidad/nueva-altura-oficial-del-cerro-aconcagua-es-de-69608-metros-noticia-518097'],['Carte générale de la Nouvelle-Calédonie (mont Panié, 1 629 m) — IEOM','https://www.ieom.fr/IMG/pdf/17140_nc_generale-3.pdf']]},
 
 /* 3 --------------------------------------------------------------- */
 {short:'Climats et grands milieux',col:'afr',dur:56,dates:'repères',proj:'plan',
@@ -110,7 +112,8 @@ var CH=[
  legend:[['afr','Zone chaude'],['neo','Zones tempérées'],['mis','Zones froides'],['flo','Forêts équatoriales'],['sand','Grands déserts']],
  mots:[['Climat','Temps qu’il fait en moyenne sur de nombreuses années.'],['Milieu','Ensemble formé par le climat, le relief, la végétation et les êtres vivants.'],['Désert','Lieu où il pleut très peu.'],['Forêt équatoriale','Forêt dense, chaude et humide toute l’année.']],
  q:[['Où se trouve la zone chaude ?','Entre les deux tropiques.'],['Citer deux grands déserts.','Par exemple le Sahara, le désert australien, le Gobi, l’Atacama.'],['Où trouve-t-on les grandes forêts équatoriales ?','En Amazonie, dans le bassin du Congo et en Indonésie.'],['Quel est le climat de la Nouvelle-Calédonie ?','Tropical.']],
- wiki:['Climat','Forêt tropicale humide','Sahara','Biome']},
+ wiki:['Climat','Forêt tropicale humide','Sahara','Biome'],
+ src:[['Le climat en Nouvelle-Calédonie (saisons) — Météo-France Nouvelle-Calédonie','https://meteo.nc/fr/node/569750'],['Mission Biomes — NASA Science (forêt, désert, toundra)','https://science.nasa.gov/kids/earth/mission-biomes/']]},
 
 /* 4 --------------------------------------------------------------- */
 {short:'8,2 milliards : où vivent les humains ?',col:'dense',dur:54,when:[2025,2026],dates:'2025',proj:'plan',
@@ -139,7 +142,8 @@ var CH=[
  legend:[['dense','Foyers de peuplement'],['vide','Régions presque vides']],
  mots:[['Foyer de peuplement','Région où vivent beaucoup d’habitants.'],['Désert humain','Région presque vide d’habitants.'],['Densité','Nombre moyen d’habitants par km².'],['Littoral','Zone située au bord de la mer.']],
  q:[['Combien d’humains vivent sur Terre en 2025 ?','Plus de 8,2 milliards.'],['Quels sont les trois grands foyers de peuplement ?','L’Asie de l’Est, l’Asie du Sud et l’Europe.'],['Citer deux déserts humains.','Par exemple le Sahara, la Sibérie, l’Amazonie, le Groenland.'],['Pourquoi ces régions sont-elles presque vides ?','Parce qu’il y fait trop sec, trop froid, trop humide ou que le relief est trop difficile.']],
- wiki:['Population mondiale','Densité de population','Foyer de peuplement','Œcoumène']},
+ wiki:['Population mondiale','Densité de population','Foyer de peuplement','Œcoumène'],
+ src:[['World Population Prospects 2024 : résumé des résultats (8,2 milliards en 2024) — ONU, Division de la population (2024)','https://www.un.org/sustainabledevelopment/blog/2024/07/press-release-wpp2024/'],['World Urbanization Prospects 2025 : 8,2 milliards d’habitants, 45 % en ville — ONU DAES (2025)','https://www.un.org/sustainabledevelopment/blog/2025/11/press-release-wup2025/'],['Populations de référence de Nouvelle-Calédonie de 2009 à 2025 (recensement 2025) — Insee (2025)','https://www.insee.fr/fr/statistiques/2122859'],['Population density (people per sq. km of land area) — Banque mondiale','https://data.worldbank.org/indicator/EN.POP.DNST']]},
 
 /* 5 --------------------------------------------------------------- */
 {short:'Un monde de villes',col:'dense',dur:52,when:[2025,2026],dates:'2025',proj:'plan',
@@ -167,14 +171,15 @@ var CH=[
  legend:[['eur','Grande agglomération','ville']],
  mots:[['Agglomération','Ville-centre et banlieues qui forment un seul ensemble.'],['Mégapole','Agglomération de plus de 10 millions d’habitants.'],['Métropole','Grande ville qui commande une région ou le monde.'],['Bidonville','Quartier d’habitations précaires, sans tous les services.']],
  q:[['Quelle est la plus grande agglomération du monde selon l’ONU (2025) ?','Jakarta, en Indonésie.'],['Sur quel continent sont la plupart des mégapoles ?','En Asie.'],['Qu’est-ce qu’une mégapole ?','Une agglomération de plus de 10 millions d’habitants.'],['Citer un avantage et un problème des grandes villes.','Par exemple : des emplois et des services / des embouteillages, la pollution.']],
- wiki:['Mégapole','Jakarta','Urbanisation','Bidonville']},
+ wiki:['Mégapole','Jakarta','Urbanisation','Bidonville'],
+ src:[['World Urbanization Prospects 2025 : 45 % des humains en ville, 33 mégapoles, Jakarta première — ONU DAES (2025)','https://www.un.org/sustainabledevelopment/blog/2025/11/press-release-wup2025/'],['WUP 2025, dix messages clés (58 % d’urbains selon les définitions nationales, Dacca 37 millions) — ONU, Division de la population (2025)','https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/undesa_pd_2024_key_messages_wup_2025.pdf'],['Latest urbanization data reveal world’s most populous cities — UN DESA Voice (décembre 2025)','https://desapublications.un.org/un-desa-voice/feature/december-2025/latest-urbanization-data-reveal-worlds-most-populous-cities'],['World Urbanization Prospects 2018 : Highlights (2007 : les urbains dépassent les ruraux) — ONU DAES (2018)','https://digitallibrary.un.org/record/3828520/files/WUP2018-Highlights.pdf']]},
 
 /* 6 --------------------------------------------------------------- */
 {short:'Les routes de la mer',col:'mis',dur:60,dates:'aujourd’hui',proj:'plan',
  cam:[W(0),W(60)],
  zones:[],
  routes:[ship('mis',3,15,ASIE_EUROPE),ship('aus',8,16,PAC),ship('gbr',10,16,ATL),ship('lap',12,20,PANAMA),
-  ship('zh',30,36,[[121.8,31],[130,10],[140,-5],[155,-15],[166.4,-22.4]],{}),ship('fra',31,38,[[4,52],[-10,40],[-20,10],[-10,-20],[20,-36],[60,-38],[110,-36],[150,-35],[166.4,-22.4]],{})],
+  ship('zh',30,36,[[121.8,31],[130,10],[141,3],[152,-1],[160,-4.5],[164,-14],[166.4,-22.4]],{}),ship('fra',31,38,[[4,52],[1.5,51],[-2,50],[-6.3,48.6],[-8,46],[-11,42],[-10,37],[-14,30],[-20,10],[-10,-20],[20,-36],[60,-38],[110,-37],[132,-39.5],[142,-43],[149,-44.5],[156,-37],[163,-28],[166.4,-22.4]],{})],
  labels:[
   L(4,121.8,31,'Shanghai',{mark:'port',sub:'1er port à conteneurs',dx:10,al:'left',gold:true}),L(5,103.8,1.3,'Singapour',{mark:'port',dx:-10,dy:10,al:'right'}),
   L(6,121.6,29.9,'Ningbo',{mark:'port',dx:10,dy:8,al:'left'}),L(14,4,52,'Rotterdam',{mark:'port',sub:'1er port d’Europe',dx:10,al:'left'}),
@@ -196,7 +201,8 @@ var CH=[
  legend:[['mis','Route Asie – Europe',1],['aus','Route transpacifique',1],['gbr','Route transatlantique',1],['lap','Par le canal de Panama',1],['mis','Grand port','port']],
  mots:[['Conteneur','Grande boîte en métal de taille standard pour transporter des marchandises.'],['Détroit','Bras de mer étroit entre deux terres.'],['Canal','Voie d’eau creusée par les humains.'],['Transbordement','Passage des conteneurs d’un navire à un autre.']],
  q:[['Quelle part des marchandises voyage par la mer ?','Plus de 80 %.'],['Quel est le premier port à conteneurs du monde ?','Shanghai.'],['Quels canaux raccourcissent les routes maritimes ?','Le canal de Suez et le canal de Panama.'],['Que se passe-t-il si un détroit est bloqué ?','Les navires doivent faire un détour : le commerce ralentit et les prix montent.']],
- wiki:['Conteneur','Canal de Suez','Canal de Panama','Port de Shanghai']},
+ wiki:['Conteneur','Canal de Suez','Canal de Panama','Port de Shanghai'],
+ src:[['Review of Maritime Transport : environ 80 % du volume du commerce mondial de marchandises passe par la mer — CNUCED','https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport'],['Review of Maritime Transport 2025 : le transport maritime porte plus de 80 % des marchandises — ONU Info (2025)','https://news.un.org/en/story/2025/09/1165939'],['Histoire du canal de Panama (ouverture le 15 août 1914) — Autorité du canal de Panama','https://www.pancanal.com/en/history/'],['Blockage of the Suez Canal, March 2021 (Ever Given, 23-29 mars) — PortEconomics','https://porteconomicsmanagement.org/suez-canal-blockage-2021/'],['Shanghai dépasse 55 millions d’EVP en 2025 (Singapour 44,7 ; Ningbo-Zhoushan 43) — The Maritime Executive (2026)','https://www.maritime-executive.com/article/shanghai-exceeds-55-million-teu-in-container-throughput-for-2025'],['Suez Canal (inauguré le 17 novembre 1869) — History.com','https://www.history.com/topics/suez-canal']]},
 
 /* 7 --------------------------------------------------------------- */
 {short:'Internet : les câbles sous la mer',col:'lap',dur:50,dates:'aujourd’hui',proj:'plan',
@@ -205,10 +211,10 @@ var CH=[
  routes:[
   r('lap',3,9,2.6,[[-74,40.5],[-50,45],[-20,50],[-5,50]],{dash:true,sea:true}),r('lap',4,10,2.6,[[-74,40.5],[-40,30],[-9,38.7]],{dash:true,sea:true}),
   r('lap',5,12,2.6,[[-122,37],[-150,30],[-180,32],[150,33],[140,35]],{dash:true,sea:true}),
-  r('lap',6,13,2.6,[[103.8,1.3],[85,6],[60,13],[43.5,12.4],[38,20],[32.5,30],[25,34],[5.4,43.3]],{dash:true,sea:true}),
+  r('lap',6,13,2.6,[[103.8,1.3],[103,1.5],[101.5,2.6],[99.5,4.7],[95,6],[85,5.2],[80,5],[60,13],[48,12],[43.4,12.6],[42.9,13.3],[42.4,14.3],[40.5,16.6],[38.8,20],[36.6,24.2],[34.4,27.4],[33.2,28.8],[32.5,30],[26,33.8],[20,34.6],[14.5,35.3],[11.3,37.4],[7,38.8],[5.5,42],[5.4,43.3]],{dash:true,sea:true}),
   r('lap',7,13,2.6,[[151.2,-33.9],[175,-37],[-160,0],[-122,37]],{dash:true,sea:true}),
-  r('lap',8,13,2.6,[[-43,-23],[-30,-5],[-17,15],[-9,38.7]],{dash:true,sea:true}),
-  r('lap',9,13,2.6,[[18.4,-34],[12,-10],[3.4,6.4],[-17,15]],{dash:true,sea:true}),
+  r('lap',8,13,2.6,[[-43,-23.5],[-39,-20.5],[-35,-12],[-31,-5],[-27,5],[-23,15],[-20,22],[-19.5,28.5],[-14,34],[-10.2,38.5],[-9,38.7]],{dash:true,sea:true}),
+  r('lap',9,13,2.6,[[18.4,-34],[15,-31],[11,-24],[10,-14],[7,-3],[3.4,5.5],[-3,3.8],[-9,4],[-15,9],[-18.5,13],[-17.8,14.7]],{dash:true,sea:true}),
   r('lap',41,45,2.8,[[166.43,-22.32],[160,-27.5],[151.25,-33.85]],{dash:true,sea:true}),r('lap',42,46,2.8,[[166.47,-22.32],[172,-20.3],[178.44,-18.14]],{dash:true,sea:true})
  ],
  labels:[L(10,-35,47,'câbles transatlantiques',{nomark:true}),L(11,-170,36,'câbles transpacifiques',{nomark:true}),L(12,70,8,'Asie – Europe',{nomark:true}),
@@ -225,7 +231,8 @@ var CH=[
  legend:[['lap','Grands câbles sous-marins (exemples)',1]],
  mots:[['Fibre optique','Fil de verre très fin qui transporte des informations sous forme de lumière.'],['Câble sous-marin','Câble posé au fond de la mer pour relier les continents.'],['Centre de données','Bâtiment qui stocke des milliers d’ordinateurs et de données.'],['Connecté','Relié à un réseau, comme internet.']],
  q:[['Par où passent la plupart des données entre continents ?','Par des câbles sous-marins.'],['Que contient un câble sous-marin ?','Des fibres optiques qui transportent la lumière.'],['Pourquoi les petites îles sont-elles fragiles ?','Elles n’ont souvent qu’un câble : s’il casse, elles sont coupées.'],['Combien de câbles relient la Nouvelle-Calédonie ?','Deux : Gondwana-1 (Sydney) et Gondwana-2 (Fidji).']],
- wiki:['Câble sous-marin','Fibre optique','Centre de données','Internet']},
+ wiki:['Câble sous-marin','Fibre optique','Centre de données','Internet'],
+ src:[['Submarine Cable FAQ : plus de 1,5 million de km de câbles en service, pourquoi pas les satellites — TeleGeography (2026)','https://www2.telegeography.com/submarine-cable-faqs-frequently-asked-questions'],['Do Submarine Cables Account For Over 99% of Intercontinental Data Traffic? — TeleGeography (2023)','https://resources.telegeography.com/2023-mythbusting-part-3'],['Mise en service des câbles sous-marins Gondwana-2 et Picot-2 (25 août 2022) — OPT-NC','https://office.opt.nc/fr/media/fichier/mise-en-service-des-cables-sous-marins-gondwana-2-et-picot-2'],['Sécurisation de l’Internet calédonien : Gondwana-1 relie Nouméa à Sydney depuis 2008 — OPT-NC (2019)','https://office.opt.nc/fr/media/fichier/securisation-de-l-internet-caledonien']]},
 
 /* 8 --------------------------------------------------------------- */
 {short:'Voyager et migrer',col:'fra',dur:56,dates:'aujourd’hui',proj:'plan',
@@ -254,7 +261,8 @@ var CH=[
  legend:[['fra','Grandes lignes aériennes (exemples)'],['ame','Grandes routes des migrations (exemples)'],['fra','Grand aéroport','aero']],
  mots:[['Aéroport carrefour','Grand aéroport où l’on change d’avion (en anglais : hub).'],['Tourisme','Voyage pour le loisir, hors de chez soi.'],['Migrant','Personne qui s’installe dans un autre pays ou une autre région.'],['Réfugié','Personne qui a dû fuir son pays à cause d’une guerre ou de persécutions.']],
  q:[['Combien d’arrivées de touristes internationaux en 2024 ?','Environ 1,4 milliard.'],['Combien de migrants internationaux dans le monde ?','Environ 300 millions.'],['Pourquoi migre-t-on ?','Pour travailler, étudier, fuir une guerre ou une catastrophe.'],['Quelle communauté océanienne est plus nombreuse en Nouvelle-Calédonie que chez elle ?','Les Wallisiens et Futuniens.']],
- wiki:['Tourisme','Migration humaine','Aéroport international de Dubaï','Wallisiens et Futuniens']},
+ wiki:['Tourisme','Migration humaine','Aéroport international de Dubaï','Wallisiens et Futuniens'],
+ src:[['World Tourism Barometer : 1,4 milliard d’arrivées de touristes internationaux en 2024 — ONU Tourisme','https://www.untourism.int/node/14904'],['International Migrant Stock 2024 : 304 millions de migrants internationaux (3,7 % de la population mondiale) — ONU DAES, relayé par Destatis','https://www.destatis.de/EN/Themes/Countries-Regions/International-Statistics/Data-Topic/Population-Labour-Social-Issues/DemographyMigration/Migrants.html'],['Rapport annuel Wallis-et-Futuna 2021 : émigration vers la Nouvelle-Calédonie dès le début des années 1970, 22 520 personnes de communauté wallisienne ou futunienne en 2019 — IEOM','https://www.ieom.fr/IMG/rapport_annuel_ieom_wallis-et-futuna_2021/index-20.html'],['Populations légales des circonscriptions de Wallis-et-Futuna en 2023 (11 151 habitants) — Insee','https://www.insee.fr/fr/statistiques/7756933']]},
 
 /* 9 --------------------------------------------------------------- */
 {short:'Un téléphone fait le tour du monde',col:'zh',dur:56,dates:'aujourd’hui',proj:'plan',
@@ -267,7 +275,7 @@ var CH=[
  ],
  labels:[L(2,-122,37.4,'Conception (Californie, Corée…)',{mark:'usine',dx:10,al:'left'}),
   L(6,25.5,-11,'cobalt (RD Congo)',{mark:'mine',dx:10,al:'left'}),L(7,-69,-23.5,'lithium (Chili)',{mark:'mine',dx:-10,al:'right'}),L(7.5,121,-30,'lithium (Australie)',{mark:'mine',dx:10,al:'left'}),
-  L(8,112,32,'terres rares (Chine)',{mark:'mine',dx:-10,al:'right'}),
+  L(8,110,41.8,'terres rares (Chine)',{mark:'mine',dx:-10,al:'right'}),
   L(14,121,24.8,'puces (Taïwan)',{mark:'usine',dx:10,al:'left'}),L(14.5,127,37.5,'écrans (Corée du Sud)',{mark:'usine',dx:10,al:'left'}),
   L(18,114,22.5,'Assemblage (Chine, Inde, Vietnam)',{mark:'usine',dx:-10,dy:12,al:'right',gold:true}),
   L(27,166.44,-22.27,'vendu partout, jusqu’à Nouméa',{mark:'ville',dx:10,al:'left'})],
@@ -284,7 +292,8 @@ var CH=[
  legend:[['sand','Matières premières',1],['lap','Composants'],['zh','Produit fini vers le monde'],['ere','Mine','mine'],['lap','Usine, centre de conception','usine']],
  mots:[['Mondialisation','Mise en relation de toutes les régions du monde par les échanges.'],['Firme transnationale','Grande entreprise présente dans de nombreux pays.'],['Composant','Pièce qui entre dans la fabrication d’un objet.'],['Chaîne de production','Suite des étapes pour fabriquer un produit.']],
  q:[['Où est souvent assemblé un téléphone ?','En Chine, en Inde ou au Vietnam.'],['D’où vient l’essentiel du cobalt ?','De République démocratique du Congo.'],['Qu’est-ce qu’une firme transnationale ?','Une grande entreprise présente dans de nombreux pays.'],['Pourquoi recycler un vieux téléphone ?','Pour récupérer ses métaux et éviter la pollution.']],
- wiki:['Mondialisation','Entreprise multinationale','Cobalt','Smartphone']},
+ wiki:['Mondialisation','Entreprise multinationale','Cobalt','Smartphone'],
+ src:[['Mineral Commodity Summaries 2026 : cobalt (Congo-Kinshasa, 73 % de la production mondiale) — USGS (2026)','https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-cobalt.pdf'],['Mineral Commodity Summaries 2026 : lithium (Australie, Chine, Chili) — USGS (2026)','https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-lithium.pdf'],['Mineral Commodity Summaries 2026 : terres rares (Chine, 270 000 t extraites) — USGS (2026)','https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-rare-earths.pdf'],['Bayan Obo, Mongolie-Intérieure : gisement géant de terres rares (Bulletin 2143) — USGS','https://pubs.usgs.gov/bul/b2143/intro.html']]},
 
 /* 10 -------------------------------------------------------------- */
 {short:'Un monde inégal',col:'ame',dur:52,dates:'aujourd’hui',proj:'plan',
@@ -298,7 +307,7 @@ var CH=[
  pulses:[],
  ph:[
   Ph(0,'Mesurer le développement','L’indice de développement humain (IDH) combine trois choses : la santé (espérance de vie), l’éducation (années d’école) et le niveau de vie (revenu).','eur'),
-  Ph(4,'Les pays les plus développés','En tête : des pays d’Europe du Nord, la Suisse, l’Australie, le Japon, le Canada. On y vit longtemps, presque tous les enfants vont à l’école.','neo'),
+  Ph(4,'Les pays les plus développés','Parmi les premiers : des pays d’Europe du Nord, la Suisse, l’Australie, le Japon, le Canada. On y vit longtemps, presque tous les enfants vont à l’école.','neo'),
   Ph(12,'Les pays les moins développés','En bas du classement : surtout des pays d’Afrique subsaharienne, comme ceux du Sahel. Guerres, sécheresses et pauvreté y rendent la vie difficile.','ame'),
   Ph(22,'Des inégalités partout','Dans un même pays, il y a des quartiers riches et des bidonvilles, des villes équipées et des campagnes isolées.','eur'),
   Ph(30,'Et la Nouvelle-Calédonie ?','Le niveau de vie moyen y est élevé pour le Pacifique, mais les inégalités entre habitants et entre provinces restent fortes.','kan'),
@@ -308,7 +317,8 @@ var CH=[
  legend:[['neo','IDH très élevé (exemples)'],['ame','IDH faible (exemples)']],
  mots:[['Développement','Amélioration des conditions de vie : santé, éducation, revenus.'],['IDH','Indice de développement humain : note de 0 à 1 calculée par l’ONU.'],['Espérance de vie','Nombre moyen d’années qu’un bébé peut espérer vivre.'],['Inégalité','Différence injuste de conditions de vie.']],
  q:[['Quelles sont les trois mesures de l’IDH ?','La santé, l’éducation et le niveau de vie.'],['Où sont les pays au plus fort IDH ?','En Europe du Nord, en Amérique du Nord, au Japon, en Australie…'],['Où sont les pays au plus faible IDH ?','Surtout en Afrique subsaharienne.'],['Y a-t-il des inégalités dans les pays riches ?','Oui : entre quartiers, entre villes et campagnes.']],
- wiki:['Indice de développement humain','Pays en développement','Sahel','Inégalités de revenus']},
+ wiki:['Indice de développement humain','Pays en développement','Sahel','Inégalités de revenus'],
+ src:[['Human Development Report 2025 : tableau de l’IDH (Islande 1re, Suisse 2e, Niger 188e) — PNUD (2025)','https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Statistical_Annex_HDI_Table.pdf'],['En 2020, un Calédonien sur cinq est en situation de pauvreté ; niveau de vie médian deux fois plus élevé en province Sud qu’aux Îles — ISEE','https://isee.nc/sites/default/files/2025-11/pauvrete2020-synthese.pdf'],['Rapport annuel économique 2025 Nouvelle-Calédonie : PIB par habitant proche de celui de la Nouvelle-Zélande, loin devant les autres îles du Pacifique — IEOM (2026)','https://www.ieom.fr/IMG/pdf/rapport_annuel_nc_2025_-_bd2.pdf']]},
 
 /* 11 -------------------------------------------------------------- */
 {short:'Le climat change : le Pacifique en première ligne',col:'pol',dur:54,when:[2015,2026],dates:'aujourd’hui',proj:'plan',
@@ -316,7 +326,7 @@ var CH=[
  zones:[Rg([-40,75,10],'ice',3,0.6,2),Rg([0,-78,20],'ice',3.5,0.5,2)],
  routes:[],
  labels:[L(3,-40,75,'fonte des glaces',{nomark:true}),
-  L(25,179.2,-8.5,'Tuvalu',{mark:'ville',sub:'environ 11 000 hab.',dx:10,al:'left',gold:true}),L(26,173,1.4,'Kiribati',{mark:'ville',dx:10,al:'left'}),
+  L(25,179.2,-8.5,'Tuvalu',{mark:'ville',sub:'environ 10 000 hab.',dx:10,al:'left',gold:true}),L(26,173,1.4,'Kiribati',{mark:'ville',dx:10,al:'left'}),
   L(27,171.4,7.1,'îles Marshall',{mark:'ville',dx:10,al:'left'}),L(28,147,-18.5,'Grande Barrière de corail',{nomark:true,dx:-8,al:'right'}),
   L(29,NC[0],NC[1],'Nouvelle-Calédonie',{mark:'star',dx:10,al:'left'})],
  pulses:[Pu(25,179.2,-8.5,'#ff6b57',true),Pu(26,173,1.4,'#ff6b57',true)],
@@ -331,14 +341,15 @@ var CH=[
  legend:[['ice','Glaces qui fondent'],['pol','États insulaires très menacés','ville']],
  mots:[['Réchauffement climatique','Hausse des températures moyennes de la Terre causée par les activités humaines.'],['Gaz à effet de serre','Gaz qui retiennent la chaleur autour de la Terre.'],['Atoll','Île basse en forme d’anneau, formée par des coraux.'],['S’adapter','Changer sa façon de vivre pour faire face à un nouveau danger.']],
  q:[['Pourquoi le niveau de la mer monte-t-il ?','L’eau chauffe et prend plus de place, et les glaces fondent.'],['Quels pays du Pacifique sont les plus menacés ?','Les atolls : Tuvalu, Kiribati, îles Marshall.'],['Que prévoit le traité entre Tuvalu et l’Australie ?','Jusqu’à 280 Tuvaluans par an peuvent s’installer en Australie.'],['Citer une façon de s’adapter.','Protéger mangroves et récifs, construire loin du rivage, économiser l’énergie.']],
- wiki:['Réchauffement climatique','Élévation du niveau de la mer','Tuvalu','Accord de Paris sur le climat']},
+ wiki:['Réchauffement climatique','Élévation du niveau de la mer','Tuvalu','Accord de Paris sur le climat'],
+ src:[['AR6, Résumé pour les décideurs : niveau de la mer + 0,20 m entre 1901 et 2018 — GIEC (2021)','https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_SPM.pdf'],['Entry into force of historic Australia-Tuvalu Falepili Union (traité signé en novembre 2023, 280 Tuvaluans par an) — Premier ministre d’Australie (2024)','https://www.pm.gov.au/media/entry-force-historic-australia-tuvalu-falepili-union'],['L’Accord de Paris (adopté le 12 décembre 2015, 195 Parties) — Nations unies','https://www.un.org/en/climatechange/paris-agreement'],['Tuvalu : chiffres clés (population, superficie 26 km²) — Communauté du Pacifique (SPC), Division des statistiques','https://sdd.spc.int/tv']]},
 
 /* 12 -------------------------------------------------------------- */
 {short:'La Nouvelle-Calédonie dans la mondialisation',col:'kan',dur:56,dates:'aujourd’hui',proj:'plan',
  cam:[WP(0),WP(56)],
  zones:[],
  routes:[
-  r('zh',4,11,3.2,[[166.4,-22.3],[150,-5],[135,15],[122,31]],{}),r('gbr',5,12,2.6,[[166.4,-22.3],[150,0],[140,30],[134,34.5]],{}),r('aus',5.5,12.5,2.6,[[166.4,-22.3],[150,-2],[132,28],[127.7,34.8]],{}),
+  r('zh',4,11,3.2,[[166.4,-22.3],[164,-14],[160,-4.5],[152,-1],[141,3],[130,12],[125,22],[122.3,30.8]],{sea:true}),r('gbr',5,12,2.6,[[166.4,-22.3],[164,-14],[160,-4.5],[152,-1],[148,8],[145,18],[141,26],[137,30.5],[134.5,33]],{sea:true}),r('aus',5.5,12.5,2.6,[[166.4,-22.3],[164,-14],[160,-4.5],[152,-1],[145,10],[137,20],[131,26],[128.6,30.6],[127.6,33.1],[127.7,34.4]],{sea:true}),
   r('fra',16,24,3.2,[[2.3,48.9],[30,30],[70,10],[110,-5],[150,-15],[166.4,-22.3]],{}),r('fra',17,24,2.6,[[118,30],[140,0],[166.4,-22.3]],{}),
   r('fra',17.5,24,2.6,[[151,-34],[166.4,-22.3]],{}),r('fra',18,24,2.6,[[103.8,1.3],[140,-12],[166.4,-22.3]],{})
  ],
@@ -348,7 +359,7 @@ var CH=[
  pulses:[],
  ph:[
   Ph(0,'Vendre au monde','La Nouvelle-Calédonie vend surtout des produits du nickel, en grande partie en Asie : la Chine est son premier client ; la Corée du Sud, le Japon et Taïwan en achètent aussi.','zh'),
-  Ph(14,'Acheter au monde','Elle achète beaucoup : nourriture, carburant, voitures, machines, médicaments. La France est son premier fournisseur, puis la Chine, l’Australie, Singapour…','fra'),
+  Ph(14,'Acheter au monde','Elle achète beaucoup : nourriture, carburant, voitures, machines, médicaments. La France est son premier fournisseur, puis Singapour, l’Australie, la Chine…','fra'),
   Ph(26,'Toujours reliée','Le port de Nouméa reçoit les conteneurs, La Tontouta les avions, Gondwana-1 et 2 les données d’internet : sans ces portes d’entrée, le pays serait isolé.','mis'),
   Ph(36,'Un petit pays dans un grand monde','Le prix mondial du nickel, la concurrence de l’Indonésie, le prix du pétrole ou une crise en Asie ont des effets directs ici : c’est cela, la mondialisation.','eur'),
   Ph(46,'Changer d’échelle','Pour comprendre un lieu, on change d’échelle : la tribu ou le quartier, la commune, la Nouvelle-Calédonie, le Pacifique, le monde.','kan')
@@ -357,7 +368,8 @@ var CH=[
  legend:[['zh','Exportations (surtout nickel) vers l’Asie'],['fra','Importations']],
  mots:[['Exportation','Vente de produits à l’étranger.'],['Importation','Achat de produits à l’étranger.'],['Échelle','Taille de l’espace étudié : locale, régionale, mondiale.']],
  q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine.'],['Quel est son premier fournisseur ?','La France.'],['Citer trois portes d’entrée vers le monde.','Le port de Nouméa, l’aéroport de La Tontouta, les câbles internet.'],['Comment une crise mondiale peut-elle toucher le pays ?','Par le prix du nickel, du pétrole, ou la concurrence.']],
- wiki:['Mondialisation','Économie de la Nouvelle-Calédonie','Commerce international','Échelle (géographie)']}
+ wiki:['Mondialisation','Économie de la Nouvelle-Calédonie','Commerce international','Échelle (géographie)'],
+ src:[['Rapport annuel 2025, Nouvelle-Calédonie : commerce extérieur (nickel 90 % des exportations, principaux clients et fournisseurs) — IEOM (2026)','https://www.ieom.fr/IMG/pdf/rapport_annuel_nc_2025_-_bd2.pdf'],['Synthèse annuelle 2025 : « L’économie calédonienne peine à se redresser » (cours du nickel au plus bas en cinq ans) — IEOM (2026)','https://www.ieom.fr/IMG/pdf/synthese_annuelle_nc_2025.pdf'],['Mineral Commodity Summaries 2026 : nickel (Indonésie 2,6 Mt sur 3,9 Mt produites en 2025 ; Nouvelle-Calédonie 0,14 Mt) — USGS (2026)','https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-nickel.pdf'],['Port de Nouméa : l’activité en net recul en 2024 (61 950 conteneurs EVP) — Les Nouvelles Calédoniennes (2025)','https://www.lnc.nc/article/port-de-noumea-l-activite-en-net-recul-en-2024-plombee-par-les-emeutes'],['Sécurisation de l’internet calédonien : câbles Gondwana-1 et Gondwana-2 — OPT-NC (2019)','https://office.opt.nc/fr/media/fichier/securisation-de-l-internet-caledonien']]}
 ];
 
 A.add({id:'mondial',title:'Le monde et la mondialisation',tag:'12 chapitres · repères, milieux, population, flux, inégalités, climat',col:'mis',proj:'plan',
