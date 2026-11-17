@@ -37,7 +37,7 @@ P('Deux saisons',TB('Le calendrier du climat calédonien',['Période','Saison','
  [Q('Quand est la saison des cyclones ?',['De novembre à avril','De mai à septembre','Toute l’année']),V('Il fait doux toute l’année en Nouvelle-Calédonie.',1)],
  [Q('Pourquoi dit-on que le climat est tropical ?',['Le pays est juste au nord du tropique du Capricorne : il fait doux toute l’année, avec une saison chaude et humide','Parce qu’il neige en hiver','Parce qu’il ne pleut jamais']),W('Quel risque correspond à chaque saison ?','Saison chaude et humide (novembre à avril) : cyclones, fortes pluies, inondations. Saison fraîche et sèche (mai à septembre) : feux de brousse.')],
  'Deux saisons : chaude et humide (cyclones) de novembre à avril, fraîche et sèche (feux) de mai à septembre.'),
-P('Un cyclone vu de l’espace',I('niran'),
+P('Un cyclone vu de l’espace',[I('niran'),I('nirantrace')],
  [Q('Comment s’appelle le cyclone de mars 2021 ?',['Niran','Katrina','Erica']),Q('Que provoque un cyclone ?',['Des vents violents et des pluies énormes','De la neige','Un tremblement de terre'])],
  [V('Un cyclone peut couper les routes et provoquer des inondations.',1),W('Pourquoi les satellites sont-ils utiles face aux cyclones ?','Ils permettent de voir le cyclone se former et de suivre sa trajectoire : on peut prévoir son arrivée et alerter la population à temps.')],
  'Mars 2021 : le cyclone Niran. Les satellites suivent les cyclones pour donner l’alerte.'),

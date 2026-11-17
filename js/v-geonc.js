@@ -108,7 +108,7 @@ var CH=[
   Ph(34,'D’autres risques','Tsunamis après un séisme au Vanuatu, glissements de terrain, inondations : on apprend les bons gestes. La montée de la mer menace aussi les côtes basses et les îlots.','mis'),
   Ph(44,'Se protéger','Prévoir, alerter, construire solidement, protéger les forêts : on se met moins en danger : on réduit la vulnérabilité. À l’école aussi, on s’entraîne.','eur')
  ],
- photos:[Sh('cyclonesat',4,11,'tr',2),Sh('niran',12,20,'tr',2),Sh('wildfirepins',24,32,'tr',2),Sh('tsunamipanneau',34,42,'bl',-2)],
+ photos:[Sh('cyclonesat',4,11,'tr',2),Sh('niran',12,16,'tr',2),Sh('nirantrace',16.5,20,'tr',-2),Sh('niranapres',20.5,23.5,'tr',2),Sh('wildfirepins',24,32,'tr',2),Sh('tsunamipanneau',34,42,'bl',-2)],
  legend:[['ame','Trajectoire d’un cyclone (exemple)',1],['mis','Alizés',1],['kan','Tropique du Capricorne',1]],
  mots:[['Climat tropical','Climat chaud toute l’année, avec une saison des pluies.'],['Cyclone','Énorme tempête tropicale avec des vents de plus de 118 km/h.'],['Risque','Danger qui peut toucher des habitants et leurs biens.'],['Vulnérabilité','Fragilité d’un lieu ou d’une population face à un danger.']],
  q:[['Quelles sont les deux grandes saisons ?','La saison chaude et humide (novembre-avril) et la saison fraîche (mai-septembre), suivie de semaines très sèches jusqu’en octobre.'],['Pendant quelle saison arrivent les cyclones ?','Pendant la saison chaude.'],['Pourquoi les feux sont-ils dangereux pour la nature ?','Ils détruisent forêts, animaux et sols.'],['Que faire pour réduire un risque ?','Prévoir, alerter, construire solidement, protéger la nature, connaître les bons gestes.']],

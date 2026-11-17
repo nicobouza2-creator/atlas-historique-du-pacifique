@@ -205,7 +205,7 @@ var CH=[
  pulses:[],
  ph:[
   Ph(0,'Vers 500 av. J.-C. et après','L’ADN ancien du Vanuatu montre l’arrivée de nouveaux groupes, venus du nord. Ils se mélangent aux Lapita. Les poteries changent.','pap',true),
-  Ph(14,'Et en Nouvelle-Calédonie ?','Elle reçoit sans doute aussi de nouveaux groupes venus de Mélanésie. Les chercheurs cherchent encore les dates et les routes : ces flèches sont des hypothèses.','pap',true),
+  Ph(14,'Et en Nouvelle-Calédonie ?','Elle reçoit sans doute aussi de nouveaux groupes venus de Mélanésie. On ne connaît pas encore les dates ni les routes : ces flèches sont des hypothèses.','pap',true),
   Ph(26,'Les siècles passent','La société kanak prend forme : clans, chefferies, grandes cases, tarodières arrosées par des canaux dans les vallées.','kan'),
   Ph(36,'Une société qui s’organise','Chaque clan a sa terre, ses ancêtres et ses alliés. On voyage en pirogue et on échange entre vallées et îles.','kan')
  ],
