@@ -330,7 +330,7 @@ var CH=[
   Ph(44,'À toi, géographe','Sur une carte muette de la Nouvelle-Calédonie, place les mines, les usines, les ports et les flux. Tu verras comment le nickel organise tout le territoire.','kan')
  ],
  photos:[Sh('noumeaport',9,17,'tr',2),Sh('doniambo',10,17,'bl',-2),Sh('chaudiere',32,40,'tr',2,'contain'),Sh('chartenoumea',44,52,'tr',2,'contain')],
- legend:[['xet','Site en activité'],['ame','Site à l’arrêt ou bloqué'],['lap','Usine','usine'],['ere','Mine','mine']],
+ legend:[['lap','Usine','usine'],['ere','Mine','mine']],
  mots:[['Économie','Ensemble des activités qui produisent et échangent des richesses.'],['Sous-traitance','Travail confié par une grande entreprise à d’autres entreprises.'],['Repreneur','Entreprise qui rachète une usine pour la faire fonctionner.'],['Diversifier','Développer d’autres activités pour ne pas dépendre d’une seule.']],
  q:[['Pourquoi dit-on que le pays dépend du nickel ?','Parce que le nickel fournit la plupart des exportations et beaucoup d’emplois.'],['Citer deux causes de la crise du nickel.','Le prix bas, l’électricité chère, la concurrence indonésienne, les violences de 2024.'],['Quelle usine est à l’arrêt en 2026 ?','L’usine du Nord, à Vavouto.'],['Que veut dire « diversifier » l’économie ?','Développer d’autres activités pour ne pas dépendre d’une seule.']],
  wiki:['Économie de la Nouvelle-Calédonie','Nickel en Nouvelle-Calédonie','Société Le Nickel','Prony Resources'],

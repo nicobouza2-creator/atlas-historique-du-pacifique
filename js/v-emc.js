@@ -170,7 +170,7 @@ var CH=[
   Ph(53,'Lire la carte','Range les pays dans l’ordre où les femmes ont obtenu le droit de vote.','pap')
  ],
  photos:[Sh('sheppard',7,13,'tr',2,'contain'),Sh('suffragettes',13,20,'bl',-2),Sh('vote1945',20,26,'tr',2),Sh('urne',44,51,'bl',-2)],
- legend:[['pap','Droit de vote des femmes (année)'],['fra','France'],['kan','Nouvelle-Calédonie']],
+ legend:[['#12202e','Autres pays : année du droit de vote des femmes'],['kan','France et Nouvelle-Calédonie (en doré)']],
  mots:[['Suffrage universel','Tous les citoyens adultes ont le droit de voter.'],['Suffragette','Militante qui se battait pour le droit de vote des femmes, au Royaume-Uni.'],['Citoyen','Personne qui a des droits (voter…) et des devoirs dans son pays.'],['Électeur','Personne inscrite sur les listes, qui a le droit de voter.']],
  q:[['Quel est le premier pays où les femmes ont voté ?','La Nouvelle-Zélande, en 1893.'],['En quelle année les Françaises obtiennent-elles le droit de vote ?','En 1944 ; elles votent pour la première fois en 1945.'],['Depuis quand vote-t-on à 18 ans en France ?','Depuis 1974.'],['Que se passe-t-il en 1957 en Nouvelle-Calédonie ?','Le suffrage universel s’applique : tous les adultes votent.']],
  wiki:['Droit de vote des femmes','Suffrage universel','Kate Sheppard','Suffragette'],
