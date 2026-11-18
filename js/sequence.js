@@ -168,7 +168,7 @@ SEQ.build=function(opt){
   var fac=((window.FACILE||{})[V.id]||[])[ci]||[],recit=(ch.ph||[]).map(function(p){return p.txt;});
   var prog=((V.info||'').match(/<p>(.*?)<\/p>/)||[])[1]||'';
   var prev=ci>0?CHS[ci-1]:null,leg=(ch.legend||[]).map(function(l){return l[1];});
-  var lieux=(ch.labels||[]).map(function(l){return l.text;}).filter(function(x){return typeof x=='string';}).slice(0,8);
+  var lieux=(ch.labels||[]).map(function(l){return l.text;}).filter(function(x,i,t){return typeof x=='string'&&/^[A-ZÀ-ÖØ-Þ]/.test(x)&&!/^(Homo |Néandert|Dénisov|Loi |Accords|Près |À |Au |Aux )/.test(x)&&t.indexOf(x)==i;}).slice(0,8);
   var pg=E?E.pg:[],Q=function(p){return pr?p.p:p.c;},half=Math.ceil(pg.length/2),G=[pg.slice(0,half),pg.slice(half)];
   var lvTxt=pr?'niveau « École primaire »':'niveau « Collège »',dos='Dossier d’enquête à imprimer : '+V.id+'-'+nn+' (PDF ou Word) — pièces, cahier '+(pr?'primaire':'collège')+', corrigé';
   var S=[];

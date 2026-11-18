@@ -111,12 +111,12 @@ var CH=[
   Ph(12,'29 septembre 1853','Quelques jours plus tard, il fait de même à l’île des Pins, où un navire anglais était déjà à l’ancre.','fra'),
   Ph(24,'1854 : Port-de-France','Le capitaine Tardy de Montravel choisit une grande rade bien abritée, au sud-ouest, pour installer la capitale. Port-de-France prend le nom de Nouméa en 1866.','fra'),
   Ph(35,'1864 : les îles Loyauté','La France impose son autorité à Lifou, Maré et Ouvéa. Tout l’archipel est désormais une colonie française.','fra'),
-  Ph(42,'Pourquoi cette colonie ?','La France veut une base pour ses navires dans le Pacifique, face à l’Angleterre. Elle cherche aussi une terre lointaine où envoyer ses condamnés.','eur')
+  Ph(42,'Pourquoi cette colonie ?','La France veut une base pour ses navires dans le Pacifique, face à l’Angleterre. Le bagne n’est décidé que dix ans plus tard, en 1863.','eur')
  ],
  photos:[Sh('prise1853',2,9,'tr',2,'contain'),Sh('chartenoumea',31,38,'bl',-2,'contain'),Sh('lifou1864',38,46,'bl',-2,'contain')],
  legend:[['fra','Marine française (1853–1854)'],['fra','Territoire sous autorité française']],
  mots:[['Prise de possession','Acte par lequel un pays déclare qu’une terre lui appartient.'],['Colonie','Territoire dominé et exploité par un pays étranger.'],['Rade','Grand bassin naturel où les navires sont à l’abri.']],
- q:[['Que se passe-t-il le 24 septembre 1853 ?','La France prend possession de la Grande Terre, à Balade.'],['Quel était le premier nom de Nouméa ?','Port-de-France.'],['Pourquoi la France veut-elle cette colonie ?','Pour avoir une base navale dans le Pacifique et un lieu où envoyer ses condamnés.']],
+ q:[['Que se passe-t-il le 24 septembre 1853 ?','La France prend possession de la Grande Terre, à Balade.'],['Quel était le premier nom de Nouméa ?','Port-de-France.'],['Pourquoi la France veut-elle cette colonie ?','Pour avoir une base navale dans le Pacifique, face à l’Angleterre. Le bagne ne viendra qu’en 1863-1864.']],
  wiki:['Histoire de la Nouvelle-Calédonie','Auguste Febvrier Despointes','Nouméa'],
  src:[['24 septembre 1853 : la Nouvelle-Calédonie devient française — Hérodote.net','https://www.herodote.net/la_Nouvelle_Caledonie_devient_francaise-evenement-18530924-521.php'],['Histoire de la Nouvelle-Calédonie — Université Laval, L’aménagement linguistique dans le monde','https://axl.cefan.ulaval.ca/pacifique/ncal3hist.htm'],['Chronologie de l’histoire kanak — Présence kanak','https://presencekanak.com/wp-content/uploads/2024/05/jso-chronologie-dates-knc.pdf']]},
 
