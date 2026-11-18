@@ -61,6 +61,7 @@ def draw_cover(c, doc):
     c.drawRightString(W - 18 * mm, 30 * mm, 'Contenu : %d pièces · cahier de l’enquêteur' % doc.npieces)
     c.drawRightString(W - 18 * mm, 24 * mm, ('(parcours guidé et autonome)' if doc.vol in COLLEGE else '(primaire et collège)') + ' · corrigé pour l’enseignant')
 
+TIGHT = 0
 def story(vol, ci, book):
     ch = D['vols'][vol]['chapters'][ci]; e = D['vols'][vol]['enq'][ci]; ex = X['%s-%d' % (vol, ci)]; key = code(vol, ci)
     pgs = e['pg']; has_map = any(d['k'] == 'map' for pg in pgs for d in (pg['d'] if isinstance(pg['d'], list) else [pg['d']]))
@@ -84,14 +85,23 @@ def story(vol, ci, book):
     for i, (t_, d) in enumerate(pieces):
         ds = d if isinstance(d, list) else [d]; fl = [Anchor('p%d' % (i + 1), book), PieceTag(i + 1, t_), Spacer(1, 3 * mm)]
         for dd in ds: fl += doc_flow(dd, vol, ci, ch, len(ds) > 1) + [Spacer(1, 4 * mm)]
-        sto += [CondPageBreak(95 * mm), KeepTogether(fl[:3] + fl[3:5])] + fl[5:] + [Spacer(1, 4 * mm)]
+        if isinstance(fl[3], (Photo, MapDoc)): sto += [CondPageBreak(95 * mm), Block(fl[:4])] + fl[4:] + [Spacer(1, 4 * mm)]
+        else: sto += [CondPageBreak(95 * mm), KeepTogether(fl[:3] + fl[3:5])] + fl[5:] + [Spacer(1, 4 * mm)]
     sto += [CondPageBreak(110 * mm), Anchor('p%d' % n_ex, book), PieceTag(n_ex, ex['t']), Spacer(1, 3 * mm)] + extra_flow(ex) + [Spacer(1, 6 * mm)]
     if n_map:
-        sto += [PageBreak(), Anchor('p%d' % n_map, book), PieceTag(n_map, 'Carte de l’atlas'), Spacer(1, 3 * mm)] + doc_flow({'k': 'map'}, vol, ci, ch, False)
+        sto += [CondPageBreak(170 * mm), Anchor('p%d' % n_map, book), PieceTag(n_map, 'Carte de l’atlas'), Spacer(1, 3 * mm)] + doc_flow({'k': 'map'}, vol, ci, ch, False)
     synth = '\n'.join('%s : %s' % (clean(p['era']), clean(p['txt'])) for p in ch['ph'])
-    sto += [PageBreak(), Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse de l’atlas'), Spacer(1, 2 * mm),
-            Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm),
-            Sheet('archive', 'Note de synthèse · ' + ch['short'], synth, ('Récit de l’atlas d’histoire du collège.' if vol in COLLEGE else 'Récit de l’atlas historique du Pacifique.'), 'À OUVRIR EN DERNIER')]
+    srcs = 'Récit de l’atlas d’histoire du collège.' if vol in COLLEGE else 'Récit de l’atlas historique du Pacifique.'
+    sh = Sheet('archive', 'Note de synthèse · ' + ch['short'], synth, srcs, 'À OUVRIR EN DERNIER')
+    if sh.wrap(FW, 2000 * mm)[1] > 215 * mm:   # note plus haute qu’une page : on la coupe en deux feuilles (sinon l’en-tête reste seul)
+        ls = synth.split('\n'); cut = len(ls) // 2
+        sh1 = Sheet('archive', 'Note de synthèse · ' + ch['short'], '\n'.join(ls[:cut]), '', 'À OUVRIR EN DERNIER')
+        sh2 = Sheet('archive', 'Note de synthèse · ' + ch['short'] + ' (suite)', '\n'.join(ls[cut:]), srcs)
+        sto += [CondPageBreak(120 * mm), KeepTogether([Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse de l’atlas'), Spacer(1, 2 * mm),
+                Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm), sh1]), Spacer(1, 3 * mm), sh2]
+    else:
+        sto += [CondPageBreak(120 * mm), KeepTogether([Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse de l’atlas'), Spacer(1, 2 * mm),
+                Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm), sh])]
     if ch['mots']: sto += [Spacer(1, 5 * mm), KeepTogether(ledger('Lexique de l’enquêteur', ['Mot', 'Ce que ça veut dire'], ch['mots'], '', FW))]
     if ch.get('src'):   # d’où viennent les informations du chapitre
         sto += [Spacer(1, 5 * mm), KeepTogether([Paragraph('D’où viennent ces informations ?', ST['h2'])] +
@@ -121,12 +131,29 @@ def story(vol, ci, book):
             Paragraph('<b>Réponse à la question de l’enquête :</b> ' + esc(e['f']['r']), ST['body'])]
     for lv, lab in [('p', 'Cahier ' + CAH(vol)[0].lower()), ('c', 'Cahier ' + CAH(vol)[1].lower())]:
         sto.append(Paragraph(lab, ST['h2']))
-        sto += [Paragraph('<b>%d.</b> %s' % (n, esc(a)), S('ca', 'Atk', 10.5, 14, spaceAfter=3)) for n, a in corr[lv]]
-    sto += [Paragraph('Indices attendus', ST['h2'])] + [Paragraph('<b>Pièce %d :</b> %s' % (i + 1, esc(pg['i'])), S('ci', 'Atk', 10.5, 14, spaceAfter=3)) for i, pg in enumerate(pgs)]
-    sto += [Paragraph('<b>Pièce %d :</b> à partir de « %s »' % (n_ex, esc(ex['t'])), S('ci2', 'Atk', 10.5, 14))]
-    return sto, n_last
+        sto += [Paragraph('<b>%d.</b> %s' % (n, esc(a)), S('ca', 'Atk', 10.5 - TIGHT, 14 - 1.6 * TIGHT, spaceAfter=3 - TIGHT)) for n, a in corr[lv]]
+    sto += [Paragraph('Indices attendus', ST['h2'])] + [Paragraph('<b>Pièce %d :</b> %s' % (i + 1, esc(pg['i'])), S('ci', 'Atk', 10.5 - TIGHT, 14 - 1.6 * TIGHT, spaceAfter=3 - TIGHT)) for i, pg in enumerate(pgs)]
+    sto += [Paragraph('<b>Pièce %d :</b> à partir de « %s »' % (n_ex, esc(ex['t'])), S('ci2', 'Atk', 10.5 - TIGHT, 14 - 1.6 * TIGHT))]
+    # Un espace juste avant un saut de page peut déborder seul sur une page blanche : on les retire.
+    BR = (PageBreak, CondPageBreak, NextPageTemplate); out = []
+    for el in sto:
+        if isinstance(el, BR):
+            while out and isinstance(out[-1], Spacer): out.pop()
+        out.append(el)
+    return out, n_last
 
 def build(vol, ci):
+    global TIGHT
+    TIGHT = 0; n = build1(vol, ci)
+    from remplissage import pages, fill
+    f = OUT + '%s-%02d.pdf' % (vol, ci + 1)
+    if fill(pages(f)[-1]) < 0.2:   # quelques lignes du corrigé débordent seules sur une page : on resserre le corrigé
+        TIGHT = 0.7; n2 = build1(vol, ci)
+        if fill(pages(f)[-1]) < 0.2 and n2 >= n: TIGHT = 0; n2 = build1(vol, ci)
+        n = n2
+    TIGHT = 0; return n
+
+def build1(vol, ci):
     book = {}; total = None
     for _ in range(2):
         buf = io.BytesIO() if total is None else OUT + '%s-%02d.pdf' % (vol, ci + 1)

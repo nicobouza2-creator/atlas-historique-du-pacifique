@@ -1539,11 +1539,25 @@ function camStops(ci){
 function docCanvas(ci){
   var ch=CH[ci],PW=1640,DISP='"Bricolage Grotesque","Trebuchet MS",sans-serif',INK='#12202e';
   var flat=projKindFor(ch)!=='globe',stops=camStops(ci),parts=[],COM0=COMSEEN=false;
-  var main=mapCanvas(ci,{labels:true,dark:false});
+  /* Cadrage de la carte principale : caméra de fin, sauf si elle coupe un tracé — alors on cadre tous les tracés du chapitre. */
+  var dcam=null,dpts=[];
+  (ch.routes||[]).forEach(function(rt){(rt.pts||[]).forEach(function(p){dpts.push(p);});});
+  if(dpts.length>1){
+    var kd={ci:cur.ci,t:cur.t,free:free,W:W,H:H,TH:TH,pk:projKind};
+    try{
+      cur.ci=ci;cur.t=ch.dur;free=null;W=flat?820:650;H=flat?546:650;
+      if(projKindFor(ch)!==projKind)setProj(projKindFor(ch));
+      applyCam(camAt(ci,ch.dur));
+      var cut=dpts.some(function(p){var q=projection(p);return hidden(p,1.45)||!q||q[0]<6||q[0]>W-6||q[1]<6||q[1]>H-6;});
+      if(cut){dcam=fitCam(dpts);applyCam(dcam);
+        if(dpts.some(function(p){var q=projection(p);return hidden(p,1.45)||!q||q[0]<2||q[0]>W-2||q[1]<2||q[1]>H-2;}))dcam.z=Math.max(zMin(),dcam.z*0.85);}
+    }finally{cur.ci=kd.ci;cur.t=kd.t;free=kd.free;W=kd.W;H=kd.H;}
+  }
+  var main=mapCanvas(ci,{labels:true,dark:false,cam:dcam||undefined});
   /* position des zooms sur la carte principale (caméra de fin) */
   var keep={ci:cur.ci,t:cur.t,free:free,W:W,H:H,TH:TH};
   cur.ci=ci;cur.t=ch.dur;free=null;W=main.width/2;H=main.height/2;
-  try{if(projKindFor(ch)!==projKind)setProj(projKindFor(ch));applyCam(camAt(ci,ch.dur));
+  try{if(projKindFor(ch)!==projKind)setProj(projKindFor(ch));applyCam(dcam||camAt(ci,ch.dur));
     stops.forEach(function(sp){var q=hidden([sp.lon,sp.lat],1.4)?null:projection([sp.lon,sp.lat]);sp.q=(sp.inn&&q&&q[0]>20&&q[0]<W-20&&q[1]>20&&q[1]<H-20)?q:null;});
   }finally{cur.ci=keep.ci;cur.t=keep.t;free=keep.free;W=keep.W;H=keep.H;}
   FULLR=true;

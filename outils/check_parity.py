@@ -8,11 +8,11 @@ for f in sorted(glob.glob('/home/claude/dossiers/docx/*.docx')):
     name = f.split('/')[-1][:-5]; P = [p.text for p in Document(f).paragraphs]
     k = max(i for i, t in enumerate(P) if t.startswith('Corrigé · pour l’enseignant'))
     dx = [norm(t) for t in P[k:] if re.match(r'\d+\. ', t)]
-    L = [x for x in lines('/home/claude/repo/pdf/%s.pdf' % name) if x[2] >= 10]
+    L = [x for x in lines('/home/claude/repo/pdf/%s.pdf' % name) if x[2] >= 9.5]
     c = next(i for i, x in enumerate(L) if x[3].startswith('Corrigé · pour l’enseignant') and x[2] == 18.0)
     pd = []
     for x in L[c:]:
-        if x[2] != 10.5: continue
+        if not 9.5 <= x[2] <= 10.5: continue
         if re.match(r'\d+\.\s', x[3]): pd.append(x[3])
         elif pd and not x[3].startswith('Pièce'): pd[-1] += ' ' + x[3]
     pd = [norm(t) for t in pd]

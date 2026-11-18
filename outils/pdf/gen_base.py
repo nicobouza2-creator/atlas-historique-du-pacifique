@@ -77,6 +77,9 @@ class Photo(Flowable):
     def wrap(self, w, h):
         iw = min(w * 0.86, self.maxh * self.ar); ih = iw / self.ar
         if ih > self.maxh: ih = self.maxh; iw = ih * self.ar
+        self.pc = Paragraph(esc(self.cap) + '<br/><font name="AtkI" size="8.3" color="#5b6470">' + esc(self.cred) + '</font>', ST['cap'])
+        dispo = h - self.pc.wrap(iw, 50 * mm)[1] - 17 * mm   # la photo rétrécit pour tenir dans la page (jamais en dessous de 65 %)
+        if ih > dispo >= 0.65 * ih: ih = dispo; iw = ih * self.ar
         self.iw, self.ih, self.w = iw, ih, w
         self.pc = Paragraph(esc(self.cap) + '<br/><font name="AtkI" size="8.3" color="#5b6470">' + esc(self.cred) + '</font>', ST['cap'])
         self.pch = self.pc.wrap(iw, 50 * mm)[1]; self.h = ih + self.pch + 16 * mm; return (w, self.h)
@@ -102,6 +105,8 @@ class MapDoc(Flowable):
         self.pch = self.pc.wrap(w, 40 * mm)[1]
         iw = w - 4 * mm; ih = iw / self.ar
         if ih > self.maxh: ih = self.maxh; iw = ih * self.ar
+        dispo = h - self.pch - 9 * mm   # place restante : la carte rétrécit pour tenir (jamais en dessous de 60 % de sa taille)
+        if ih > dispo >= 0.6 * ih: ih = dispo; iw = ih * self.ar
         self.iw, self.ih, self.w = iw, ih, w; self.h = ih + self.pch + 8 * mm; return (w, self.h)
     def draw(self):
         c = self.canv; x = (self.w - self.iw) / 2; y = self.pch + 4 * mm
@@ -188,3 +193,19 @@ def timeline(title, items, w):
                            ('LEFTPADDING', (1, 0), (1, -1), 10), ('TOPPADDING', (0, 0), (-1, -1), 6), ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
                            ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor('#f8f3e6'))]))
     return [Paragraph(esc(title), S('ft', 'AtkB', 12.5, 15, BROWN)), Spacer(1, 3 * mm), t]
+
+
+class Block(Flowable):
+    """Plusieurs éléments collés (étiquette de pièce + premier document) : le dernier (photo, carte) rétrécit pour tenir dans la page restante."""
+    def __init__(self, items): Flowable.__init__(self); self.items = items
+    def wrap(self, w, h):
+        self.w = w; self.pos = []; used = 0
+        for k, f in enumerate(self.items):
+            last = k == len(self.items) - 1
+            fw, fh = f.wrap(w, (h - used) if last else h)
+            self.pos.append((f, fh)); used += fh
+        self.h = used; return (w, used)
+    def draw(self):
+        y = self.h
+        for f, fh in self.pos:
+            y -= fh; f.drawOn(self.canv, 0, y)
