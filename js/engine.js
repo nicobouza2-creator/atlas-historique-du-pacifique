@@ -142,14 +142,26 @@ function wiggle(pts,amp,freq,phase){
     return [p[0]-dy*off,p[1]+dx*off];
   });
 }
+/* Sortie de carte : prolonge le trajet de `km` km dans sa direction finale ; la partie ajoutée s'efface (drawRoute, rt.fx = premier point ajouté) */
+function extendEnd(pts,km){
+  var b=pts[pts.length-1],a=null,i,D=Math.PI/180;
+  for(i=pts.length-2;i>=0;i--){if(d3.geoDistance(pts[i],b)>0.001){a=pts[i];break;}}
+  if(!a)return [];
+  var p1=b[1]*D,l1=b[0]*D,dl=((b[0]-a[0]+540)%360-180)*D,p0=a[1]*D;
+  var th=Math.atan2(Math.sin(dl)*Math.cos(p1),Math.cos(p0)*Math.sin(p1)-Math.sin(p0)*Math.cos(p1)*Math.cos(dl));
+  var de=km/6371,p2=Math.asin(Math.sin(p1)*Math.cos(de)+Math.cos(p1)*Math.sin(de)*Math.cos(th));
+  var l2=l1+Math.atan2(Math.sin(th)*Math.sin(de)*Math.cos(p1),Math.cos(de)-Math.sin(p1)*Math.sin(p2));
+  return densify([b,[l2/D,p2/D]],0.15).slice(1);
+}
 /* r(couleur, début, fin, épaisseur, points, options)
-   options : straight, step, amp/freq/phase, taper, dash, boat (pirogue), ship (navire à voiles), sea (doit rester en mer),
+   options : exit (km : la flèche file hors cadre en s’effaçant), snap (false : pas d’ajustement d’arrivée), straight, step, amp/freq/phase, taper, dash, boat (pirogue), ship (navire à voiles), sea (doit rester en mer),
    nohead (ligne sans pointe : tropique, câble, limite — tout ce qui n’a pas de sens de parcours) */
 function r(col,t0,t1,w,wps,opt){
   opt=opt||{};
   var pts=opt.straight?densify(wps,opt.step||0.15):densify(smooth(wps),opt.step||1.2);
   if(opt.amp)pts=wiggle(pts,opt.amp,opt.freq||2,opt.phase||0);
-  return {col:CO[col]||col,t0:t0,t1:t1,w:w,pts:pts,taper:!!opt.taper,boat:!!opt.boat,ship:!!opt.ship,sp:opt.sp||null,dash:!!opt.dash,sea:!!(opt.boat||opt.ship||opt.sea)&&!opt.river&&!opt.nosea,thin:!!opt.thin,nohead:!!opt.nohead,snap:opt.snap};
+  var fx=null;if(opt.exit){fx=pts.length-1;pts=pts.concat(extendEnd(pts,opt.exit));}
+  return {fx:fx,col:CO[col]||col,t0:t0,t1:t1,w:w,pts:pts,taper:!!opt.taper,boat:!!opt.boat,ship:!!opt.ship,sp:opt.sp||null,dash:!!opt.dash,sea:!!(opt.boat||opt.ship||opt.sea)&&!opt.river&&!opt.nosea,thin:!!opt.thin,nohead:!!opt.nohead,snap:opt.snap};
 }
 function L(t,lon,lat,text,o){o=o||{};o.t=t;o.lon=lon;o.lat=lat;o.text=text;return o;}
 function Pu(t,lon,lat,col,loop){return {t:t,lon:lon,lat:lat,col:col,loop:!!loop};}
@@ -356,7 +368,7 @@ function onLand(p){for(var j=0;j<LP.length;j++){if(d3.geoDistance(p,LINFO[j].c)>
 function snapArrivals(v){(v.chapters||[]).forEach(function(c){
   var labs=(c.labels||[]).filter(function(l){return l.lon!=null&&l.lat!=null&&l.text;});if(!labs.length)return;
   (c.routes||[]).forEach(function(rt){
-    if(rt.nohead||rt.snap===false||!rt.pts||rt.pts.length<2)return;
+    if(rt.nohead||rt.snap===false||rt.fx!=null||!rt.pts||rt.pts.length<2)return;
     var E=rt.pts[rt.pts.length-1],best=null,bd=1e9;
     labs.forEach(function(l){var d=d3.geoDistance(E,[l.lon,l.lat])*6371;if(d<bd){bd=d;best=l;}});
     if(!best||bd<3||bd>60)return;
@@ -383,6 +395,7 @@ function drawRoute(rt,tt,K){
   var e=p>=1?1:0.5-0.5*Math.cos(Math.PI*p);
   var N=rt.pts.length,f=e*(N-1),n=Math.min(N-1,Math.floor(f)),frac=f-n,i;
   var sp=projPts(rt.pts,n,frac);
+  var spX=null,kx=rt.fx;if(kx!=null&&sp.length>kx+1){spX=sp.slice(kx);sp=sp.slice(0,kx+1);}
   var w=rt.w*K,M=sp.length;
   ctx.lineCap='round';ctx.lineJoin='round';
   function trace(){ctx.beginPath();var pen=false;for(var j=0;j<M;j++){var q=sp[j];if(!q){pen=false;continue;}if(!pen){ctx.moveTo(q[0],q[1]);pen=true;}else ctx.lineTo(q[0],q[1]);}}
@@ -400,6 +413,16 @@ function drawRoute(rt,tt,K){
   }else{
     ctx.lineWidth=w;if(rt.dash)ctx.setLineDash([7*K,6*K]);trace();ctx.stroke();ctx.setLineDash([]);
   }
+  var fade=false;
+  if(spX){   /* sortie de carte : la partie ajoutée s'efface */
+    var g0=null,g1=null;spX.forEach(function(q){if(q){if(!g0)g0=q;g1=q;}});
+    if(g0&&g1&&(g0[0]!==g1[0]||g0[1]!==g1[1])){
+      var gr=ctx.createLinearGradient(g0[0],g0[1],g1[0],g1[1]);gr.addColorStop(0,rgba(RC,1));gr.addColorStop(1,rgba(RC,0.12));
+      ctx.lineCap='butt';ctx.strokeStyle=gr;ctx.lineWidth=w;if(rt.dash)ctx.setLineDash([7*K,6*K]);
+      ctx.beginPath();var pe=false;spX.forEach(function(q){if(!q){pe=false;return;}if(!pe){ctx.moveTo(q[0],q[1]);pe=true;}else ctx.lineTo(q[0],q[1]);});ctx.stroke();ctx.setLineDash([]);ctx.lineCap='round';
+    }
+    sp=sp.concat(spX.slice(1));M=sp.length;fade=true;
+  }
   var tip=sp[M-1],prev=null;
   if(tip){
     for(i=M-2;i>=0;i--){if(!sp[i])break;if(Math.hypot(tip[0]-sp[i][0],tip[1]-sp[i][1])>=4){prev=sp[i];break;}}
@@ -413,8 +436,8 @@ function drawRoute(rt,tt,K){
           if(sk)drawSpr(sk,tip[0],tip[1],dir,ang,sc,tt);
           else if(rt.ship)drawShip(tip[0],tip[1],dir,sc,RC);else drawBoat(tip[0],tip[1],dir,sc,RC);
         }
-        else if(!rt.nohead)arrowHead(tip[0],tip[1],ang,(8+rt.w*1.6)*K,RC);   /* trajet terminé (carte figée, PDF, Word) : une pointe, pour que le sens se lise */
-      }else if(!rt.nohead)arrowHead(tip[0],tip[1],ang,(8+rt.w*1.6)*K,RC);
+        else if(!rt.nohead){if(fade)ctx.globalAlpha*=0.45;arrowHead(tip[0],tip[1],ang,(8+rt.w*1.6)*K,RC);if(fade)ctx.globalAlpha/=0.45;}   /* trajet terminé (carte figée, PDF, Word) : une pointe, pour que le sens se lise */
+      }else if(!rt.nohead){if(fade)ctx.globalAlpha*=0.45;arrowHead(tip[0],tip[1],ang,(8+rt.w*1.6)*K,RC);if(fade)ctx.globalAlpha/=0.45;}
     }
   }
 }
