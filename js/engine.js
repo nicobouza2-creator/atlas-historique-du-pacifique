@@ -149,7 +149,7 @@ function r(col,t0,t1,w,wps,opt){
   opt=opt||{};
   var pts=opt.straight?densify(wps,opt.step||0.15):densify(smooth(wps),opt.step||1.2);
   if(opt.amp)pts=wiggle(pts,opt.amp,opt.freq||2,opt.phase||0);
-  return {col:CO[col]||col,t0:t0,t1:t1,w:w,pts:pts,taper:!!opt.taper,boat:!!opt.boat,ship:!!opt.ship,sp:opt.sp||null,dash:!!opt.dash,sea:!!(opt.boat||opt.ship||opt.sea)&&!opt.river&&!opt.nosea,thin:!!opt.thin,nohead:!!opt.nohead};
+  return {col:CO[col]||col,t0:t0,t1:t1,w:w,pts:pts,taper:!!opt.taper,boat:!!opt.boat,ship:!!opt.ship,sp:opt.sp||null,dash:!!opt.dash,sea:!!(opt.boat||opt.ship||opt.sea)&&!opt.river&&!opt.nosea,thin:!!opt.thin,nohead:!!opt.nohead,snap:opt.snap};
 }
 function L(t,lon,lat,text,o){o=o||{};o.t=t;o.lon=lon;o.lat=lat;o.text=text;return o;}
 function Pu(t,lon,lat,col,loop){return {t:t,lon:lon,lat:lat,col:col,loop:!!loop};}
@@ -349,6 +349,22 @@ function drawIcon(I,q,Lb){
 function sprMap(v){var M=(window.SPRMAP||{})[v.id];if(!M)return;(v.chapters||[]).forEach(function(c,ci){var R=M.r&&M.r[ci],LC=(M.lc&&M.lc[ci])||{},LV=M.l||{};
   if(R)(c.routes||[]).forEach(function(rt,i){var k=R[i]||(!(rt.boat||rt.ship)&&R['*']);if(k)rt.sp=k;});
   (c.labels||[]).forEach(function(l){if(l.ic)return;var k=LC[l.text]!==undefined?LC[l.text]:LV[l.text];if(k)l.ic=k;});});}
+/* Arrivées : un trajet qui vise un lieu nommé (à moins de 60 km de son dernier point) finit sur ce lieu, pas à côté.
+   Un trajet de mer s'arrête à la côte (jamais sur la terre). Un trajet sans lieu proche (départ, sortie de carte) n'est pas touché ;
+   `snap:false` dans r(…) empêche l'ajustement. */
+function onLand(p){for(var j=0;j<LP.length;j++){if(d3.geoDistance(p,LINFO[j].c)>LINFO[j].r+0.01)continue;if(d3.geoContains({type:'Polygon',coordinates:LP[j]},p))return true;}return false;}
+function snapArrivals(v){(v.chapters||[]).forEach(function(c){
+  var labs=(c.labels||[]).filter(function(l){return l.lon!=null&&l.lat!=null&&l.text;});if(!labs.length)return;
+  (c.routes||[]).forEach(function(rt){
+    if(rt.nohead||rt.snap===false||!rt.pts||rt.pts.length<2)return;
+    var E=rt.pts[rt.pts.length-1],best=null,bd=1e9;
+    labs.forEach(function(l){var d=d3.geoDistance(E,[l.lon,l.lat])*6371;if(d<bd){bd=d;best=l;}});
+    if(!best||bd<3||bd>60)return;
+    var it=d3.geoInterpolate(E,[best.lon,best.lat]),last=null,k,q;
+    for(k=1;k<=60;k++){q=it(k/60);if(rt.sea&&onLand(q))break;last=q;}
+    if(!last||d3.geoDistance(E,last)*6371<3)return;
+    rt.pts=rt.pts.concat(densify([E,last],0.15).slice(1));rt._snap=true;
+  });});}
 function sprKey(rt){return rt.sp||(rt.ship?'nao':'balancier');}
 function projPts(pts,n,frac){
   var sp=[],prev=null,flat=projKind!=='globe',i;
@@ -1766,7 +1782,7 @@ window.__pdf=function(kind){var pages=[],i=0;function nx(){if(i>=CH.length)retur
 var A=window.ATLAS={CO:CO,r:r,L:L,Pu:Pu,Ph:Ph,Sh:Sh,Lz:Lz,Rg:Rg,
   K:{AFRICA:[[-5.9,35.8],[3,37],[10,37.3],[11,33],[20,32.5],[30,31.3],[32.5,30],[34,27],[37,21],[39,16],[43.1,12.6],[51.5,12.2],[51,10],[48,5],[41,-2],[40.5,-10],[36,-19],[35.5,-24.5],[32.8,-28],[28,-33.5],[20,-35],[17.8,-32],[12,-17],[13.5,-9],[9,-1],[9.5,4],[4,6],[-4,5],[-8,4.3],[-13,8],[-17,14.7],[-17,21],[-13,27.5],[-9.8,31.5]],
      TRI:[[-155.5,19.6],[-109.4,-27.1],[173.5,-40.5],[-155.5,19.6]]},
-  add:function(v){var F=(window.FACILE||{})[v.id],Q=(window.QCM||{})[v.id],G=(window.GAL||{})[v.id];(v.chapters||[]).forEach(function(c,ci){if(G&&G[ci])c.gal=(c.gal||[]).concat(G[ci]);if(F&&F[ci])(c.ph||[]).forEach(function(p,k){if(F[ci][k])p.fa=F[ci][k];});if(Q&&Q[ci])c.qcm=Q[ci];});(v.chapters||[]).forEach(function(c){(c.routes||[]).forEach(function(rt,i){var k=c.sps&&c.sps[i];if(k){rt.sp=k;if(!rt.ship)rt.boat=true;}else if((rt.boat||rt.ship)&&!rt.sp&&c.sp)rt.sp=c.sp;});});sprMap(v);VOLS.push(v);},
+  add:function(v){var F=(window.FACILE||{})[v.id],Q=(window.QCM||{})[v.id],G=(window.GAL||{})[v.id];(v.chapters||[]).forEach(function(c,ci){if(G&&G[ci])c.gal=(c.gal||[]).concat(G[ci]);if(F&&F[ci])(c.ph||[]).forEach(function(p,k){if(F[ci][k])p.fa=F[ci][k];});if(Q&&Q[ci])c.qcm=Q[ci];});(v.chapters||[]).forEach(function(c){(c.routes||[]).forEach(function(rt,i){var k=c.sps&&c.sps[i];if(k){rt.sp=k;if(!rt.ship)rt.boat=true;}else if((rt.boat||rt.ship)&&!rt.sp&&c.sp)rt.sp=c.sp;});});sprMap(v);snapArrivals(v);VOLS.push(v);},
   redraw:function(){schedule();try{if(VOL)buildFiche();}catch(e){}},
   start:function(){
     sprLoad();syncOptUI();buildTabs();
