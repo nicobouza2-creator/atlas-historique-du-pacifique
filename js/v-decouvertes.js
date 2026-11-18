@@ -65,7 +65,7 @@ var BOU4=[[-149,-17.5],[-149.2,-17.15],[-152,-15.9],[-160,-15.2],[-168.5,-14.85]
 var BOU5=[[153.3,-4.8],[154.3,-3.6],[151,-0.9],[143.5,-0.6],[134.5,0.2],[129.6,0.5],[127.8,-2.7],[125.3,-4.5],[121,-7.2],[113.6,-6.4],[106.8,-5.8],[105.7,-6.1],[104.9,-6.3],[104,-7.3],[90,-12],[72,-17],[58.2,-20],[52,-26],[40,-33],[27,-36],[18.5,-35.3],[8,-20],[-8,-10],[-14.5,-7.7],[-20,5],[-26,18],[-28,30],[-24,38],[-14,45],[-6.5,48.9],[-2.1,48.85]];
 var CK1A=[[-4.3,50.1],[-7,47.5],[-11,43],[-15,36],[-17.8,32.4],[-20,27.5],[-21.5,20],[-21.6,15],[-25.5,4],[-31,-8],[-37.5,-19],[-40.5,-22.8],[-41.8,-23.6],[-43,-23.6],[-48,-31],[-56,-41],[-62,-49.5],[-63.3,-54.4],[-66,-56.4],[-72,-57.2],[-82,-54],[-95,-45],[-115,-33],[-130,-22],[-138.8,-19.3],[-143,-18.6],[-149.4,-17.25]];
 var CK1B=[[-149.4,-17.25],[-150.6,-17.2],[-151.8,-18.5],[-152.25,-22.5],[-150.5,-28],[-149,-33],[-152,-39.5],[-165,-39.5],[-178,-39],[178.7,-38.8],[179,-37.5],[177,-36.9],[176.1,-36],[175.2,-35.4],[173.6,-34],[171.7,-33.9],[171.9,-35.2],[172.8,-36.5],[173.5,-38.5],[173.3,-39.6],[174.55,-40.75],[174.5,-41.2],[174.75,-41.6],[174.5,-42.3],[173.5,-43.95],[172,-45.2],[171,-46.6],[169,-47.6],[167,-47.4],[166,-46],[166.2,-45.2],[167.5,-44.3],[169.2,-43.4],[171,-41.7],[172.1,-40.3],[168,-39.3],[158,-38.3],[150.7,-37.8],[150.75,-36],[151.5,-34],[153.3,-31],[153.95,-28],[153.8,-25],[152.6,-22.8],[150.6,-21.2],[149.6,-19.9],[147.3,-18.6],[146.5,-17.3],[145.75,-16.2],[145.5,-15.35],[145.8,-14.9],[145.2,-14],[144.6,-13.6],[143.9,-12.6],[143.5,-11.4],[142.95,-10.5],[142.5,-10.35],[141.8,-10.4],[141,-10.7],[136,-9.6],[130,-10],[126,-10.2],[123,-11.3],[121.9,-10.85],[118,-10.7],[114,-9.6],[108,-8.4],[105.4,-7.2],[104.9,-6.55],[105.67,-6.15],[105.95,-5.78],[106.3,-5.75],[106.8,-5.85]];
-var CK2=[[18.2,-34.6],[18,-40],[25,-52],[33,-60],[39.5,-66.8],[55,-63],[80,-60],[110,-60],[140,-58],[158,-52],[165.3,-46.4],[166.1,-45.6],[165.8,-46.3],[167,-47.5],[170,-48.5],[-178,-55],[-150,-64],[-125,-67],[-107,-71.1],[-101,-62],[-100,-48],[-104,-36],[-109.1,-27.6],[-118,-20],[-130,-13],[-138.6,-10.2],[-142,-13.5],[-145.6,-15.6],[-149.4,-17.25],[-152.3,-15.9],[-160,-18.6],[-169.5,-18.5],[-175,-20.1],[-178,-20.4],[179,-20.3],[175,-19],[170.5,-16.3],[168.9,-15.3],[168.65,-16],[168.9,-16.9],[169,-17.8],[169.75,-18.8],[169.95,-19.3],[169.6,-19.9],[168.5,-20],[166.6,-19.95],[164.6,-20.1],[165.6,-20.6],[166.8,-21.5],[167.9,-22.3],[168,-23],[168.2,-28.8],[171.5,-36],[173.3,-39.6],[174.55,-40.75],[174.5,-41.2],[174.75,-41.6],[178,-45],[-160,-54],[-120,-55.5],[-90,-54.5],[-76,-56],[-67,-56.7]];
+var CK2=[[18.2,-34.6],[18,-40],[25,-52],[33,-60],[39.5,-66.8],[55,-63],[80,-60],[110,-60],[140,-58],[158,-52],[165.3,-46.4],[166.1,-45.6],[165.8,-46.3],[167,-47.5],[170,-48.5],[-178,-55],[-150,-64],[-125,-67],[-107,-71.1],[-101,-62],[-100,-48],[-104,-36],[-109.1,-27.6],[-118,-20],[-130,-13],[-138.6,-10.2],[-142,-13.5],[-145.6,-15.6],[-149.4,-17.25],[-152.3,-15.9],[-160,-18.6],[-169.5,-18.5],[-175,-20.1],[-178,-20.4],[179,-20.3],[175,-19],[170.5,-16.3],[168.9,-15.3],[168.65,-16],[168.9,-16.9],[169,-17.8],[169.75,-18.8],[169.95,-19.3],[169.6,-19.9],[170.5,-19.85],[169.3,-20.8],[168.6,-20.2],[168.4,-19],[167.9,-17.8],[167,-16.9],[166.4,-16],[165.75,-15.55],[165.43,-18.37],[165,-19.23],[164.88,-19.82],[164.6,-20.1],[165.6,-20.6],[166.8,-21.5],[167.9,-22.3],[168,-23],[168.2,-28.8],[171.5,-36],[173.3,-39.6],[174.55,-40.75],[174.5,-41.2],[174.75,-41.6],[178,-45],[-160,-54],[-120,-55.5],[-90,-54.5],[-76,-56],[-67,-56.7]];
 var CK3=[[-149.4,-17.25],[-150.2,-16.8],[-151,-10.7],[-153.5,-5],[-157,2.2],[-158.5,12],[-159.75,21.7],[-160.5,21.6],[-161,23],[-155,31],[-140,41],[-128,45.2],[-124.6,44.8],[-125.6,47],[-127.3,49.4],[-129.3,50.4],[-132.3,52.4],[-134.2,54.3],[-136.5,56.5],[-138.5,58.3],[-142,59.5],[-145.3,59.3],[-147.5,59],[-150,57.3],[-152.2,56.3],[-155.5,55.2],[-158.5,54.3],[-161,53.9],[-164,53.7],[-165.15,54.33],[-166.2,55.3],[-168.3,58.5],[-168.2,60.5],[-167.3,62.3],[-167.6,64.2],[-167.6,65],[-168.45,65.7],[-168,67.2],[-167.6,68.6],[-165,69.7],[-162.5,70.7]];
 var CK3R=[[-162.5,70.7],[-168,68],[-168.45,65.7],[-167.6,64.5],[-167.5,61.5],[-167.5,57],[-165.15,54.33],[-163,50],[-158,35],[-155,24],[-154.5,20.2],[-154.4,19.3],[-155.6,18.6],[-156.2,19.45]];
 var LP1=[[-5.2,48.3],[-9,45],[-13,40],[-16,35],[-17.9,32.3],[-19.5,28],[-22,26],[-26.5,18],[-28.5,6],[-31,-5],[-35,-14],[-40,-22],[-45,-26],[-48.1,-27.7],[-49.5,-33],[-55,-40],[-60.5,-47.5],[-63.3,-54.4],[-66,-56.6],[-73,-57],[-78.5,-52],[-78,-44],[-75,-38.5],[-73.7,-36.75]];
@@ -114,7 +114,8 @@ var CH=[
  legend:[['epi','Route maritime des épices'],['sand','Routes de la soie (caravanes)',true],['ott','Empire ottoman']],
  mots:[['Épices','Plantes parfumées venues d’Asie (poivre, cannelle, girofle), très chères en Europe.'],['Caravelle','Navire léger à voiles, capable de remonter contre le vent.'],['Astrolabe','Instrument qui mesure la hauteur du Soleil ou d’une étoile, pour connaître sa latitude.'],['Portulan','Carte marine du Moyen Âge, qui montre les côtes et les ports.']],
  q:[['Pourquoi les épices coûtent-elles si cher en Europe ?','Elles viennent de très loin et passent par beaucoup d’intermédiaires.'],['Que change la prise de Constantinople en 1453 ?','Les Ottomans contrôlent les routes vers l’Asie : les Européens cherchent un autre chemin, par la mer.'],['Cite deux outils qui aident les navigateurs.','La caravelle, la boussole, l’astrolabe, le portulan.']],
- wiki:['Grandes découvertes','Route des épices','Chute de Constantinople','Caravelle']},
+ wiki:['Grandes découvertes','Route des épices','Chute de Constantinople','Caravelle'],
+ src:[['Le blocus turc de la Méditerranée (contexte de la carte de Fra Mauro) — Museo Galileo','https://mostre.museogalileo.it/framauro/en/historical-context/the-sea-and-trade/the-turkish-blockade-of-the-mediterranean.html'],['Navigation maritime : de l’ère des Grandes Découvertes à celle des cap-horniers — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/navigation-maritime/2-de-l-ere-des-grandes-decouvertes-a-celle-des-cap-horniers/'],['Route des épices — Larousse','https://www.larousse.fr/encyclopedie/divers/route_des_%C3%A9pices/182701'],['Astrolabe de marin (hauteur du Soleil) — Museo Galileo','https://catalogue.museogalileo.it/object/MarinersAstrolabe.html']]},
 
 /* 2 --------------------------------------------------------------- */
 {short:'Zheng He',col:'zh',dur:52,when:[1405,1433],dates:'1405 – 1433',
@@ -143,14 +144,15 @@ var CH=[
   Ph(0,'1405 : la flotte des trésors','Bien avant les Européens, l’empereur de Chine Yongle envoie une flotte immense sur l’océan Indien. Son amiral s’appelle Zheng He.','zh'),
   Ph(8,'Des navires géants','Sept expéditions, de 1405 à 1433. Jusqu’à 300 navires et 27 000 hommes à chaque voyage. Les plus grandes jonques sont bien plus longues que les caravelles.','zh'),
   Ph(20,'De port en port','Champa, Malacca, Ceylan, Calicut : la flotte montre la puissance de la Chine, échange des cadeaux et ramène des ambassadeurs.','zh'),
-  Ph(30,'Jusqu’en Arabie et en Afrique','Les navires atteignent Ormuz, Aden, La Mecque et la côte est de l’Afrique. Ils en rapportent une girafe pour l’empereur.','zh'),
+  Ph(30,'Jusqu’en Arabie et en Afrique','Les navires atteignent Ormuz, Aden, le port de La Mecque et la côte est de l’Afrique. Ils en rapportent une girafe pour l’empereur.','zh'),
   Ph(43,'1433 : la Chine s’arrête','Après le dernier voyage, la Chine arrête ces expéditions, jugées trop chères. Soixante ans plus tard, les Portugais arriveront dans le même océan.','zh')
  ],
  photos:[Sh('zhenghe',9,18,'bl',-2),Sh('girafe',42,51,'tr',2,'contain')],
  legend:[['zh','Voyages de Zheng He (1405–1433)']],
  mots:[['Jonque','Grand navire chinois à voiles.'],['Amiral','Chef d’une flotte de navires.'],['Ambassadeur','Personne envoyée par un souverain auprès d’un autre souverain.']],
  q:[['Qui explore l’océan Indien avant les Portugais ?','L’amiral chinois Zheng He, de 1405 à 1433.'],['Jusqu’où vont ses navires ?','Jusqu’en Arabie et sur la côte est de l’Afrique.'],['Pourquoi les voyages chinois s’arrêtent-ils ?','L’empire les juge trop chers et choisit de se replier.']],
- wiki:['Zheng He']},
+ wiki:['Zheng He'],
+ src:[['Chinoises (expéditions maritimes) — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/expeditions-maritimes-chinoises/'],['Admiral Zheng He’s Voyages to the West Oceans — Association for Asian Studies (Education About Asia)','https://www.asianstudies.org/publications/eaa/archives/admiral-zheng-hes-voyages-to-the-west-oceans/'],['Les expéditions maritimes de Zheng He dans l’océan Indien — académie de Versailles (histoire-géographie)','https://histoire.ac-versailles.fr/IMG/pdf/6-_Les_exp-ditions_maritimes_de_Zheng_He_dans.pdf'],['Zheng He — Larousse','https://www.larousse.fr/encyclopedie/personnage/Zheng_He/182720']]},
 
 /* 3 --------------------------------------------------------------- */
 {short:'Les Portugais et Bartolomeu Dias',col:'por',dur:56,when:[1415,1488],dates:'1415 – 1488',
@@ -188,7 +190,8 @@ var CH=[
  legend:[['por','Navigateurs portugais (1415–1488)'],['kan','Retour de Dias (1488)']],
  mots:[['Comptoir','Port fortifié où des marchands étrangers font du commerce.'],['Cap','Pointe de terre qui avance dans la mer.'],['Esclave','Personne privée de liberté, achetée et vendue comme une marchandise.']],
  q:[['Quel prince organise les premières expéditions portugaises ?','Henri le Navigateur.'],['Que réussit Bartolomeu Dias en 1488 ?','Il contourne l’Afrique par le sud : il passe le cap de Bonne-Espérance.'],['Pourquoi ce cap est-il si important ?','Il prouve qu’on peut passer de l’océan Atlantique à l’océan Indien : la route maritime de l’Inde est ouverte.']],
- wiki:['Henri le Navigateur','Bartolomeu Dias','Cap de Bonne-Espérance']},
+ wiki:['Henri le Navigateur','Bartolomeu Dias','Cap de Bonne-Espérance'],
+ src:[['Grandes découvertes : les Portugais à la découverte du monde — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/grandes-decouvertes/3-les-portugais-a-la-decouverte-du-monde/'],['Bartolomeu Dias erige la première croix de pierre sur la côte sud-africaine (1488) — South African History Online','https://www.sahistory.org.za/dated-event/portuguese-navigator-bartholomew-dias-erects-first-stone-cross-south-african-coast'],['3 février 1488 : Bartolomeu Dias double le cap de Bonne-Espérance — Hérodote.net','https://www.herodote.net/3_fevrier_1488-evenement-14880203.php'],['Une poignée de pêcheurs à la conquête du monde (Henri le Navigateur, Madère, Açores, Bojador, Elmina) — Hérodote.net','https://www.herodote.net/Une_poignee_de_pecheurs_a_la_conquete_du_monde-synthese-18-119.php'],['Padrão dos Descobrimentos (1940, reconstruit en 1960) — EGEAC, Lisbonne','https://egeac.pt/?p=1418']]},
 
 /* 4 --------------------------------------------------------------- */
 {short:'Christophe Colomb',col:'esp',dur:64,when:[1492,1504],dates:'1492 – 1504',
@@ -229,7 +232,8 @@ var CH=[
  legend:[['esp','1er voyage (1492–1493)'],['kan','2e, 3e et 4e voyages (1493–1504)',true]],
  mots:[['Taïnos','Habitants des Grandes Antilles à l’arrivée de Colomb.'],['« Indiens »','Nom donné par erreur aux habitants de l’Amérique : Colomb se croyait en Inde.'],['Nouveau Monde','Nom donné par les Européens à l’Amérique, qu’ils ne connaissaient pas.']],
  q:[['Que cherche Christophe Colomb en partant vers l’ouest ?','Une route maritime vers l’Asie (Japon, Chine, Inde) et ses richesses.'],['Où arrive-t-il le 12 octobre 1492 ?','Sur une île des Bahamas, Guanahani, qu’il appelle San Salvador.'],['Peut-on dire que Colomb a « découvert » l’Amérique ?','Des millions de personnes y vivaient déjà. C’est une découverte pour les Européens seulement, et une catastrophe pour les Taïnos.']],
- wiki:['Christophe Colomb','Premier voyage de Christophe Colomb','Taïnos']},
+ wiki:['Christophe Colomb','Premier voyage de Christophe Colomb','Taïnos'],
+ src:[['Christophe Colomb — Larousse','https://www.larousse.fr/encyclopedie/personnage/wd/114119'],['Colomb : les quatre voyages et la fin — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/christophe-colomb/2-les-quatre-voyages-et-la-fin/'],['Christopher Columbus : the first voyage — Encyclopædia Britannica','https://www.britannica.com/biography/Christopher-Columbus/The-first-voyage'],['Columbus makes landfall in the Caribbean — National Geographic Society (Education)','https://education.nationalgeographic.org/resource/columbus-makes-landfall-caribbean'],['Journal de Christophe Colomb (extraits, traduction anglaise) — Northern Virginia Community College','https://novaonline.nvcc.edu/eli/evans/his101/Documents/Columbus.html'],['The Taínos are not extinct — Stony Brook University','https://you.stonybrook.edu/sbuscicomm/?p=481']]},
 
 /* 5 --------------------------------------------------------------- */
 {short:'Vasco de Gama',col:'por',dur:58,when:[1497,1499],dates:'1497 – 1499',
@@ -258,7 +262,8 @@ var CH=[
  legend:[['por','Vasco de Gama (1497–1498)']],
  mots:[['Mousson','Vent de l’océan Indien qui change de sens selon la saison.'],['Pilote','Marin qui connaît la route et guide le navire.']],
  q:[['Quelle route Vasco de Gama ouvre-t-il ?','La route maritime de l’Europe à l’Inde, par le sud de l’Afrique.'],['Qui l’aide à traverser l’océan Indien ?','Un pilote embarqué à Malindi, qui connaît les vents de mousson.'],['Pourquoi dit-on que le voyage a coûté cher en vies ?','Sur environ 170 hommes, une cinquantaine seulement rentrent au Portugal.']],
- wiki:['Vasco de Gama','Route des Indes']},
+ wiki:['Vasco de Gama','Route des Indes'],
+ src:[['Vasco de Gama — Larousse','https://www.larousse.fr/encyclopedie/personnage/wd/120752'],['Vasco da Gama — Encyclopædia Britannica','https://www.britannica.com/biography/Vasco-da-Gama'],['Grandes découvertes : les Portugais à la découverte du monde — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/grandes-decouvertes/3-les-portugais-a-la-decouverte-du-monde/'],['The arrival of Vasco da Gama (d’après la peinture de José Veloso Salgado, 1898) — Art Gallery of New South Wales','https://www.artgallery.nsw.gov.au/collection/works/166.2023/']]},
 
 /* 6 --------------------------------------------------------------- */
 {short:'Cabral et le partage du monde',col:'por',dur:52,when:[1494,1501],dates:'1494 – 1501',
@@ -291,7 +296,8 @@ var CH=[
  legend:[['por','Cabral (1500–1501)'],['eur','Ligne de Tordesillas (1494)',true]],
  mots:[['Traité','Accord écrit entre des États.'],['Prendre possession','Déclarer qu’une terre appartient désormais à son roi.'],['Colonie','Territoire dominé et exploité par un pays étranger.']],
  q:[['Que décide le traité de Tordesillas ?','Le partage des terres à découvrir entre l’Espagne (à l’ouest de la ligne) et le Portugal (à l’est).'],['Pourquoi parle-t-on portugais au Brésil ?','La côte du Brésil se trouve à l’est de la ligne : Cabral en prend possession pour le Portugal en 1500.'],['Qui n’a pas été consulté ?','Les habitants de ces terres, ni les autres royaumes d’Europe.']],
- wiki:['Traité de Tordesillas','Pedro Álvares Cabral']},
+ wiki:['Traité de Tordesillas','Pedro Álvares Cabral'],
+ src:[['Traité de Tordesillas (7 juin 1494) — UNESCO, Mémoire du monde','https://en.unesco.org/memoryoftheworld/registry/613'],['The Treaty of Tordesillas, June 7, 1494 — Encyclopédie d’histoire numérique de l’Europe (EHNE)','https://ehne.fr/en/encyclopedia/themes/international-relations/europe-and-legal-regulation-international-relations/treaty-tordesillas-june-7-1494'],['Cabral, Pedro Álvares — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/pedro-alvarez-cabral/'],['22 avril 1500 : Cabral arrive au Brésil — Hérodote.net','https://www.herodote.net/histoire/evenement.php?jour=15000422']]},
 
 /* 7 --------------------------------------------------------------- */
 {short:'Amerigo Vespucci',col:'por',dur:46,when:[1501,1507],dates:'1501 – 1507',
@@ -318,7 +324,8 @@ var CH=[
  legend:[['por','Vespucci (1501–1502)'],['por','Trajet incertain',true]],
  mots:[['Continent','Très grande étendue de terre entourée d’océans.'],['Cartographe','Personne qui dessine des cartes.']],
  q:[['Qu’a compris Amerigo Vespucci ?','Que les terres atteintes à l’ouest ne sont pas l’Asie, mais un continent inconnu des Européens.'],['D’où vient le nom « Amérique » ?','Du prénom d’Amerigo Vespucci, écrit sur une carte dessinée à Saint-Dié en 1507.']],
- wiki:['Amerigo Vespucci','Planisphère de Waldseemüller']},
+ wiki:['Amerigo Vespucci','Planisphère de Waldseemüller'],
+ src:[['La carte de Waldseemüller (1507), Saint-Dié, premier document à nommer « America » — Library of Congress (2007)','https://www.loc.gov/loc/lcib/0706/map.html'],['The birth certificate for America — Library of Congress (2021)','https://blogs.loc.gov/loc/2021/06/the-birth-certificate-for-america/'],['Amerigo Vespucci — The Mariners’ Museum (Exploration through the Ages)','https://exploration.marinersmuseum.org/subject/amerigo-vespucci/']]},
 
 /* 8 --------------------------------------------------------------- */
 {short:'Magellan et Elcano',col:'esp',dur:80,when:[1519,1522],dates:'1519 – 1522',
@@ -350,7 +357,7 @@ var CH=[
  ph:[
   Ph(0,'20 septembre 1519','Fernand de Magellan est portugais, mais il navigue pour le roi d’Espagne Charles Quint. Il part avec 5 navires et environ 240 hommes. Son but : atteindre les Moluques, les îles aux épices, par l’ouest.','esp'),
   Ph(10,'Chercher un passage','Il longe l’Amérique du Sud à la recherche d’un passage vers l’autre océan. L’hiver l’arrête en Patagonie. Des capitaines se révoltent : Magellan écrase la mutinerie.','esp'),
-  Ph(23,'Octobre – novembre 1520 : le détroit','Il trouve enfin le passage, tout au sud. Il faut 38 jours pour traverser ce labyrinthe de près de 600 km. Un navire a fait naufrage, un autre a déserté.','esp'),
+  Ph(23,'Octobre – novembre 1520 : le détroit','Il trouve enfin le passage, tout au sud. Il faut 38 jours pour traverser ce labyrinthe de près de 600 km. Un navire avait déjà fait naufrage ; un autre déserte.','esp'),
   Ph(32,'Un océan immense','Magellan le trouve calme et l’appelle « Pacifique ». La traversée dure plus de trois mois, presque sans rien à manger. Beaucoup de marins meurent du scorbut.','esp'),
   Ph(45,'Mars – avril 1521 : les Philippines','À Cebu, Magellan s’allie à un roi et se mêle d’une guerre locale. Le 27 avril 1521, il est tué sur l’île de Mactan par les guerriers du chef Lapu-Lapu.','ame'),
   Ph(53,'Novembre 1521 : les Moluques','Les survivants errent des mois, puis atteignent enfin les îles aux épices. Ils remplissent les cales de clous de girofle.','epi'),
@@ -361,7 +368,8 @@ var CH=[
  legend:[['esp','Magellan (1519–1521)'],['esp','Après la mort de Magellan',true],['kan','Retour d’Elcano (1522)']],
  mots:[['Détroit','Passage étroit de mer entre deux terres.'],['Scorbut','Maladie grave due au manque de fruits et de légumes frais.'],['Mutinerie','Révolte de marins contre leur chef.']],
  q:[['Magellan a-t-il fait le tour du monde ?','Non : il meurt aux Philippines en 1521. C’est Elcano qui termine le voyage avec la Victoria.'],['Pourquoi a-t-il appelé cet océan « Pacifique » ?','Parce qu’il l’a trouvé calme pendant sa traversée.'],['Combien de marins rentrent en Espagne en 1522 ?','18, sur environ 240 au départ, et un seul navire sur cinq.'],['Qu’a prouvé ce voyage ?','Qu’on peut faire le tour de la Terre par la mer : elle est ronde et ses océans communiquent.']],
- wiki:['Fernand de Magellan','Juan Sebastián Elcano','Détroit de Magellan']},
+ wiki:['Fernand de Magellan','Juan Sebastián Elcano','Détroit de Magellan'],
+ src:[['Fernand de Magellan — Larousse','https://www.larousse.fr/encyclopedie/personnage/Fernand_de_Magellan/131060'],['Ferdinand Magellan : la découverte du détroit — Encyclopædia Britannica','https://www.britannica.com/biography/Ferdinand-Magellan/Discovery-of-the-Strait-of-Magellan'],['Strait of Magellan — Encyclopædia Britannica','https://www.britannica.com/place/Strait-of-Magellan'],['La primera vuelta al mundo de Magallanes y Elcano — CSIC, Casa de la Ciencia','https://www.casadelaciencia.csic.es/es/print/blog/primera-vuelta-al-mundo-magallanes-elcano'],['A Descoberta de um Único Oceano — Estrutura de Missão V Centenário da circumnavegação (Portugal), Google Arts & Culture','https://artsandculture.google.com/story/3wVB6ZyIWraUOA']]},
 
 /* 9 --------------------------------------------------------------- */
 {short:'Jacques Cartier',col:'fra',dur:54,when:[1534,1536],dates:'1534 – 1536',
@@ -384,14 +392,15 @@ var CH=[
   Ph(8,'Vingt jours pour traverser','Deux navires, 61 hommes. Poussé par de bons vents, Cartier atteint Terre-Neuve en vingt jours seulement.','fra'),
   Ph(16,'Le golfe du Saint-Laurent','Il fait le tour du golfe. Il rencontre des Micmacs, puis des Iroquoiens du Saint-Laurent venus pêcher, avec leur chef Donnacona.','fra'),
   Ph(25,'24 juillet 1534 : Gaspé','Cartier plante une croix de neuf mètres au nom du roi de France. Donnacona proteste. Cartier emmène pourtant deux de ses fils en France.','fra'),
-  Ph(33,'1535 : le deuxième voyage','Guidé par les deux jeunes Iroquoiens, Cartier remonte un immense fleuve : le Saint-Laurent. Il atteint Stadaconé (Québec), puis Hochelaga (Montréal).','kan'),
+  Ph(33,'1535 : le deuxième voyage','Guidé par les deux jeunes Iroquoiens, Cartier remonte un immense fleuve : le Saint-Laurent, jusqu’à Stadaconé (Québec). Il continue ensuite jusqu’à Hochelaga (Montréal).','kan'),
   Ph(46,'Un hiver terrible','Les navires sont pris dans la glace. Le scorbut tue 25 marins. Les Iroquoiens sauvent les autres avec une tisane de conifère. Le mot « Canada » vient de leur langue : « kanata », le village.','kan')
  ],
  photos:[Sh('cartier',1,8,'tr',2,'contain'),Sh('saintlaurent',38,46,'bl',-2,'contain')],
  legend:[['fra','1er voyage (1534)'],['kan','2e voyage (1535–1536)']],
  mots:[['Iroquoiens','Peuple amérindien de la vallée du Saint-Laurent.'],['Golfe','Grande avancée de la mer dans les terres.'],['Passage du Nord-Ouest','Route maritime vers l’Asie par le nord de l’Amérique, cherchée pendant des siècles.']],
  q:[['Quel roi envoie Jacques Cartier, et pourquoi ?','François Ier : il veut un passage vers l’Asie et de l’or, et refuse le partage de Tordesillas.'],['Que fait Cartier à Gaspé en 1534 ?','Il plante une croix : il prend possession du pays au nom du roi de France.'],['D’où vient le mot « Canada » ?','Du mot iroquoien « kanata », qui veut dire village.']],
- wiki:['Jacques Cartier','Donnacona']},
+ wiki:['Jacques Cartier','Donnacona'],
+ src:[['Le premier voyage (1534) — Parcs Canada, Lieu historique national Cartier-Brébeuf','https://parks.canada.ca/lhn-nhs/qc/cartierbrebeuf/culture/histoire-history/evenement-event/cartier/a'],['Le deuxième voyage (1535-1536) — Parcs Canada','https://parks.canada.ca/lhn-nhs/qc/cartierbrebeuf/culture/histoire-history/evenement-event/cartier/b'],['L’hivernage (1535-1536) — Parcs Canada','https://parks.canada.ca/lhn-nhs/qc/cartierbrebeuf/culture/histoire-history/evenement-event/cartier/c'],['Donnacona — Dictionnaire biographique du Canada','https://www.biographi.ca/en/bio/donnacona_1E.html'],['Origines du nom « Canada » — Patrimoine canadien (gouvernement du Canada)','https://www.canada.ca/fr/patrimoine-canadien/services/origines-nom-canada.html'],['Musée virtuel de la Nouvelle-France (Jacques Cartier) — Musée canadien de l’histoire','https://www.historymuseum.ca/virtual-museum-of-new-france/?p=2359']]},
 
 /* 10 -------------------------------------------------------------- */
 {short:'Mendaña, Quirós et Torres',col:'esp',dur:62,when:[1567,1606],dates:'1567 – 1606',
@@ -429,7 +438,8 @@ var CH=[
  legend:[['esp','Mendaña (1567–1568)'],['ned','Mendaña et Barreto (1595)'],['ame','Quirós (1605–1606)'],['fra','Torres (1606)']],
  mots:[['Terra Australis','Grand continent que les savants imaginaient au sud du globe.'],['Mélanésie','Région du Pacifique : Nouvelle-Guinée, Salomon, Vanuatu, Nouvelle-Calédonie, Fidji.']],
  q:[['Pourquoi les îles Salomon portent-elles ce nom ?','Les Espagnols espéraient y trouver l’or du roi Salomon.'],['Quel nom du Vanuatu vient de l’expédition de Quirós ?','Espiritu Santo, la plus grande île.'],['Quel navigateur passe près de la Nouvelle-Calédonie sans la voir, en 1606 ?','Torres.']],
- wiki:['Álvaro de Mendaña','Pedro Fernandes de Queirós','Luis Váez de Torres','Isabel Barreto']},
+ wiki:['Álvaro de Mendaña','Pedro Fernandes de Queirós','Luis Váez de Torres','Isabel Barreto'],
+ src:[['Les expéditions de Mendaña et de Queirós (1567-1569, 1595-1596, 1605-1606) — Bibliothèque de l’université de Princeton','https://static-prod.lib.princeton.edu/visual_materials/maps/websites/pacific/mendana-queiros/mendana-queiros.html'],['The Spanish Quest (Quirós, Espiritu Santo, Torres) — State Library of New South Wales','https://www2.sl.nsw.gov.au/archive/discover_collections/history_nation/voyages/spanish/voya_spanishQuest.html'],['Álvaro de Mendaña de Neira — Encyclopædia Britannica','https://www.britannica.com/biography/Alvaro-de-Mendana-de-Neira'],['Pedro Fernández de Quirós — Encyclopædia Britannica','https://www.britannica.com/biography/Pedro-Fernandez-de-Quiros'],['Luis Váez de Torres — Encyclopædia Britannica','https://www.britannica.com/biography/Luis-Vaez-de-Torres']]},
 
 /* 11 -------------------------------------------------------------- */
 {short:'Abel Tasman',col:'ned',dur:54,when:[1642,1643],dates:'1642 – 1643',
@@ -458,8 +468,9 @@ var CH=[
  photos:[Sh('tasman',1,8,'tr',2,'contain'),Sh('gilsemans',29,37,'bl',-2,'contain'),Sh('tasmanmap',47,54,'tl',-2,'contain')],
  legend:[['ned','Abel Tasman (1642–1643)']],
  mots:[['Compagnie des Indes','Grande entreprise de commerce qui possède ses navires, ses comptoirs et même ses soldats.'],['Maoris','Peuple polynésien d’Aotearoa (Nouvelle-Zélande).']],
- q:[['Pour qui Tasman navigue-t-il ?','Pour la Compagnie hollandaise des Indes orientales.'],['Quelles terres est-il le premier Européen à voir ?','La Tasmanie, la Nouvelle-Zélande, les Tonga et les Fidji.'],['Pourquoi son voyage est-il jugé décevant ?','Il ne rapporte ni or, ni épices, ni nouveaux marchés.']],
- wiki:['Abel Tasman','Compagnie néerlandaise des Indes orientales']},
+ q:[['Pour qui Tasman navigue-t-il ?','Pour la Compagnie hollandaise des Indes orientales.'],['Quelles terres est-il le premier Européen à voir ?','La Tasmanie, la Nouvelle-Zélande, les Fidji et plusieurs îles des Tonga.'],['Pourquoi son voyage est-il jugé décevant ?','Il ne rapporte ni or, ni épices, ni nouveaux marchés.']],
+ wiki:['Abel Tasman','Compagnie néerlandaise des Indes orientales'],
+ src:[['Abel Tasman — Encyclopædia Britannica','https://www.britannica.com/biography/Abel-Tasman'],['Tasman, Abel Janszoon — An Encyclopaedia of New Zealand (1966), Te Ara — gouvernement de la Nouvelle-Zélande','https://teara.govt.nz/en/1966/tasman-abel-janszoon'],['Tonga : histoire — Encyclopædia Britannica','https://www.britannica.com/place/Tonga/History'],['400th anniversary of European contact with Tonga — Radio New Zealand','https://www.rnz.co.nz/international/programmes/datelinepacific/audio/201801877/400th-anniversary-of-european-contact-with-tonga']]},
 
 /* 12 -------------------------------------------------------------- */
 {short:'Bougainville',col:'fra',dur:68,when:[1766,1769],dates:'1766 – 1769',
@@ -503,7 +514,8 @@ var CH=[
  legend:[['fra','Bougainville (1766–1769)'],['fra','Retour',true]],
  mots:[['Frégate','Navire de guerre rapide, à trois mâts.'],['Naturaliste','Savant qui étudie les plantes, les animaux et les roches.'],['Lumières','Mouvement du XVIIIe siècle : des savants et des philosophes veulent tout connaître et tout expliquer par la raison.']],
  q:[['Quelle est la nouveauté du voyage de Bougainville ?','C’est le premier tour du monde français, et une expédition scientifique avec des savants à bord.'],['Qui est Jeanne Barret ?','La première femme à avoir fait le tour du monde, embarquée déguisée en homme.'],['Pourquoi Bougainville ne voit-il pas la Nouvelle-Calédonie ?','Il passe au nord, par le Vanuatu, puis fait demi-tour devant la Grande Barrière de corail.']],
- wiki:['Louis-Antoine de Bougainville','Jeanne Barret','Ahutoru']},
+ wiki:['Louis-Antoine de Bougainville','Jeanne Barret','Ahutoru'],
+ src:[['Louis-Antoine, comte de Bougainville (1729-1811) — château de Versailles (dossier de presse)','https://www.chateauversailles.fr/sites/default/files/presse/documents/louis-antoine_comte_de_bougainville_1729-1811_.pdf'],['Bougainville — Chemins de mémoire, ministère des Armées','https://www.cheminsdememoire.gouv.fr/sites/default/files/2020-10/Bougainville.pdf'],['Bougainville (1766-1769) — Bibliothèque de l’université de Princeton','https://static-prod.lib.princeton.edu/visual_materials/maps/websites/pacific/bougainville/bougainville.html'],['Tragique Pacifique — BnF, Essentiels','https://essentiels.bnf.fr/fr/histoire/temps-modernes/a5d9a442-f6c1-458b-9070-e8006a596c27-europe-hors-europe-17e-18e-siecles/article/b59eab3d-1392-4c91-b6eb-f8f5bef92ee4-tragique-pacifique']]},
 
 /* 13 -------------------------------------------------------------- */
 {short:'James Cook',col:'eur',dur:76,when:[1768,1779],dates:'1768 – 1779',
@@ -546,7 +558,8 @@ var CH=[
  legend:[['eur','1er voyage (1768–1771)'],['gbr','2e voyage (1772–1775)'],['kan','3e voyage (1776–1779)']],
  mots:[['Passage de Vénus','Moment rare où la planète Vénus passe devant le Soleil. Le mesurer aidait à calculer la distance entre la Terre et le Soleil.'],['Cartographier','Dessiner la carte d’un lieu.']],
  q:[['Combien de grands voyages James Cook a-t-il faits dans le Pacifique ?','Trois, entre 1768 et 1779.'],['Que prouve son deuxième voyage ?','Que le grand continent du Sud imaginé par les savants n’existe pas : il n’y a que l’Antarctique, glacé.'],['Quel lien avec la Nouvelle-Calédonie ?','Cook aborde à Balade en septembre 1774 et donne son nom au pays.']],
- wiki:['James Cook','Tupaia']},
+ wiki:['James Cook','Tupaia'],
+ src:[['James Cook — Encyclopædia Britannica','https://www.britannica.com/biography/James-Cook'],['James Cook’s First Voyage — Royal Museums Greenwich','https://www.rmg.co.uk/stories/topics/james-cooks-first-voyage'],['Nouvelle-Calédonie : histoire (nom donné par Cook en 1774) — Encyclopædia Britannica','https://www.britannica.com/place/New-Caledonia-French-unique-collectivity-Pacific-Ocean/History'],['Tupaia — Te Ara, gouvernement de la Nouvelle-Zélande','https://teara.govt.nz/en/artwork/46777/tupaia'],['J. Cook, A Voyage Towards the South Pole and Round the World (1777), vol. II, livre III, chap. VII : le Vanuatu après Tanna (Biblioteca Interactive, texte du journal publié)','https://biblioteca.scriptorium.ro/cook/a_voyage/volume_ii/book_iii/chapter_vii'],['J. Cook, A Voyage Towards the South Pole and Round the World (1777), vol. II, livre III, chap. VIII : la découverte de la Nouvelle-Calédonie, 1er-13 septembre 1774 (Biblioteca Interactive)','https://biblioteca.scriptorium.ro/cook/a_voyage/volume_ii/book_iii/chapter_viii']]},
 
 /* 14 -------------------------------------------------------------- */
 {short:'La Pérouse',col:'fra',dur:72,when:[1785,1788],dates:'1785 – 1788',
@@ -593,7 +606,8 @@ var CH=[
  legend:[['fra','La Pérouse (1785–1788)'],['fra','Dernier trajet, inconnu',true]],
  mots:[['Expédition scientifique','Voyage organisé pour observer, mesurer et décrire.'],['Récif','Barrière de corail ou de rochers à fleur d’eau.'],['Épave','Restes d’un navire naufragé.']],
  q:[['Quel roi organise l’expédition de La Pérouse ?','Louis XVI.'],['Comment les journaux de bord sont-ils arrivés en France ?','La Pérouse les envoie à chaque grande escale. Depuis le Kamtchatka, Lesseps les rapporte en traversant la Russie.'],['Où l’expédition a-t-elle disparu ?','Sur le récif de Vanikoro, aux îles Salomon, en 1788.'],['Quel lien avec la Nouvelle-Calédonie ?','La Pérouse voulait l’explorer. D’Entrecasteaux, parti à sa recherche, en a reconnu les côtes en 1792–1793.']],
- wiki:['Jean-François de La Pérouse','Expédition de La Pérouse','Vanikoro','Antoine Bruny d\'Entrecasteaux']},
+ wiki:['Jean-François de La Pérouse','Expédition de La Pérouse','Vanikoro','Antoine Bruny d\'Entrecasteaux'],
+ src:[['Jean-François de Galaup, comte de Lapérouse — Larousse','https://www.larousse.fr/encyclopedie/personnage/Jean-Fran%C3%A7ois_de_Galaup_comte_de_Lap%C3%A9rouse/128801'],['Lapérouse (Jean-François de Galaup, comte de) — Encyclopædia Universalis','https://www.universalis.fr/encyclopedie/jean-francois-de-laperouse/'],['« Pérouse »-ing the Pacific — Library of Congress','https://blogs.loc.gov/maps/2021/11/prouse-ing-the-pacific/'],['Carte de la Nouvelle-Calédonie reconnue par d’Entrecasteaux en 1792 et 1793 — Bibliothèque nationale de France (Gallica)','https://gallica.bnf.fr/ark:/12148/btv1b53123420g'],['Journeys of Enlightenment : d’Entrecasteaux — Western Australian Museum','https://museum.wa.gov.au/exhibitions/journeys/The_Explorers/d_Entrecasteaux.html'],['Les voyages d’exploration des Européens dans le Pacifique (cours) — vice-rectorat de la Nouvelle-Calédonie, histoire-géographie','https://histoire-geo.ac-noumea.nc/IMG/pdf/cours_les_voyages_d_exploration_des_europeens_dans_le_pacifique.pdf']]},
 
 /* 15 -------------------------------------------------------------- */
 {short:'Bilan : le monde change',col:'kan',dur:62,when:[1488,1600],dates:'1400 – 1600',
@@ -630,14 +644,15 @@ var CH=[
   Ph(9,'1488 – 1522 : trente-quatre ans','De Dias à Elcano, une seule génération de marins relie tous les océans. Les cartes du monde changent complètement.','por'),
   Ph(29,'Le monde devient un','Pour la première fois, des navires font le tour de la Terre. Plantes, animaux, marchandises, idées… et maladies circulent d’un continent à l’autre.','esp'),
   Ph(40,'L’échange colombien','L’Europe reçoit le maïs, la pomme de terre, la tomate, le cacao. L’Amérique reçoit le blé, le cheval, la canne à sucre. Elle reçoit aussi la variole et la rougeole, qui tuent des millions d’Amérindiens.','neo'),
-  Ph(48,'Des empires et des esclaves','Espagnols et Portugais conquièrent d’immenses territoires. Pour exploiter les mines et les plantations, ils déportent des millions d’Africains réduits en esclavage : c’est la traite atlantique.','ame'),
+  Ph(48,'Des empires et des esclaves','Espagnols et Portugais conquièrent d’immenses territoires. Pour exploiter les mines et les plantations, ils déportent, au fil des siècles, des millions d’Africains réduits en esclavage : c’est la traite atlantique.','ame'),
   Ph(56,'Découvertes… ou rencontres ?','Ces terres étaient habitées depuis des milliers d’années. Aujourd’hui, les historiens préfèrent parler de « mise en contact » des différentes parties du monde.','kan')
  ],
  photos:[Sh('mercator',1,8,'bl',-2,'contain'),Sh('crops',41,47,'bl',-2)],
  legend:[['zh','Zheng He'],['por','Dias, Gama, Cabral'],['esp','Colomb, Magellan'],['kan','Elcano'],['fra','Cartier'],['eur','Ligne de Tordesillas',true]],
  mots:[['Échange colombien','Circulation de plantes, d’animaux et de maladies entre l’Amérique et le reste du monde après 1492.'],['Traite atlantique','Commerce d’êtres humains : des Africains sont déportés en Amérique pour y être esclaves.'],['Empire colonial','Ensemble des territoires conquis par un pays hors de chez lui.'],['Mondialisation','Mise en relation de toutes les parties du monde.']],
  q:[['Cite trois plantes venues d’Amérique.','Le maïs, la pomme de terre, la tomate (et aussi le cacao, le haricot, le piment).'],['Pourquoi tant d’Amérindiens meurent-ils après 1492 ?','À cause des violences, du travail forcé et surtout des maladies venues d’Europe, contre lesquelles ils n’étaient pas protégés.'],['Pourquoi peut-on discuter le mot « découvertes » ?','Parce que ces terres étaient déjà habitées et connues de leurs habitants.']],
- wiki:['Échange colombien','Traite atlantique','Grandes découvertes']}
+ wiki:['Échange colombien','Traite atlantique','Grandes découvertes'],
+ src:[['Columbian exchange — Encyclopædia Britannica','https://www.britannica.com/event/Columbian-exchange'],['A digital archive of slave voyages details the largest forced migration in history — The Conversation (équipe Slave Voyages)','https://theconversation.com/a-digital-archive-of-slave-voyages-details-the-largest-forced-migration-in-history-74902'],['Loi n° 2001-434 du 21 mai 2001 tendant à la reconnaissance de la traite et de l’esclavage en tant que crime contre l’humanité — Légifrance','https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000405369'],['Gérard Mercator (1512-1594) et sa projection — BnF, Essentiels','https://essentiels.bnf.fr/fr/focus/f35ef3dc-730e-4e72-940c-907262936471-gerard-mercator-1512-1594-et-sa-projection']]}
 ];
 
 var SPK=[{sps:{0:'boutre',1:'boutre'}},{sp:'jonque'},{sp:'caravelle'},{sp:'nao',sps:{2:'caravelle'}},{sp:'nao'},{sp:'nao'},{sp:'caravelle'},{sp:'nao'},{sp:'nef'},{sp:'galion'},{sp:'flute'},{sp:'fregate'},{sp:'endeavour'},{sp:'fregate'}];

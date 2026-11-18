@@ -65,7 +65,7 @@ var CH=[
  labels:[
   L(1,17,16,'Toumaï (Tchad)',{sub:'environ 7 millions d’années',mark:'site',dx:-10,al:'right'}),
   L(4,40.5,11.1,'Lucy (Éthiopie)',{sub:'environ 3,2 millions d’années',mark:'site',dx:10,al:'left'}),
-  L(21.5,44.3,41.3,'Dmanisi (Géorgie)',{sub:'environ 1,8 million d’années',mark:'site',dx:10,dy:-8,al:'left'}),
+  L(21.5,44.3,41.3,'Dmanissi (Géorgie)',{sub:'environ 1,8 million d’années',mark:'site',dx:10,dy:-8,al:'left'}),
   L(29.5,110.8,-7.4,'Java',{sub:'+ de 1 million d’années',mark:'site',dy:16}),
   L(31.5,115.9,39.7,'Zhoukoudian (Chine)',{sub:'environ 700 000 ans',mark:'site',dx:10,dy:-6,al:'left'}),
   L(30,-3.5,42.35,'Atapuerca (Espagne)',{sub:'+ de 1 million d’années',mark:'site',dy:-26}),
@@ -75,7 +75,7 @@ var CH=[
  pulses:[Pu(1,17,16,'#ffd166'),Pu(4,40.5,11.1,'#ffd166'),Pu(22,44.3,41.3,'#ffd166')],
  ph:[
   Ph(0,'Il y a 7 à 3 millions d’années','Les plus vieux ancêtres connus des humains vivent en Afrique. Toumaï et Lucy en font partie. Lucy marche déjà debout.','ere'),
-  Ph(9,'Il y a environ 2 millions d’années','Homo erectus apparaît en Afrique. Il taille des outils de pierre. Plus tard, il apprend à maîtriser le feu (il y a environ 400 000 ans).','ere'),
+  Ph(9,'Il y a environ 2 millions d’années','Homo erectus apparaît en Afrique. Il taille des outils de pierre. Plus tard, il apprend à maîtriser le feu (il y a plus de 700 000 ans).','ere'),
   Ph(18,'La première sortie d’Afrique','Des groupes d’Homo erectus quittent l’Afrique à pied. On a retrouvé leurs traces en Géorgie, en Chine, à Java et en Espagne.','ere'),
   Ph(33,'Il y a environ 400 000 à 40 000 ans','En Europe et en Asie vivent ensuite d’autres humains : les Néandertaliens à l’ouest, les Dénisoviens à l’est. Ce ne sont pas encore des Homo sapiens.','nean')
  ],
@@ -83,7 +83,8 @@ var CH=[
  legend:[['ere','Premiers humains (Homo erectus)'],['nean','Néandertaliens']],
  mots:[['Préhistoire','Très longue période avant l’invention de l’écriture.'],['Homo erectus','« Homme debout » : espèce humaine disparue, la première à quitter l’Afrique.'],['Biface','Outil de pierre taillé sur ses deux faces.']],
  q:[['Sur quel continent vivaient les plus vieux ancêtres des humains ?','En Afrique.'],['Quelle espèce humaine quitte l’Afrique la première ?','Homo erectus, il y a environ 2 millions d’années.'],['Qui vivait en Europe avant Homo sapiens ?','Les Néandertaliens.']],
- wiki:['Homo erectus','Lucy (australopithèque)','Homme de Néandertal']},
+ wiki:['Homo erectus','Lucy (australopithèque)','Homme de Néandertal'],
+ src:[['Homo erectus — Australian Museum','https://australian.museum/learn/science/human-evolution/homo-erectus/'],['Atapuerca : les plus anciens Européens — CENIEH, Espagne (communiqué)','https://www.cenieh.es/en/press/news/atapuerca-rewrites-history-europes-first-inhabitants'],['Dmanisi, crâne d’Homo erectus — Nature News (2013)','https://www.nature.com/articles/nature.2013.13972.pdf']]},
 
 /* 2 --------------------------------------------------------------- */
 {short:'Homo sapiens, né en Afrique',col:'afr',dur:40,when:[-300000,-75000],dates:'il y a 300 000 à 75 000 ans',
@@ -108,7 +109,8 @@ var CH=[
  legend:[['afr','Homo sapiens']],
  mots:[['Homo sapiens','Notre espèce. Tous les humains d’aujourd’hui sont des Homo sapiens.'],['Fossile','Reste très ancien d’un être vivant, conservé dans la roche.'],['Ocre','Roche colorée (rouge, jaune) utilisée pour peindre et décorer.']],
  q:[['Depuis combien de temps notre espèce existe-t-elle ?','Depuis environ 300 000 ans.'],['Où sont nés les premiers Homo sapiens ?','En Afrique, dans plusieurs régions du continent.'],['Que montrent les objets trouvés à Blombos ?','Que ces humains décoraient et dessinaient déjà : ocre gravée, perles en coquillage.']],
- wiki:['Homo sapiens','Djebel Irhoud','Grotte de Blombos']},
+ wiki:['Homo sapiens','Djebel Irhoud','Grotte de Blombos'],
+ src:[['Jebel Irhoud : les plus anciens Homo sapiens connus — Institut Max-Planck d’anthropologie évolutive (2017)','https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf'],['Omo Kibish : restes humains de plus de 230 000 ans — Université de Cambridge (2022)','https://www.cam.ac.uk/stories/homosapiens'],['Misliya : une mâchoire de 177 000 à 194 000 ans — Université de Tel-Aviv (2018)','https://english.tau.ac.il/node/2269'],['Blombos : des perles de coquillage de 75 000 ans — communiqué (EurekAlert)','https://www.eurekalert.org/news-releases/897266']]},
 
 /* 3 --------------------------------------------------------------- */
 {short:'La grande sortie d’Afrique',col:'afr',dur:50,when:[-70000,-38000],dates:'il y a 70 000 à 38 000 ans',
@@ -151,7 +153,8 @@ var CH=[
  legend:[['afr','Homo sapiens'],['sand','Terres à sec quand la mer était basse']],
  mots:[['Migration','Déplacement d’un groupe qui part vivre ailleurs.'],['ADN','« Notice » présente dans chacune de nos cellules, héritée de nos parents. Elle garde la trace de nos ancêtres.'],['Sunda et Sahul','Deux grands continents de l’époque glaciaire : l’Asie du Sud-Est réunie, et l’Australie reliée à la Nouvelle-Guinée.']],
  q:[['Par où Homo sapiens quitte-t-il l’Afrique ?','Par le nord-est : la mer Rouge et le Proche-Orient.'],['Comment sait-on que sapiens a rencontré Néandertal ?','Grâce à l’ADN : beaucoup d’humains en portent encore un petit morceau.'],['Pourquoi l’Australie est-elle une étape difficile ?','Il faut traverser la mer : aucun passage à pied, même quand la mer est basse.']],
- wiki:['Origine africaine de l\'homme moderne','Sahul','Homme de Denisova']},
+ wiki:['Origine africaine de l\'homme moderne','Sahul','Homme de Denisova'],
+ src:[['Human occupation of northern Australia by 65,000 years ago (Madjedbebe) — Australian National University (Nature, 2017)','https://researchportalplus.anu.edu.au/en/publications/human-occupation-of-northern-australia-by-65000-years-ago/'],['Mungo Man et Mungo Lady : 40 000 à 42 000 ans — National Museum of Australia','https://digital-classroom.nma.gov.au/node/190'],['Les non-Africains descendent d’une seule sortie d’Afrique (50 000 à 72 000 ans) — Science News (2016)','https://www.sciencenews.org/article/single-exodus-africa-gave-rise-todays-non-africans'],['Tianyuan : l’ADN d’un homme de 40 000 ans — Institut Max-Planck (2013)','https://www.eurekalert.org/news-releases/774536']]},
 
 /* 3 bis ------------------------------------------------------------ */
 {short:'Plusieurs humanités : qui a rencontré qui ?',col:'deni',dur:78,when:[-400000,-40000],dates:'il y a 400 000 à 40 000 ans',
@@ -188,7 +191,7 @@ var CH=[
   L(12,44.2,36.8,'Shanidar (Irak)',{sub:'environ 70 000 à 45 000 ans',mark:'site',dx:10,dy:6,al:'left',zmin:0.9}),
   L(14,84.68,51.4,'Altaï (Sibérie)',{sub:'Néandertaliens et Dénisoviens',dx:10,dy:-8,al:'left',end:18}),
   L(19,84.68,51.4,'Grotte de Denisova',{sub:'un os de doigt, 2010',mark:'site',dx:10,dy:-8,al:'left'}),
-  L(20,102.57,35.45,'Xiahe (Tibet)',{sub:'mâchoire, environ 160 000 ans',mark:'site',dx:-10,al:'right',zmin:0.9}),
+  L(20,102.57,35.45,'Xiahe (plateau du Tibet)',{sub:'mâchoire, environ 160 000 ans',mark:'site',dx:-10,al:'right',zmin:0.9}),
   L(21,126.6,45.75,'Harbin (Chine)',{sub:'crâne, environ 146 000 ans',mark:'site',dx:10,al:'left',zmin:0.9}),
   L(22,119.5,23.5,'Penghu (Taïwan)',{sub:'mâchoire',mark:'site',dx:10,dy:6,al:'left',zmin:0.9}),
   L(23,102.7,25,'Bianfu (Yunnan)',{sub:'os et outils, étudiés en 2026',mark:'site',dx:-10,dy:8,al:'right',zmin:0.9}),
@@ -221,7 +224,8 @@ var CH=[
     ['Comment a-t-on découvert les Dénisoviens ?','Grâce à l’ADN d’un petit os de doigt trouvé dans une grotte de Sibérie, en 2010.'],
     ['Qui était Denny ?','Une fille d’il y a environ 90 000 ans : sa mère était néandertalienne, son père dénisovien.'],
     ['Les traces d’ADN de ces anciens cousins rendent-elles certains humains supérieurs aux autres ?','Non. Tous les humains d’aujourd’hui sont des Homo sapiens : ces traces racontent seulement les rencontres de nos ancêtres.']],
- wiki:['Homme de Denisova','Homme de Néandertal','Homo floresiensis','Homo luzonensis','Homo naledi']},
+ wiki:['Homme de Denisova','Homme de Néandertal','Homo floresiensis','Homo luzonensis','Homo naledi'],
+ src:[['Le crâne de Harbin identifié comme dénisovien (Science et Cell, 2025) — Science News','https://www.sciencenews.org/article/skull-first-denisovan-human-cousin'],['Bianfu (Yunnan) : os et outils dénisoviens, Nature (septembre 2026) — Académie chinoise des sciences','https://english.cas.cn/newsroom/research-news/202609/t20260906_1192641.shtml'],['Homo floresiensis — Australian Museum','https://australian.museum/learn/science/human-evolution/homo-floresiensis/'],['Denny : mère néandertalienne, père dénisovien — Institut Max-Planck (2018)','https://www.eurekalert.org/news-releases/596455'],['Néandertaliens et Homo sapiens : le métissage, il y a environ 47 000 ans — Institut Max-Planck (2024)','https://www.eva.mpg.de/press/news/press-kits/2024/2024-12-12-1041-unraveling-human-history/']]},
 
 /* 4 --------------------------------------------------------------- */
 {short:'L’Europe : Néandertal, la glace, les grottes',col:'nean',dur:54,when:[-45000,-10000],dates:'il y a 45 000 à 10 000 ans',
@@ -263,7 +267,8 @@ var CH=[
  legend:[['afr','Homo sapiens'],['nean','Néandertaliens'],['ice','Glace (il y a 20 000 ans)'],['sand','Terres à sec à cette époque']],
  mots:[['Néandertalien','Humain d’une espèce disparue, qui vivait en Europe et en Asie de l’Ouest.'],['Art pariétal','Peintures et gravures faites sur les parois des grottes.'],['Glaciation','Période très froide : la glace recouvre de grandes régions et la mer baisse.'],['Chasseur-cueilleur','Personne qui se nourrit en chassant, en pêchant et en cueillant, sans cultiver.']],
  q:[['Qui vivait en Europe avant l’arrivée d’Homo sapiens ?','Les Néandertaliens.'],['Cite deux grottes ornées et leur âge.','Chauvet (environ 36 000 ans) et Lascaux (environ 20 000 ans).'],['Pourquoi pouvait-on aller à pied en Angleterre il y a 20 000 ans ?','L’eau était retenue dans la glace : la mer était beaucoup plus basse.']],
- wiki:['Homme de Néandertal','Grotte Chauvet','Grotte de Lascaux','Doggerland']},
+ wiki:['Homme de Néandertal','Grotte Chauvet','Grotte de Lascaux','Doggerland'],
+ src:[['La grotte Chauvet-Pont d’Arc et les grottes ornées d’Ardèche — ministère de la Culture','https://www.culture.gouv.fr/Media/medias-creation-rapide/la-grotte-chauvet-pont-d-arc-et-les-grottes-ornees-d-ardeche.pdf'],['Lascaux : les datations des figures — ministère de la Culture','https://archeologie.culture.gouv.fr/lascaux/en/dating-figures-lascaux'],['Bacho Kiro : les plus anciens Homo sapiens d’Europe, environ 45 000 ans — Institut Max-Planck (2020)','https://www.mpg.de/14778668/the-oldest-upper-paleolithic-homo-sapiens-in-europe'],['La disparition des Néandertaliens vers 40 000 ans — Nature (2014)','https://www.nature.com/articles/512242a']]},
 
 /* 5 --------------------------------------------------------------- */
 {short:'À la conquête de l’Amérique',col:'ame',dur:54,when:[-32000,-12000],dates:'il y a 32 000 à 12 000 ans',
@@ -288,7 +293,7 @@ var CH=[
   L(1,133.4,70.7,'Yana (Sibérie)',{sub:'environ 32 000 ans',mark:'site',dx:10,dy:10,al:'left',end:20}),
   L(4,-172,63,'Béringie',{sub:'pont de terre',nomark:true,big:true,gold:true,end:47}),
   L(8,-96,61,'Calottes de glace',{nomark:true,big:true,end:46}),
-  L(22,-106.3,32.8,'White Sands',{sub:'environ 23 000 ans',mark:'site',dx:-10,dy:8,al:'right',gold:true}),
+  L(22,-106.3,32.8,'White Sands',{sub:'21 000 à 23 000 ans',mark:'site',dx:-10,dy:8,al:'right',gold:true}),
   L(36,-103.3,34.3,'Clovis',{sub:'environ 13 000 ans',mark:'site',dx:10,dy:-10,al:'left'}),
   L(40,-73.2,-41.5,'Monte Verde (Chili)',{sub:'environ 14 500 ans',mark:'site',dx:-10,al:'right'}),
   L(48,-43.9,-19.6,'Lagoa Santa (Brésil)',{sub:'environ 11 500 ans',mark:'site',dx:10,al:'left'}),
@@ -306,7 +311,8 @@ var CH=[
  legend:[['ame','Route de la côte'],['kan','Couloir libre de glace'],['ice','Calottes de glace'],['sand','Béringie (à sec à cette époque)']],
  mots:[['Béringie','Terre aujourd’hui sous la mer, qui reliait la Sibérie à l’Alaska pendant la glaciation.'],['Calotte glaciaire','Immense couche de glace, épaisse de plusieurs kilomètres, posée sur un continent.'],['Amérindiens','Descendants des premiers habitants de l’Amérique.']],
  q:[['Par où les premiers humains arrivent-ils en Amérique ?','Par la Béringie, entre la Sibérie et l’Alaska.'],['Pourquoi les empreintes de White Sands sont-elles importantes ?','Elles montrent que des humains étaient en Amérique il y a plus de 20 000 ans, plus tôt qu’on ne le pensait.'],['Quel est le dernier continent atteint à pied par Homo sapiens ?','L’Amérique.']],
- wiki:['Premier peuplement de l\'Amérique','Béringie','Culture Clovis']},
+ wiki:['Premier peuplement de l\'Amérique','Béringie','Culture Clovis'],
+ src:[['Les empreintes de White Sands ont bien 21 000 à 23 000 ans — USGS (2023)','https://www.usgs.gov/news/national-news-release/study-confirms-age-oldest-fossil-human-footprints-north-america'],['Le couloir libre de glace n’était pas praticable avant 12 600 ans — Université de Cambridge (Nature, 2016)','https://www.cam.ac.uk/research/news/textbook-story-of-how-humans-populated-america-is-biologically-unviable-study-finds'],['Monte Verde (Chili) : un site de 14 000 ans, sans pointes Clovis — Discover Magazine','https://www.discovermagazine.com/monte-verde-our-earliest-evidence-of-humans-living-in-south-america-40124']]},
 
 /* 6 --------------------------------------------------------------- */
 {short:'Les premiers paysans',col:'neo',dur:58,when:[-9500,-2500],dates:'de 9500 à 2500 av. J.-C. environ',
@@ -348,7 +354,8 @@ var CH=[
  legend:[['neo','Foyers d’invention de l’agriculture'],['kan','Diffusion par les migrations de paysans']],
  mots:[['Néolithique','« Âge de la pierre nouvelle » : époque où les humains deviennent agriculteurs et éleveurs.'],['Domestiquer','Transformer peu à peu une plante ou un animal sauvage pour le cultiver ou l’élever.'],['Sédentaire','Qui vit toute l’année au même endroit. Le contraire de nomade.'],['Foyer','Région où une invention apparaît avant de se répandre.']],
  q:[['Où l’agriculture apparaît-elle en premier ?','Dans le Croissant fertile, au Proche-Orient, vers 9500 av. J.-C.'],['L’agriculture a-t-elle été inventée une seule fois ?','Non : plusieurs fois, dans des régions qui ne se connaissaient pas (Chine, Amérique, Nouvelle-Guinée, Afrique…).'],['Quelle plante a été domestiquée en Nouvelle-Guinée, tout près de chez nous ?','Le taro (et la banane).']],
- wiki:['Néolithique','Révolution néolithique','Croissant fertile','Ancien site agricole de Kuk']},
+ wiki:['Néolithique','Révolution néolithique','Croissant fertile','Ancien site agricole de Kuk'],
+ src:[['Göbekli Tepe, environ 9600-8200 av. J.-C. — UNESCO, Centre du patrimoine mondial','https://whc.unesco.org/document/160485'],['Site agricole ancien de Kuk (Papouasie-Nouvelle-Guinée) : taro, banane, igname — UNESCO, Centre du patrimoine mondial','https://whc.unesco.org/en/list/887']]},
 
 /* 7 --------------------------------------------------------------- */
 {short:'Les dernières terres',col:'late',dur:62,when:[-2500,1300],dates:'de 2500 av. J.-C. à 1300 apr. J.-C. environ',
@@ -393,7 +400,7 @@ var CH=[
  ],
  pulses:[Pu(23.5,-55.5,51.6,'#ffd166'),Pu(34,47,-19,'#2dd4bf'),Pu(41,165.5,-21,'#ffd166',true)],
  ph:[
-  Ph(0,'Vers 2500 av. J.-C. : le Grand Nord','Il reste des terres vides, difficiles à atteindre. Des chasseurs venus de Sibérie s’installent dans l’Arctique, jusqu’au Groenland. Les ancêtres des Inuits arriveront bien plus tard : en Alaska vers l’an 1000, au Groenland vers 1200–1300.','late'),
+  Ph(0,'Vers 2500 av. J.-C. : le Grand Nord','Il reste des terres vides, difficiles à atteindre. Des chasseurs venus de Sibérie s’installent dans l’Arctique, jusqu’au Groenland. Les ancêtres des Inuits, venus d’Alaska, arriveront bien plus tard : au Canada vers l’an 1000, au Groenland vers 1200–1300.','late'),
   Ph(12,'874 – 1000 : les Vikings','Des marins de Norvège peuplent l’Islande, encore presque vide, puis le sud du Groenland. Vers l’an 1000, ils campent en Amérique : 500 ans avant Christophe Colomb.','eur'),
   Ph(25,'Il y a 1 000 à 1 500 ans : Madagascar','La grande île est peuplée très tard, par des Austronésiens venus de Bornéo, à plus de 6 000 km de là. Des Africains les rejoignent depuis la côte voisine.','aus',true),
   Ph(38,'De 1100 av. J.-C. à 1300 environ : le Pacifique','Les Lapita, puis les Polynésiens, peuplent les îles une à une. Aotearoa (la Nouvelle-Zélande) est la dernière grande terre habitée, vers 1250–1300.','pol'),
@@ -403,7 +410,8 @@ var CH=[
  legend:[['late','Peuples de l’Arctique'],['eur','Vikings'],['aus','Austronésiens'],['pol','Lapita et Polynésiens']],
  mots:[['Inuits','Peuple de l’Arctique (Alaska, Canada, Groenland).'],['Vikings','Marins et guerriers scandinaves du Moyen Âge.'],['Terre inhabitée','Terre où aucun humain ne vit.']],
  q:[['Quelle est la dernière grande terre peuplée par les humains ?','Aotearoa (la Nouvelle-Zélande), vers 1250–1300.'],['D’où viennent les premiers habitants de Madagascar ?','De Bornéo, en Asie du Sud-Est : ce sont des Austronésiens, comme les Lapita.'],['Qui atteint l’Amérique 500 ans avant Christophe Colomb ?','Les Vikings, vers l’an 1000.']],
- wiki:['Colonisation viking des Amériques','Histoire de Madagascar','Peuplement de l\'Océanie','L\'Anse aux Meadows']},
+ wiki:['Colonisation viking des Amériques','Histoire de Madagascar','Peuplement de l\'Océanie','L\'Anse aux Meadows'],
+ src:[['Quand la Nouvelle-Zélande a-t-elle été peuplée ? (vers 1250-1300) — Te Ara, encyclopédie de la Nouvelle-Zélande','https://teara.govt.nz/en/when-was-new-zealand-first-settled'],['Les Thulé, ancêtres des Inuits, venus d’Alaska vers l’an 1000 — Musée canadien de l’histoire','https://www.historymuseum.ca/cmc/vmnf/premieres_nations/en/inuit/description.html'],['Peupler Madagascar : pas de preuve avant le milieu du Ier millénaire apr. J.-C. — Université d’Oxford, archéologie','https://www.arch.ox.ac.uk/node/884041'],['Les Malgaches : une ascendance venue du sud-est de Bornéo et d’Afrique — ScienceDaily (2016)','https://www.sciencedaily.com/releases/2016/07/160705183132.htm'],['Les Vikings à L’Anse aux Meadows en 1021 (étude publiée dans Nature) — Euronews (2021)','https://www.euronews.com/2021/10/22/the-vikings-settled-in-north-america-500-years-before-christopher-colombus-study-reveals']]},
 
 /* 8 --------------------------------------------------------------- */
 {short:'Aujourd’hui : 8 milliards d’humains',col:'dense',dur:54,when:[1800,2026],dates:'de 1800 à aujourd’hui',
@@ -445,7 +453,8 @@ var CH=[
  legend:[['dense','Fortes densités de population'],['vide','« Déserts humains »']],
  mots:[['Densité de population','Nombre d’habitants par km².'],['Foyer de peuplement','Région où vivent beaucoup d’habitants.'],['Désert humain','Région presque vide d’habitants.'],['Contrainte','Ce qui rend la vie difficile : froid, sécheresse, altitude, forêt dense.']],
  q:[['Quels sont les trois grands foyers de peuplement du monde ?','L’Asie de l’Est, l’Asie du Sud et l’Europe.'],['Pourquoi le Sahara ou le Grand Nord sont-ils presque vides ?','À cause des contraintes naturelles : sécheresse, froid.'],['Combien d’humains la Terre compte-t-elle ?','Plus de 8 milliards (le cap a été franchi en 2022).']],
- wiki:['Population mondiale','Densité de population','Foyer de peuplement']}
+ wiki:['Population mondiale','Densité de population','Foyer de peuplement'],
+ src:[['Notre population mondiale : 8 milliards d’humains le 15 novembre 2022 — Nations unies','https://www.un.org/en/global-issues/population'],['World Urbanization Prospects 2025 : les villes abritent 45 % des 8,2 milliards d’humains — ONU DESA','https://www.un.org/development/desa/pd/node/4442'],['La Nouvelle-Calédonie compte 264 596 habitants en 2025 (recensement ISEE-Insee) — Outremers 360','https://outremers360.com/bassin-pacifique-appli/demographie-la-nouvelle-caledonie-compte-264-596-habitants-en-2025-cest-6-800-en-moins-en-six-ans'],['Populations de référence de Nouvelle-Calédonie de 2009 à 2025 — Insee','https://www.insee.fr/fr/statistiques/2122859']]}
 ];
 
 var SPK={2:{sps:{2:'radeau'}},3:{sps:{3:'radeau'}},7:{sp:'balancier',sps:{0:'drakkar',1:'drakkar',2:'drakkar',4:'boutre',6:'polynesien',7:'polynesien',8:'polynesien',9:'polynesien'}}};
