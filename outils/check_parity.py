@@ -12,8 +12,9 @@ for f in sorted(glob.glob('/home/claude/dossiers/docx/*.docx')):
     c = next(i for i, x in enumerate(L) if x[3].startswith('Corrigé · pour l’enseignant') and x[2] == 18.0)
     pd = []
     for x in L[c:]:
-        if not 9.5 <= x[2] <= 10.5: continue
-        if re.match(r'\d+\.\s', x[3]): pd.append(x[3])
+        if not 9.5 <= x[2] <= 10.5 or x[3].startswith('CORRIGÉ · POUR') or re.fullmatch(r'[A-Z0-9]+-\d\d', x[3].strip()): continue   # bandeau de la page suivante (titre, code du dossier) : pas une réponse
+        m = re.match(r'(\d+)\.\s', x[3])   # une réponse porte le numéro 1 ou le numéro suivant ; « 1900. Les atolls… » en début de ligne n'en est pas une
+        if m and (int(m.group(1)) == 1 or (pd and int(m.group(1)) == int(pd[-1].split('.')[0]) + 1)): pd.append(x[3])
         elif pd and not x[3].startswith('Pièce'): pd[-1] += ' ' + x[3]
     pd = [norm(t) for t in pd]
     pieces_d = [t for t in P if re.match(r'Pièce n° \d+ · ', t)]; n += 1
