@@ -89,3 +89,6 @@ Vérifié le 16/11/2026 : le générateur reproduit les dossiers publiés ; seul
 - **Cartes-documents** (`docCanvas`, `js/engine.js`) : si la caméra de fin coupe un tracé, la carte principale est recadrée sur l'ensemble des tracés du chapitre (`fitCam`).
 - **Environnement** : polices (Atkinson Hyperlegible, Special Elite, IM Fell French Canon, Patrick Hand, Black Ops One : `raw.githubusercontent.com/google/fonts`), d3 7 (`npm pack d3@7`), `pip install pymupdf`. `export.py` est lancé deux fois (école, puis `PAGE=college.html`) et les deux `data.json` fusionnés. `extras.json` doit contenir `extras5.X` et `extras6.X` avant `gen_docx.py`.
 - **Parité PDF/Word** : 8 dossiers ont encore un corrigé différent (geonc-01 à 07 : lettre de la bonne réponse de certaines questions ; mondial-11 : 23 contre 24 lignes).
+
+## Repères du monde au zoom (18/11/2026)
+`outils/geo/reperes_monde.js` fabrique `js/reperes-monde.js` (noms français des pays actuels + 75 grandes villes, depuis `pays.js`) : `node outils/geo/reperes_monde.js > js/reperes-monde.js`. Affichés par `drawWorldRef()` (`js/engine.js`) dès KPX ≥ 330 (villes dès 900), hors zone des communes de NC, jamais dans les exports PDF/Word. Option « Pays et villes d’aujourd’hui (en zoomant) » dans les réglages. Les noms de chapitre passent avant (collision).

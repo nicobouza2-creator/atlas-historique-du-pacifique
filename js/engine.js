@@ -169,7 +169,7 @@ function Rg(ring,col,t0,a,fade,grow){var z={k:'reg',col:col,a:a==null?0.55:a,t0:
 /* ---------- Volets ---------- */
 var VOLS=[],VI=-1,VOL=null,CH=[];
 var cur={ci:0,t:0},playing=false,last=0,free=null,tool='none',stepHold=false,VIS=ALL,hover=null;
-var opt={proj:'auto',speed:1,auto:false,step:false,labels:true,photos:true,names:false,lines:false,scale:true,coord:false,big:false,voice:false,easy:false,frise:true,sprites:true,communes:true};
+var opt={proj:'auto',speed:1,auto:false,step:false,labels:true,photos:true,names:false,lines:false,scale:true,coord:false,big:false,voice:false,easy:false,frise:true,sprites:true,communes:true,reperes:true};
 try{var sv=JSON.parse(localStorage.getItem('atlas-hg-opts')||'null');if(sv)Object.keys(opt).forEach(function(k){if(typeof sv[k]===typeof opt[k])opt[k]=sv[k];});}catch(e){}
 function saveOpt(){try{localStorage.setItem('atlas-hg-opts',JSON.stringify(opt));}catch(e){}}
 
@@ -712,6 +712,38 @@ function drawComNames(){
   });
   ctx.restore();
 }
+/* repères du monde au zoom : noms des pays ACTUELS et grandes villes, dès que la carte est assez grande (hors zone des communes de NC).
+   Données : js/reperes-monde.js (outils/geo/reperes_monde.js). Sur une carte du passé, ce sont des repères pour se situer. */
+var WORLDSEEN=false;
+function drawWorldRef(){
+  var D=window.REPM;if(!D||!opt.reperes||BARE||EXPORT||KPX<330||comOn())return;
+  var fs=clamp(KPX/900,10,14.5),boxes=LBOX.slice(),i,k=KPX/57.2958;
+  function free(b){for(i=0;i<boxes.length;i++){var o=boxes[i];if(o&&b[0]<o[2]&&b[2]>o[0]&&b[1]<o[3]&&b[3]>o[1])return false;}return true;}
+  ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineJoin='round';
+  D.p.slice().sort(function(a,b){return b[3]-a[3];}).forEach(function(c){
+    if(hidden([c[1],c[2]],1.3))return;
+    ctx.font='italic 600 '+fs+'px '+FONT;var w=ctx.measureText(c[0]).width;
+    if(c[3]*k<w*0.85&&KPX<4500)return;
+    var q=projection([c[1],c[2]]);if(!q||q[0]<30||q[0]>W-30||q[1]<14||q[1]>H-14)return;
+    var b=[q[0]-w/2-4,q[1]-fs*0.72,q[0]+w/2+4,q[1]+fs*0.72];if(!free(b))return;
+    boxes.push(b);WORLDSEEN=true;
+    ctx.globalAlpha=0.9;ctx.strokeStyle=TH.halo;ctx.lineWidth=3;ctx.strokeText(c[0],q[0],q[1]);
+    ctx.fillStyle=TH.light?'#5a4f3c':'#d2dbe6';ctx.fillText(c[0],q[0],q[1]);
+  });
+  if(KPX>=900){
+    var fv=Math.max(9.5,fs-2);ctx.font='600 '+fv+'px '+FONT;ctx.textAlign='left';
+    D.v.forEach(function(c){
+      if(hidden([c[1],c[2]],1.3))return;
+      var q=projection([c[1],c[2]]);if(!q||q[0]<30||q[0]>W-60||q[1]<14||q[1]>H-14)return;
+      var w=ctx.measureText(c[0]).width,b=[q[0]-4,q[1]-fv*0.7,q[0]+w+12,q[1]+fv*0.7];if(!free(b))return;
+      boxes.push(b);WORLDSEEN=true;
+      ctx.globalAlpha=0.95;ctx.fillStyle=TH.light?'#3d3426':'#f4f0e6';ctx.strokeStyle=TH.halo;ctx.lineWidth=2.5;
+      ctx.beginPath();ctx.arc(q[0],q[1],2.6,0,6.2832);ctx.fill();
+      ctx.strokeText(c[0],q[0]+6,q[1]);ctx.fillText(c[0],q[0]+6,q[1]);
+    });
+  }
+  ctx.restore();
+}
 function drawScale(){
   var c2=[center[0]+0.4/Math.max(0.2,Math.cos(center[1]*RAD)),clamp(center[1],-82,82)],c1=[center[0],clamp(center[1],-82,82)];
   var p0=projection(c1),p1=projection(c2);if(!p0||!p1)return;
@@ -801,7 +833,7 @@ function render(){
   if(!BARE){(ch.routes||[]).forEach(function(rt){drawRoute(rt,tt,K);});if(!EXPORT)drawPulses(ch.pulses||[],tt,K);}
   if(opt.names)drawNames();
   if(!BARE&&opt.labels&&tool!=='quiz'&&!HIDELAB)(EXPORT?drawLabelsX:drawLabels)(ch.labels||[],tt);else{LBOX=[];LTXT=[];}
-  if(tool!=='quiz'&&!HIDELAB)drawComNames();
+  if(tool!=='quiz'&&!HIDELAB){drawComNames();drawWorldRef();}
   if(!EXPORT)drawTools();
   if(opt.scale)drawScale();
   if(opt.coord&&!EXPORT)drawCoord();
