@@ -184,7 +184,7 @@ class Doc:
                 s.p('%s  %s. %s' % (BOX, 'ABCD'[j], clean(t)), indent=0.8, after=2)
                 if i == 0: corr.append((n, '%s. %s' % ('ABCD'[j], t)))
         elif k == 'vf':
-            s.p('Vrai ou faux ?      %s Vrai        %s Faux' % (BOX, BOX), indent=0.8); corr.append((n, ('Vrai' if q['a'] else 'Faux') + (' : ' + q['ex'] if q.get('ex') else '')))
+            s.p('Vrai ou faux ?      %s Vrai        %s Faux' % (BOX, BOX), indent=0.8); corr.append((n, (q['ex'] if q.get('ex') and q['ex'].startswith(('Vrai','Faux')) else ('Vrai' if q['a'] else 'Faux') + (' : ' + q['ex'] if q.get('ex') else ''))))
         elif k == 'ordre':
             items = list(q['a']); rng(key + q['q']).shuffle(items)
             if items == q['a']: items = items[1:] + items[:1]

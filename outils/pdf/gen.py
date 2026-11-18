@@ -63,7 +63,7 @@ def qpaper(q, n, key, corr, title=None, head=None):
             if i == 0: corr.append((n, '%s. %s' % ('ABCD'[j], t)))
     elif k == 'vf':
         fl.append(Paragraph('<i>Vrai ou faux ?</i>&nbsp;&nbsp;&nbsp; %s&nbsp; Vrai &nbsp;&nbsp;&nbsp;&nbsp; %s&nbsp; Faux' % (BOX, BOX), ST['opt']))
-        corr.append((n, ('Vrai' if q['a'] else 'Faux') + (' : ' + q['ex'] if q.get('ex') else '')))
+        corr.append((n, (q['ex'] if q.get('ex') and q['ex'].startswith(('Vrai','Faux')) else ('Vrai' if q['a'] else 'Faux') + (' : ' + q['ex'] if q.get('ex') else ''))))
     elif k == 'ordre':
         items = list(q['a']); rng(key + q['q']).shuffle(items)
         if items == q['a']: items = items[1:] + items[:1]
