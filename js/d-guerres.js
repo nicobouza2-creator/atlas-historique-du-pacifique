@@ -16,7 +16,7 @@ window.FACILE.guerres=[
  '🏭 C’est une *guerre totale* : les usines fabriquent des armes, les *femmes* remplacent les hommes partis au front, l’État contrôle tout.',
  '😢 Les *civils* souffrent aussi : occupation, faim, bombardements. En 1915-1916, les *Arméniens* de l’Empire ottoman sont victimes d’un *génocide*.',
  '🌍 Les *colonies* envoient des soldats et des travailleurs : tirailleurs d’Afrique, soldats de l’Inde, travailleurs d’Indochine.',
- '🏝️ Un peu plus de *2 000 Calédoniens* partent en Europe : un millier de mobilisés d’origine européenne et près d’un millier de *tirailleurs kanak*. Le *bataillon mixte du Pacifique* combat en France.',
+ '🏝️ Un peu plus de *2 000 Calédoniens* partent en Europe : près d’un millier de mobilisés d’origine européenne et un peu plus d’un millier de *tirailleurs kanak*. Le *bataillon mixte du Pacifique* combat en France.',
  '🔥 En *1917*, dans le nord de la Grande Terre, des Kanak se *révoltent* contre le recrutement et la colonisation. La révolte est durement réprimée.'],
 ['📜 En *1919*, le traité de *Versailles* déclare l’Allemagne responsable de la guerre : elle perd des territoires et doit payer. Beaucoup d’Allemands se sentent *humiliés*.',
  '🚩 En Russie, les bolcheviks ont pris le pouvoir : c’est l’*URSS*. *Staline* impose un *parti unique* et la *terreur*.',
@@ -34,10 +34,10 @@ window.FACILE.guerres=[
 ['🗾 Le *Japon* s’est bâti un empire : Taïwan, Corée. Il occupe la *Mandchourie* (1931), puis envahit la *Chine* (1937).',
  '💥 Le *7 décembre 1941*, le Japon attaque la flotte américaine à *Pearl Harbor*. Les *États-Unis* entrent en guerre.',
  '🌏 En six mois, le Japon conquiert les Philippines, Singapour, les Indes néerlandaises. L’*Australie* est menacée.',
- '🛑 En *1942*, l’avance japonaise est arrêtée : *mer de Corail*, tout près de la Nouvelle-Calédonie, puis *Midway* et *Guadalcanal*.',
+ '🛑 En *1942*, l’avance japonaise est arrêtée : *mer de Corail*, au nord-ouest de la Nouvelle-Calédonie, puis *Midway* et *Guadalcanal*.',
  '⚓ Le *12 mars 1942*, les *Américains* débarquent à *Nouméa*. La Nouvelle-Calédonie devient leur grande *base arrière* du Pacifique Sud.',
  '☢️ Les Américains avancent d’île en île. Les *6 et 9 août 1945*, deux *bombes atomiques* détruisent *Hiroshima* et *Nagasaki*. Le Japon capitule.'],
-['🏳️ En *mai-juin 1940*, l’armée française est battue. Des millions de gens fuient sur les routes : c’est l’*exode*. *Pétain* signe l’*armistice* le 22 juin.',
+['🏳️ En *mai-juin 1940*, l’armée française est battue. Des millions de gens fuient sur les routes : c’est l’*exode*. *Pétain* fait signer l’*armistice* le 22 juin.',
  '📻 Le *18 juin 1940*, depuis *Londres*, le général *de Gaulle* appelle à continuer le combat. Il fonde la *France libre*.',
  '⚠️ À *Vichy*, Pétain supprime la République. Son régime est autoritaire et *antisémite* ; il *collabore* avec l’Allemagne nazie.',
  '🏝️ Le *19 septembre 1940*, la *Nouvelle-Calédonie* se rallie à la *France libre*, après le Tchad, le Cameroun et Tahiti.',
@@ -73,9 +73,9 @@ window.QCM.guerres=[
 ];
 
 window.GAL.guerres=[
- ['ferdinand1914','lenine1920','masquegaz'],
+ ['ferdinand1914','petrograd1917','masquegaz'],
  ['tranchee1918','armistice1918'],
- ['armistice1918','petrograd1917'],
+ ['armistice1918','lenine1920'],
  ['pearlharbor','lexington1942','degaulle1943'],
  ['us1942','patch1942','enterprise'],
  ['ffl','patch1942','noumea1942','troupesnc1942','us1942']
