@@ -187,8 +187,11 @@ E('caledonie-8','Entoure les trois provinces.',['province Nord|1','province Sud|
  'Colorie chaque lieu de la couleur de sa province.',[['vert','province Nord'],['rouge','province Sud'],['bleu','îles Loyauté']],['Pouembout|0','Koné|0','Nouméa|1|i:noumea','Ouvéa|2','Lifou|2']);
 /* carte de fin de chapitre : à entourer, pour la fiche élève */
 X.mapTask=function(){
-  var ch=api.chs()[api.ci()],lieux=(ch.labels||[]).map(function(l){return l.text;}).filter(function(t){return typeof t=='string'&&t.length<28;}).slice(0,3),leg=(ch.legend||[]).map(function(l){return l[1];});
-  if(!lieux.length)return null;var src='';try{src=api.snap(api.ci(),{labels:true,dark:false});}catch(e){}
+  var ch=api.chs()[api.ci()],tous=(ch.labels||[]).map(function(l){return l.text;}).filter(function(t){return typeof t=='string'&&t.length<28;}),leg=(ch.legend||[]).map(function(l){return l[1];});
+  if(!tous.length)return null;var src='',vus=null;try{src=api.snap(api.ci(),{labels:true,dark:false});vus=api.snapNames?api.snapNames():null;}catch(e){}
+  /* on ne fait entourer que des noms réellement écrits sur cette carte */
+  var lieux=(vus&&vus.length?tous.filter(function(t){return vus.indexOf(t)>=0;}):tous).filter(function(t,i,a){return a.indexOf(t)===i;}).slice(0,3);
+  if(!lieux.length)return null;
   return {html:'<p><b>{n}. Sur la carte.</b> Entoure en rouge : '+lieux.join(', ')+'.'+(leg.length?' Puis écris sous la carte ce que montre chaque couleur de la légende.':'')+'</p>'+(src?'<img class="exo-map" src="'+src+'" alt="Carte de fin de chapitre du dossier d’enquête">':'<p>[Carte de fin de chapitre du dossier d’enquête]</p>'),
    cor:'Lieux à entourer : '+lieux.join(', ')+'.'+(leg.length?' Légende : '+leg.join(' ; ')+'.':'')};
 };

@@ -143,12 +143,13 @@ function wiggle(pts,amp,freq,phase){
   });
 }
 /* r(couleur, début, fin, épaisseur, points, options)
-   options : straight, step, amp/freq/phase, taper, dash, boat (pirogue), ship (navire à voiles), sea (doit rester en mer) */
+   options : straight, step, amp/freq/phase, taper, dash, boat (pirogue), ship (navire à voiles), sea (doit rester en mer),
+   nohead (ligne sans pointe : tropique, câble, limite — tout ce qui n’a pas de sens de parcours) */
 function r(col,t0,t1,w,wps,opt){
   opt=opt||{};
   var pts=opt.straight?densify(wps,opt.step||0.15):densify(smooth(wps),opt.step||1.2);
   if(opt.amp)pts=wiggle(pts,opt.amp,opt.freq||2,opt.phase||0);
-  return {col:CO[col]||col,t0:t0,t1:t1,w:w,pts:pts,taper:!!opt.taper,boat:!!opt.boat,ship:!!opt.ship,sp:opt.sp||null,dash:!!opt.dash,sea:!!(opt.boat||opt.ship||opt.sea)&&!opt.river&&!opt.nosea,thin:!!opt.thin};
+  return {col:CO[col]||col,t0:t0,t1:t1,w:w,pts:pts,taper:!!opt.taper,boat:!!opt.boat,ship:!!opt.ship,sp:opt.sp||null,dash:!!opt.dash,sea:!!(opt.boat||opt.ship||opt.sea)&&!opt.river&&!opt.nosea,thin:!!opt.thin,nohead:!!opt.nohead};
 }
 function L(t,lon,lat,text,o){o=o||{};o.t=t;o.lon=lon;o.lat=lat;o.text=text;return o;}
 function Pu(t,lon,lat,col,loop){return {t:t,lon:lon,lat:lat,col:col,loop:!!loop};}
@@ -261,6 +262,12 @@ function resize(){
   ctx.setTransform(DPR,0,0,DPR,0,0);
   sizeLayers();
   render();
+}
+/* pointe de flèche au bout d'un tracé (sens du trajet) */
+function arrowHead(x,y,ang,s,col){
+  ctx.save();ctx.translate(x,y);ctx.rotate(ang);
+  ctx.fillStyle=col;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.2;
+  ctx.beginPath();ctx.moveTo(s*0.65,0);ctx.lineTo(-s*0.55,-s*0.6);ctx.lineTo(-s*0.25,0);ctx.lineTo(-s*0.55,s*0.6);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();
 }
 function drawBoat(x,y,dir,s,col){
   ctx.save();ctx.translate(x,y);ctx.scale(dir*s,s);
@@ -390,13 +397,8 @@ function drawRoute(rt,tt,K){
           if(sk)drawSpr(sk,tip[0],tip[1],dir,ang,sc,tt);
           else if(rt.ship)drawShip(tip[0],tip[1],dir,sc,RC);else drawBoat(tip[0],tip[1],dir,sc,RC);
         }
-        else{ctx.save();ctx.fillStyle=RC;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(tip[0],tip[1],4*K,0,6.2832);ctx.fill();ctx.stroke();ctx.restore();}
-      }else{
-        var s=(8+rt.w*1.6)*K;
-        ctx.save();ctx.translate(tip[0],tip[1]);ctx.rotate(ang);
-        ctx.fillStyle=RC;ctx.strokeStyle=TH.mk;ctx.lineWidth=1.2;
-        ctx.beginPath();ctx.moveTo(s*0.65,0);ctx.lineTo(-s*0.55,-s*0.6);ctx.lineTo(-s*0.25,0);ctx.lineTo(-s*0.55,s*0.6);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();
-      }
+        else if(!rt.nohead)arrowHead(tip[0],tip[1],ang,(8+rt.w*1.6)*K,RC);   /* trajet terminé (carte figée, PDF, Word) : une pointe, pour que le sens se lise */
+      }else if(!rt.nohead)arrowHead(tip[0],tip[1],ang,(8+rt.w*1.6)*K,RC);
     }
   }
 }
@@ -628,8 +630,10 @@ function drawLabelsX(LB,tt){
   var fs=clamp(Math.min(W,H*1.3)/40,10.5,15),boxes=[],seen={};LBOX=boxes;LTXT=[];
   ctx.lineJoin='round';ctx.textBaseline='middle';
   function free(b){if(b[0]<2||b[1]<2||b[2]>W-2||b[3]>H-2)return false;for(var i=0;i<boxes.length;i++){var o=boxes[i];if(b[0]<o[2]+3&&b[2]>o[0]-3&&b[1]<o[3]+3&&b[3]>o[1]-3)return false;}return true;}
-  var L2=LB.filter(function(Lb){if(tt<Lb.t||!Lb.text)return false;if(Lb.end&&Lb.end+0.8<tt)return false;if(hidden([Lb.lon,Lb.lat],1.42))return false;var q=projection([Lb.lon,Lb.lat]);return q&&q[0]>=10&&q[0]<=W-10&&q[1]>=10&&q[1]<=H-10;});
-  L2.sort(function(a,b){return ((b.gold?2:0)+(b.big?1:0))-((a.gold?2:0)+(a.big?1:0))||(a.nomark?1:0)-(b.nomark?1:0)||b.t-a.t;});
+  function gone(Lb){return !!(Lb.end&&Lb.end+0.8<tt);}
+  var anch=[];
+  var L2=LB.filter(function(Lb){if(tt<Lb.t||!Lb.text)return false;if(gone(Lb)&&!DOCL)return false;if(hidden([Lb.lon,Lb.lat],1.42))return false;var q=projection([Lb.lon,Lb.lat]);return q&&q[0]>=10&&q[0]<=W-10&&q[1]>=10&&q[1]<=H-10;});
+  L2.sort(function(a,b){return (gone(a)?1:0)-(gone(b)?1:0)||((b.gold?2:0)+(b.big?1:0))-((a.gold?2:0)+(a.big?1:0))||(a.nomark?1:0)-(b.nomark?1:0)||b.t-a.t;});
   L2.forEach(function(Lb){
     if(seen[Lb.text])return;
     var q=projection([Lb.lon,Lb.lat]),x=q[0]+(Lb.nomark?(Lb.dx||0):0),y=q[1]+(Lb.nomark?(Lb.dy||0):0);
@@ -640,10 +644,19 @@ function drawLabelsX(LB,tt){
       ctx.fillStyle='#12202e';ctx.font='700 '+(fs*0.95)+'px '+FONT;ctx.textAlign='center';ctx.fillText(String(NUMS.length),x,y+0.5);
       return;
     }
-    var size=Lb.big?fs*1.3:fs;ctx.font='600 '+size+'px '+FONT;var w=ctx.measureText(Lb.text).width,x2=q[0]+(Lb.dx||0),y2=q[1]+(Lb.dy||0);
+    var size=Lb.big?fs*1.3:fs;ctx.font='600 '+size+'px '+FONT;var w=ctx.measureText(Lb.text).width;
     if(Lb.sub){ctx.font='400 '+(fs*0.84)+'px '+FONT;w=Math.max(w,ctx.measureText(Lb.sub).width);}
-    var al=Lb.al||'center',bx0=al==='left'?x2:al==='right'?x2-w:x2-w/2,b=[bx0,y2-size*0.6,bx0+w,y2+size*0.6+(Lb.sub?fs*1.05:0)];
+    function boxOf(o){var x2=q[0]+(o.dx||0),y2=q[1]+(o.dy||0),al=o.al||'center',bx0=al==='left'?x2:al==='right'?x2-w:x2-w/2;return [bx0,y2-size*0.6,bx0+w,y2+size*0.6+(Lb.sub?fs*1.05:0)];}
+    var b=boxOf(Lb);
+    if(!free(b)&&DOCL){
+      /* carte-document : avant de renoncer à un nom, on essaie les autres côtés du point */
+      var sh=Lb.sub?fs*1.05:0,alt=Lb.nomark?[{dx:Lb.dx||0,dy:(Lb.dy||0)-size*1.5-sh,al:Lb.al},{dx:Lb.dx||0,dy:(Lb.dy||0)+size*1.5+sh,al:Lb.al}]
+        :[{dx:10,dy:0,al:'left'},{dx:-10,dy:0,al:'right'},{dx:0,dy:-(size*0.6+sh+10),al:'center'},{dx:0,dy:size*0.6+10,al:'center'},{dx:10,dy:-(size*0.6+sh+4),al:'left'},{dx:-10,dy:size*0.6+8,al:'right'}];
+      for(var ai=0;ai<alt.length;ai++){var b2=boxOf(alt[ai]);if(free(b2)){var c={},kk;for(kk in Lb)c[kk]=Lb[kk];c.dx=alt[ai].dx;c.dy=alt[ai].dy;c.al=alt[ai].al;Lb=c;b=b2;break;}}
+    }
     if(!free(b))return;
+    if(gone(Lb)&&anch.some(function(a){return Math.hypot(a[0]-q[0],a[1]-q[1])<16;}))return;   /* remplacé depuis par un autre nom au même endroit */
+    anch.push(q);
     seen[Lb.text]=1;LTXT.push(Lb.text);boxes.push(b);if(!Lb.nomark)boxes.push([q[0]-5,q[1]-5,q[0]+5,q[1]+5]);
     drawOneLabel(Lb,1,fs);
   });
@@ -670,14 +683,20 @@ function drawGeoLines(){
   ctx.beginPath();path(GREEN);ctx.setLineDash([2,5]);ctx.strokeStyle=TH.line;ctx.stroke();
   ctx.restore();
 }
-function drawNames(){
+function drawNames(avoid,txt){
   if(camNow.z>5)return;
+  var low=(txt||[]).map(function(t){return String(t).toLowerCase();});
   var fs=clamp(W/46,10.5,15);
   ctx.save();ctx.textAlign='center';ctx.textBaseline='middle';ctx.lineJoin='round';
   NAMES.forEach(function(n){
     var p=[n[1],n[2]];if(hidden(p,1.25))return;
     var q=projection(p);if(!q||q[0]<40||q[0]>W-40||q[1]<14||q[1]>H-14)return;
     ctx.font=(n[3]?'italic 400 ':'700 ')+fs+'px '+FONT;
+    if(avoid){   /* carte-document : pas de repère par-dessus un nom du chapitre, ni en double */
+      if(low.indexOf(n[0].toLowerCase())>=0)return;
+      var hw=ctx.measureText(n[0]).width/2+4,bb=[q[0]-hw,q[1]-fs*0.7,q[0]+hw,q[1]+fs*0.7];
+      if(avoid.some(function(o){return bb[0]<o[2]&&bb[2]>o[0]&&bb[1]<o[3]&&bb[3]>o[1];}))return;
+    }
     ctx.strokeStyle=TH.halo;ctx.lineWidth=3;ctx.strokeText(n[0],q[0],q[1]);
     ctx.fillStyle=n[3]?TH.ocean:TH.cont;ctx.fillText(n[0],q[0],q[1]);
   });
@@ -686,6 +705,9 @@ function drawNames(){
 /* repères au zoom : communes de Nouvelle-Calédonie (limites entre communes + noms), dès que la Grande Terre est assez grande à l'écran.
    Communes ACTUELLES (Géorep, BDADMIN-NC) : sur une carte du passé, ce sont des repères pour se situer. */
 var COMG=null,COMSEEN=false,FULLR=false;
+/* DOCL : carte-document (enquête, PDF, Word). C'est une carte de bilan : les noms qui ont disparu en cours d'animation y reviennent
+   (s'il reste de la place, et jamais par-dessus le nom qui les a remplacés), avec les continents et les océans. */
+var DOCL=false,SNAPN=[];   /* SNAPN : noms réellement écrits sur la dernière carte exportée (api.snapNames) */
 function comOn(){
   var C=window.NCG&&NCG.communes;if(!C||!opt.communes||BARE||KPX<9500)return null;
   if(d3.geoDistance(center,[165.9,-21.3])>0.07+0.75*Math.max(W,H)/KPX)return null;
@@ -831,8 +853,9 @@ function render(){
   if(opt.lines)drawGeoLines();
   if(!BARE)drawChLines(ch,tt);
   if(!BARE){(ch.routes||[]).forEach(function(rt){drawRoute(rt,tt,K);});if(!EXPORT)drawPulses(ch.pulses||[],tt,K);}
-  if(opt.names)drawNames();
+  if(opt.names&&!DOCL)drawNames();
   if(!BARE&&opt.labels&&tool!=='quiz'&&!HIDELAB)(EXPORT?drawLabelsX:drawLabels)(ch.labels||[],tt);else{LBOX=[];LTXT=[];}
+  if(DOCL&&!BARE)drawNames(LBOX,LTXT);
   if(tool!=='quiz'&&!HIDELAB){drawComNames();drawWorldRef();}
   if(!EXPORT)drawTools();
   if(opt.scale)drawScale();
@@ -1441,8 +1464,9 @@ function mapCanvas(ci,o){
   var keep={ci:cur.ci,t:cur.t,free:free,fly:flyFrom},ch=CH[ci],flat=projKindFor(ch)!=='globe';
   if(!o.current){cur.ci=ci;cur.t=o.t!=null?o.t:ch.dur;free=o.cam||null;flyFrom=null;}else{cur.t=ch.dur;flyFrom=null;}
   var cv;
-  try{cv=renderTo(o.w||(flat?820:650),o.h||(flat?546:650),2,o);}
-  finally{cur.ci=keep.ci;cur.t=keep.t;free=keep.free;flyFrom=keep.fly;render();}
+  DOCL=!!o.doc;
+  try{cv=renderTo(o.w||(flat?820:650),o.h||(flat?546:650),2,o);SNAPN=LTXT.slice();}
+  finally{DOCL=false;cur.ci=keep.ci;cur.t=keep.t;free=keep.free;flyFrom=keep.fly;render();}
   return cv;
 }
 function wrap(c,text,maxW){
@@ -1585,7 +1609,7 @@ function docCanvas(ci){
         if(dpts.some(function(p){var q=projection(p);return hidden(p,1.45)||!q||q[0]<2||q[0]>W-2||q[1]<2||q[1]>H-2;}))dcam.z=Math.max(zMin(),dcam.z*0.85);}
     }finally{cur.ci=kd.ci;cur.t=kd.t;free=kd.free;W=kd.W;H=kd.H;}
   }
-  var main=mapCanvas(ci,{labels:true,dark:false,cam:dcam||undefined});
+  var main=mapCanvas(ci,{labels:true,dark:false,cam:dcam||undefined,doc:true});
   /* position des zooms sur la carte principale (caméra de fin) */
   var keep={ci:cur.ci,t:cur.t,free:free,W:W,H:H,TH:TH};
   cur.ci=ci;cur.t=ch.dur;free=null;W=main.width/2;H=main.height/2;
@@ -1766,7 +1790,8 @@ A.api={vol:function(){return VOL;},chs:function(){return CH;},ci:function(){retu
   /* mode enquête (enquete.js) : jouer le chapitre, image de la carte en fin de chapitre, volets */
   play:function(){go(cur.ci,0,true);},
   snapDoc:function(ci){return docCanvas(ci).toDataURL('image/jpeg',0.88);},stops:camStops,
-  snap:function(ci,o){o=o||{};var cv=mapCanvas(ci,{labels:o.labels!==false,dark:o.dark!==false});return cv.toDataURL('image/jpeg',0.86);},
+  snap:function(ci,o){o=o||{};var cv=mapCanvas(ci,{labels:o.labels!==false,dark:o.dark!==false,doc:o.doc!==false});return cv.toDataURL('image/jpeg',0.86);},
+  snapNames:function(){return SNAPN.slice();},
   vols:function(){return VOLS;},volet:function(i,ci){setVolet(i,ci||0,false);},
   /* carte « Tout en même temps » (simul.js) : quitter le menu d'entrée, enregistrer un PDF de pages-canevas (A4 paysage) */
   leaveHome:function(){started=true;closeHome(true);},
