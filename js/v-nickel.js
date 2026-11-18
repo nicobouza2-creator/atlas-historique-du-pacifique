@@ -248,7 +248,7 @@ var CH=[
   r('aus',10,18,3,[[164.6,-20.4],[163.6,-18.5],[160.5,-12.5],[155.8,-7.6],[152.6,-4.2],[148,5],[140,17],[132,28],[128.6,32.8],[127.75,34.75]],{ship:true,sp:'mineralier'}),
   r('lap',19,25,2.6,[[165.5,-23.3],[157,-30],[140,-38],[118,-38],[100,-25],[80,-5],[60,8],[45,14],[33,30],[20,36],[5,38],[-2,46]],{ship:true,sp:'mineralier',dash:true})
  ],
- labels:[
+ labels:[L(20,110,-40,'vers l’Europe',{nomark:true}),
   L(1,165.5,-21.3,'Nouvelle-Calédonie',{nomark:true,gold:true,dx:12,dy:16,al:'left',zmax:12}),
   L(14,118.5,32,'Chine',{nomark:true,big:true,sub:'premier client du pays',zmax:6}),
   L(15,138.5,36.5,'Japon',{nomark:true,big:true,dx:10,al:'left',zmax:6}),

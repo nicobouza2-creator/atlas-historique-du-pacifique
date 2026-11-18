@@ -84,7 +84,7 @@ var CH=[
   Ph(44,'Deux pays se surveillent','Protestants anglais d’un côté, catholiques français de l’autre : l’Angleterre et la France s’intéressent toutes les deux à l’archipel.','eur')
  ],
  photos:[Sh('cook',1,7,'tr',2,'contain'),Sh('hodges',7,12,'bl',-2,'contain'),Sh('baleinier',21,29,'bl',-2),Sh('douarre',37,43,'tr',2,'contain'),Sh('balade1843',44,50,'bl',-2,'contain')],
- legend:[['eur','Cook (1774)'],['fra','d’Entrecasteaux (1792)'],['epi','Santaliers (dès 1841)'],['mis','Protestants (1841)'],['cat','Catholiques (1843)']],
+ legend:[['eur','Cook (1774)'],['fra','d’Entrecasteaux (1792–1793)'],['epi','Santaliers (dès 1841)'],['mis','Protestants (1841)'],['cat','Catholiques (1843)']],
  mots:[['Santal','Arbre au bois parfumé, vendu très cher en Chine.'],['Missionnaire','Personne envoyée pour faire connaître sa religion.'],['Épidémie','Maladie qui touche beaucoup de personnes en même temps.']],
  q:[['Qui est le premier Européen à aborder en Nouvelle-Calédonie ?','James Cook, à Balade, en septembre 1774.'],['Que viennent chercher les santaliers ?','Du bois de santal, pour le vendre en Chine.'],['Où s’installent les premiers missionnaires ?','Les protestants à Maré et Lifou (1841–1842), les catholiques à Balade (1843).']],
  wiki:['Histoire de la Nouvelle-Calédonie','Bois de santal','Guillaume Douarre'],
@@ -342,7 +342,7 @@ var CH=[
   Ph(54,'Aujourd’hui','La Nouvelle-Calédonie compte 264 596 habitants (recensement de 2025). Environ deux sur trois vivent dans le Grand Nouméa. Pour la première fois depuis 1946, la population a baissé entre deux recensements.','kan')
  ],
  photos:[Sh('noumea',56,64,'tr',2)],
- legend:[['afr','Province Nord'],['mis','Province Sud'],['xet','Province des îles Loyauté'],['pol','Arrivées du Pacifique (1950–1975)'],['kan','Départs vers Nouméa']],
+ legend:[['afr','Province Nord'],['mis','Province Sud'],['xet','Province des îles Loyauté'],['pol','Arrivées du Pacifique (1950–1975)'],['kan','Départs vers Nouméa'],['eur','Arrivées de France (« boom » du nickel)']],
  mots:[['Citoyen','Personne qui a les mêmes droits et les mêmes devoirs que les autres habitants de son pays, dont le droit de vote.'],['Province','L’une des trois grandes collectivités du pays : Nord, Sud, îles Loyauté.'],['Référendum','Vote où tous les électeurs répondent par oui ou par non à une question.'],['Recensement','Comptage de tous les habitants.']],
  q:[['Que change l’année 1946 pour les Kanak ?','L’indigénat est supprimé : ils deviennent citoyens.'],['Quelles sont les trois provinces ?','La province Nord, la province Sud et la province des îles Loyauté.'],['Combien d’habitants compte la Nouvelle-Calédonie en 2025 ?','264 596, dont environ deux sur trois dans le Grand Nouméa.']],
  wiki:['Accords de Matignon (1988)','Accord de Nouméa','Démographie de la Nouvelle-Calédonie','Provinces de la Nouvelle-Calédonie'],

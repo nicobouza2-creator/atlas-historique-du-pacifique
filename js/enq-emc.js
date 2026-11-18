@@ -39,7 +39,7 @@ P('La commune',[I('konemairie'),X('Le conseil municipal','Texte rédigé pour l�
  [W('Cite deux services rendus par la commune.','Les bâtiments des écoles et la cantine, les routes communales, l’état civil (naissances, mariages)…'),V('Le maire est élu directement par les habitants.',0,'Les habitants élisent le conseil municipal, qui élit ensuite le maire.')],
  'Les habitants élisent le conseil municipal pour 6 ans ; il élit le maire.'),
 P('Communes, départements, régions',M('Carte de l’atlas : les 13 régions de la métropole'),
- [Q('Combien y a-t-il de régions en France ?',['18','5','101']),R('Relie chaque région à son chef-lieu.',[['Bretagne','Rennes'],['Occitanie','Toulouse'],['Hauts-de-France','Lille']])],
+ [Q('Combien y a-t-il de régions en France ?',['18','5','101']),R('Relie chaque région à son chef-lieu, à l’aide de la carte.',[['Hauts-de-France','Lille'],['Nouvelle-Aquitaine','Bordeaux'],['Auvergne-Rhône-Alpes','Lyon']])],
  [O('Range du plus petit au plus grand territoire.',['La commune','Le département','La région','La France']),W('Pourquoi n’y a-t-il ni départements ni régions en Nouvelle-Calédonie ?','La Nouvelle-Calédonie a un statut particulier : ses 33 communes sont regroupées dans trois provinces, qui ont leurs propres compétences.')],
  'Près de 35 000 communes, 101 départements, 18 régions ; en Nouvelle-Calédonie : 33 communes et 3 provinces.'),
 P('À Paris, les institutions du pays',[I('elysee'),I('assemblee')],

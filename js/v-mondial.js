@@ -10,7 +10,7 @@ function WP(t){return cam(t,150,5,0.46);}
 /* bandes de latitude (deux moitiés pour éviter l’antiméridien) */
 function band(a,b){var out=[],h,lo;for(h=0;h<2;h++){var ring=[],l0=h?0:-180,l1=h?180:0;for(lo=l0;lo<=l1;lo+=10)ring.push([lo,a]);for(lo=l1;lo>=l0;lo-=10)ring.push([lo,b]);out.push(ring);}return out;}
 function bandZ(a,b,col,t0,al){return band(a,b).map(function(rg){return Rg(rg,col,t0,al,2);});}
-function line(t0,t1,lat,col){return r(col||'kan',t0,t1,1.6,[[-180,lat],[-60,lat],[60,lat],[180,lat]],{straight:true,dash:true,step:3});}
+function line(t0,t1,lat,col){return r(col||'kan',t0,t1,1.6,[[-180,lat],[-60,lat],[60,lat],[180,lat]],{straight:true,dash:true,step:3,nohead:true});}
 var NC=[165.6,-21.3];
 function ship(col,t0,t1,pts,o){o=o||{};o.ship=true;o.sp=o.sp||'conteneurs';return r(col,t0,t1,3,pts,o);}
 var ASIE_EUROPE=[[121.8,31],[123,25],[118,18],[109,10],[104.2,1.3],[103,1.5],[101.5,2.6],[99.5,4.7],[95,6],[80,6],[60,13],[48,12],[43.4,12.6],[41.5,15.2],[38.8,20],[36.6,24.2],[34.4,27.4],[33.2,28.8],[32.5,30.2],[32.3,31.4],[26,33.8],[20,34.6],[14.5,35.3],[11.3,37.4],[6,38],[1,37.3],[-2,36.1],[-5.6,36],[-10,37],[-11,42],[-8,46],[-6.3,48.6],[-2,50],[1.5,51],[4,52]];
@@ -25,7 +25,7 @@ var CH=[
  cam:[W(0),W(54)],
  zones:[],
  routes:[line(8,11,0,'pol'),line(10,13,23.44,'afr'),line(10.5,13.5,-23.44,'afr'),line(12,15,66.56,'mis'),line(12.5,15.5,-66.56,'mis'),
-  r('eur',16,19,1.6,[[0,-85],[0,0],[0,85]],{straight:true,dash:true,step:3})],
+  r('eur',16,19,1.6,[[0,-85],[0,0],[0,85]],{straight:true,dash:true,step:3,nohead:true})],
  labels:[
   L(1,19,8,'AFRIQUE',{nomark:true,big:true}),L(1.5,18,52,'EUROPE',{nomark:true,big:true}),L(2,92,46,'ASIE',{nomark:true,big:true}),
   L(2.5,-100,45,'AMÉRIQUE DU NORD',{nomark:true,big:true}),L(3,-60,-14,'AMÉRIQUE DU SUD',{nomark:true,big:true}),L(3.5,134,-25,'OCÉANIE',{nomark:true,big:true}),L(4,40,-78,'ANTARCTIQUE',{nomark:true,big:true}),
@@ -180,7 +180,7 @@ var CH=[
  zones:[],
  routes:[ship('mis',3,15,ASIE_EUROPE),ship('aus',8,16,PAC),ship('gbr',10,16,ATL),ship('lap',12,20,PANAMA),
   ship('zh',30,36,[[121.8,31],[130,10],[141,3],[152,-1],[160,-4.5],[164,-14],[166.4,-22.4]],{}),ship('fra',31,38,[[4,52],[1.5,51],[-2,50],[-6.3,48.6],[-8,46],[-11,42],[-10,37],[-14,30],[-20,10],[-10,-20],[20,-36],[60,-38],[110,-37],[132,-39.5],[142,-43],[149,-44.5],[156,-37],[163,-28],[166.4,-22.4]],{})],
- labels:[
+ labels:[L(19,98.3,4.6,'détroit de Malacca',{nomark:true,dx:-10,al:'right'}),
   L(4,121.8,31,'Shanghai',{mark:'port',sub:'1er port à conteneurs',dx:10,al:'left',gold:true}),L(5,103.8,1.3,'Singapour',{mark:'port',dx:-10,dy:10,al:'right'}),
   L(6,121.6,29.9,'Ningbo',{mark:'port',dx:10,dy:8,al:'left'}),L(14,4,52,'Rotterdam',{mark:'port',sub:'1er port d’Europe',dx:10,al:'left'}),
   L(16,-118.3,33.7,'Los Angeles',{mark:'port',dx:-10,al:'right'}),L(16.5,-74,40.5,'New York',{mark:'port',dx:10,al:'left'}),
@@ -198,7 +198,7 @@ var CH=[
   Ph(32,'Jusqu’à Nouméa','Les conteneurs arrivent à Nouméa depuis l’Asie et l’Europe, souvent après un transbordement dans un grand port (Singapour, Australie…).','fra')
  ],
  photos:[Sh('porteconteneurs',3,10,'tr',2),Sh('conteneurs',10,16,'bl',-2),Sh('suez',18,24,'tr',2),Sh('panama',24,28,'bl',-2),Sh('shanghaiport',26,32,'tr',2),Sh('rotterdam',32,38,'bl',-2)],
- legend:[['mis','Route Asie – Europe',1],['aus','Route transpacifique',1],['gbr','Route transatlantique',1],['lap','Par le canal de Panama',1],['mis','Grand port','port']],
+ legend:[['mis','Route Asie – Europe',1],['aus','Route transpacifique',1],['gbr','Route transatlantique',1],['lap','Par le canal de Panama',1],['mis','Grand port','port'],['zh','Vers Nouméa, depuis l’Asie',1]],
  mots:[['Conteneur','Grande boîte en métal de taille standard pour transporter des marchandises.'],['Détroit','Bras de mer étroit entre deux terres.'],['Canal','Voie d’eau creusée par les humains.'],['Transbordement','Passage des conteneurs d’un navire à un autre.']],
  q:[['Quelle part des marchandises voyage par la mer ?','Plus de 80 %.'],['Quel est le premier port à conteneurs du monde ?','Shanghai.'],['Quels canaux raccourcissent les routes maritimes ?','Le canal de Suez et le canal de Panama.'],['Que se passe-t-il si un détroit est bloqué ?','Les navires doivent faire un détour : le commerce ralentit et les prix montent.']],
  wiki:['Conteneur','Canal de Suez','Canal de Panama','Port de Shanghai'],
@@ -209,13 +209,13 @@ var CH=[
  cam:[W(0),W(36),cam(40,165,-22,4.5),cam(50,165,-22,4.5)],
  zones:[],
  routes:[
-  r('lap',3,9,2.6,[[-74,40.5],[-50,45],[-20,50],[-5,50]],{dash:true,sea:true}),r('lap',4,10,2.6,[[-74,40.5],[-40,30],[-9,38.7]],{dash:true,sea:true}),
-  r('lap',5,12,2.6,[[-122,37],[-150,30],[-180,32],[150,33],[140,35]],{dash:true,sea:true}),
-  r('lap',6,13,2.6,[[103.8,1.3],[103,1.5],[101.5,2.6],[99.5,4.7],[95,6],[85,5.2],[80,5],[60,13],[48,12],[43.4,12.6],[42.9,13.3],[42.4,14.3],[40.5,16.6],[38.8,20],[36.6,24.2],[34.4,27.4],[33.2,28.8],[32.5,30],[26,33.8],[20,34.6],[14.5,35.3],[11.3,37.4],[7,38.8],[5.5,42],[5.4,43.3]],{dash:true,sea:true}),
-  r('lap',7,13,2.6,[[151.2,-33.9],[175,-37],[-160,0],[-122,37]],{dash:true,sea:true}),
-  r('lap',8,13,2.6,[[-43,-23.5],[-39,-20.5],[-35,-12],[-31,-5],[-27,5],[-23,15],[-20,22],[-19.5,28.5],[-14,34],[-10.2,38.5],[-9,38.7]],{dash:true,sea:true}),
-  r('lap',9,13,2.6,[[18.4,-34],[15,-31],[11,-24],[10,-14],[7,-3],[3.4,5.5],[-3,3.8],[-9,4],[-15,9],[-18.5,13],[-17.8,14.7]],{dash:true,sea:true}),
-  r('lap',41,45,2.8,[[166.43,-22.32],[160,-27.5],[151.25,-33.85]],{dash:true,sea:true}),r('lap',42,46,2.8,[[166.47,-22.32],[172,-20.3],[178.44,-18.14]],{dash:true,sea:true})
+  r('lap',3,9,2.6,[[-74,40.5],[-50,45],[-20,50],[-5,50]],{dash:true,sea:true,nohead:true}),r('lap',4,10,2.6,[[-74,40.5],[-40,30],[-9,38.7]],{dash:true,sea:true,nohead:true}),
+  r('lap',5,12,2.6,[[-122,37],[-150,30],[-180,32],[150,33],[140,35]],{dash:true,sea:true,nohead:true}),
+  r('lap',6,13,2.6,[[103.8,1.3],[103,1.5],[101.5,2.6],[99.5,4.7],[95,6],[85,5.2],[80,5],[60,13],[48,12],[43.4,12.6],[42.9,13.3],[42.4,14.3],[40.5,16.6],[38.8,20],[36.6,24.2],[34.4,27.4],[33.2,28.8],[32.5,30],[26,33.8],[20,34.6],[14.5,35.3],[11.3,37.4],[7,38.8],[5.5,42],[5.4,43.3]],{dash:true,sea:true,nohead:true}),
+  r('lap',7,13,2.6,[[151.2,-33.9],[175,-37],[-160,0],[-122,37]],{dash:true,sea:true,nohead:true}),
+  r('lap',8,13,2.6,[[-43,-23.5],[-39,-20.5],[-35,-12],[-31,-5],[-27,5],[-23,15],[-20,22],[-19.5,28.5],[-14,34],[-10.2,38.5],[-9,38.7]],{dash:true,sea:true,nohead:true}),
+  r('lap',9,13,2.6,[[18.4,-34],[15,-31],[11,-24],[10,-14],[7,-3],[3.4,5.5],[-3,3.8],[-9,4],[-15,9],[-18.5,13],[-17.8,14.7]],{dash:true,sea:true,nohead:true}),
+  r('lap',41,45,2.8,[[166.43,-22.32],[160,-27.5],[151.25,-33.85]],{dash:true,sea:true,nohead:true}),r('lap',42,46,2.8,[[166.47,-22.32],[172,-20.3],[178.44,-18.14]],{dash:true,sea:true,nohead:true})
  ],
  labels:[L(10,-35,47,'câbles transatlantiques',{nomark:true}),L(11,-170,36,'câbles transpacifiques',{nomark:true}),L(12,70,8,'Asie – Europe',{nomark:true}),
   L(41,157,-29,'Gondwana-1 (2008)',{nomark:true}),L(42,173,-21.6,'Gondwana-2 (2022)',{nomark:true}),L(41,166.44,-22.3,'Nouméa',{mark:'ville',dx:-10,al:'right'})],
@@ -365,7 +365,7 @@ var CH=[
   Ph(46,'Changer d’échelle','Pour comprendre un lieu, on change d’échelle : la tribu ou le quartier, la commune, la Nouvelle-Calédonie, le Pacifique, le monde.','kan')
  ],
  photos:[Sh('noumeaport',26,34,'tr',2),Sh('tontouta',30,36,'bl',-2),Sh('conteneurs',14,22,'tr',2)],
- legend:[['zh','Exportations (surtout nickel) vers l’Asie'],['fra','Importations']],
+ legend:[['zh','Exportations (surtout nickel) vers la Chine'],['gbr','Exportations vers le Japon'],['aus','Exportations vers la Corée du Sud'],['fra','Importations']],
  mots:[['Exportation','Vente de produits à l’étranger.'],['Importation','Achat de produits à l’étranger.'],['Échelle','Taille de l’espace étudié : locale, régionale, mondiale.']],
  q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine.'],['Quel est son premier fournisseur ?','La France.'],['Citer trois portes d’entrée vers le monde.','Le port de Nouméa, l’aéroport de La Tontouta, les câbles internet.'],['Comment une crise mondiale peut-elle toucher le pays ?','Par le prix du nickel, du pétrole, ou la concurrence.']],
  wiki:['Mondialisation','Économie de la Nouvelle-Calédonie','Commerce international','Échelle (géographie)'],
