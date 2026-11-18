@@ -10,7 +10,7 @@ function WP(t){return cam(t,150,5,0.46);}
 /* bandes de latitude (deux moitiés pour éviter l’antiméridien) */
 function band(a,b){var out=[],h,lo;for(h=0;h<2;h++){var ring=[],l0=h?0:-180,l1=h?180:0;for(lo=l0;lo<=l1;lo+=10)ring.push([lo,a]);for(lo=l1;lo>=l0;lo-=10)ring.push([lo,b]);out.push(ring);}return out;}
 function bandZ(a,b,col,t0,al){return band(a,b).map(function(rg){return Rg(rg,col,t0,al,2);});}
-function line(t0,t1,lat,col){return r(col||'kan',t0,t1,1.6,[[-180,lat],[-60,lat],[60,lat],[180,lat]],{straight:true,dash:true,step:3,nohead:true});}
+function line(t0,t1,lat,col){var w=[],x;for(x=-180;x<=180;x+=5)w.push([x,lat]);/* un point tous les 5° : densify() suit des arcs de grand cercle, donc 4 points seulement faisaient monter les tropiques en arc */return r(col||'kan',t0,t1,1.6,w,{straight:true,dash:true,step:3,nohead:true});}
 var NC=[165.6,-21.3];
 function ship(col,t0,t1,pts,o){o=o||{};o.ship=true;o.sp=o.sp||'conteneurs';return r(col,t0,t1,3,pts,o);}
 var ASIE_EUROPE=[[121.8,31],[123,25],[118,18],[109,10],[104.2,1.3],[103,1.5],[101.5,2.6],[99.5,4.7],[95,6],[80,6],[60,13],[48,12],[43.4,12.6],[41.5,15.2],[38.8,20],[36.6,24.2],[34.4,27.4],[33.2,28.8],[32.5,30.2],[32.3,31.4],[26,33.8],[20,34.6],[14.5,35.3],[11.3,37.4],[6,38],[1,37.3],[-2,36.1],[-5.6,36],[-10,37],[-11,42],[-8,46],[-6.3,48.6],[-2,50],[1.5,51],[4,52]];

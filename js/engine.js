@@ -1598,13 +1598,16 @@ function docCam(ci){
   var ch=CH[ci],flat=projKindFor(ch)!=='globe';
   var dcam=null,dpts=[];
   (ch.routes||[]).forEach(function(rt){(rt.pts||[]).forEach(function(p){dpts.push(p);});});
+  /* ch.docLocal : carte-document centrée sur le lieu d'arrivée de la caméra ; les trajets lointains (Tahiti, Wallis…)
+     sortent du cadre au lieu de rétrécir la Nouvelle-Calédonie à quelques pixels */
+  if(ch.docLocal&&dpts.length>1){var ec=camAt(ci,ch.dur),cc=[ec.lon,ec.lat];dpts=dpts.filter(function(p){return d3.geoDistance(cc,p)<0.07;});}
   if(dpts.length>1){
     var kd={ci:cur.ci,t:cur.t,free:free,W:W,H:H,TH:TH,pk:projKind};
     try{
       cur.ci=ci;cur.t=ch.dur;free=null;W=flat?820:650;H=flat?546:650;
       if(projKindFor(ch)!==projKind)setProj(projKindFor(ch));
       applyCam(camAt(ci,ch.dur));
-      var cut=dpts.some(function(p){var q=projection(p);return hidden(p,1.45)||!q||q[0]<6||q[0]>W-6||q[1]<6||q[1]>H-6;});
+      var cut=ch.docLocal||dpts.some(function(p){var q=projection(p);return hidden(p,1.45)||!q||q[0]<6||q[0]>W-6||q[1]<6||q[1]>H-6;});
       if(cut){dcam=fitCam(dpts);applyCam(dcam);
         if(dpts.some(function(p){var q=projection(p);return hidden(p,1.45)||!q||q[0]<2||q[0]>W-2||q[1]<2||q[1]>H-2;}))dcam.z=Math.max(zMin(),dcam.z*0.85);}
     }finally{cur.ci=kd.ci;cur.t=kd.t;free=kd.free;W=kd.W;H=kd.H;}

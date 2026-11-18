@@ -308,7 +308,7 @@ var CH=[
  src:[['La Nouvelle-Calédonie dans les deux guerres mondiales — Chemins de mémoire (ministère des Armées)','https://www.cheminsdememoire.gouv.fr/en/new-caledonia-two-world-wars'],['1939-1945 : la Nouvelle-Calédonie dans le second conflit mondial — Musée de la Ville de Nouméa','https://www.noumea.nc/sites/default/files/lieux/musee-ville/1939-1945-nouvelle-caledonie-second-conflit-mondial.pdf'],['US Army, Pearl Harbor et la Nouvelle-Calédonie — ministère des Armées (communiqué de presse, 2024)','https://www.terre.defense.gouv.fr/sites/default/files/ccf/20240715_NP_CCF_BOC_NDR_us-army-pearl-harbor.pdf']]},
 
 /* 9 --------------------------------------------------------------- */
-{short:'De 1946 à aujourd’hui',col:'kan',dur:66,when:[1946,2026],dates:'1946 – 2026',
+{short:'De 1946 à aujourd’hui',col:'kan',dur:66,docLocal:true,when:[1946,2026],dates:'1946 – 2026',
  cam:[nc(0),cam(10,-176,-17,2),cam(20,-176,-17,2),nc(25),nc(66)],
  zones:[
   ext(Rg(GT,'kan',1,0.5,1),{t2:28,t3:31}),ext(Lz(LOY,'kan',1,0.5,1),{t2:28,t3:31}),
