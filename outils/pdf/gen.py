@@ -38,22 +38,20 @@ def doc_flow(d, vol, ci, ch, two):
         im = IMG[d['id']]; return [Photo(imgpath(d['id']), d.get('cap') or im['c'], im['r'], mh, rng(d['id']).choice([-1.2, 0.8, 1.1, -0.7]))]
     if k == 'map':
         return [MapDoc('/home/claude/dossiers/cartes/%s-%d.jpg' % (vol, ci), d.get('cap') or 'Carte de l’atlas : « %s »' % ch['short'],
-                       NOMT(vol) + ' · fonds de carte Natural Earth (domaine public), Géorep (gouvernement de la Nouvelle-Calédonie)', 118 * mm if two else 222 * mm)]
+                       NOMT(vol) + ' · fonds de carte Natural Earth (domaine public), Géorep (gouvernement de la Nouvelle-Calédonie)', 118 * mm if two else 205 * mm)]
     if k == 'txt':
         src = d.get('src', '').lower()
         badge = 'PERSONNAGE FICTIF' if 'fictif' in src else ('RECONSTITUTION PÉDAGOGIQUE' if 'reconstitution' in src else '')
-        out = [Sheet('archive', d['t'], d['txt'], d.get('src', ''), badge)]
-        if d.get('tp'): out = [KeepTogether(out + [Spacer(1, 3 * mm), Sticky('Note de l’enquêteur : la même chose, en plus court', d['tp'])])]
-        return out
+        return [Glue([], Sheet('archive', d['t'], d['txt'], d.get('src', ''), badge),
+                     [Spacer(1, 3 * mm), Sticky('Note de l’enquêteur : la même chose, en plus court', d['tp'])] if d.get('tp') else [])]
     if k == 'tab': return ledger(d['t'], d['cols'], d['rows'], d.get('src'), FW)
-    if k == 'frise': return timeline(d['t'], d['items'], FW)
+    if k == 'frise': t_ = timeline(d['t'], d['items'], FW); return [KeepTogether(t_ if isinstance(t_, list) else [t_])]
     return []
 
 def extra_flow(e):
     if e['kind'] == 'formulaire': return form_block(e)
-    out = [Sheet(e['kind'], e['t'], e['txt'], e['src'], 'PERSONNAGE FICTIF' if 'fictif' in e['src'].lower() else '')]
-    if e.get('tp'): out = [KeepTogether(out + [Spacer(1, 3 * mm), Sticky('En mots simples', e['tp'])])]
-    return out
+    return [Glue([], Sheet(e['kind'], e['t'], e['txt'], e['src'], 'PERSONNAGE FICTIF' if 'fictif' in e['src'].lower() else ''),
+                 [Spacer(1, 3 * mm), Sticky('En mots simples', e['tp'])] if e.get('tp') else [])]
 
 # ---------- questions sur papier ----------
 def qpaper(q, n, key, corr, title=None, head=None):

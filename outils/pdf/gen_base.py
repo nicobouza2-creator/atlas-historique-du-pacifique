@@ -77,6 +77,9 @@ class Photo(Flowable):
     def wrap(self, w, h):
         iw = min(w * 0.86, self.maxh * self.ar); ih = iw / self.ar
         if ih > self.maxh: ih = self.maxh; iw = ih * self.ar
+        self.pc = Paragraph(esc(self.cap) + '<br/><font name="AtkI" size="8.3" color="#5b6470">' + esc(self.cred) + '</font>', ST['cap'])
+        dispo = h - self.pc.wrap(iw, 50 * mm)[1] - 17 * mm   # la photo rétrécit pour tenir dans la page (jamais en dessous de 65 %)
+        if ih > dispo >= 0.55 * ih: ih = dispo; iw = ih * self.ar
         self.iw, self.ih, self.w = iw, ih, w
         self.pc = Paragraph(esc(self.cap) + '<br/><font name="AtkI" size="8.3" color="#5b6470">' + esc(self.cred) + '</font>', ST['cap'])
         self.pch = self.pc.wrap(iw, 50 * mm)[1]; self.h = ih + self.pch + 16 * mm; return (w, self.h)
@@ -102,6 +105,8 @@ class MapDoc(Flowable):
         self.pch = self.pc.wrap(w, 40 * mm)[1]
         iw = w - 4 * mm; ih = iw / self.ar
         if ih > self.maxh: ih = self.maxh; iw = ih * self.ar
+        dispo = h - self.pch - 9 * mm   # place restante : la carte rétrécit pour tenir (jamais en dessous de 60 % de sa taille)
+        if ih > dispo >= 0.55 * ih: ih = dispo; iw = ih * self.ar
         self.iw, self.ih, self.w = iw, ih, w; self.h = ih + self.pch + 8 * mm; return (w, self.h)
     def draw(self):
         c = self.canv; x = (self.w - self.iw) / 2; y = self.pch + 4 * mm
@@ -111,18 +116,37 @@ class MapDoc(Flowable):
 
 class Sheet(Flowable):
     """Document papier : carnet, lettre, tapuscrit, fiche, officiel, archive."""
-    def __init__(self, kind, title, text, src='', badge=''):
-        Flowable.__init__(self); self.kind, self.title, self.text, self.src, self.badge = kind, title, text, src, badge
+    def __init__(self, kind, title, text, src='', badge='', ps=None):
+        Flowable.__init__(self); self.kind, self.title, self.text, self.src, self.badge, self._ps = kind, title, text, src, badge, ps
     def wrap(self, w, h):
         k = self.kind; self.w = w; pad = 9 * mm; left = pad + (10 * mm if k == 'carnet' else 0)
         st = {'carnet': ST['hand'], 'lettre': ST['fell'], 'tapuscrit': ST['type'], 'officiel': ST['type']}.get(k, ST['card'])
         font = st.fontName; self.left = left; iw = w - left - pad
-        self.ps = [Paragraph(esc(p, font), st) for p in str(self.text).split('\n') if p.strip()]
+        self.ps = self._ps if self._ps is not None else [Paragraph(esc(p, font), st) for p in str(self.text).split('\n') if p.strip()]
         self.hs = [p.wrap(iw, 300 * mm)[1] for p in self.ps]
         self.pt = Paragraph(esc(self.title), S('st', 'AtkB', 12.5, 15, BROWN if k != 'fiche' else INK)); self.th = self.pt.wrap(iw, 40 * mm)[1]
         self.psrc = Paragraph(esc(self.src), ST['src']); self.sh = self.psrc.wrap(iw, 30 * mm)[1] if self.src else 0
         gap = 3.2 * mm; self.h = 9 * mm + self.th + 4 * mm + sum(self.hs) + gap * (len(self.ps) - 1) + (self.sh + 4 * mm) + 7 * mm
         self.gap = gap; return (w, self.h)
+    def split(self, aW, aH):
+        """Coupe le document entre deux lignes (au moins 2 lignes de chaque côté) pour remplir la page, au lieu de le renvoyer en entier à la suivante."""
+        self.wrap(aW, aH); iw = aW - self.left - 9 * mm
+        budget = aH - (9 * mm + self.th + 4 * mm) - 11 * mm; used = 0; first = []; rest = []
+        for i, (p, ph) in enumerate(zip(self.ps, self.hs)):
+            need = ph + (self.gap if first else 0)
+            if used + need <= budget: first.append(p); used += need; continue
+            room = budget - used - (self.gap if first else 0)
+            cut = p.split(iw, room) if room > 2 * p.style.leading else []
+            if len(cut) == 2:
+                cut[0].wrap(iw, 300 * mm); cut[1].wrap(iw, 300 * mm)
+                if len(cut[0].blPara.lines) >= 2 and len(cut[1].blPara.lines) >= 2: first.append(cut[0]); rest = [cut[1]] + self.ps[i + 1:]; break
+            rest = self.ps[i:]; break
+        if not first or not rest:
+            if first and not rest: return []
+            if not first: return []
+        a = Sheet(self.kind, self.title, '', '', self.badge, ps=first)
+        b = Sheet(self.kind, self.title + ' (suite)', '', self.src, '', ps=rest)
+        return [a, b]
     def draw(self):
         c = self.canv; k = self.kind; w, h = self.w, self.h
         bg = {'lettre': '#f2e4c4', 'carnet': '#fdfcf5', 'tapuscrit': '#ffffff', 'officiel': '#ffffff', 'fiche': '#ffffff', 'archive': '#f6f1e4'}.get(k, '#ffffff')
@@ -188,3 +212,46 @@ def timeline(title, items, w):
                            ('LEFTPADDING', (1, 0), (1, -1), 10), ('TOPPADDING', (0, 0), (-1, -1), 6), ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
                            ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor('#f8f3e6'))]))
     return [Paragraph(esc(title), S('ft', 'AtkB', 12.5, 15, BROWN)), Spacer(1, 3 * mm), t]
+
+
+class Block(Flowable):
+    """Plusieurs éléments collés (étiquette de pièce + premier document) : le dernier (photo, carte) rétrécit pour tenir dans la page restante."""
+    def __init__(self, items): Flowable.__init__(self); self.items = items
+    def wrap(self, w, h):
+        self.w = w; self.pos = []; used = 0
+        for k, f in enumerate(self.items):
+            last = k == len(self.items) - 1
+            fw, fh = f.wrap(w, (h - used) if last else h)
+            self.pos.append((f, fh)); used += fh
+        self.h = used; return (w, used)
+    def draw(self):
+        y = self.h
+        for f, fh in self.pos:
+            y -= fh; f.drawOn(self.canv, 0, y)
+
+
+class Glue(Flowable):
+    """Étiquette de pièce + document + note : le document peut se couper (Sheet.split) mais l'étiquette reste toujours avec ses premières lignes."""
+    def __init__(self, head, body, tail=None): Flowable.__init__(self); self.head, self.body, self.tail = list(head), body, list(tail or [])
+    def _wrap_all(self, w, h):
+        self.w = w; self.hh = []; used = 0
+        for f in self.head: fw, fh = f.wrap(w, h); self.hh.append(fh); used += fh
+        self.bh = self.body.wrap(w, h - used)[1] if self.body is not None else 0; used += self.bh
+        self.th = []
+        for f in self.tail: fw, fh = f.wrap(w, h); self.th.append(fh); used += fh
+        self.h = used; return used
+    def wrap(self, w, h): return (w, self._wrap_all(w, h))
+    def split(self, aW, aH):
+        tot = self._wrap_all(aW, aH)
+        if self.body is None or not hasattr(self.body, 'split'): return []
+        room = aH - sum(self.hh)
+        if room < 25 * mm: return []
+        lim = min(room, self.bh - 18 * mm) if self.bh <= room else room   # le corps tient mais pas la note : on laisse au moins 18 mm pour la suite
+        r = self.body.split(aW, lim)
+        if len(r) != 2: return []
+        return [Glue(self.head, r[0]), Glue([], r[1], self.tail)]
+    def draw(self):
+        y = self.h
+        for f, fh in zip(self.head, self.hh): y -= fh; f.drawOn(self.canv, 0, y)
+        if self.body is not None: y -= self.bh; self.body.drawOn(self.canv, 0, y)
+        for f, fh in zip(self.tail, self.th): y -= fh; f.drawOn(self.canv, 0, y)
