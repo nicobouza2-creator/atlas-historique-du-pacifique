@@ -87,6 +87,8 @@ def story(vol, ci, book):
         for dd in ds: fl += doc_flow(dd, vol, ci, ch, len(ds) > 1) + [Spacer(1, 4 * mm)]
         if isinstance(fl[3], (Photo, MapDoc)): sto += [CondPageBreak(75 * mm), Block(fl[:4])] + fl[4:] + [Spacer(1, 4 * mm)]
         elif isinstance(fl[3], Glue): g_ = fl[3]; sto += [CondPageBreak(60 * mm), Glue(fl[:3] + g_.head, g_.body, g_.tail)] + fl[4:] + [Spacer(1, 4 * mm)]
+        elif isinstance(fl[3], KeepTogether):   # frise en premier document : un KeepTogether dans un KeepTogether saute toujours de page, on met son contenu à plat
+            sto += [CondPageBreak(60 * mm), KeepTogether(fl[:3] + list(fl[3]._content) + fl[4:5])] + fl[5:] + [Spacer(1, 4 * mm)]
         else: sto += [CondPageBreak(95 * mm), KeepTogether(fl[:3] + fl[3:5])] + fl[5:] + [Spacer(1, 4 * mm)]
     ef = extra_flow(ex); hd = [Anchor('p%d' % n_ex, book), PieceTag(n_ex, ex['t']), Spacer(1, 3 * mm)]
     if isinstance(ef[0], Glue): sto += [CondPageBreak(60 * mm), Glue(hd, ef[0].body, ef[0].tail), Spacer(1, 6 * mm)]
