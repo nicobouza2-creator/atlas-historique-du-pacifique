@@ -91,7 +91,7 @@ var CH=[
  cam:[{t:0,lon:20,lat:4,z:0.95},{t:24,lon:22,lat:6,z:0.95},{t:32,lon:28,lat:14,z:1.1},{t:40,lon:28,lat:14,z:1.1}],
  zones:[Rg(AFRICA,'afr',2,0.6,1,{c:[20,3],r0:1,r1:52,d:9})],
  routes:[r('afr',29,35,2.6,[[32,25],[33.5,29.5],[35,32.5]],{dash:true})],
- labels:[
+ labels:[L(31,37,37.5,'Proche-Orient',{nomark:true}),
   L(4,-8.9,31.9,'Jebel Irhoud (Maroc)',{sub:'environ 300 000 ans',mark:'site',dx:10,dy:-6,al:'left'}),
   L(7,26.07,-28.77,'Florisbad (Afrique du Sud)',{sub:'environ 260 000 ans',mark:'site',dx:10,dy:-6,al:'left'}),
   L(9,35.9,5.4,'Omo (Éthiopie)',{sub:'environ 230 000 ans',mark:'site',dx:10,al:'left'}),
@@ -130,7 +130,7 @@ var CH=[
   r('afr',38,45,3,[[103,12],[107,20],[112,27],[116,34],[116,39.5]]),
   r('afr',42,48,2.6,[[117,38],[124,38],[129,34],[136,35.5]])
  ],
- labels:[
+ labels:[L(1,21,3,'Afrique',{nomark:true}),L(9,46,22,'Arabie',{nomark:true}),L(15,78,21,'Inde',{nomark:true}),
   L(2,43.3,12.6,'Bab-el-Mandeb',{sub:'détroit de la mer Rouge',dx:-10,dy:10,al:'right',end:15}),
   L(11,36,33.5,'Proche-Orient',{nomark:true,dy:-12,end:26}),
   L(19,108,0,'Sunda',{sub:'Asie du Sud-Est réunie',nomark:true}),
@@ -308,7 +308,7 @@ var CH=[
   Ph(40,'Jusqu’au bout du continent','En quelques milliers d’années, les humains atteignent le sud du Chili, le Brésil et la Terre de Feu. Puis la mer remonte : la Béringie disparaît sous l’eau.','ame')
  ],
  photos:[Sh('whitesands',19,28,'bl',-2),Sh('clovis',31,39,'tr',2,'contain')],
- legend:[['ame','Route de la côte'],['kan','Couloir libre de glace'],['ice','Calottes de glace'],['sand','Béringie (à sec à cette époque)']],
+ legend:[['ame','Route de la côte'],['kan','Couloir libre de glace'],['ice','Calottes de glace'],['sand','Béringie (à sec à cette époque)'],['afr','Depuis la Sibérie, par la Béringie']],
  mots:[['Béringie','Terre aujourd’hui sous la mer, qui reliait la Sibérie à l’Alaska pendant la glaciation.'],['Calotte glaciaire','Immense couche de glace, épaisse de plusieurs kilomètres, posée sur un continent.'],['Amérindiens','Descendants des premiers habitants de l’Amérique.']],
  q:[['Par où les premiers humains arrivent-ils en Amérique ?','Par la Béringie, entre la Sibérie et l’Alaska.'],['Pourquoi les empreintes de White Sands sont-elles importantes ?','Elles montrent que des humains étaient en Amérique il y a plus de 20 000 ans, plus tôt qu’on ne le pensait.'],['Quel est le dernier continent atteint à pied par Homo sapiens ?','L’Amérique.']],
  wiki:['Premier peuplement de l\'Amérique','Béringie','Culture Clovis'],
@@ -351,7 +351,7 @@ var CH=[
   Ph(51,'Un lien avec le Pacifique','De Chine, des cultivateurs gagnent Taïwan. Leurs descendants, les Austronésiens, peupleront le Pacifique jusqu’à la Nouvelle-Calédonie.','aus')
  ],
  photos:[Sh('gobekli',4,11,'tl',-2),Sh('ble',12,20,'tl',-2,'contain'),Sh('teosinte',27,34,'bl',-2,'contain'),Sh('carnac',44,50,'bl',-2)],
- legend:[['neo','Foyers d’invention de l’agriculture'],['kan','Diffusion par les migrations de paysans']],
+ legend:[['neo','Foyers d’invention de l’agriculture'],['kan','Diffusion par les migrations de paysans'],['aus','Austronésiens : de Taïwan vers le Pacifique']],
  mots:[['Néolithique','« Âge de la pierre nouvelle » : époque où les humains deviennent agriculteurs et éleveurs.'],['Domestiquer','Transformer peu à peu une plante ou un animal sauvage pour le cultiver ou l’élever.'],['Sédentaire','Qui vit toute l’année au même endroit. Le contraire de nomade.'],['Foyer','Région où une invention apparaît avant de se répandre.']],
  q:[['Où l’agriculture apparaît-elle en premier ?','Dans le Croissant fertile, au Proche-Orient, vers 9500 av. J.-C.'],['L’agriculture a-t-elle été inventée une seule fois ?','Non : plusieurs fois, dans des régions qui ne se connaissaient pas (Chine, Amérique, Nouvelle-Guinée, Afrique…).'],['Quelle plante a été domestiquée en Nouvelle-Guinée, tout près de chez nous ?','Le taro (et la banane).']],
  wiki:['Néolithique','Révolution néolithique','Croissant fertile','Ancien site agricole de Kuk'],
@@ -407,7 +407,7 @@ var CH=[
   Ph(52,'Des îles vides jusqu’aux Grandes Découvertes','Madère, les Açores, La Réunion ou Maurice n’avaient aucun habitant avant l’arrivée des Européens. L’Antarctique n’a toujours pas d’habitants permanents.','vide')
  ],
  photos:[Sh('anse',14,23,'bl',-2),Sh('viking',17,24,'tr',2),Sh('mada',26,35,'tl',-2),Sh('hokulea',39,45,'tr',2),Sh('moai',45,51,'bl',-2)],
- legend:[['late','Peuples de l’Arctique'],['eur','Vikings'],['aus','Austronésiens'],['pol','Lapita et Polynésiens']],
+ legend:[['late','Peuples de l’Arctique'],['eur','Vikings'],['aus','Austronésiens'],['pol','Lapita et Polynésiens'],['lap','Lapita (vers la Nouvelle-Calédonie)'],['afr','Depuis l’Afrique, vers Madagascar']],
  mots:[['Inuits','Peuple de l’Arctique (Alaska, Canada, Groenland).'],['Vikings','Marins et guerriers scandinaves du Moyen Âge.'],['Terre inhabitée','Terre où aucun humain ne vit.']],
  q:[['Quelle est la dernière grande terre peuplée par les humains ?','Aotearoa (la Nouvelle-Zélande), vers 1250–1300.'],['D’où viennent les premiers habitants de Madagascar ?','De Bornéo, en Asie du Sud-Est : ce sont des Austronésiens, comme les Lapita.'],['Qui atteint l’Amérique 500 ans avant Christophe Colomb ?','Les Vikings, vers l’an 1000.']],
  wiki:['Colonisation viking des Amériques','Histoire de Madagascar','Peuplement de l\'Océanie','L\'Anse aux Meadows'],

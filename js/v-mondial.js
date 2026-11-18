@@ -180,7 +180,7 @@ var CH=[
  zones:[],
  routes:[ship('mis',3,15,ASIE_EUROPE),ship('aus',8,16,PAC),ship('gbr',10,16,ATL),ship('lap',12,20,PANAMA),
   ship('zh',30,36,[[121.8,31],[130,10],[141,3],[152,-1],[160,-4.5],[164,-14],[166.4,-22.4]],{}),ship('fra',31,38,[[4,52],[1.5,51],[-2,50],[-6.3,48.6],[-8,46],[-11,42],[-10,37],[-14,30],[-20,10],[-10,-20],[20,-36],[60,-38],[110,-37],[132,-39.5],[142,-43],[149,-44.5],[156,-37],[163,-28],[166.4,-22.4]],{})],
- labels:[
+ labels:[L(19,98.3,4.6,'détroit de Malacca',{nomark:true,dx:-10,al:'right'}),
   L(4,121.8,31,'Shanghai',{mark:'port',sub:'1er port à conteneurs',dx:10,al:'left',gold:true}),L(5,103.8,1.3,'Singapour',{mark:'port',dx:-10,dy:10,al:'right'}),
   L(6,121.6,29.9,'Ningbo',{mark:'port',dx:10,dy:8,al:'left'}),L(14,4,52,'Rotterdam',{mark:'port',sub:'1er port d’Europe',dx:10,al:'left'}),
   L(16,-118.3,33.7,'Los Angeles',{mark:'port',dx:-10,al:'right'}),L(16.5,-74,40.5,'New York',{mark:'port',dx:10,al:'left'}),
@@ -198,7 +198,7 @@ var CH=[
   Ph(32,'Jusqu’à Nouméa','Les conteneurs arrivent à Nouméa depuis l’Asie et l’Europe, souvent après un transbordement dans un grand port (Singapour, Australie…).','fra')
  ],
  photos:[Sh('porteconteneurs',3,10,'tr',2),Sh('conteneurs',10,16,'bl',-2),Sh('suez',18,24,'tr',2),Sh('panama',24,28,'bl',-2),Sh('shanghaiport',26,32,'tr',2),Sh('rotterdam',32,38,'bl',-2)],
- legend:[['mis','Route Asie – Europe',1],['aus','Route transpacifique',1],['gbr','Route transatlantique',1],['lap','Par le canal de Panama',1],['mis','Grand port','port']],
+ legend:[['mis','Route Asie – Europe',1],['aus','Route transpacifique',1],['gbr','Route transatlantique',1],['lap','Par le canal de Panama',1],['mis','Grand port','port'],['zh','Vers Nouméa, depuis l’Asie',1]],
  mots:[['Conteneur','Grande boîte en métal de taille standard pour transporter des marchandises.'],['Détroit','Bras de mer étroit entre deux terres.'],['Canal','Voie d’eau creusée par les humains.'],['Transbordement','Passage des conteneurs d’un navire à un autre.']],
  q:[['Quelle part des marchandises voyage par la mer ?','Plus de 80 %.'],['Quel est le premier port à conteneurs du monde ?','Shanghai.'],['Quels canaux raccourcissent les routes maritimes ?','Le canal de Suez et le canal de Panama.'],['Que se passe-t-il si un détroit est bloqué ?','Les navires doivent faire un détour : le commerce ralentit et les prix montent.']],
  wiki:['Conteneur','Canal de Suez','Canal de Panama','Port de Shanghai'],
@@ -365,7 +365,7 @@ var CH=[
   Ph(46,'Changer d’échelle','Pour comprendre un lieu, on change d’échelle : la tribu ou le quartier, la commune, la Nouvelle-Calédonie, le Pacifique, le monde.','kan')
  ],
  photos:[Sh('noumeaport',26,34,'tr',2),Sh('tontouta',30,36,'bl',-2),Sh('conteneurs',14,22,'tr',2)],
- legend:[['zh','Exportations (surtout nickel) vers l’Asie'],['fra','Importations']],
+ legend:[['zh','Exportations (surtout nickel) vers la Chine'],['gbr','Exportations vers le Japon'],['aus','Exportations vers la Corée du Sud'],['fra','Importations']],
  mots:[['Exportation','Vente de produits à l’étranger.'],['Importation','Achat de produits à l’étranger.'],['Échelle','Taille de l’espace étudié : locale, régionale, mondiale.']],
  q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine.'],['Quel est son premier fournisseur ?','La France.'],['Citer trois portes d’entrée vers le monde.','Le port de Nouméa, l’aéroport de La Tontouta, les câbles internet.'],['Comment une crise mondiale peut-elle toucher le pays ?','Par le prix du nickel, du pétrole, ou la concurrence.']],
  wiki:['Mondialisation','Économie de la Nouvelle-Calédonie','Commerce international','Échelle (géographie)'],

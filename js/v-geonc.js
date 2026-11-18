@@ -189,7 +189,7 @@ var CH=[
   air('fra',21,26,[168.3,-17.7]),air('fra',21.5,26.5,[183.8,-13.3]),air('fra',22,27,[210.4,-17.55]),air('fra',23,29,[103.8,1.35]),air('fra',23.5,29.5,[100.75,13.69]),
   r('lap',32,37,2.4,[[166.43,-22.32],[160,-27.5],[151.25,-33.85]],{dash:true,sea:true,nohead:true}),r('lap',33,38,2.4,[[166.47,-22.32],[172,-20.3],[178.44,-18.14]],{dash:true,sea:true,nohead:true})
  ],
- labels:[
+ labels:[L(6.5,165.08,-20.9,'Koné – Tiwaka',{sub:'route transversale',nomark:true,dy:-14,zmin:12,zmax:30}),
   L(4,164.8,-21.5,'RT1',{nomark:true,gold:true,zmin:12,zmax:30}),
   L(7,165.15,-20.7,'Koné–Tiwaka',{nomark:true,dx:8,al:'left',zmin:12,zmax:30}),
   at('noumea',10,'Port de Nouméa',{mark:'port',dx:-10,dy:8,al:'right',zmin:12,zmax:30}),
@@ -221,7 +221,7 @@ var CH=[
  cam:[nc(0),nc(58)],
  zones:[Rg(GT,'kan',-5,0.3,0.01),Lz(LOY,'kan',-5,0.3,0.01),Rg(OUESTPL,'neo',8,0.45,2)].concat(massifs(2,0.5)),
  routes:[r('mis',40,46,2.6,[[160,-30],[164,-25.5],[166.4,-22.4]],{dash:true,sea:true}),r('mis',40.5,46.5,2.6,[[150,-14],[160,-17.5],[166.3,-22.2]],{dash:true,sea:true})],
- labels:[
+ labels:[L(40,161.3,-28.4,'depuis l’Australie',{nomark:true}),L(40.5,152.6,-15.3,'depuis l’Asie',{nomark:true}),
   L(3,166.7,-21.95,'mines de nickel',{nomark:true,dx:8,al:'left'}),
   L(9,165.3,-21.5,'élevage, cultures',{nomark:true,sub:'plaines de l’Ouest',al:'right',dx:-6}),
   L(19,165.45,-21.75,'fermes de crevettes',{nomark:true,al:'right'}),

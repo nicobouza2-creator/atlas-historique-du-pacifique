@@ -1592,10 +1592,10 @@ function camStops(ci){
   if(out.length>4){out.sort(function(x,y){return y.len-x.len;});out=out.slice(0,4);}
   return out.sort(function(x,y){return x.t-y.t;});
 }
-function docCanvas(ci){
-  var ch=CH[ci],PW=1640,DISP='"Bricolage Grotesque","Trebuchet MS",sans-serif',INK='#12202e';
-  var flat=projKindFor(ch)!=='globe',stops=camStops(ci),parts=[],COM0=COMSEEN=false;
-  /* Cadrage de la carte principale : caméra de fin, sauf si elle coupe un tracé — alors on cadre tous les tracés du chapitre. */
+/* Cadrage d'une carte-document : caméra de fin, sauf si elle coupe un tracé — alors on cadre tous les tracés du chapitre.
+   Sert à la planche des dossiers (docCanvas) et à la carte montrée dans l'enquête à l'écran (api.snap) : la même carte des deux côtés. */
+function docCam(ci){
+  var ch=CH[ci],flat=projKindFor(ch)!=='globe';
   var dcam=null,dpts=[];
   (ch.routes||[]).forEach(function(rt){(rt.pts||[]).forEach(function(p){dpts.push(p);});});
   if(dpts.length>1){
@@ -1609,6 +1609,12 @@ function docCanvas(ci){
         if(dpts.some(function(p){var q=projection(p);return hidden(p,1.45)||!q||q[0]<2||q[0]>W-2||q[1]<2||q[1]>H-2;}))dcam.z=Math.max(zMin(),dcam.z*0.85);}
     }finally{cur.ci=kd.ci;cur.t=kd.t;free=kd.free;W=kd.W;H=kd.H;}
   }
+  return dcam;
+}
+function docCanvas(ci){
+  var ch=CH[ci],PW=1640,DISP='"Bricolage Grotesque","Trebuchet MS",sans-serif',INK='#12202e';
+  var flat=projKindFor(ch)!=='globe',stops=camStops(ci),parts=[],COM0=COMSEEN=false;
+  var dcam=docCam(ci);
   var main=mapCanvas(ci,{labels:true,dark:false,cam:dcam||undefined,doc:true});
   /* position des zooms sur la carte principale (caméra de fin) */
   var keep={ci:cur.ci,t:cur.t,free:free,W:W,H:H,TH:TH};
@@ -1790,7 +1796,7 @@ A.api={vol:function(){return VOL;},chs:function(){return CH;},ci:function(){retu
   /* mode enquête (enquete.js) : jouer le chapitre, image de la carte en fin de chapitre, volets */
   play:function(){go(cur.ci,0,true);},
   snapDoc:function(ci){return docCanvas(ci).toDataURL('image/jpeg',0.88);},stops:camStops,
-  snap:function(ci,o){o=o||{};var cv=mapCanvas(ci,{labels:o.labels!==false,dark:o.dark!==false,doc:o.doc!==false});return cv.toDataURL('image/jpeg',0.86);},
+  snap:function(ci,o){o=o||{};var dc=o.doc!==false?docCam(ci):null,cv=mapCanvas(ci,{labels:o.labels!==false,dark:o.dark!==false,doc:o.doc!==false,cam:dc||undefined});return cv.toDataURL('image/jpeg',0.86);},
   snapNames:function(){return SNAPN.slice();},
   vols:function(){return VOLS;},volet:function(i,ci){setVolet(i,ci||0,false);},
   /* carte « Tout en même temps » (simul.js) : quitter le menu d'entrée, enregistrer un PDF de pages-canevas (A4 paysage) */

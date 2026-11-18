@@ -47,12 +47,12 @@ var CH=[
   r('#f59e0b',18,24,2.6,[[113,-3],[119,-1],[127,0],[134,-2.5],[141,-5]]),
   r('#f59e0b',12,22,2.6,[[99,12],[104,19],[110,24],[117,25],[121.2,24]])
  ],
- labels:[
+ labels:[L(1,21,3,'Afrique',{nomark:true}),L(6,46,22,'Arabie',{nomark:true}),
   L(4,45,10,'Corne de l’Afrique',{dx:10,dy:14,al:'left',end:12}),
-  L(14,108,-1,'Sunda',{sub:'Asie du Sud-Est réunie',nomark:true,dx:0,dy:0,al:'center',end:36}),
+  L(14,108,-1,'Sunda',{sub:'Asie du Sud-Est réunie',nomark:true,dx:0,dy:-26,al:'center'}),
   L(21,137,-23,'Australie',{sub:'+ de 50 000 ans',dy:16,al:'center'}),
   L(22,141,-5,'Nouvelle-Guinée',{dx:-9,dy:-14,al:'right'}),
-  L(22.5,135,-12,'Sahul',{sub:'Australie + Nouvelle-Guinée',nomark:true,dx:0,dy:-6,al:'center',end:36})
+  L(22.5,135,-12,'Sahul',{sub:'Australie + Nouvelle-Guinée',nomark:true,dx:0,dy:-6,al:'center'})
  ],
  pulses:[Pu(23,136,-20,'#f59e0b'),Pu(23,141,-5,'#f59e0b')],
  ph:[

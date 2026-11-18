@@ -54,6 +54,7 @@ var css=[
 '.enq-docs{display:flex;flex-direction:column;gap:12px}',
 '.enq-fig{margin:0;background:#f6f1e4;color:#1b2430;padding:8px;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.4)}',
 '.enq-fig img{display:block;width:100%;max-height:50vh;object-fit:contain;background:#16202c;border-radius:2px;cursor:zoom-in}',
+'.enq-fig img.enq-plan{max-height:none;background:#fff}',
 '.enq-fig figcaption{font:600 15px/1.3 var(--font-body);padding:7px 2px 1px}',
 '.enq-fig figcaption small{display:block;font:400 11.5px/1.3 var(--font-body);color:#4a5563;margin-top:3px}',
 '.enq-box .enq-fig button{margin-top:7px;background:#12304d;color:#fff;font-size:15px;min-height:40px}',
@@ -195,7 +196,9 @@ function docEl(d,S){
   }
   if(d.k==='map'){
     f=el('figure','enq-fig');img=document.createElement('img');
-    try{if(!S.snap)S.snap=api.snap(S.ci);img.src=S.snap;}catch(e){}
+    /* la même planche que dans le dossier papier : carte de bilan, légende et zooms numérotés (les questions s'appuient dessus) */
+    try{if(!S.snap)S.snap=api.snapDoc?api.snapDoc(S.ci):api.snap(S.ci);img.src=S.snap;}catch(e){}
+    img.className='enq-plan';
     var cap=d.cap||('Carte de l’atlas : « '+S.ch.short+' », à la fin de l’animation');
     img.alt=cap;img.addEventListener('click',function(){zoom(img.src,cap);});
     fc=el('figcaption','',cap);fc.appendChild(el('small','','Carte animée de l’atlas · fonds Natural Earth (domaine public)'));
