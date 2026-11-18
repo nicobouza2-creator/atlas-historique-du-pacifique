@@ -7,12 +7,12 @@ let A=[],B=[],n=0;
 for(const v in D)D[v].forEach(ch=>{n++;
   const lc=new Set(ch.legend.filter(l=>!SY[l[2]]).map(l=>R(l[0])));
   const lsym=new Set(ch.legend.filter(l=>SY[l[2]]).map(l=>l[2]));
-  const zc={},rc={},rd={};for(const k in ch.zc)zc[R(k)]=1;for(const k in ch.rc)rc[R(k)]=1;for(const k in ch.rdash)rd[R(k)]=1;
+  const pc={},zc={},rc={},rd={};for(const k in (ch.pc||{}))pc[R(k)]=1;for(const k in ch.zc)zc[R(k)]=1;for(const k in ch.rc)rc[R(k)]=1;for(const k in ch.rdash)rd[R(k)]=1;
   ch.legend.forEach(l=>{
     if(SY[l[2]]){if(!ch.marks[l[2]])A.push(`${v}-${ch.ci} « ${ch.short} » : légende « ${l[1]} » (symbole ${l[2]}) mais aucun symbole ${l[2]} sur la carte`);return;}
     const c=R(l[0]);
-    if(l[2]===true||l[2]==='dash'){if(!rd[c]&&!rc[c]&&!zc[c])A.push(`${v}-${ch.ci} « ${ch.short} » : légende « ${l[1]} » (pointillé) sans tracé de cette couleur`);return;}
-    if(!zc[c]&&!rc[c])A.push(`${v}-${ch.ci} « ${ch.short} » : légende « ${l[1]} » sans zone ni tracé de cette couleur (${c})`);
+    if(l[2]===true||l[2]==='dash'){if(!rd[c]&&!rc[c]&&!zc[c]&&!pc[c])A.push(`${v}-${ch.ci} « ${ch.short} » : légende « ${l[1]} » (pointillé) sans tracé de cette couleur`);return;}
+    if(!zc[c]&&!rc[c]&&!pc[c])A.push(`${v}-${ch.ci} « ${ch.short} » : légende « ${l[1]} » sans zone ni tracé de cette couleur (${c})`);
   });
   const miss=[...new Set([...Object.keys(zc),...Object.keys(rc)])].filter(c=>!lc.has(c));
   if(ch.legend.length&&miss.length)B.push(`${v}-${ch.ci} « ${ch.short} » : couleurs dessinées sans légende : ${miss.join(', ')} (zones ${Object.keys(zc).filter(c=>miss.includes(c)).length}, tracés ${Object.keys(rc).filter(c=>miss.includes(c)).length})`);
