@@ -7,10 +7,11 @@ for(var vi=0;vi<vols.length;vi++){var v=vols[vi];out[v.id]=[];
   for(var ci=0;ci<v.chapters.length;ci++){
     ATLAS.api.volet(vi,ci);await new Promise(r=>setTimeout(r,60));
     var ch=ATLAS.api.chs()[ci];
-    var zc={},rc={},rdash={},marks={},sprites=0;
+    var pc={},zc={},rc={},rdash={},marks={},sprites=0;
     (ch.zones||[]).forEach(z=>{var c=z.col;if(c)zc[c]=(zc[c]||0)+1;});
+    (ch.pulses||[]).forEach(u=>{if(u.col)pc[u.col]=(pc[u.col]||0)+1;});
     (ch.routes||[]).forEach(r=>{rc[r.col]=(rc[r.col]||0)+1;if(r.dash)rdash[r.col]=1;});
     (ch.labels||[]).forEach(l=>{var m=l.mark||(l.nomark?'none':'dot');marks[m]=(marks[m]||0)+1;});
-    out[v.id].push({ci:ci,short:ch.short,legend:(ch.legend||[]).map(l=>[l[0],l[1],l[2]===undefined?'':l[2]]),zc:zc,rc:rc,rdash:rdash,marks:marks});
+    out[v.id].push({ci:ci,short:ch.short,legend:(ch.legend||[]).map(l=>[l[0],l[1],l[2]===undefined?'':l[2]]),zc:zc,rc:rc,rdash:rdash,pc:pc,marks:marks});
   }}
 return out;

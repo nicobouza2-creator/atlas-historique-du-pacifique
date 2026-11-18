@@ -195,7 +195,7 @@ var CH=[
   Ph(45,'Une usine de l’autre côté du monde','En 2008, la SMSP ouvre avec un partenaire coréen l’usine SNNC, à Gwangyang, en Corée du Sud. Le minerai calédonien y voyage en minéralier.','mis')
  ],
  photos:[Sh('doniambo2',5,12,'tr',2),Sh('yate',12,18,'bl',-2),Sh('yatechantier',13,18,'tr',2,'contain'),Sh('prony',19,29,'tr',2),Sh('panoramavoh',31,42,'tr',2),Sh('ferronickel',53,60,'bl',-2)],
- legend:[['lap','Usine métallurgique','usine'],['mis','Barrage hydroélectrique','barrage'],['mis','Port','port'],['kan','Électricité vers Doniambo',1],['mis','Minerai vers la Corée du Sud',1]],
+ legend:[['lap','Usine métallurgique','usine'],['mis','Barrage hydroélectrique','barrage'],['mis','Port','port'],['kan','Électricité vers Doniambo',1],['mis','Minerai vers la Corée du Sud',1],['ere','Mine','mine']],
  mots:[['Métallurgie','Industrie qui transforme le minerai en métal.'],['Ferronickel','Alliage de fer et de nickel produit dans des fours.'],['Barrage hydroélectrique','Mur qui retient l’eau d’une rivière pour produire de l’électricité.']],
  q:[['Où se trouvent les trois usines ?','À Doniambo (Nouméa), près de Goro (Grand Sud) et à Vavouto (entre Voh et Koné).'],['À quoi sert le barrage de Yaté ?','À produire l’électricité de l’usine de Doniambo.'],['Pourquoi l’usine du Nord est-elle à l’arrêt ?','Son actionnaire Glencore s’est retiré en 2024 et aucun repreneur n’a encore été choisi.'],['Où se trouve l’usine SNNC ?','À Gwangyang, en Corée du Sud.']],
  wiki:['Usine de Doniambo','Barrage de Yaté','Prony Resources','Koniambo Nickel'],
@@ -232,7 +232,7 @@ var CH=[
   Ph(45,'Habiter un territoire minier','La mine et l’usine apportent des emplois, mais quand tout dépend d’une seule activité, une crise touche toute la région. C’est une grande question pour l’avenir de VKP.','kan')
  ],
  photos:[Sh('vkpmap',20,27,'tr',2,'contain'),Sh('kone',27,33,'tr',2),Sh('konemairie',27,33,'bl',-2),Sh('pigeonnier',38,45,'tr',2),Sh('coeurvoh',46,54,'tr',2)],
- legend:[['afr','Province Nord'],['mis','Province Sud'],['xet','Province des îles Loyauté'],['kan','Zone VKP (Voh-Koné-Pouembout)'],['afr','Échange des massifs (1998)',1]],
+ legend:[['afr','Province Nord'],['mis','Province Sud'],['xet','Province des îles Loyauté'],['kan','Zone VKP (Voh-Koné-Pouembout)'],['afr','Échange des massifs (1998)',1],['ere','Mine','mine'],['ere','Usine','usine']],
  mots:[['Rééquilibrage','Politique qui veut mieux répartir les emplois et les services entre le Nord, les îles et le Sud.'],['Province','L’une des trois grandes collectivités du pays.'],['Préalable minier','Condition posée avant l’accord de Nouméa : donner au Nord un grand massif de nickel.'],['Mise en sommeil','Arrêt d’une usine en la gardant en état de redémarrer.']],
  q:[['Que veut dire VKP ?','Voh-Koné-Pouembout, la zone autour de l’usine du Nord.'],['Quels massifs ont été échangés en 1998 ?','Le Koniambo (pour la SMSP) contre Poum (pour la SLN).'],['Pourquoi a-t-on voulu une usine dans le Nord ?','Pour rééquilibrer le pays : créer des emplois et des services hors de Nouméa.'],['Que s’est-il passé en 2024 ?','L’usine du Nord a été arrêtée faute de repreneur.']],
  wiki:['Voh-Koné-Pouembout','Accords de Bercy','Province Nord (Nouvelle-Calédonie)','Koné'],
@@ -268,7 +268,7 @@ var CH=[
   Ph(52,'Un marché mondial','Le prix du nickel change selon l’offre et la demande dans le monde. Quand il baisse, les mines et les usines calédoniennes perdent de l’argent.','eur')
  ],
  photos:[Sh('vraquier2',8,16,'bl',-2),Sh('indonesie',28,39,'tr',2,'contain'),Sh('morowali',31,39,'bl',-2),Sh('inox',42,48,'tr',2),Sh('batterie',47,52,'bl',-2),Sh('piece',52,58,'tr',2)],
- legend:[['zh','Minerai vers la Chine',1],['gbr','Minerai vers le Japon',1],['aus','Minerai vers la Corée du Sud',1],['lap','Produits des usines vers l’Europe',1],['ame','Grands concurrents (Indonésie, Philippines)']],
+ legend:[['zh','Minerai vers la Chine',1],['gbr','Minerai vers le Japon',1],['aus','Minerai vers la Corée du Sud',1],['lap','Produits des usines vers l’Europe',1],['ame','Grands concurrents (Indonésie, Philippines)'],['ere','Usine','usine']],
  mots:[['Exportation','Vente de marchandises à un autre pays.'],['Concurrence','Rivalité entre pays ou entreprises qui vendent le même produit.'],['Acier inoxydable','Acier qui ne rouille pas, grâce au nickel et au chrome.'],['Matière première','Produit tiré de la nature, avant transformation.']],
  q:[['Quel est le premier client de la Nouvelle-Calédonie ?','La Chine, qui achète surtout les produits des usines (ferronickel et produit de nickel pour les batteries).'],['Quel pays est le premier producteur mondial de nickel ?','L’Indonésie (environ 60 % en 2024).'],['À quoi sert surtout le nickel ?','À fabriquer de l’acier inoxydable.'],['Pourquoi une baisse du prix du nickel est-elle grave pour le pays ?','Parce que la plupart des exportations sont du nickel : mines et usines perdent de l’argent.']],
  wiki:['Nickel','Acier inoxydable','Morowali','Accumulateur lithium-ion'],
