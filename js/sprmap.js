@@ -39,7 +39,7 @@ nickel:{
  r:{1:{0:'s-train'},3:{0:'s-camion-minier',2:'s-camion-minier'}},
  l:{'Koniambo':MINE,'Thio':MINE,'Mine du Koniambo':MINE,'Mine de Kouaoua':MINE,'Fern Hill':MINE,'Pilou (Diahot)':MINE,'Doniambo':US,'Usine du Sud':US,'Usine du Nord (Vavouto)':US,'Usine du Nord':US,'Gwangyang (Corée du Sud)':US,'Morowali':US,
   'Thio-Mission':WH,'Népoui':WH,'bord de mer':WH,'Port de Prony':WH,'Pam':WH,'Barrage de Yaté':'l-barrage','Parc de la Rivière Bleue':'l-foret','Lagons inscrits au patrimoine mondial (2008)':'l-recif'},
- lc:{0:{'Mont Humboldt':'l-montagne','Kopéto':MINE},5:{'Vavouto':US,'Nouméa':'l-ville'}}},
+ lc:{0:{'Mont Humboldt':'l-montagne','Kopéto':MINE},5:{'Vavouto':US,'Nouméa':'l-ville'},8:{'Thio':'aucun'}}},
 mondial:{
  r:{11:{0:'mineralier',1:'mineralier',2:'mineralier',3:'conteneurs',4:'conteneurs',5:'conteneurs',6:'conteneurs'},6:{'*':'cablier'},7:{0:AV,1:AV,2:AV,3:AV,4:AV,5:AV,6:'s-refugies',7:AV,8:'s-refugies',9:'s-refugies',10:AV,11:AV},8:{3:AV,4:AV,5:AV,6:AV,7:AV,8:AV}},
  l:{'Everest (8 849 m)':MONT,'Aconcagua (6 961 m)':MONT,'Mont Blanc':MONT,'Kilimandjaro (5 895 m)':MONT,'Mont Panié (1 629 m)':MONT,'forêt du Congo':'l-foret','Amazonie':'l-foret','Sahara':'l-desert','désert australien':'l-desert','Gobi':'l-desert','Atacama':'l-desert',
