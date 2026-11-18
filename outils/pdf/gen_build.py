@@ -85,23 +85,18 @@ def story(vol, ci, book):
     for i, (t_, d) in enumerate(pieces):
         ds = d if isinstance(d, list) else [d]; fl = [Anchor('p%d' % (i + 1), book), PieceTag(i + 1, t_), Spacer(1, 3 * mm)]
         for dd in ds: fl += doc_flow(dd, vol, ci, ch, len(ds) > 1) + [Spacer(1, 4 * mm)]
-        if isinstance(fl[3], (Photo, MapDoc)): sto += [CondPageBreak(95 * mm), Block(fl[:4])] + fl[4:] + [Spacer(1, 4 * mm)]
+        if isinstance(fl[3], (Photo, MapDoc)): sto += [CondPageBreak(75 * mm), Block(fl[:4])] + fl[4:] + [Spacer(1, 4 * mm)]
+        elif isinstance(fl[3], Glue): g_ = fl[3]; sto += [CondPageBreak(60 * mm), Glue(fl[:3] + g_.head, g_.body, g_.tail)] + fl[4:] + [Spacer(1, 4 * mm)]
         else: sto += [CondPageBreak(95 * mm), KeepTogether(fl[:3] + fl[3:5])] + fl[5:] + [Spacer(1, 4 * mm)]
-    sto += [CondPageBreak(110 * mm), Anchor('p%d' % n_ex, book), PieceTag(n_ex, ex['t']), Spacer(1, 3 * mm)] + extra_flow(ex) + [Spacer(1, 6 * mm)]
+    ef = extra_flow(ex); hd = [Anchor('p%d' % n_ex, book), PieceTag(n_ex, ex['t']), Spacer(1, 3 * mm)]
+    if isinstance(ef[0], Glue): sto += [CondPageBreak(60 * mm), Glue(hd, ef[0].body, ef[0].tail), Spacer(1, 6 * mm)]
+    else: sto += [CondPageBreak(110 * mm)] + hd + ef + [Spacer(1, 6 * mm)]
     if n_map:
-        sto += [CondPageBreak(170 * mm), Anchor('p%d' % n_map, book), PieceTag(n_map, 'Carte de l’atlas'), Spacer(1, 3 * mm)] + doc_flow({'k': 'map'}, vol, ci, ch, False)
+        sto += [CondPageBreak(75 * mm), Anchor('p%d' % n_map, book), Block([PieceTag(n_map, 'Carte de l’atlas'), Spacer(1, 3 * mm)] + doc_flow({'k': 'map'}, vol, ci, ch, False))]
     synth = '\n'.join('%s : %s' % (clean(p['era']), clean(p['txt'])) for p in ch['ph'])
     srcs = 'Récit de l’atlas d’histoire du collège.' if vol in COLLEGE else 'Récit de l’atlas historique du Pacifique.'
-    sh = Sheet('archive', 'Note de synthèse · ' + ch['short'], synth, srcs, 'À OUVRIR EN DERNIER')
-    if sh.wrap(FW, 2000 * mm)[1] > 215 * mm:   # note plus haute qu’une page : on la coupe en deux feuilles (sinon l’en-tête reste seul)
-        ls = synth.split('\n'); cut = len(ls) // 2
-        sh1 = Sheet('archive', 'Note de synthèse · ' + ch['short'], '\n'.join(ls[:cut]), '', 'À OUVRIR EN DERNIER')
-        sh2 = Sheet('archive', 'Note de synthèse · ' + ch['short'] + ' (suite)', '\n'.join(ls[cut:]), srcs)
-        sto += [CondPageBreak(120 * mm), KeepTogether([Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse de l’atlas'), Spacer(1, 2 * mm),
-                Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm), sh1]), Spacer(1, 3 * mm), sh2]
-    else:
-        sto += [CondPageBreak(120 * mm), KeepTogether([Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse de l’atlas'), Spacer(1, 2 * mm),
-                Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm), sh])]
+    sto += [CondPageBreak(80 * mm), Glue([Anchor('p%d' % n_last, book), PieceTag(n_last, 'Pli cacheté : la note de synthèse de l’atlas'), Spacer(1, 2 * mm),
+            Paragraph('<i>À n’ouvrir qu’après avoir étudié toutes les autres pièces.</i>', ST['small']), Spacer(1, 3 * mm)], Sheet('archive', 'Note de synthèse · ' + ch['short'], synth, srcs, 'À OUVRIR EN DERNIER'))]
     if ch['mots']: sto += [Spacer(1, 5 * mm), KeepTogether(ledger('Lexique de l’enquêteur', ['Mot', 'Ce que ça veut dire'], ch['mots'], '', FW))]
     if ch.get('src'):   # d’où viennent les informations du chapitre
         sto += [Spacer(1, 5 * mm), KeepTogether([Paragraph('D’où viennent ces informations ?', ST['h2'])] +
