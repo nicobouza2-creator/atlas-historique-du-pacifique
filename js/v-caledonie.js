@@ -32,7 +32,7 @@ var CH=[
  routes:[],
  labels:[
   L(6,164.1,-20.25,'Hoot Ma Whaap',{nomark:true,dx:-14,al:'right'}),
-  L(9,165.55,-20.72,'Paicî-Cèmuhi',{nomark:true,dx:10,al:'left'}),
+  L(9,165.22,-20.95,'Paicî-Cèmuhi',{nomark:true}),
   L(12,165.1,-21.85,'Ajië Aro',{nomark:true,dx:-12,al:'right'}),
   L(15,166.5,-21.4,'Xârâcùù',{nomark:true,dx:10,al:'left'}),
   L(18,166.1,-22.6,'Drubea-Kapumë',{nomark:true,dx:-10,al:'right'}),

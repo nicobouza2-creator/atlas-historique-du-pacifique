@@ -86,7 +86,7 @@ A('mondial',7,'Les carrefours du ciel',T('Un grand aéroport qui relie tous les 
 A('mondial',7,'Touristes et migrants',R('Relie.',[['les touristes internationaux','environ 1,4 milliard d’arrivées en 2024'],['les migrants','environ 300 millions de personnes']]));
 A('mondial',9,'Une carte en couleurs',T('L’IDH tient compte de la [santé], de l’[éducation] et du niveau de [vie].',['météo','taille','mer']));
 A('mondial',9,'Deux pays, deux vies',R('Relie chaque pays à son espérance de vie.',[['la Suisse','plus de 80 ans'],['le Niger','environ 60 ans']]));
-A('mondial',10,'La mer monte',T('La mer est montée d’environ [20] cm depuis 1900 : l’eau se [dilate] en chauffant et les [glaces] fondent.',['200','gèle','roches']));
+A('mondial',10,'La mer monte',T('Tuvalu compte environ [10 000] habitants ; c’est un [État] insulaire très menacé par la mer qui monte.',['10 millions','village']));
 A('mondial',10,'Coraux et solutions',R('Relie chaque échelle à une action.',[['dans le monde','brûler moins de charbon, de pétrole et de gaz'],['chez nous','protéger les mangroves et les récifs']]));
 /* ── Vivre ensemble (EMC) ── */
 A('emc',4,'27 avril 1848',T('Le 27 avril [1848], la France abolit l’[esclavage], « un attentat contre la [dignité] humaine ».',['1789','école','richesse']));
